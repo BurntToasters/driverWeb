@@ -12,14 +12,28 @@
         <p>This is a list of common drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
     </header>
     <main>
+      <!--  <button onclick="myFunction()" class="darkmode-button">Toggle dark mode</button> -->
+        <input type="button" value="Toggle Dark Mode" onclick="myFunction()" class="darkmode-button" style="float: right;">
+        <br>
+        <br>
+        <br>    
+
+<script>
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
+
+
         <section class="driver-section">
             <h2>Graphics Drivers</h2>
             <div class="container">
-                <img src="https://researchpark.illinois.edu/wp-content/uploads/2020/05/nvidia-3x2-1.jpg" alt='Platform' class="platform" width="7%"> <img src="https://images.versus.io/objects/amd-radeon-rx-540.front.variety.1576684641045.jpg" alt='Platform' class="platform" width="6%">
+               <img src="https://researchpark.illinois.edu/wp-content/uploads/2020/05/nvidia-3x2-1.jpg" alt='Platform' class="platform" width="7%"> <img src="https://images.versus.io/objects/amd-radeon-rx-540.front.variety.1576684641045.jpg" alt='Platform' class="platform" width="6%">
                 <h2>Download AMD/NVIDIA Drivers</h2>
               </div>
               <br>
-            <a href="#" class="download-button"> Download Graphics Drivers</a>
+            <a href="/display.html" class="download-button">    Download Graphics Drivers</a>
         </section>
         <section class="driver-section">
             <h2>Audio Drivers</h2>
@@ -31,9 +45,13 @@
             <p>Stay connected with the latest network drivers.</p>
             <a href="network_driver.zip" class="download-button">Download Network Drivers</a>
         </section>
+
+
+
     </main>
-    <footer>
+   <!-- <footer>
         <p>&copy; 2023 Driver Downloads. All rights reserved.</p>
     </footer>
+-->
 </body>
 </html>
