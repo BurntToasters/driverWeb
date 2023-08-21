@@ -68,6 +68,16 @@ main {
     transition: background-color 0.3s ease;
 }
 
+.realtek-button {
+    display: inline-block;
+    background-color: #0068b6;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
 .amd-button {
     display: inline-block;
     background-color: #be0e18;
