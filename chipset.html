@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Downloads</title>
+    <link rel="stylesheet" href="https://prod.rexxit.net/css/driverWebMain.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <header>
+        <h1>Display Drivers - Driver Downloads</h1>
+        <p>This is a list of common Display drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
+    </header>
+    <main>
+      <!--  <button onclick="myFunction()" class="darkmode-button">Toggle dark mode</button> -->
+        <input type="button" value="Toggle Dark Mode" onclick="myFunction()" class="darkmode-button" style="float: right;">
+        <br>
+        <br>
+        <br>    
+
+<script>
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
+
+
+        <section class="driver-section">
+           <!-- <h2>Nvidia Graphics Drivers</h2> -->
+            <div class="container">
+                <img src="https://prod.rexxit.net/drweb/assets/amdryzen.png" alt='Platform' class="platform" width="6%" height="6%">
+                <h2>AMD Ryzen Chipset Drivers</h2>
+              </div>
+              <br>
+            <p>Select your Ryzen socket version below to be directed to the correct chipset download page.</p>
+
+            <button class="Acollapsible">AM5</button>
+            <div class="Gcontent">
+              <br>
+        <select id="selectOption">
+          <option value="https://www.google.com">Example 1</option>
+          <option value="https://www.youtube.com">Example 2</option>
+          <option value="https://www.reddit.com">Example 3</option>
+        </select>
+        <button onclick="goToSelectedPage()" class="a-select-button">Select</button>
+
+                <p>Released: 5-6-24</p>
+            </div>
+
+
+            <button class="Icollapsible">V 2.0.3</button>
+            <div class="Gcontent">
+              <br>
+              <li>2.0.1
+                <ul>
+                 <li>Added the ability to see release notes (hyper link at the footer)</li>
+                </ul>
+                </li>
+                <p>Released: 5-6-24</p>
+                <p style="font-family: Arial, Helvetica, sans-serif;"><s>See archived version</s> <svg width="24px" height="24px" viewBox="0 0 24 24" style="cursor:pointer"><g stroke-width="2.1" stroke="#666" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg>(Unavailable as this is the current version)</p>
+            </div>
+        
+
+        <script>
+          function goToSelectedPage() {
+            var selectElement = document.getElementById("selectOption");
+            var selectedValue = selectElement.value;
+            window.location.href = selectedValue;
+          }
+
+        </script>
+
+<script>
+  var coll = document.getElementsByClassName("Acollapsible");
+  var i;
+  
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight){
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } 
+    });
+  }
+  </script>
+
+<script>
+  var coll = document.getElementsByClassName("Icollapsible");
+  var i;
+  
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight){
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } 
+    });
+  }
+  </script>
+
+
+        </section>
+
+        
+
+        <section class="driver-section">
+            <!-- <h2>Nvidia Graphics Drivers</h2> -->
+             <div class="container">
+                 <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt='Platform' class="platform" width="6%">
+                 <h2>AMD Radeon (Adrenalin) Drivers</h2>
+               </div>
+               <br>
+             <p>These drivers on this list are only for desktop GPU's currently supported by <a href="https://www.amd.com/en/support" target="_blank">AMD</a>. For laptop drivers see <a href="/display-laptop.html">here</a>. This website is not affiliated with AMD in any way. Direct downloads for AMD drivers are not available as <a href="https://www.amd.com/en/support/kb/faq/download-incomplete" target="_blank">amd does not permit them</a>.</p>
+         <p> <a href="https://www.amd.com/en/support/download/drivers.html" target="_blank" class="amd-button">AMD auto detect and download tool</a></p>
+ 
+ 
+ 
+         </section>
+
+         <a href="https://drivers.rexxit.net" class="download-button">< Back</a>
+
+
+    </main>
+</body>
+</html>
