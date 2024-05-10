@@ -9,8 +9,9 @@
 </head>
 <body>
     <header>
-        <h1>Display Drivers - Driver Downloads</h1>
+        <h1>Chipset Drivers - Driver Downloads</h1>
         <p>This is a list of common Display drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
+        <p><a href="/index.html" class="download-button">Home</a> <a href="/display.html" class="nvidia-button">Video Drivers</a>  <a href="/chipset.html" class="chipset-button-h"><u>> [NEW] Chipset Drivers</u></a> <a href="#" class="g-button"><s>Network Drivers (Coming Soon)</s></a>  <a href="#" class="g-button"><s>Audio Drivers (Re-working)</s></a> <a href="/contact.html" class="g-button">Contact</a> <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" class="download-button">Website Info/Release Notes <svg width="14px" height="14px" viewBox="0 0 24 24" style="cursor:pointer"><g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg></a></p>
     </header>
     <main>
       <!--  <button onclick="myFunction()" class="darkmode-button">Toggle dark mode</button> -->
@@ -26,51 +27,101 @@ function myFunction() {
 }
 </script>
 
-
+        <!--AMD CHIPSET BOX-->
         <section class="driver-section">
-           <!-- <h2>Nvidia Graphics Drivers</h2> -->
             <div class="container">
                 <img src="https://prod.rexxit.net/drweb/assets/amdryzen.png" alt='Platform' class="platform" width="6%" height="6%">
                 <h2>AMD Ryzen Chipset Drivers</h2>
               </div>
               <br>
             <p>Select your Ryzen socket version below to be directed to the correct chipset download page.</p>
-
+            <p style="font-size: 12px;"><a href="https://www.amd.com/en/support/download/drivers.html" target="_blank" class="amd-button-h">Use Amd's auto-detect and install program</a></p>
+            <br>
+            <!--BEGIN AM5 SECTION-->
             <button class="Acollapsible">AM5</button>
             <div class="Gcontent">
               <br>
-        <select id="selectOption">
-          <option value="https://www.google.com">Example 1</option>
-          <option value="https://www.youtube.com">Example 2</option>
-          <option value="https://www.reddit.com">Example 3</option>
+        <select id="AM5">
+          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/x670e.html">X670E</option>
+          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/x670.html">X670</option>
+          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/b650e.html">B650E</option>
+          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/b650.html">B650</option>
+          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/a620.html">A620</option>
         </select>
-        <button onclick="goToSelectedPage()" class="a-select-button">Select</button>
-
-                <p>Released: 5-6-24</p>
+        <button onclick="goToAm5()" class="a-select-button">Select</button>
+                <br>
+                <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">List Updated 5-10-24</p>
             </div>
+            <!--END AM5 SECTION-->
 
-
-            <button class="Icollapsible">V 2.0.3</button>
+            <br>
+            <!--BEGIN AM4 SECTION-->
+            <button class="Acollapsible">AM4</button>
             <div class="Gcontent">
               <br>
-              <li>2.0.1
-                <ul>
-                 <li>Added the ability to see release notes (hyper link at the footer)</li>
-                </ul>
-                </li>
-                <p>Released: 5-6-24</p>
-                <p style="font-family: Arial, Helvetica, sans-serif;"><s>See archived version</s> <svg width="24px" height="24px" viewBox="0 0 24 24" style="cursor:pointer"><g stroke-width="2.1" stroke="#666" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg>(Unavailable as this is the current version)</p>
+        <select id="AM4">
+          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/x570.html">X570</option>
+          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/x470.html">X470</option>
+          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/x370.html">X370</option>
+          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/b550.html">B550</option>
+          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/b450.html">B450</option>
+          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/b350.html">B350</option>
+          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/a520.html">A520</option>
+          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/a320.html">A320</option>
+          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/pro565.html">PRO565</option>
+        </select>
+        <button onclick="goToAm4()" class="a-select-button">Select</button>
+                <br>
+                <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">List Updated 5-10-24</p>
             </div>
         
+        <!--END AM4 SECTION-->
+        </section>
+        <!--END AMD BOX-->
+        
+        <!--BEGIN INTEL CHIPSET BOX-->
 
-        <script>
-          function goToSelectedPage() {
-            var selectElement = document.getElementById("selectOption");
+        <section class="driver-section">
+          <div class="container">
+              <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt='Platform' class="platform" width="6%" height="6%">
+              <h2>Intel Chipset Drivers</h2>
+            </div>
+            <br>
+          <p>Select the collapsible below to explore your intel chipset options.</p>
+          <!--BEGIN INTEL SECTION-->
+          <button class="Icollapsible">INTEL - ALL CHIPSETS</button>
+          <div class="Gcontent">
+            <br>
+            <p><a href="https://www.intel.com/content/www/us/en/download/19347/chipset-inf-utility.html" target="_blank" class="intel-button">Download Intel's Chipset INF Utility</a> (Intel does not have easily findable seperate installers for each of their chipsets, but this app will find them and install them if needed).</p>
+              <br>
+          </div>        
+          <!--END INTEL SECTION-->
+        <!--END INTEL CHIPSET BOX-->
+          </section>
+         <a href="https://drivers.rexxit.net" class="download-button">< Back</a>
+
+        <!--SCRIPTS FOR CHIPSET VERSIONS-->
+
+         <script>
+          function goToAm5() {
+            var selectElement = document.getElementById("AM5");
             var selectedValue = selectElement.value;
             window.location.href = selectedValue;
           }
 
         </script>
+
+<script>
+  function goToAm4() {
+    var selectElement = document.getElementById("AM4");
+    var selectedValue = selectElement.value;
+    window.location.href = selectedValue;
+  }
+
+</script>
+
+
+ <!--END SCRIPTS FOR CHIPSET VERSIONS-->
 
 <script>
   var coll = document.getElementsByClassName("Acollapsible");
@@ -105,29 +156,6 @@ function myFunction() {
     });
   }
   </script>
-
-
-        </section>
-
-        
-
-        <section class="driver-section">
-            <!-- <h2>Nvidia Graphics Drivers</h2> -->
-             <div class="container">
-                 <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt='Platform' class="platform" width="6%">
-                 <h2>AMD Radeon (Adrenalin) Drivers</h2>
-               </div>
-               <br>
-             <p>These drivers on this list are only for desktop GPU's currently supported by <a href="https://www.amd.com/en/support" target="_blank">AMD</a>. For laptop drivers see <a href="/display-laptop.html">here</a>. This website is not affiliated with AMD in any way. Direct downloads for AMD drivers are not available as <a href="https://www.amd.com/en/support/kb/faq/download-incomplete" target="_blank">amd does not permit them</a>.</p>
-         <p> <a href="https://www.amd.com/en/support/download/drivers.html" target="_blank" class="amd-button">AMD auto detect and download tool</a></p>
- 
- 
- 
-         </section>
-
-         <a href="https://drivers.rexxit.net" class="download-button">< Back</a>
-
-
     </main>
 </body>
 </html>
