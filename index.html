@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!--Temp new URL message-->
+
+<div
+	data-component="dismissible-item"
+	data-type="info"
+	data-value="<strong>drives.rexxit.net is now diverhub.win!</strong> <a href="https://docs.rexxit.net/drivers-website/releasenotes">Read more.</a>"
+></div>
+
+<!--Temp new URL message-->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driver Downloads</title>
@@ -78,9 +88,65 @@ function myFunction() {
     </main>
 
     <footer>
-        <p style="font-family: Arial, Helvetica, sans-serif; color: cadetblue;">V 2.1.0 (<a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank">Release notes</a>) <svg width="14px" height="14px" viewBox="0 0 24 24" style="cursor:pointer"><g stroke-width="2.1" stroke="#595959" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg></p>
-        <p style="font-family: Arial, Helvetica, sans-serif; color: cadetblue;">Updated 5/10/24 (mm/dd/yy)</p>
+        <p style="font-family: Arial, Helvetica, sans-serif; color: cadetblue;">V 2.1.1 (<a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank">Release notes</a>) <svg width="14px" height="14px" viewBox="0 0 24 24" style="cursor:pointer"><g stroke-width="2.1" stroke="#595959" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg></p>
+        <p style="font-family: Arial, Helvetica, sans-serif; color: cadetblue;">Updated 5/26/24 (mm/dd/yy)</p>
     </footer>
 
 </body>
+
+<script>
+
+(function(window){
+
+var dismissibleItem = function(el, type, value) {
+
+    var html = '<span>' + value + ' <button type="button" class="close">X</button></span>';
+    
+    el.removeAttribute('data-component');
+    el.removeAttribute('data-value');
+    el.removeAttribute('data-type');
+
+    el.classList.add('dismissible', 'dismissible-' + type);
+
+    el.innerHTML = html;
+
+    el.querySelector('.close').addEventListener('click', function(event){
+        var height = el.offsetHeight,
+            opacity = 1,
+            timeout = null;
+        function reduceHeight() {
+            height -= 2;
+            el.setAttribute('style', 'height: ' + height + 'px; opacity: ' + opacity);
+            if (height <= 0) {
+                window.clearInterval(timeout)	;
+                timeout = null;
+                el.remove();
+            }
+        }
+        function fade() {
+            opacity -= .1;
+            el.setAttribute('style', 'opacity: ' + opacity);
+            if (opacity <= 0) {
+                window.clearInterval(timeout);
+                timeout = window.setInterval(reduceHeight, 1);
+            }
+        }
+        timeout = window.setInterval(fade, 25);
+    });
+
+};
+
+var dismissibles = Array.prototype.slice.call(document.querySelectorAll('[data-component="dismissible-item"]'));
+if (dismissibles.length) {
+    for (var i = 0; i < dismissibles.length; i++) {
+        var type = dismissibles[i].getAttribute('data-type'),
+            value = dismissibles[i].getAttribute('data-value');
+        new dismissibleItem(dismissibles[i], type, value)
+    }
+}
+
+})(window);
+
+</script>
+
 </html>
