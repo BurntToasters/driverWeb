@@ -43,6 +43,12 @@ function myFunction() {
 }
 </script>
 
+<script>
+    document.querySelector(".banner__close").addEventListener("click", function () {
+  this.closest(".banner").style.display = "none";
+});
+</script>
+
 
         <section class="driver-section">
             <h2>Graphics Drivers</h2>
