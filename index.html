@@ -1,61 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driver Downloads</title>
-    <link rel="stylesheet" href="https://prod.rexxit.net/css/driverWebMain.css">
+    <link rel="stylesheet" href="https://prod.rexxit.net/css/driverWebProdv3.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <meta name="description" content="Direct downloads for common drivers for Windows 10/11 and more!">
 </head>
 <body>
     <div class="banner">
         <div class="banner__content">
           <div class="banner__text">
-            <strong>NEW: </strong> drivers.rexxit.net is now driverhub.win! <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank"><u>Learn more</u>.</a>
+            <strong>NEW: </strong> driverhub.win got a huge visual and functional overhaul! <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank"><u style="color:black">See whats changed</u>!</a>
           </div>
           <button class="banner__close" type="button">
-            <span class="material-icons">
-              close
-            </span>
+            <span class="material-icons">close</span>
           </button>
         </div>
-      </div>
-
+    </div>
 
     <header>
         <h1>Driver Downloads</h1>
         <p>This is a list of common drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
- <p><a href="/" class="download-button-h"><u>> Home</u></a> <a href="/display" class="nvidia-button">Video Drivers</a>  <a href="/chipset" class="chipset-button">[NEW] Chipset Drivers</a> <a href="#" class="g-button"><s>Network Drivers (Coming Soon)</s></a>  <a href="#" class="g-button"><s>Audio Drivers (Re-working)</s></a> <a href="/contact" class="g-button">Contact</a> <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" class="download-button">Website Info/Release Notes <svg width="14px" height="14px" viewBox="0 0 24 24" style="cursor:pointer"><g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg></a></p>
+        <p>
+            <a href="/" class="download-button-h"><u>Home</u></a> 
+            <a href="/display" class="nvidia-button">Video Drivers</a>  
+            <a href="/chipset" class="chipset-button">[NEW] Chipset Drivers</a> 
+            <a href="#" class="g-button"><s>Network Drivers (Coming Soon)</s></a>  
+            <a href="#" class="g-button"><s>Audio Drivers (Re-working)</s></a> 
+            <a href="/contact" class="g-button">Contact</a> 
+            <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" class="download-button">
+                Website Info/Release Notes <svg width="14px" height="14px" viewBox="0 0 24 24"><g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg>
+            </a>
+        </p>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+              // Check if the banner should be hidden based on localStorage
+              if (localStorage.getItem("bannerClosed") === "true") {
+                  document.querySelector(".banner").style.display = "none";
+              }
+      
+              // Add click event listener to the close button
+              document.querySelector(".banner__close").addEventListener("click", function () {
+                  this.closest(".banner").style.display = "none";
+                  // Store the user's preference in localStorage
+                  localStorage.setItem("bannerClosed", "true");
+              });
+          });
+      </script>
+          <button class="settings-button">
+            <span class="material-icons">settings</span>
+        </button>
     </header>
+    <script src="darkMode.js"></script>
+    <!-- Settings Overlay -->
+    <div id="settings-overlay" class="settings-overlay">
+        <div class="settings-content">
+            <span class="close-settings">&times;</span>
+            <h2>Settings</h2>
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider round"></span>
+            </label>
+            <span>Dark Mode</span>
+        </div>
+    </div>
+
     <main>
-      <!--  <button onclick="myFunction()" class="darkmode-button">Toggle dark mode</button> -->
-        <input type="button" value="Toggle Dark Mode" onclick="myFunction()" class="darkmode-button" style="float: right;">
-        <br>
-        <br>
-        <br>    
-
-<script>
-function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
-</script>
-
-<script>
-    document.querySelector(".banner__close").addEventListener("click", function () {
-  this.closest(".banner").style.display = "none";
-});
-</script>
-
-        <section class="driver-section">
-          <p style="font-family: Arial, Helvetica, sans-serif; color: black; font-size: 12px;"><b>News: 10/9/2024</b></p>
-          <p style="font-family: Arial, Helvetica, sans-serif; color: black"><img src="https://prod.rexxit.net/drweb/assets/info-1.svg" width="3%" height="3%"> <b style="color:crimson;">DriverHub.win is currently undergoing maintenance to update the site to the V3 styling.</b></p>
-          <p style="font-family: Arial, Helvetica, sans-serif; color: black; font-size: 12px;"><b style="color: cornflowerblue;">During this maintenance period, certain web elements may break or seem unchanged. This can be due to the code merging process, or old browser cache. Fully reloading the website by using (ctrl(or cmd for mac)+shift+r) will rebuild the websites cache. The maintenance window/eta is unknown.</b></p>
-        </section>
-
         <section class="driver-section">
             <h2>Graphics Drivers</h2>
             <div class="container">
@@ -82,7 +94,7 @@ function myFunction() {
             <h2>Audio Drivers</h2>
         </div>
             <h3>Get the latest audio drivers:</h3>
-            <a href="#" class="download-button"><s>Download Audio Drivers</s> (Re-Working page)</a>
+            <a href="#" class="download-button">Coming Soon</a>
         </section>
 
 
@@ -100,18 +112,12 @@ function myFunction() {
             <h3>Questions? Comments? or Something Else?</h3>
             <a href="/contact" class="download-button">Contact me!</a>
         </section>
-
-
-
     </main>
 
     <footer>
-        <p style="font-family: Arial, Helvetica, sans-serif; color: cadetblue;">V 2.1.3 (<a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank">Release notes</a>) <svg width="14px" height="14px" viewBox="0 0 24 24" style="cursor:pointer"><g stroke-width="2.1" stroke="#595959" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg></p>
-        <p style="font-family: Arial, Helvetica, sans-serif; color: cadetblue;">Updated 8/23/24 (mm/dd/yy)</p>
+        <p style="font-family: Arial, Helvetica, sans-serif; color: cadetblue;">V 3.0.0-Beta(pre) (<a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank">Stable Release notes</a>) <svg width="14px" height="14px" viewBox="0 0 24 24" style="cursor:pointer"><g stroke-width="2.1" stroke="#595959" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg></p>
+        <p style="font-family: Arial, Helvetica, sans-serif; color: cadetblue;">Updated 6/30/24 (mm/dd/yy)</p>
         <p style="font-family: Arial, Helvetica, sans-serif; color: black; font-size: 12px;"><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank">❤️ Support me :)</a> | <a href="/sitemap.xml">Sitemap</a></p>
     </footer>
-
 </body>
-
-
 </html>

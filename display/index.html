@@ -4,28 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driver Downloads</title>
-    <link rel="stylesheet" href="https://prod.rexxit.net/css/driverWebMain.css">
+    <link rel="stylesheet" href="https://prod.rexxit.net/css/driverWebProdv3.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <header>
-        <h1>Display Drivers - Driver Downloads</h1>
-        <p>This is a list of common Display drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
-        <p><a href="/" class="download-button">Home</a> <a href="/display" class="nvidia-button-h"><u>> Video Drivers</u></a>  <a href="/chipset" class="chipset-button">[NEW] Chipset Drivers</a> <a href="#" class="g-button"><s>Network Drivers (Coming Soon)</s></a>  <a href="#" class="g-button"><s>Audio Drivers (Re-working)</s></a> <a href="/contact" class="g-button">Contact</a> <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" class="download-button">Website Info/Release Notes <svg width="14px" height="14px" viewBox="0 0 24 24" style="cursor:pointer"><g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg></a></p>
-    </header>
+  <header>
+    <h1>Driver Downloads</h1>
+    <p>This is a list of common drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
+    <p>
+        <a href="/" class="download-button">Home</a> 
+        <a href="/display" class="nvidia-button-h"><u>Video Drivers</u></a>  
+        <a href="/chipset" class="chipset-button">[NEW] Chipset Drivers</a> 
+        <a href="#" class="g-button"><s>Network Drivers (Coming Soon)</s></a>  
+        <a href="#" class="g-button"><s>Audio Drivers (Re-working)</s></a> 
+        <a href="/contact" class="g-button">Contact</a> 
+        <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" class="download-button">
+            Website Info/Release Notes <svg width="14px" height="14px" viewBox="0 0 24 24"><g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg>
+        </a>
+    </p>
+    <button class="settings-button">
+      <span class="material-icons">settings</span>
+  </button>
+</header>
+  <!-- Settings Overlay -->
+  <div id="settings-overlay" class="settings-overlay">
+    <div class="settings-content">
+        <span class="close-settings">&times;</span>
+        <h2>Settings</h2>
+        <label class="switch">
+            <input type="checkbox" id="darkModeToggle">
+            <span class="slider round"></span>
+        </label>
+        <span>Dark Mode</span>
+    </div>
+</div>
     <main>
-      <!--  <button onclick="myFunction()" class="darkmode-button">Toggle dark mode</button> -->
-        <input type="button" value="Toggle Dark Mode" onclick="myFunction()" class="darkmode-button" style="float: right;">
         <br>
         <br>
         <br>    
-
-<script>
-function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
-</script>
 
 
         <section class="driver-section">
@@ -43,6 +60,9 @@ function myFunction() {
             <div class="Gcontent">
               <br>
               <h2 style="font-family: Arial, Helvetica, sans-serif; color: #3a5800;">Game Ready Drivers:</h2>
+              <p> <a href="https://us.download.nvidia.com/Windows/561.09/561.09-desktop-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">565.90 - WHQL</a> Released Tue Oct 01, 2024 <a style="font-size: 12px;" href="https://redd.it/1ftnsvn" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
+              <p> <a href="https://us.download.nvidia.com/Windows/561.09/561.09-desktop-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">561.09 - WHQL</a> Released Wed Sep 11, 2024 <a style="font-size: 12px;" href="https://redd.it/1fededw" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
+              <p> <a href="https://us.download.nvidia.com/Windows/560.94/560.94-desktop-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">560.94 - WHQL</a> Released Tue Aug 20, 2024 <a style="font-size: 12px;" href="https://redd.it/1ewv0ib" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
               <p> <a href="https://us.download.nvidia.com/Windows/560.81/560.81-desktop-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">560.81 - WHQL</a> Released Tue Aug 06, 2024 <a style="font-size: 12px;" href="https://redd.it/1elhiea" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
               <p> <a href="https://us.download.nvidia.com/Windows/560.70/560.70-desktop-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">560.70 - WHQL</a> Released Tue Jul 16, 2024 <a style="font-size: 12px;" href="https://redd.it/1e4pjdm" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
               <p> <a href="https://us.download.nvidia.com/Windows/556.12/556.12-desktop-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">556.12 - WHQL</a> Released Thu Jun 27, 2024 <b>| GRADE: </b><b style="color: forestgreen;">A- </b><b> | </b><a href="https://redd.it/1dpqpo4" target="_blank">(Considered a stable driver)</a> [<a href="#" onclick="window.open('https://driverhub.win/info/about-stabledrivers', 'DriversInfo', 'width=500,height=500');">?</a>] <a style="font-size: 12px;" href="https://redd.it/1dpqpo4" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
@@ -74,7 +94,7 @@ function myFunction() {
               <p> <a href="https://us.download.nvidia.com/Windows/532.03/532.03-desktop-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">532.03 - WHQL</a> Released Wed May 24, 2023</p>
               <p> <a href="https://us.download.nvidia.com/Windows/531.68/531.68-desktop-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">531.68 - WHQL</a> Released Tue Apr 18, 2023 (Considered a stable driver) [<a href="#" onclick="window.open('https://driverhub.win/info/about-stabledrivers', 'DriversInfo', 'width=500,height=500');">?</a>]</p>
                 <br>
-                <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">Drivers list updated: 8-14-24</p>
+                <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">Drivers list updated: 10-09-24</p>
             </div>
             <br>
             <!--Studio Drivers-->
@@ -82,6 +102,7 @@ function myFunction() {
             <div class="Gcontent">
               <br>
               <h2 style="font-family: Arial, Helvetica, sans-serif; color: #3a5800;">Studio Drivers:</h2>
+              <p> <a href="https://us.download.nvidia.com/Windows/561.09/561.09-desktop-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">561.09 - WHQL</a> Released Tue Sep 17, 2024 <a style="font-size: 12px;" href="https://redd.it/1fededw" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
               <p> <a href="https://us.download.nvidia.com/Windows/560.81/560.81-desktop-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">560.81 - WHQL</a> Released Tue Aug 06, 2024 <a style="font-size: 12px;" href="https://redd.it/1elhiea" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
               <p> <a href="https://us.download.nvidia.com/Windows/560.70/560.70-desktop-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">560.70 - WHQL</a> Released Tue Jul 16, 2024 <a style="font-size: 12px;" href="https://redd.it/1e4pjdm" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
               <p> <a href="https://us.download.nvidia.com/Windows/555.99/555.99-desktop-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">555.99 - WHQL</a> Released Tue Jun 04, 2024 <a style="font-size: 12px;" href="https://redd.it/1d7xdbv" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
@@ -96,7 +117,7 @@ function myFunction() {
               <p> <a href="https://us.download.nvidia.com/Windows/537.42/537.42-desktop-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">536.99 - WHQL</a> Released Thu Sep 21, 2023</p>
               <p> <a href="https://us.download.nvidia.com/Windows/536.99/536.99-desktop-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">536.99 - WHQL</a> Released Tue Aug 08, 2023</p> 
               <p> <a href="https://us.download.nvidia.com/Windows/536.67/536.67-desktop-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">536.67 - WHQL</a> Released Tue Jul 18, 2023</p>  
-              <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">Drivers list updated: 8-14-24</p>
+              <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">Drivers list updated: 10-09-24</p>
             </div>
 
         </section>
@@ -205,6 +226,6 @@ function myFunction() {
       }
       </script>
 
-
+<script src="darkMode.js"></script>
 </body>
 </html>

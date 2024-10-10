@@ -4,27 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driver Downloads</title>
-    <link rel="stylesheet" href="https://prod.rexxit.net/css/driverWebMain.css">
+    <link rel="stylesheet" href="https://prod.rexxit.net/css/driverWebProdv3.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
     <header>
-        <h1>Network Drivers - Driver Downloads</h1>
-        <p>This is a list of common Audio drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
+        <h1>Driver Downloads</h1>
+        <p>This is a list of common drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
+        <p>
+            <a href="/" class="download-button">Home</a> 
+            <a href="/display" class="nvidia-button">Video Drivers</a>  
+            <a href="/chipset" class="chipset-button">[NEW] Chipset Drivers</a> 
+            <a href="#" class="g-button"><s>Network Drivers (Coming Soon)</s></a>  
+            <a href="#" class="g-button"><s>Audio Drivers (Re-working)</s></a> 
+            <a href="/contact" class="g-button">Contact</a> 
+            <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" class="download-button">
+                Website Info/Release Notes <svg width="14px" height="14px" viewBox="0 0 24 24"><g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg>
+            </a>
+        </p>
+        <button class="settings-button">
+            <span class="material-icons">settings</span>
+        </button>
     </header>
+        <!-- Settings Overlay -->
+        <div id="settings-overlay" class="settings-overlay">
+          <div class="settings-content">
+              <span class="close-settings">&times;</span>
+              <h2>Settings</h2>
+              <label class="switch">
+                  <input type="checkbox" id="darkModeToggle">
+                  <span class="slider round"></span>
+              </label>
+              <span>Dark Mode</span>
+          </div>
+      </div>
     <main>
-      <!--  <button onclick="myFunction()" class="darkmode-button">Toggle dark mode</button> -->
-        <input type="button" value="Toggle Dark Mode" onclick="myFunction()" class="darkmode-button" style="float: right;">
         <br>
         <br>
         <br>    
-
-<script>
-function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
-</script>
 
 
         <section class="driver-section">
@@ -35,8 +53,8 @@ function myFunction() {
               </div>
               <br>
             <p>This website is not affiliated with Realtek in any way.</p>
-        <p> <a href="https://www.realtek.com/en/agree-to-download?downloadid=4842c7ef60f190fdf91711cf682f2192" target="_blank" class="realtek-button">R2.82 64BIT</a> (Win vista - 10) Released 2017/07/26</p>
-        <p> <a href="https://www.realtek.com/en/agree-to-download?downloadid=8b9cdfd0da3bd4980715874678b1c02e" target="_blank" class="realtek-button">R2.82 32BIT</a> (Win vista - 10) Released 2017/07/26</p>
+        <p> <a href="https://www.realtek.com/en/agree-to-download?downloadid=4842c7ef60f190fdf91711cf682f2192" target="_blank" class="download-button">R2.82 64BIT</a> (Win vista - 10) Released 2017/07/26</p>
+        <p> <a href="https://www.realtek.com/en/agree-to-download?downloadid=8b9cdfd0da3bd4980715874678b1c02e" target="_blank" class="download-button">R2.82 32BIT</a> (Win vista - 10) Released 2017/07/26</p>
 
 
 
@@ -47,6 +65,6 @@ function myFunction() {
 
 
     </main>
-
+    <script src="darkMode.js"></script>
 </body>
 </html>
