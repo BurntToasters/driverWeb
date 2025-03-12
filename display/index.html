@@ -29,7 +29,7 @@
   </button>
 </header>
   <!-- Settings Overlay -->
-  <div id="settings-overlay" class="settings-overlay">
+ <!-- <div id="settings-overlay" class="settings-overlay">
     <div class="settings-content">
         <span class="close-settings">&times;</span>
         <h2>Settings</h2>
@@ -39,9 +39,42 @@
         </label>
         <span>Dark Mode</span>
     </div>
+</div> -->
+
+<!-- Inside Settings Overlay -->
+<div id="settings-overlay" class="settings-overlay">
+  <div class="settings-content">
+      <span class="close-settings">&times;</span>
+      <h2>Settings</h2>
+      
+      <!-- Dark Mode Toggle -->
+      <label class="switch">
+          <input type="checkbox" id="darkModeToggle">
+          <span class="slider round"></span>
+      </label>
+      <span>Dark Mode</span>
+      <hr>
+
+      <!-- Region Selection -->
+      <label for="regionSelect">Select Region:</label>
+      <select id="regionSelect" class="region-dropdown">
+          <option value="USA">🇺🇸 USA</option>
+          <option value="EU">🇪🇺 EU</option>
+      </select>
+      <a href="https://docs.rexxit.net/drivers-website/articles/region-selection" style="color: lightslategray;">Learn more about region selection</a>
+      
+  </div>
 </div>
+<script src="regionSwitcher.js"></script>
+
+<!-- Include new JavaScript file -->
+
+
     <main>
+     
+      <div id="region-indicator" class="region-indicator" title="Click here to change your download region">Region: </div>
       <h1 style="text-align: center;">DESKTOP GPU DRIVERS</h1>
+      
       <p style="text-align: center;"><a href="/display/" class="download-button-h"><u>Desktop</u></a> <a href="/display/laptop" class="download-button">Laptop</a></p>
       <br>
       <hr>
@@ -228,7 +261,6 @@
 
 
     </main>
-
     <script>
       var coll = document.getElementsByClassName("Icollapsible");
       var i;
