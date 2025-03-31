@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Downloads</title>
+    <link rel="stylesheet" href="v3.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <header>
+    <p style="text-align:center;"><a href="/"><img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" style="max-width: 80px;"></a></p>
+    <h1>DriverHub.win: A personal project for common driver downloads and more!</h1>
+    <p>This is a list of common drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
+    <p>
+        <a href="/" class="download-button">Home</a> 
+        <a href="/display" class="nvidia-button-h"><u>Video Drivers</u></a>  
+        <a href="/chipset" class="chipset-button">Chipset Drivers</a> 
+        <a href="#" class="g-button"><s>Network Drivers (Coming Soon)</s></a>  
+        <a href="#" class="g-button"><s>Audio Drivers (Re-working)</s></a> 
+        <a href="/contact" class="g-button">Contact</a> 
+        <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" class="download-button">
+            Website Info/Release Notes <svg width="14px" height="14px" viewBox="0 0 24 24"><g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg>
+        </a>
+    </p>
+    <button class="settings-button">
+      <span class="material-icons">settings</span>
+  </button>
+</header>
+<div id="settings-overlay" class="settings-overlay">
+  <div class="settings-content">
+      <span class="close-settings">&times;</span>
+      <h2>Settings</h2>
+      
+      <!-- Dark Mode Toggle -->
+      <label class="switch">
+          <input type="checkbox" id="darkModeToggle">
+          <span class="slider round"></span>
+      </label>
+      <span>Dark Mode</span>
+      <hr>
+
+      <!-- Region Selection -->
+      <label for="regionSelect">Select Region:</label>
+      <select id="regionSelect" class="region-dropdown">
+          <option value="USA">🇺🇸 USA</option>
+          <option value="EU">🇪🇺 EU</option>
+      </select>
+      <a href="https://docs.rexxit.net/drivers-website/articles/region-selection" style="color: lightslategray;">Learn more about region selection</a>
+      
+  </div>
+</div>
+<script src="regionSwitcher.js"></script>
+    <main>
+        <br>
+        <br>
+        <br>    
+
+
+        <section class="driver-section">
+           <!-- <h2>Nvidia Graphics Drivers</h2> -->
+            <div class="container">
+                <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt='Platform' class="platform" width="9%" height="9%">
+                <h2>NVIDIA Drivers</h2>
+              </div>
+            <p style="font-family: Arial, Helvetica, sans-serif;"><b style="color:orangered">WARNING:</b> This driver version <u>[572.83]</u> has known widspread desktop GPU issues with stability (I.E: Black Screens) Install at your own risk! <a href="https://redd.it/1jeddbc">(See Reddit Thread)</a> </p>
+            <iframe width="260" height="215" src="https://www.youtube-nocookie.com/embed/gIK7iUwRgaE?si=4FFbWN57c1EycbHH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <br>
+            <a href="/display" class="download-button">< Back</a> <a href="https://us.download.nvidia.com/Windows/572.83/572.83-desktop-win10-win11-64bit-international-dch-whql.exe" class="nvidia-button">Continue ></a>
+
+    </main>
+
+    <script>
+      var coll = document.getElementsByClassName("Icollapsible");
+      var i;
+      
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight){
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          } 
+        });
+      }
+      </script>
+
+
+    <script>
+      var coll = document.getElementsByClassName("Ncollapsible");
+      var i;
+      
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight){
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          } 
+        });
+      }
+      </script>
+
+<script src="darkMode.js"></script>
+</body>
+</html>
