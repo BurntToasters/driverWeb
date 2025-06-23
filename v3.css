@@ -102,7 +102,7 @@ select {
 }
 
 /* Button Styles */
-button, .download-button, .download-button-h, .nvidia-button, .nvidia-button-h, .amd-button, .amd-button-h, .intel-button, .g-button, .chipset-button, .chipset-button-h, .a-select-button, .darkmode-button {
+button, .download-button, .download-button-h, .nvidia-button, .nvidia-button-h, .amd-button, .amd-button-h, .intel-button, .g-button, .g-button-h, .chipset-button, .chipset-button-h, .a-select-button, .darkmode-button {
     font-size: 16px;
     padding: 0.5rem 1rem;
     border: none;
@@ -279,10 +279,6 @@ footer a:hover {
 
 .intel-button:hover {
     background-color: #1a7abf;
-}
-
-.g-button-h  {
-    background-color: #575757;
 }
 
 .amd-button-h {
