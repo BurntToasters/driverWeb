@@ -3,32 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Driver Downloads</title>
-    <link rel="stylesheet" href="v3.css">
+    <title>Audio Drivers</title>
+    <link rel="stylesheet" href="v4.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <meta http-equiv="refresh" content="0; url='https://driverhub.win'"/>
 </head>
 <body>
     <header>
-        <p style="text-align:center;"><a href="/"><img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" style="max-width: 80px;"></a></p>
+        <div class="logo-container">
+            <a href="/">
+                <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub Logo">
+            </a>
+        </div>
         <h1>DriverHub.win: A personal project for common driver downloads and more!</h1>
         <p>This is a list of common drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
-        <p>
-            <a href="/" class="download-button">Home</a> 
-            <a href="/display" class="nvidia-button">Video Drivers</a>  
-            <a href="/chipset" class="chipset-button">Chipset Drivers</a> 
-            <a href="#" class="g-button"><s>Network Drivers (Coming Soon)</s></a>  
-            <a href="#" class="g-button"><s>Audio Drivers (Re-working)</s></a> 
-            <a href="/contact" class="g-button">Contact</a> 
+        
+        <nav class="nav-container">
+            <a href="/" class="download-button-h"><span class="material-icons">home</span> Home</a> 
+            <a href="/display" class="nvidia-button"><span class="material-icons">videocam</span> Video Drivers</a>  
+            <a href="/chipset" class="chipset-button"><span class="material-icons">memory</span> Chipset Drivers</a> 
+            <a href="#" class="g-button"><span class="material-icons">wifi</span> <s>Network Drivers</s></a>  
+            <a href="/audio" class="g-button-h"><span class="material-icons">headphones</span> <u>Audio Drivers</u></a> 
+            <a href="/contact" class="g-button"><span class="material-icons">email</span> Contact</a> 
             <a href="https://docs.rexxit.net/drivers-website/" target="_blank" class="download-button">
-                Docs <svg width="14px" height="14px" viewBox="0 0 24 24"><g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg>
+                <span class="material-icons">description</span> Docs
+                <svg width="14px" height="14px" viewBox="0 0 24 24">
+                    <g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
+                        <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
+                    </g>
+                </svg>
             </a>
-        </p>
+        </nav>
+        
         <button class="settings-button">
             <span class="material-icons">settings</span>
         </button>
     </header>
+
     <div id="settings-overlay" class="settings-overlay">
         <div class="settings-content">
             <span class="close-settings">&times;</span>
@@ -48,38 +62,65 @@
                 <option value="USA">🇺🇸 USA</option>
                 <option value="EU">🇪🇺 EU</option>
             </select>
-            <a href="https://docs.rexxit.net/drivers-website/articles/region-selection" style="color: lightslategray;">Learn more about region selection</a>
-            
+            <a href="https://docs.rexxit.net/drivers-website/articles/region-selection">Learn more about region selection</a>
         </div>
-      </div>
-      <script src="regionSwitcher.js"></script>
+    </div>
 
     <main>
-        <br>
-        <br>
-        <br>    
-
+        
+        
+        <h1 class="page-title">Audio Drivers</h1>
 
         <section class="driver-section">
-           <!-- <h2>Nvidia Graphics Drivers</h2> -->
             <div class="container">
-                <img src="https://prod.rexxit.net/drweb/assets/realtek.png" alt='Platform' class="platform" width="7%">
-                <h2>Realtek Drivers</h2>
-              </div>
-              <br>
+                <img src="https://prod.rexxit.net/drweb/assets/realtek.png" alt="Realtek" class="platform">
+                <h2>Realtek Audio Drivers</h2>
+            </div>
+            
             <p>This website is not affiliated with Realtek in any way.</p>
-        <p> <a href="https://www.realtek.com/en/agree-to-download?downloadid=4842c7ef60f190fdf91711cf682f2192" target="_blank" class="download-button">R2.82 64BIT</a> (Win vista - 10) Released 2017/07/26</p>
-        <p> <a href="https://www.realtek.com/en/agree-to-download?downloadid=8b9cdfd0da3bd4980715874678b1c02e" target="_blank" class="download-button">R2.82 32BIT</a> (Win vista - 10) Released 2017/07/26</p>
-
-
-
+            
+            <div class="driver-list">
+                <div class="driver-item">
+                    <a href="https://www.realtek.com/en/agree-to-download?downloadid=4842c7ef60f190fdf91711cf682f2192" target="_blank" class="realtek-button">R2.82 64BIT</a>
+                    <span class="driver-date">Released 2017/07/26</span>
+                    <span class="driver-compatibility">(Win Vista - 10)</span>
+                </div>
+                
+                <div class="driver-item">
+                    <a href="https://www.realtek.com/en/agree-to-download?downloadid=8b9cdfd0da3bd4980715874678b1c02e" target="_blank" class="realtek-button">R2.82 32BIT</a>
+                    <span class="driver-date">Released 2017/07/26</span>
+                    <span class="driver-compatibility">(Win Vista - 10)</span>
+                </div>
+            </div>
         </section>
 
-        <a href="https://driverhub.win" class="download-button">< Back</a>
-
-
-
+        <div class="back-container">
+            <a href="/" class="download-button">
+                <span class="material-icons">arrow_back</span> Back to Home
+            </a>
+        </div>
     </main>
+
+    <footer>
+        <p><span id="site-version"></span>(<a href="https://github.com/BurntToasters/driverWeb/releases/latest" target="_blank">Release notes</a>)
+            <svg width="14px" height="14px" viewBox="0 0 24 24" style="cursor:pointer">
+                <g stroke-width="2.1" stroke="#595959" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
+                    <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
+                </g>
+            </svg>
+        </p>
+        <p id="update-date"></p>
+        <p><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank">❤️ Support me :)</a> | <a href="/sitemap.xml">Sitemap</a></p>
+        <br>
+        <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
+            <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" style="max-width: 120px;" alt="DigitalOcean Referral Badge" />
+        </a>
+    </footer>
+
     <script src="darkMode.js"></script>
+    <script src="regionSwitcher.js"></script>
+    <script src="modern.js"></script>
+    <script src="versionInfo.js"></script>
 </body>
 </html>

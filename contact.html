@@ -4,81 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driver Downloads</title>
-    <link rel="stylesheet" href="v3.css">
+    <link rel="stylesheet" href="v4.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <header>
-    <p style="text-align:center;"><a href="/"><img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" style="max-width: 80px;"></a></p>
-    <h1>DriverHub.win: A personal project for common driver downloads and more!</h1>
-    <p>This is a list of common drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
-    <p>
-        <a href="/" class="download-button-h">Home</a> 
-        <a href="/display" class="nvidia-button">Video Drivers</a>  
-        <a href="/chipset" class="chipset-button">Chipset Drivers</a> 
-        <a href="#" class="g-button"><s>Network Drivers (Coming Soon)</s></a>  
-        <a href="#" class="g-button"><s>Audio Drivers (Re-working)</s></a> 
-        <a href="/contact" class="g-button-h"><u>Contact</u></a> 
-        <a href="https://docs.rexxit.net/drivers-website/" target="_blank" class="download-button">
-                Docs <svg width="14px" height="14px" viewBox="0 0 24 24"><g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg>
-        </a>
-    </p>
-    <button class="settings-button">
-        <span class="material-icons">settings</span>
-    </button>
-</header>
-<div id="settings-overlay" class="settings-overlay">
-    <div class="settings-content">
-        <span class="close-settings">&times;</span>
-        <h2>Settings</h2>
+    <header>
+        <div class="logo-container">
+            <a href="/">
+                <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub Logo">
+            </a>
+        </div>
+        <h1>DriverHub.win: A personal project for common driver downloads and more!</h1>
+        <p>This is a list of common drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
         
-        <!-- Dark Mode Toggle -->
-        <label class="switch">
-            <input type="checkbox" id="darkModeToggle">
-            <span class="slider round"></span>
-        </label>
-        <span>Dark Mode</span>
-        <hr>
-  
-        <!-- Region Selection -->
-        <label for="regionSelect">Select Region:</label>
-        <select id="regionSelect" class="region-dropdown">
-            <option value="USA">🇺🇸 USA</option>
-            <option value="EU">🇪🇺 EU</option>
-        </select>
-        <a href="https://docs.rexxit.net/drivers-website/articles/region-selection" style="color: lightslategray;">Learn more about region selection</a>
+        <nav class="nav-container">
+            <a href="/" class="download-button-h"><span class="material-icons">home</span> Home</a> 
+            <a href="/display" class="nvidia-button"><span class="material-icons">videocam</span> Video Drivers</a>  
+            <a href="/chipset" class="chipset-button"><span class="material-icons">memory</span> Chipset Drivers</a> 
+            <a href="#" class="g-button"><span class="material-icons">wifi</span> <s>Network Drivers</s></a>  
+            <a href="#" class="g-button"><span class="material-icons">headphones</span> <s>Audio Drivers</s></a> 
+            <a href="/contact" class="g-button-h"><span class="material-icons">email</span> <u>Contact</u></a> 
+            <a href="https://docs.rexxit.net/drivers-website/" target="_blank" class="download-button">
+                <span class="material-icons">description</span> Docs
+                <svg width="14px" height="14px" viewBox="0 0 24 24">
+                    <g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
+                        <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
+                    </g>
+                </svg>
+            </a>
+        </nav>
         
+        <button class="settings-button">
+            <span class="material-icons">settings</span>
+        </button>
+    </header>
+
+    <div id="settings-overlay" class="settings-overlay">
+        <div class="settings-content">
+            <span class="close-settings">&times;</span>
+            <h2>Settings</h2>
+            
+            <!-- Dark Mode Toggle -->
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider round"></span>
+            </label>
+            <span>Dark Mode</span>
+            <hr>
+      
+            <!-- Region Selection -->
+            <label for="regionSelect">Select Region:</label>
+            <select id="regionSelect" class="region-dropdown">
+                <option value="USA">🇺🇸 USA</option>
+                <option value="EU">🇪🇺 EU</option>
+            </select>
+            <a href="https://docs.rexxit.net/drivers-website/articles/region-selection">Learn more about region selection</a>
+        </div>
     </div>
-  </div>
-  <script src="regionSwitcher.js"></script>
+
     <main>
-        <br>
-        <br>
-        <br>    
-
-
-        <section class="driver-section">
-            <div class="container">
-             <!--  <img src="/assets/nvidia.jpg" alt='Platform' class="platform" width="7%"> -->
-                <h2>Contact Me</h2>
-                <br>
+        <div id="region-indicator" class="region-indicator" title="Click here to change your download region">Region: </div>
+        
+        <h1 class="page-title">Contact Me</h1>
+        
+        <section class="driver-section contact-section">
+            <div class="form-container">
+                <p class="form-info">Below is a Google Forms document. If you do not see it, please disable your Ad/Tracker Blocker.</p>
                 
-              </div>
-              <p>Below is a google forms document. If you do not see it, please disable your Ad/Tracker Blocker</p>
-              <br>
-              <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc4A8RLL0Ui9Qmx-7b3XaU6Bq7hT3r02lQ7giR5hHAUKODwNg/viewform?embedded=true" width="640" height="809" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-            <br>
-            <a href="mailto:contact@driverhub@@win"
-            onclick || onmouseover="this.href=this.href.replace('@@','.')">Alternatively, click here to send/get my email address.</a>
-
-            <br>
-            <br>
-              <a href="/" class="download-button">< Back </a>
+                <div class="iframe-container">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc4A8RLL0Ui9Qmx-7b3XaU6Bq7hT3r02lQ7giR5hHAUKODwNg/viewform?embedded=true" width="100%" height="650" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </div>
+                
+                <div class="email-alternative">
+                    <span class="material-icons">alternate_email</span>
+                    <a href="mailto:contact@driverhub@@win" 
+                       id="email-link"
+                       onmouseover="deobfuscateEmail(this)" 
+                       oncontextmenu="deobfuscateEmail(this)" 
+                       onclick="return deobfuscateEmail(this, true)">
+                        Alternatively, click here to send/get my email address.
+                    </a>
+                </div>
+            </div>
+            
+            <div class="back-container">
+                <a href="/" class="download-button">
+                    <span class="material-icons">arrow_back</span> Back to Home
+                </a>
+            </div>
         </section>
-
-
     </main>
+
+<footer>
+    <p><span id="site-version"></span>(<a href="https://github.com/BurntToasters/driverWeb/releases/latest" target="_blank">Release notes</a>)
+        <svg width="14px" height="14px" viewBox="0 0 24 24" style="cursor:pointer">
+            <g stroke-width="2.1" stroke="#595959" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
+                <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
+            </g>
+        </svg>
+    </p>
+    <p id="update-date"></p>
+    <p><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank">❤️ Support me :)</a> | <a href="/sitemap.xml">Sitemap</a></p>
+    <br>
+    <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
+        <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" style="max-width: 120px;" alt="DigitalOcean Referral Badge" />
+    </a>
+</footer>
+
     <script src="darkMode.js"></script>
+    <script src="regionSwitcher.js"></script>
+    <script src="modern.js"></script>
+    <script src="versionInfo.js"></script>
+    <script>
+function deobfuscateEmail(element, isClick = false) {
+    if (element.href.includes('@@')) {
+        const realEmail = element.href.replace('@@', '.');
+        element.href = realEmail;
+    }
+    return isClick;
+}
+</script>
 </body>
 </html>

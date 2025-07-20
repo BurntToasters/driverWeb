@@ -4,284 +4,219 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driver Downloads</title>
-    <link rel="stylesheet" href="v3.css">
+    <link rel="stylesheet" href="v4.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <header>
-    <p style="text-align:center;"><a href="/"><img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" style="max-width: 80px;"></a></p>
-    <h1>DriverHub.win: A personal project for common driver downloads and more!</h1>
-    <p>This is a list of common drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
-    <p>
-        <a href="/" class="download-button">Home</a> 
-        <a href="/display" class="nvidia-button-h"><u>Video Drivers</u></a>  
-        <a href="/chipset" class="chipset-button">Chipset Drivers</a> 
-        <a href="#" class="g-button"><s>Network Drivers (Coming Soon)</s></a>  
-        <a href="#" class="g-button"><s>Audio Drivers (Re-working)</s></a> 
-        <a href="/contact" class="g-button">Contact</a> 
-        <a href="https://docs.rexxit.net/drivers-website/" target="_blank" class="download-button">
-                Docs <svg width="14px" height="14px" viewBox="0 0 24 24"><g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg>
-          </a>
-    </p>
-    <button class="settings-button">
-      <span class="material-icons">settings</span>
-  </button>
-</header>
-<div id="settings-overlay" class="settings-overlay">
-  <div class="settings-content">
-      <span class="close-settings">&times;</span>
-      <h2>Settings</h2>
-      
-      <!-- Dark Mode Toggle -->
-      <label class="switch">
-          <input type="checkbox" id="darkModeToggle">
-          <span class="slider round"></span>
-      </label>
-      <span>Dark Mode</span>
-      <hr>
+    <header>
+        <div class="logo-container">
+            <a href="/">
+                <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub Logo">
+            </a>
+        </div>
+        <h1>DriverHub.win: A personal project for common driver downloads and more!</h1>
+        <p>This is a list of common drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
+        
+        <nav class="nav-container">
+            <a href="/" class="download-button-h"><span class="material-icons">home</span> Home</a> 
+            <a href="/display" class="nvidia-button"><span class="material-icons">videocam</span> <u>Video Drivers</u></a>  
+            <a href="/chipset" class="chipset-button"><span class="material-icons">memory</span> Chipset Drivers</a> 
+            <a href="#" class="g-button"><span class="material-icons">wifi</span> <s>Network Drivers</s></a>  
+            <a href="#" class="g-button"><span class="material-icons">headphones</span> <s>Audio Drivers</s></a> 
+            <a href="/contact" class="g-button"><span class="material-icons">email</span> Contact</a> 
+            <a href="https://docs.rexxit.net/drivers-website/" target="_blank" class="download-button">
+                <span class="material-icons">description</span> Docs
+                <svg width="14px" height="14px" viewBox="0 0 24 24">
+                    <g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
+                        <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
+                    </g>
+                </svg>
+            </a>
+        </nav>
+        
+        <button class="settings-button">
+            <span class="material-icons">settings</span>
+        </button>
+    </header>
 
-      <!-- Region Selection -->
-      <label for="regionSelect">Select Region:</label>
-      <select id="regionSelect" class="region-dropdown">
-          <option value="USA">🇺🇸 USA</option>
-          <option value="EU">🇪🇺 EU</option>
-      </select>
-      <a href="https://docs.rexxit.net/drivers-website/articles/region-selection" style="color: lightslategray;">Learn more about region selection</a>
+    <div id="settings-overlay" class="settings-overlay">
+        <div class="settings-content">
+            <span class="close-settings">&times;</span>
+            <h2>Settings</h2>
+            
+            <!-- Dark Mode Toggle -->
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider round"></span>
+            </label>
+            <span>Dark Mode</span>
+            <hr>
       
-  </div>
-</div>
-<script src="regionSwitcher.js"></script>
+            <!-- Region Selection -->
+            <label for="regionSelect">Select Region:</label>
+            <select id="regionSelect" class="region-dropdown">
+                <option value="USA">🇺🇸 USA</option>
+                <option value="EU">🇪🇺 EU</option>
+            </select>
+            <a href="https://docs.rexxit.net/drivers-website/articles/region-selection">Learn more about region selection</a>
+        </div>
+    </div>
+
     <main>
-      <div id="region-indicator" class="region-indicator" title="Click here to change your download region">Region: </div>
-<h1 style="text-align: center;">LAPTOP GPU DRIVERS</h1>
-<p style="text-align: center;"><a href="/display/" class="download-button">Desktop</a> <a href="/display/laptop" class="download-button-h"><u>Laptop</u></a></p>
-<br>
-<hr>
-<br>
-        <section class="driver-section">
-           <!-- <h2>Nvidia Graphics Drivers</h2> -->
-            <div class="container">
-                <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt='Platform' class="platform" width="9%" height="9%">
-                <h2>NVIDIA Drivers</h2>
-              </div>
-              <br>
-            <p style="font-family: Arial, Helvetica, sans-serif;">These drivers on this list are game ready drivers and only for laptop/notebook GPU's currently supported by <a href="https://www.nvidia.com/en-us/geforce/drivers/" target="_blank">Nvidia</a>. For desktop drivers see <a href="/display/">here</a>. This website is not affiliated with Nvidia in any way.</p>
-            <p style="font-family: Arial, Helvetica, sans-serif;">There are two Nvidia drivers types below. Select either the <b><u>Game Ready Drivers</u></b> or the <b><u>Studio Drivers</u></b> collapsible list to see the list of available drivers.</p>
+        <div id="region-indicator" class="region-indicator" title="Click the settings icon to change reigon!">Region: </div>
+        
+        <h1 class="page-title">Laptop GPU Drivers</h1>
+        
+        <div class="display-type-selection">
+            <a href="/display/" class="download-button">Desktop</a>
+            <a href="/display/laptop" class="download-button-h"><u>Laptop</u></a>
+        </div>
+        
+        <div class="section-divider"></div>
 
-            <!--GRD-->
+        <section class="driver-section">
+            <div class="container">
+                <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt='NVIDIA' class="platform">
+                <h2>NVIDIA Drivers</h2>
+            </div>
+            <p>These drivers on this list are game ready drivers and only for laptop/notebook GPU's currently supported by <a href="https://www.nvidia.com/en-us/geforce/drivers/" target="_blank">Nvidia</a>. For desktop drivers see <a href="/display/">here</a>. This website is not affiliated with Nvidia in any way.</p>
+            <p>There are two Nvidia drivers types below. Select either the <b><u>Game Ready Drivers</u></b> or the <b><u>Studio Drivers</u></b> collapsible list to see the list of available drivers.</p>
+
             <button class="Ncollapsible">Game Ready Drivers</button>
             <div class="Gcontent">
-              <br>
-              <h2 style="font-family: Arial, Helvetica, sans-serif; color: #3a5800;">Game Ready Drivers:</h2>
-              <p style="font-family: Arial, Helvetica, sans-serif;"><b style="color: maroon;">⚠️ WARNING: </b> Nvidia drivers <a href="https://youtu.be/KrCEPX47vtw" target="_blank">576.02</a> and ones based on the 572.xx versions have known <a href="https://youtu.be/NTXoUsdSAnA" target="_blank"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability.</p>
-              <p> <a href="https://us.download.nvidia.com/Windows/576.80/576.80-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">576.80 - WHQL</a> Released Tue Jun 17, 2025 <a style="font-size: 12px;" href="https://redd.it/1ldmjk7" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See community discussion." alt="See discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/576.52/576.52-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">576.52 - WHQL</a> Released Mon May 19, 2025 <a style="font-size: 12px;" href="https://redd.it/1kqfdxx" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See community discussion." alt="See discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/576.40/576.40-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">576.40 - WHQL</a> Released Mon May 12, 2025 <a style="font-size: 12px;" href="https://redd.it/1kks09d" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See community discussion." alt="See discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/576.28/576.28-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">576.28 - WHQL</a> Released Wed Apr 30, 2025 <a style="font-size: 12px;" href="https://redd.it/1kbhda6" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See community discussion." alt="See discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="/display/warn/lptp/nvidia-576.02" class="amd-button"><b>⚠️</b> 576.02 - WHQL</a> Released Wed Apr 16, 2025 <a style="font-size: 12px;" href="https://redd.it/1k0iop7" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="/display/warn/lptp/nvidia-572.83" class="amd-button"><b>⚠️</b> 572.83 - WHQL</a> Released Tue Mar 18, 2025 <a style="font-size: 12px;" href="https://redd.it/1jeddbc" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="/display/warn/lptp/nvidia-572.70" class="amd-button"><b>⚠️</b> 572.70 - WHQL</a> Released Wed Mar 05, 2025 <a style="font-size: 12px;" href="https://redd.it/1j4284t" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="/display/warn/lptp/nvidia-572.60" class="amd-button"><b>⚠️</b> 572.60 - WHQL</a> Released Thu Feb 27, 2025 <a style="font-size: 12px;" href="https://redd.it/1izfyyw" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="/display/warn/lptp/nvidia-572.47" class="amd-button"><b>⚠️</b> 572.47 - WHQL</a> Released Thu Feb 20, 2025 <a style="font-size: 12px;" href="https://redd.it/1itydor" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="/display/warn/lptp/nvidia-572.42" class="amd-button"><b>⚠️</b> 572.42 - WHQL</a> Released Thu Feb 13, 2025 <a style="font-size: 12px;" href="https://redd.it/1ioiqls" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="/display/warn/lptp/nvidia-572.16" class="amd-button"><b>⚠️</b> 572.16 - WHQL</a> Released Thu Jan 30, 2025 <a style="font-size: 12px;" href="https://redd.it/1idme1q" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/566.36/566.36-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">566.36 - WHQL</a> Released Thu Dec 05, 2024 <a style="font-size: 12px;" href="https://redd.it/1h7br0d" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/566.14/566.14-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">566.14 - WHQL</a> Released Tue Nov 12, 2024 <a style="font-size: 12px;" href="https://redd.it/1gpm868" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/566.03/566.03-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">566.03 - WHQL</a> Released Tue Oct 22, 2024 <a style="font-size: 12px;" href="https://redd.it/1g9i6ot" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/565.90/565.90-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">565.90 - WHQL</a> Released Tue Oct 01, 2024 <a style="font-size: 12px;" href="https://redd.it/1ftnsvn" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/561.09/561.09-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">561.09 - WHQL</a> Released Wed Sep 11, 2024 <a style="font-size: 12px;" href="https://redd.it/1fededw" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/560.94/560.94-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">560.94 - WHQL</a> Released Tue Aug 20, 2024 <a style="font-size: 12px;" href="https://redd.it/1ewv0ib" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/560.81/560.81-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">560.81 - WHQL</a> Released Tue Aug 06, 2024 <a style="font-size: 12px;" href="https://redd.it/1elhiea" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/560.70/560.70-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">560.70 - WHQL</a> Released Tue Jul 16, 2024 <a style="font-size: 12px;" href="https://redd.it/1e4pjdm" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/556.12/556.12-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">556.12 - WHQL</a> Released Thu Jun 27, 2024 <b>| GRADE: </b><b style="color: forestgreen;">A- </b><b> | </b><a href="https://redd.it/1dpqpo4" target="_blank">(Considered a stable driver)</a> [<a href="#" onclick="window.open('https://driverhub.win/info/about-stabledrivers', 'DriversInfo', 'width=500,height=500');">?</a>] <a style="font-size: 12px;" href="https://redd.it/1dpqpo4" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/555.99/555.99-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">555.99 - WHQL</a> Released Tue Jun 04, 2024 <a style="font-size: 12px;" href="https://redd.it/1d7xdbv" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/555.85/555.85-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">555.85 - WHQL</a> Released Tue May 21, 2024 <a style="font-size: 12px;" href="https://redd.it/1cx9i85" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/552.44/552.44-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">552.44 - WHQL</a> Released Thu May 09, 2024 <a style="font-size: 12px;" href="https://redd.it/1cnxgy8" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/552.22/552.22-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">552.22 - WHQL</a> Released Tue Apr 16, 2024 <a style="font-size: 12px;" href="https://redd.it/1c5g77o" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/552.12/552.12-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">552.12 - WHQL</a> Released Thu Apr 04, 2024 <a style="font-size: 12px;" href="https://redd.it/1bvn19o" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/551.86/551.86-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">551.86 - WHQL</a> Released Tue Mar 19, 2024 <b>| GRADE: </b><b style="color: forestgreen;">A </b><b> | </b><a href="https://www.reddit.com/r/nvidia/comments/1bik2v6/game_ready_studio_driver_55186_faqdiscussion/" target="_blank">(Considered a stable driver)</a> [<a href="#" onclick="window.open('https://driverhub.win/info/about-stabledrivers', 'DriversInfo', 'width=500,height=500');">?</a>] <a style="font-size: 12px;" href="https://redd.it/1bik2v6" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/551.76/551.76-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">551.76 - WHQL</a> Released Tue Mar 05, 2024 <a style="font-size: 12px;" href="https://redd.it/1b76wmq" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/551.61/551.61-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">551.61 - WHQL</a> Released Thu Feb 22, 2024 <a style="font-size: 12px;" href="https://redd.it/1ax7xy6" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/551.52/551.52-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">551.52 - WHQL</a> Released Tue Feb 13, 2024 <b>| GRADE: </b><b style="color: #555e49;">C+ </b><b> | </b><a href="https://www.reddit.com/r/nvidia/comments/1apuyie/game_ready_driver_55152_faqdiscussion/" target="_blank">(Possible stable-ish driver)</a> [<a href="#" onclick="window.open('https://driverhub.win/info/about-stabledrivers', 'DriversInfo', 'width=500,height=500');">?</a>] <a style="font-size: 12px;" href="https://redd.it/1apuyie" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/551.23/551.23-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">551.23 - WHQL</a> Released Wed Jan 24, 2024 <a style="font-size: 12px;" href="https://redd.it/19ehx1r" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/546.65/546.65-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">546.65 - WHQL</a> Released Wed Jan 17, 2024 <a style="font-size: 12px;" href="https://redd.it/198xlyb" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/546.33/546.33-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">546.33 - WHQL</a> Released Tue Dec 12, 2023 <a style="font-size: 12px;" href="https://redd.it/18go5ej" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/546.29/546.29-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">546.29 - WHQL</a> Released Mon Dec 04, 2023 <a style="font-size: 12px;" href="https://redd.it/18al12y" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/546.17/546.17-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">546.17 - WHQL</a> Released Tue Nov 14, 2023 <a style="font-size: 12px;" href="https://redd.it/17v3i31" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/546.01/546.01-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">546.01 - WHQL</a> Released Tue Oct 31, 2023 <a style="font-size: 12px;" href="https://redd.it/17klmio" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/545.92/545.92-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">545.92 - WHQL</a> Released Thu Oct 26, 2023 <a style="font-size: 12px;" href="https://redd.it/17gxrya" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/545.84/545.84-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">545.84 - WHQL</a> Released Tue Oct 17, 2023 <a style="font-size: 12px;" href="https://redd.it/179y9gc" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/537.58/537.58-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">537.58 - WHQL</a> Released Tue Oct 10, 2023 <b>| GRADE: </b><b style="color: forestgreen;">A+ </b><b> | </b><a href="https://www.reddit.com/r/nvidia/comments/174majz/game_ready_driver_53758_faqdiscussion/" target="_blank">(Considered a stable driver)</a> [<a href="#" onclick="window.open('https://driverhub.win/info/about-stabledrivers', 'DriversInfo', 'width=500,height=500');">?</a>] <a style="font-size: 12px;" href="https://redd.it/174majz" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/537.34/537.34-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">537.34 - WHQL</a> Released Tue Sep 12, 2023 <a style="font-size: 12px;" href='javascript:alert("Sorry, a Reddit community thread on this driver was not found.")'><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_grey.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/537.13/537.13-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">537.13 - WHQL</a> Released Tue Aug 22, 2023 <a style="font-size: 12px;" href='javascript:alert("Sorry, a Reddit community thread on this driver was not found.")'><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_grey.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/536.99/536.99-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">536.99 - WHQL</a> Released Tue Aug 08, 2023 <a style="font-size: 12px;" href='javascript:alert("Sorry, a Reddit community thread on this driver was not found.")'><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_grey.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/536.67/536.67-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">536.67 - WHQL</a> Released Tue Jul 18, 2023 <a style="font-size: 12px;" href='javascript:alert("Sorry, a Reddit community thread on this driver was not found.")'><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_grey.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/536.40/536.40-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">536.40 - WHQL</a> Released Thu Jun 29, 2023 <a style="font-size: 12px;" href='javascript:alert("Sorry, a Reddit community thread on this driver was not found.")'><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_grey.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/536.23/536.23-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">536.23 - WHQL</a> Released Wed Jun 14, 2023 <a style="font-size: 12px;" href='javascript:alert("Sorry, a Reddit community thread on this driver was not found.")'><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_grey.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/535.98/535.98-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">535.98 - WHQL</a> Released Tue May 30, 2023 <b>| GRADE: </b><b style="color: #3a5800;">B </b><b> | </b>(Considered a stable driver) [<a href="#" onclick="window.open('https://driverhub.win/info/about-stabledrivers', 'DriversInfo', 'width=500,height=500');">?</a>] <a style="font-size: 12px;" href='javascript:alert("Sorry, a Reddit community thread on this driver was not found.")'><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_grey.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/532.03/532.03-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">532.03 - WHQL</a> Released Wed May 24, 2023 <a style="font-size: 12px;" href='javascript:alert("Sorry, a Reddit community thread on this driver was not found.")'><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_grey.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a>
-              <p> <a href="https://us.download.nvidia.com/Windows/531.68/531.68-notebook-win10-win11-64bit-international-dch-whql.exe" target="_blank" class="nvidia-button">531.68 - WHQL</a> Released Tue Apr 18, 2023 (Considered a stable driver) [<a href="#" onclick="window.open('https://driverhub.win/info/about-stabledrivers', 'DriversInfo', 'width=500,height=500');">?</a>] <a style="font-size: 12px;" href='javascript:alert("Sorry, a Reddit community thread on this driver was not found.")'><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_grey.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-                <br>
-                <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">Drivers list updated: 06-23-25</p>
-            </div>
-            <br>
-            <!--Studio Drivers-->
-            <button class="Ncollapsible">Studio Drivers</button>
-            <div class="Gcontent">
-              <br>
-              <h2 style="font-family: Arial, Helvetica, sans-serif; color: #3a5800;">Studio Drivers:</h2>
-              <p style="font-family: Arial, Helvetica, sans-serif;"><b style="color: maroon;">⚠️ WARNING: </b> Nvidia drivers based on the 572.xx versions have known <a href="https://youtu.be/NTXoUsdSAnA" target="_blank"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability.</p>
-              <p> <a href="https://us.download.nvidia.com/Windows/576.80/576.80-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">576.80 - WHQL</a> Released Tue Jun 17, 2025 <a style="font-size: 12px;" href="https://redd.it/1ldmjk7" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See community discussion." alt="See discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/576.52/576.52-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">576.52 - WHQL</a> Released Mon May 19, 2025 <a style="font-size: 12px;" href="https://redd.it/1kqfdxx" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See community discussion." alt="See discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="/display/warn/lptp/nvidia-576.02-nsd" class="amd-button"><b>⚠️</b> 576.02 - WHQL</a> Released Wed Apr 16, 2025 <a style="font-size: 12px;" href="https://redd.it/1k0iop7" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="/display/warn/lptp/nvidia-572.83-nsd" class="amd-button"><b>⚠️</b> 572.83 - WHQL</a> Released Tue Mar 18, 2025 <a style="font-size: 12px;" href="https://redd.it/1jeddbc" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="/display/warn/lptp/nvidia-572.60-nsd" class="amd-button"><b>⚠️</b> 572.60 - WHQL</a> Released Thu Feb 27, 2025 <a style="font-size: 12px;" href="https://redd.it/1izfyyw" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="/display/warn/lptp/nvidia-572.16-nsd" class="amd-button"><b>⚠️</b> 572.16 - WHQL</a> Released Thu Jan 30, 2025 <a style="font-size: 12px;" href="https://redd.it/1idme1q" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/566.36/566.36-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">566.36 - WHQL</a> Released Tue Dec 10, 2024 <a style="font-size: 12px;" href="https://redd.it/1h7br0d" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/566.14/566.14-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">566.14 - WHQL</a> Released Tue Nov 12, 2024 <a style="font-size: 12px;" href="https://redd.it/1gpm868" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/565.90/565.90-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">565.90 - WHQL</a> Released Tue Oct 15, 2024 <a style="font-size: 12px;" href="https://redd.it/1ftnsvn" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/561.09/561.09-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">561.09 - WHQL</a> Released Tue Sep 17, 2024 <a style="font-size: 12px;" href="https://redd.it/1fededw" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/560.81/560.81-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">560.81 - WHQL</a> Released Tue Aug 06, 2024 <a style="font-size: 12px;" href="https://redd.it/1elhiea" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/560.70/560.70-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">560.70 - WHQL</a> Released Tue Jul 16, 2024 <a style="font-size: 12px;" href="https://redd.it/1e4pjdm" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/555.99/555.99-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">555.99 - WHQL</a> Released Tue Jun 04, 2024 <a style="font-size: 12px;" href="https://redd.it/1d7xdbv" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/555.85/555.85-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">555.85 - WHQL</a> Released Tue May 21, 2024 <a style="font-size: 12px;" href="https://redd.it/1cx9i85" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/552.22/552.22-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">552.22 - WHQL</a> Released Tue Apr 16, 2024 <a style="font-size: 12px;" href="https://redd.it/1c5g77o" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/551.86/551.86-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">551.86 - WHQL</a> Released Tue Mar 19, 2024 <a href="https://www.reddit.com/r/nvidia/comments/1bik2v6/game_ready_studio_driver_55186_faqdiscussion/" target="_blank">(Considered a stable-[ish] driver)</a> [<a href="#" onclick="window.open('https://driverhub.win/info/about-stabledrivers', 'DriversInfo', 'width=500,height=500');">?</a>] <a style="font-size: 12px;" href="https://redd.it/1bik2v6" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/551.61/551.61-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">551.61 - WHQL</a> Released Thu Feb 22, 2024 <a style="font-size: 12px;" href="https://redd.it/1ax7xy6" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/551.23/551.23-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">551.23 - WHQL</a> Released Wed Jan 24, 2024 <a style="font-size: 12px;" href="https://redd.it/19ehx1r" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/546.33/546.33-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">546.33 - WHQL</a> Released Tue Dec 12, 2023 <a style="font-size: 12px;" href="https://redd.it/18go5ej" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/546.01/546.01-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">546.01 - WHQL</a> Released Wed Nov 01, 2023 <a style="font-size: 12px;" href="https://redd.it/17klmio" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-              <p> <a href="https://us.download.nvidia.com/Windows/537.58/537.58-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">537.58 - WHQL</a> Released Tue Oct 10, 2023 <a href="https://www.reddit.com/r/nvidia/comments/174majz/game_ready_driver_53758_faqdiscussion/" target="_blank">(Considered a stable driver)</a> [<a href="#" onclick="window.open('https://driverhub.win/info/about-stabledrivers', 'DriversInfo', 'width=500,height=500');">?</a>] <a style="font-size: 12px;" href="https://redd.it/174majz" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p> 
-              <p> <a href="https://us.download.nvidia.com/Windows/537.42/537.42-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">536.99 - WHQL</a> Released Thu Sep 21, 2023</p>
-              <p> <a href="https://us.download.nvidia.com/Windows/536.99/536.99-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">536.99 - WHQL</a> Released Tue Aug 08, 2023</p> 
-              <p> <a href="https://us.download.nvidia.com/Windows/536.67/536.67-notebook-win10-win11-64bit-international-nsd-dch-whql.exe" target="_blank" class="nvidia-button">536.67 - WHQL</a> Released Tue Jul 18, 2023</p>  
-              <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">Drivers list updated: 06-23-25</p>
+                <h3 class="driver-category">Game Ready Drivers:</h3>
+                <div id="nvidia-game-ready-laptop-drivers"></div>
             </div>
 
+            <button class="Ncollapsible">Studio Drivers</button>
+            <div class="Gcontent">
+                <h3 class="driver-category">Studio Drivers:</h3>
+                <div id="nvidia-studio-laptop-drivers"></div>
+            </div>
         </section>
 
         <section class="driver-section">
-          <!-- <h2>Nvidia Graphics Drivers</h2> -->
-           <div class="container">
-               <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt='Platform' class="platform" width="6%" height="6%">
-               <h2>Intel ARC Drivers</h2>
-             </div>
-             <br>
-           <p>These drivers on this list are game ready drivers and only for desktop/laptop (arc drivers seem to be desktop/laptop installers) ARC GPU's currently supported by <a href="https://www.nvidia.com/en-us/geforce/drivers/" target="_blank">Intel</a>. For desktop drivers see <a href="/display/">here</a>. This website is not affiliated with Intel in any way.</p>
-      <!--GAME ON GPU-->
-           <button class="Icollapsible">Game On GPU Drivers</button>
-       <div class="Gcontent">
-         <br>
-         <h2 style="font-family: Arial, Helvetica, sans-serif; color: #0069b9;">Game On GPU Drivers:</h2>
-         <p> <a href="https://downloadmirror.intel.com/857041/gfx_win_101.6881.exe" target="_blank" class="intel-button">32.0.101.6881 (WHQL Certified)</a> Released 6/9/2025 <a style="font-size: 12px;" href="https://redd.it/1l7sa65" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See community discussion." alt="See discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/856530/gfx_win_101.6877.exe" target="_blank" class="intel-button">32.0.101.6877</a> Released 6/5/2025 <a style="font-size: 12px;" href="https://redd.it/1l4fil2" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See community discussion." alt="See discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/856438/gfx_win_101.6876.exe" target="_blank" class="intel-button">32.0.101.6876</a> Released 6/3/2025 <a style="font-size: 12px;" href="https://redd.it/1kzj7co" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See community discussion." alt="See discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/855955/gfx_win_101.6874.exe" target="_blank" class="intel-button">32.0.101.6874 (WHQL Certified)</a> Released 5/30/2025 <a style="font-size: 12px;" href="https://redd.it/1jljqs0" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See community discussion." alt="See discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/855596/gfx_win_101.6795.exe" target="_blank" class="intel-button">32.0.101.6795</a> Released 5/23/2025 <a style="font-size: 12px;" href='javascript:alert("Sorry, a Reddit community thread on this driver was not found.")'><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_grey.svg" title="See Reddit community discussion." alt="See discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/854560/gfx_win_101.6793.exe" target="_blank" class="intel-button">32.0.101.6793</a> Released 5/9/2025 <a style="font-size: 12px;" href="https://redd.it/1kizjsj" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See community discussion." alt="See discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/853993/gfx_win_101.6790.exe" target="_blank" class="intel-button">32.0.101.6790 (WHQL Certified)</a> Released 5/2/2025 <a style="font-size: 12px;" href="https://redd.it/1kdh5bj" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See community discussion." alt="See discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/853435/gfx_win_101.6739.exe" target="_blank" class="intel-button">32.0.101.6739</a> Released 4/25/2025 <a style="font-size: 12px;" href="https://redd.it/1k801s0" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See community discussion." alt="See discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/853185/gfx_win_101.6737.exe" target="_blank" class="intel-button">32.0.101.6737 (WHQL Certified)</a> Released 4/23/2025 <a style="font-size: 12px;" href="https://redd.it/1k6dnms" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See community discussion." alt="See discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/851966/gfx_win_101.6734.exe" target="_blank" class="intel-button">32.0.101.6734 (WHQL Certified)</a> Released 4/8/2025 <a style="font-size: 12px;" href="https://redd.it/1jutg80" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See community discussion." alt="See discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/851357/gfx_win_101.6732.exe" target="_blank" class="intel-button">32.0.101.6732</a> Released 4/2/2025 <a style="font-size: 12px;" href="https://redd.it/1jq4a0h" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See community discussion." alt="See discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/850901/gfx_win_101.6653.exe" target="_blank" class="intel-button">32.0.101.6653</a> Released 3/27/2025 <a style="font-size: 12px;" href="https://redd.it/1jljqs0" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/850267/gfx_win_101.6651.exe" target="_blank" class="intel-button">32.0.101.6651 (WHQL Certified)</a> Released 3/24/2025 <a style="font-size: 12px;" href="https://redd.it/1jj5lp5" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/849155/gfx_win_101.6647.exe" target="_blank" class="intel-button">32.0.101.6647 (WHQL Certified)</a> Released 3/7/2025 <a style="font-size: 12px;" href="https://redd.it/1j662gf" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/848516/gfx_win_101.6632.exe" target="_blank" class="intel-button">32.0.101.6632</a> Released 2/27/2025 <a style="font-size: 12px;" href="https://redd.it/1j06jel" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/845887/gfx_win_101.6557_101.6262.exe" target="_blank" class="intel-button">32.0.101.6557/32.0.101.6262</a> Released 1/29/2025 <a style="font-size: 12px;" href="https://redd.it/1idf0nf" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/845472/gfx_win_101.6460_101.6259.exe" target="_blank" class="intel-button">32.0.101.6460/32.0.101.6259</a> Released 1/23/2025 <a style="font-size: 12px;" href="https://redd.it/1i8kl2u" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/844741/gfx_win_101.6458_101.6257.exe" target="_blank" class="intel-button">32.0.101.6458/32.0.101.6257 (WHQL Certified)</a> Released 1/16/2025 <a style="font-size: 12px;" href="https://redd.it/1i2ptaj" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/843834/gfx_win_101.6332_101.6253.exe" target="_blank" class="intel-button">32.0.101.6332/32.0.101.101.6253</a> Released 12/26/2024 <a style="font-size: 12px;" href="https://redd.it/1hmrrwy" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/843585/gfx_win_101.6325_101.6253.exe" target="_blank" class="intel-button">32.0.101.6325/32.0.101.101.6253</a> Released 12/20/2024 <a style="font-size: 12px;" href="https://redd.it/1hiqwqu" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/842655/gfx_win_101.6325_101.6252.exe" target="_blank" class="intel-button">32.0.101.6325/32.0.101.101.6252</a> Released 12/13/2024 <a style="font-size: 12px;" href="https://redd.it/1hdd5fl" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/842305/gfx_win_101.6319.exe" target="_blank" class="intel-button">32.0.101.6319</a> Released 12/5/2024 <a style="font-size: 12px;" href="https://redd.it/1h7lyy6" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/842081/gfx_win_101.6314.exe" target="_blank" class="intel-button">32.0.101.6314 (WHQL Certified)</a> Released 12/3/2024 <a style="font-size: 12px;" href="https://redd.it/1h652as" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/839169/gfx_win_101.6299.exe" target="_blank" class="intel-button">32.0.101.6299</a> Released 11/19/2024 <a style="font-size: 12px;" href="https://redd.it/1gvbfn9" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/838408/gfx_win_101.6297.exe" target="_blank" class="intel-button">32.0.101.6297</a> Released 11/12/2024 <a style="font-size: 12px;" href='javascript:alert("Sorry, a Reddit community thread on this driver was not found.")'><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_grey.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/837567/gfx_win_101.6130_101.6048.exe" target="_blank" class="intel-button">32.0.101.6130/32.0.101.6048</a> Released 10/29/2024 <a style="font-size: 12px;" href='javascript:alert("Sorry, a Reddit community thread on this driver was not found.")'><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_grey.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/836996/gfx_win_101.6129_101.6045.exe" target="_blank" class="intel-button">32.0.101.6129/32.0.101.6045</a> Released 10/24/2024 <a style="font-size: 12px;" href='javascript:alert("Sorry, a Reddit community thread on this driver was not found.")'><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_grey.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/836467/gfx_win_101.6127_101.6044.exe" target="_blank" class="intel-button">32.0.101.6127/32.0.101.6044</a> Released 10/18/2024 <a style="font-size: 12px;" href='javascript:alert("Sorry, a Reddit community thread on this driver was not found.")'><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_grey.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/835141/gfx_win_101.6083_101.5736.exe" target="_blank" class="intel-button">32.0.101.6083/32.0.101.5736</a> Released 10/7/2024 <a style="font-size: 12px;" href='javascript:alert("Sorry, a Reddit community thread on this driver was not found.")'><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_grey.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/834631/gfx_win_101.6079_101.5736.exe" target="_blank" class="intel-button">332.0.101.6079/32.0.101.5736</a> Released 9/26/2024 <a style="font-size: 12px;" href='javascript:alert("Sorry, a Reddit community thread on this driver was not found.")'><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_grey.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/834050/gfx_win_101.6078_101.5736.exe" target="_blank" class="intel-button">32.0.101.6078/32.0.101.5736 (WHQL Certified)</a> Released 9/24/2024 <a style="font-size: 12px;" href='javascript:alert("Sorry, a Reddit community thread on this driver was not found.")'><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_grey.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/833969/gfx_win_101.6078.exe" target="_blank" class="intel-button">32.0.101.6078</a> Released 9/20/2024 <a style="font-size: 12px;" href='javascript:alert("Sorry, a Reddit community thread on this driver was not found.")'><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_grey.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/833530/gfx_win_101.6077.exe" target="_blank" class="intel-button">32.0.101.6077</a> Released 9/17/2024 <a style="font-size: 12px;" href="https://redd.it/1fjd7bv" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/832318/gfx_win_101.5989.exe" target="_blank" class="intel-button">32.0.101.5989</a> Released 9/5/2024 <a style="font-size: 12px;" href="https://redd.it/1fdbo37" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/830975/gfx_win_101.5972.exe" target="_blank" class="intel-button">32.0.101.5972 (WHQL Certified)</a> Released 8/23/2024 <a style="font-size: 12px;" href="https://redd.it/1f4o3he" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/828379/gfx_win_101.5768.exe" target="_blank" class="intel-button">32.0.101.5768</a> Released 7/29/2024 <a style="font-size: 12px;" href='javascript:alert("Sorry, a Reddit community thread on this driver was not found.")'><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_grey.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/827043/gfx_win_101.5762.exe" target="_blank" class="intel-button">32.0.101.5762</a> Released 7/9/2024 <a style="font-size: 12px;" href="https://redd.it/1dzj7l4" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/826612/gfx_win_101.5594.exe" target="_blank" class="intel-button">31.0.101.5594</a> Released 7/2/2024 <a style="font-size: 12px;" href="https://redd.it/1du846c" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/826278/gfx_win_101.5593.exe" target="_blank" class="intel-button">31.0.101.5593</a> Released 6/27/2024 <a style="font-size: 12px;" href="https://redd.it/1dqdrw8" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/825935/gfx_win_101.5592.exe" target="_blank" class="intel-button">31.0.101.5592 (WHQL Certified)</a> Released 6/24/2024 <a style="font-size: 12px;" href="https://redd.it/1dnr2wc" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/825322/gfx_win_101.5590.exe" target="_blank" class="intel-button">31.0.101.5590 (WHQL Certified)</a> Released 6/14/2024 <a style="font-size: 12px;" href="https://redd.it/1dg6cyf" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/823942/gfx_win_101.5534.exe" target="_blank" class="intel-button">31.0.101.5534</a> Released 5/28/2024 <a style="font-size: 12px;" href="https://redd.it/1d2yj4x" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/823163/gfx_win_101.5522.exe" target="_blank" class="intel-button">31.0.101.5522 (WHQL Certified)</a> Released 5/16/2024 <a style="font-size: 12px;" href="https://redd.it/1dqdrw8" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/822872/gfx_win_101.5518.exe" target="_blank" class="intel-button">31.0.101.5518</a> Released 5/13/2024 <a style="font-size: 12px;" href="https://redd.it/1crlcu7" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/822645/gfx_win_101.5448.exe" target="_blank" class="intel-button">31.0.101.5448 (WHQL Certified)</a> Released 5/10/2024 <a style="font-size: 12px;" href="https://redd.it/1cp09v1" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/821410/gfx_win_101.5445.exe" target="_blank" class="intel-button">31.0.101.5445 (WHQL Certified)</a> Released 4/24/2024 <a style="font-size: 12px;" href="https://redd.it/1cckuon" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/821201/gfx_win_101.5444.exe" target="_blank" class="intel-button">31.0.101.5444</a> Released 4/19/2024 <a style="font-size: 12px;" href="https://redd.it/1c84vh4" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/819065/gfx_win_101.5382.exe" target="_blank" class="intel-button">31.0.101.5382 (WHQL Certified)</a> Released 3/29/2024 <a style="font-size: 12px;" href="https://redd.it/1br41ji" target="_blank"><img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" title="See Reddit community discussion on this driver." alt="See reddit discussion" width="2.9%" height="2.9%"></a></p>
-         <p> <a href="https://downloadmirror.intel.com/818865/gfx_win_101.5379.exe" target="_blank" class="intel-button">31.0.101.5379</a> Released 3/20/2024</p>
-         <p> <a href="https://downloadmirror.intel.com/816901/gfx_win_101.5333.exe" target="_blank" class="intel-button">31.0.101.5333 (WHQL Certified)</a> Released 2/26/2024</p>
-         <p> <a href="https://downloadmirror.intel.com/816214/gfx_win_101.5330.exe" target="_blank" class="intel-button">31.0.101.5333 (WHQL Certified)</a> Released 2/17/2024</p>
-         <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">Drivers list updated: 06-23-25</p>
-       </div>
-       <br>
-
-       </section>
+            <div class="container">
+                <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt='Intel' class="platform">
+                <h2>Intel ARC Drivers</h2>
+            </div>
+            <p>These drivers on this list are game ready drivers and only for desktop/laptop (arc drivers seem to be desktop/laptop installers) ARC GPU's currently supported by <a href="https://www.intel.com/content/www/us/en/download/726609/intel-arc-graphics-windows-dch-driver.html" target="_blank">Intel</a>. For desktop drivers see <a href="/display/">here</a>. This website is not affiliated with Intel in any way.</p>
+            
+            <button class="Icollapsible">Game On GPU Drivers</button>
+            <div class="Gcontent">
+                <h3 class="driver-category">Game On GPU Drivers:</h3>
+                <div id="intel-game-on-drivers"></div>
+            </div>
+        </section>
 
         <section class="driver-section">
-            <!-- <h2>Nvidia Graphics Drivers</h2> -->
-             <div class="container">
-                 <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt='Platform' class="platform"  width="6%" height="6%">
-                 <h2>AMD Radeon (Adrenalin) Drivers</h2>
-               </div>
-               <br>
-             <p>For desktop drivers see <a href="/display/">here</a>. This website is not affiliated with AMD in any way. Direct downloads for AMD drivers are not available as <a href="https://www.amd.com/en/support/kb/faq/download-incomplete" target="_blank">amd does not permit them</a>.</p>
-         <p> <a href="https://www.amd.com/en/support/download/drivers.html" target="_blank" class="amd-button">AMD auto detect and download tool</a></p>
-         </section>
+            <div class="container">
+                <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt='AMD' class="platform">
+                <h2>AMD Radeon (Adrenalin) Drivers</h2>
+            </div>
+            <p>For desktop drivers see <a href="/display/">here</a>. This website is not affiliated with AMD in any way. Direct downloads for AMD drivers are not available as <a href="https://www.amd.com/en/support/kb/faq/download-incomplete" target="_blank">AMD does not permit them</a>.</p>
+            
+            <div class="amd-download-btn-container">
+                <a href="https://www.amd.com/en/support/download/drivers.html" target="_blank" class="amd-button">
+                    <span class="material-icons">download</span> AMD auto detect and download tool
+                </a>
+            </div>
+        </section>
 
-         <a href="/" class="download-button">< Back</a>
-
-
+        <div class="back-container">
+            <a href="/" class="download-button">
+                <span class="material-icons">arrow_back</span> Back to Home
+            </a>
+        </div>
     </main>
 
+<footer>
+    <p><span id="site-version"></span>(<a href="https://github.com/BurntToasters/driverWeb/releases/latest" target="_blank">Release notes</a>)
+        <svg width="14px" height="14px" viewBox="0 0 24 24" style="cursor:pointer">
+            <g stroke-width="2.1" stroke="#595959" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
+                <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
+            </g>
+        </svg>
+    </p>
+    <p id="update-date"></p>
+    <p><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank">❤️ Support me :)</a> | <a href="/sitemap.xml">Sitemap</a></p>
+    <br>
+    <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
+        <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" style="max-width: 120px;" alt="DigitalOcean Referral Badge" />
+    </a>
+</footer>
+
+    <script src="darkMode.js"></script>
+    <script src="regionSwitcher.js"></script>
+    <script src="modern.js"></script>
+    <script src="versionInfo.js"></script>
+    <script src="driverLoader.js"></script>
     <script>
-      var coll = document.getElementsByClassName("Icollapsible");
-      var i;
-      
-      for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-          this.classList.toggle("active");
-          var content = this.nextElementSibling;
-          if (content.style.maxHeight){
-            content.style.maxHeight = null;
-          } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-          } 
+        document.addEventListener('DOMContentLoaded', function() {
+            //Base URL
+            const baseUrl = "https://raw.githubusercontent.com/BurntToasters/driverHub-data/main/";
+            
+
+            loadDrivers(baseUrl + 'nvidia-game-ready-laptop.json', 'nvidia-game-ready-laptop-drivers');
+            loadDrivers(baseUrl + 'nvidia-studio-laptop.json', 'nvidia-studio-laptop-drivers');
+            loadDrivers(baseUrl + 'intel-game-on.json', 'intel-game-on-drivers');
+            
+
+            function removeExistingListeners(elements) {
+                Array.from(elements).forEach(element => {
+                    const newElement = element.cloneNode(true);
+                    element.parentNode.replaceChild(newElement, element);
+                });
+                return document.getElementsByClassName(elements[0].className);
+            }
+            
+            // NVIDIA collapsible 
+            var coll = removeExistingListeners(document.getElementsByClassName("Ncollapsible"));
+            for (var i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    
+                    void content.offsetHeight;
+                    
+                    if (content.classList.contains('visible')) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        setTimeout(() => {
+                            content.style.maxHeight = null;
+                            content.classList.remove('visible');
+                        }, 10);
+                    } else {
+                        content.classList.add('visible');
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            }
+            
+            var icoll = removeExistingListeners(document.getElementsByClassName("Icollapsible"));
+            for (var i = 0; i < icoll.length; i++) {
+                icoll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    
+                    void content.offsetHeight;
+                    
+                    if (content.classList.contains('visible')) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        setTimeout(() => {
+                            content.style.maxHeight = null;
+                            content.classList.remove('visible');
+                        }, 10);
+                    } else {
+                        content.classList.add('visible');
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            }
         });
-      }
-      </script>
-
-
-    <script>
-      var coll = document.getElementsByClassName("Ncollapsible");
-      var i;
-      
-      for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-          this.classList.toggle("active");
-          var content = this.nextElementSibling;
-          if (content.style.maxHeight){
-            content.style.maxHeight = null;
-          } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-          } 
-        });
-      }
-      </script>
-
-<script src="darkMode.js"></script>
+    </script>
 </body>
 </html>

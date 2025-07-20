@@ -4,58 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driver Downloads</title>
-    <link rel="stylesheet" href="v3.css">
+    <link rel="stylesheet" href="v4.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-   <!-- <div class="banner">
-        <div class="banner__content">
-          <div class="banner__text">
-            <strong>NEW: </strong> driverhub.win got a huge visual and functional overhaul! <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank"><u style="color:black">See whats changed</u>!</a>
-          </div>
-          <button class="banner__close" type="button">
-            <span class="material-icons">close</span>
-          </button>
+        <!-- TEMPORARY CODE - Banner notification for site update - TO BE DELETED -->
+    <div id="update-notification-banner" style="display: none;">
+      <div class="update-banner-content">
+        <div class="update-banner-message">
+          🚀 Major site update in progress! Some features may be temporarily unstable as we roll out visual and code improvements.
         </div>
+        <button id="dismiss-update-banner">Dismiss</button>
+      </div>
     </div>
-This banner has been up for about a year; it is fully hidden now.
-    -->
+    <!-- END TEMPORARY CODE -->
+
+    <!-- TEMPORARY CODE - Banner CSS - TO BE DELETED -->
+    <style>
+      #update-notification-banner {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 12px 20px;
+        text-align: center;
+        position: relative;
+        z-index: 1000;
+        width: 100%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .dark-mode #update-notification-banner {
+        background-color: #1a3b6d;
+      }
+
+      .update-banner-content {
+        max-width: var(--content-max-width);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+      }
+
+      .update-banner-message {
+        flex: 1;
+        font-size: 15px;
+        line-height: 1.4;
+      }
+
+      #dismiss-update-banner {
+        background-color: white;
+        color: var(--primary-color);
+        border: none;
+        padding: 5px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s;
+        white-space: nowrap;
+      }
+
+      #dismiss-update-banner:hover {
+        background-color: #f0f0f0;
+        transform: none;
+      }
+
+      @media (max-width: 768px) {
+        .update-banner-content {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    </style>
+    <!-- END TEMPORARY CODE -->
     <header>
-        <p style="text-align:center;"><a href="/"><img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" style="max-width: 80px;"></a></p>
+        <div class="logo-container">
+            <a href="/">
+                <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub Logo">
+            </a>
+        </div>
         <h1>DriverHub.win: A personal project for common driver downloads and more!</h1>
         <p>This is a list of common drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
-        <p>
-            <a href="/" class="download-button-h"><u>Home</u></a> 
-            <a href="/display" class="nvidia-button">Video Drivers</a>  
-            <a href="/chipset" class="chipset-button">Chipset Drivers</a> 
-            <a href="#" class="g-button"><s>Network Drivers (Coming Soon)</s></a>  
-            <a href="#" class="g-button"><s>Audio Drivers (Re-working)</s></a> 
-            <a href="/contact" class="g-button">Contact</a> 
+        
+        <nav class="nav-container">
+            <a href="/" class="download-button-h"><span class="material-icons">home</span> Home</a> 
+            <a href="/display" class="nvidia-button"><span class="material-icons">videocam</span> Video Drivers</a>  
+            <a href="/chipset" class="chipset-button"><span class="material-icons">memory</span> Chipset Drivers</a> 
+            <a href="#" class="g-button"><span class="material-icons">wifi</span> <s>Network Drivers</s></a>  
+            <a href="#" class="g-button"><span class="material-icons">headphones</span> <s>Audio Drivers</s></a> 
+            <a href="/contact" class="g-button"><span class="material-icons">email</span> Contact</a> 
             <a href="https://docs.rexxit.net/drivers-website/" target="_blank" class="download-button">
-                Docs <svg width="14px" height="14px" viewBox="0 0 24 24"><g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg>
+                <span class="material-icons">description</span> Docs
+                <svg width="14px" height="14px" viewBox="0 0 24 24">
+                    <g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
+                        <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
+                    </g>
+                </svg>
             </a>
-        </p>
-        <script>
-          document.addEventListener("DOMContentLoaded", function () {
-              // Check if the banner should be hidden based on localStorage
-              if (localStorage.getItem("bannerClosed") === "true") {
-                  document.querySelector(".banner").style.display = "none";
-              }
-      
-              // Add click event listener to the close button
-              document.querySelector(".banner__close").addEventListener("click", function () {
-                  this.closest(".banner").style.display = "none";
-                  // Store the user's preference in localStorage
-                  localStorage.setItem("bannerClosed", "true");
-              });
-          });
-      </script>
-          <button class="settings-button">
+        </nav>
+        
+        <button class="settings-button">
             <span class="material-icons">settings</span>
         </button>
     </header>
-    <script src="darkMode.js"></script>
+
     <div id="settings-overlay" class="settings-overlay">
         <div class="settings-content">
             <span class="close-settings">&times;</span>
@@ -75,68 +130,108 @@ This banner has been up for about a year; it is fully hidden now.
                 <option value="USA">🇺🇸 USA</option>
                 <option value="EU">🇪🇺 EU</option>
             </select>
-            <a href="https://docs.rexxit.net/drivers-website/articles/region-selection" style="color: lightslategray;">Learn more about region selection</a>
-            
+            <a href="https://docs.rexxit.net/drivers-website/articles/region-selection" style="color: var(--primary-color);">Learn more about region selection</a>
         </div>
-      </div>
-      <script src="regionSwitcher.js"></script>
+    </div>
 
     <main>
         <section class="driver-section">
-
             <div class="container">
-                <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt='Platform' class="platform" width="7%" height="7%"> <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt='Platform' class="platform" width="6%" height="6%"> <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt='Platform' class="platform" width="5%" height="5%">
+                <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt='NVIDIA' class="platform">
+                <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt='AMD' class="platform"> 
+                <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt='Intel' class="platform">
                 <h2>Graphics Drivers</h2>
             </div>
-                <h3> Download NVIDIA, AMD, or INTEL Graphics Drivers:</h3>
-              <br>
-            <a href="/display" class="download-button">    Download Graphics Drivers</a>
+            <h3>Download NVIDIA, AMD, or INTEL Graphics Drivers:</h3>
+            <a href="/display" class="download-button">
+                <span class="material-icons">download</span> Download Graphics Drivers
+            </a>
         </section>
+        
         <section class="driver-section">
-            
             <div class="container">
-                <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt='Platform' class="platform" width="5%" height="5%"> <img src="https://prod.rexxit.net/drweb/assets/amdryzen.png" alt='Platform' class="platform" width="5%" height="5%">
+                <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt='Intel' class="platform">
+                <img src="https://prod.rexxit.net/drweb/assets/amdryzen.png" alt='AMD Ryzen' class="platform">
                 <h2>Chipset Drivers</h2>
             </div>
-                <h3>Download INTEL/AMD Chipset Drivers:</h3>
-
-              <br>
-            <a href="/chipset" class="download-button">    Download Chipset Drivers</a>
+            <h3>Download INTEL/AMD Chipset Drivers:</h3>
+            <a href="/chipset" class="download-button">
+                <span class="material-icons">download</span> Download Chipset Drivers
+            </a>
         </section>
-
 
         <section class="driver-section">
             <div class="container">
-            <img src="https://prod.rexxit.net/drweb/assets/realtek.png" alt='Platform' class="platform" width="7%">
-            <h2>Audio Drivers</h2>
-        </div>
+                <img src="https://prod.rexxit.net/drweb/assets/realtek.png" alt='Realtek' class="platform">
+                <h2>Audio Drivers</h2>
+            </div>
             <h3>Get the latest audio drivers:</h3>
-            <a href="#" class="download-button">Coming Soon!</a>
-        </section>
-
-
-        <section class="driver-section">
-            <h2>Network Drivers</h2>
-            <h3>Stay connected with the latest network drivers:</h3>
-            <a href="#" class="download-button">Coming Soon!</a>
+            <a href="#" class="download-button">
+                <span class="material-icons">pending</span> Coming Soon!
+            </a>
         </section>
 
         <section class="driver-section">
             <div class="container">
-                <img src="https://prod.rexxit.net/drweb/assets/mail.png" alt='Platform' class="platform" width="8%">
-                 <h2>Contact</h2>
-               </div>
+                <span class="material-icons" style="font-size: 40px; color: var(--primary-color);">wifi</span>
+                <h2>Network Drivers</h2>
+            </div>
+            <h3>Stay connected with the latest network drivers:</h3>
+            <a href="#" class="download-button">
+                <span class="material-icons">pending</span> Coming Soon!
+            </a>
+        </section>
+
+        <section class="driver-section">
+            <div class="container">
+                <img src="https://prod.rexxit.net/drweb/assets/mail.png" alt='Contact' class="platform">
+                <h2>Contact</h2>
+            </div>
             <h3>Questions? Comments? or Something Else?</h3>
-            <a href="/contact" class="download-button">Contact me!</a>
+            <a href="/contact" class="download-button">
+                <span class="material-icons">email</span> Contact me!
+            </a>
         </section>
     </main>
 
-    <footer>
-        <p style="font-family: Arial, Helvetica, sans-serif; color: cadetblue;">V 3.2.1-R2 (<a href="https://github.com/BurntToasters/driverWeb/releases/latest" target="_blank">Release notes</a>) <svg width="14px" height="14px" viewBox="0 0 24 24" style="cursor:pointer"><g stroke-width="2.1" stroke="#595959" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg></p>
-        <p style="font-family: Arial, Helvetica, sans-serif; color: cadetblue;">Updated 6/23/25 (mm/dd/yy)</p>
-        <p style="font-family: Arial, Helvetica, sans-serif; color: black; font-size: 12px;"><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank">❤️ Support me :)</a> | <a href="/sitemap.xml">Sitemap</a></p>
-        <br>
-        <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" style="max-width: 8%;" alt="DigitalOcean Referral Badge" /></a>
-    </footer>
+<footer>
+    <p><span id="site-version"></span>(<a href="https://github.com/BurntToasters/driverWeb/releases/latest" target="_blank">Release notes</a>)
+        <svg width="14px" height="14px" viewBox="0 0 24 24" style="cursor:pointer">
+            <g stroke-width="2.1" stroke="#595959" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
+                <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
+            </g>
+        </svg>
+    </p>
+    <p id="update-date"></p>
+    <p><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank">❤️ Support me :)</a> | <a href="/sitemap.xml">Sitemap</a></p>
+    <br>
+    <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
+        <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" style="max-width: 120px;" alt="DigitalOcean Referral Badge" />
+    </a>
+</footer>
+
+    <!-- TEMPORARY CODE - Banner JavaScript - TO BE DELETED -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const updateBanner = document.getElementById('update-notification-banner');
+    const dismissButton = document.getElementById('dismiss-update-banner');
+    
+    if (!localStorage.getItem('updateBannerDismissed')) {
+      updateBanner.style.display = 'block';
+    }
+    
+    dismissButton.addEventListener('click', function() {
+      updateBanner.style.display = 'none';
+      localStorage.setItem('updateBannerDismissed', 'true');
+    });
+  });
+</script>
+<!-- END TEMPORARY CODE -->
+
+    <script src="darkMode.js"></script>
+    <script src="regionSwitcher.js"></script>
+    <script src="modern.js"></script>
+    <script src="versionInfo.js"></script>
 </body>
 </html>

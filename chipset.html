@@ -4,193 +4,245 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driver Downloads</title>
-    <link rel="stylesheet" href="v3.css">
+    <link rel="stylesheet" href="v4.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <header>
-    <p style="text-align:center;"><a href="/"><img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" style="max-width: 80px;"></a></p>
-    <h1>DriverHub.win: A personal project for common driver downloads and more!</h1>
-    <p>This is a list of common drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
-    <p>
-        <a href="/" class="download-button">Home</a> 
-        <a href="/display" class="nvidia-button">Video Drivers</a>  
-        <a href="/chipset" class="chipset-button-h"><u>Chipset Drivers</u></a> 
-        <a href="#" class="g-button"><s>Network Drivers (Coming Soon)</s></a>  
-        <a href="#" class="g-button"><s>Audio Drivers (Re-working)</s></a> 
-        <a href="/contact" class="g-button">Contact</a> 
-        <a href="https://docs.rexxit.net/drivers-website/" target="_blank" class="download-button">
-                Docs <svg width="14px" height="14px" viewBox="0 0 24 24"><g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg>
-          </a>
-    </p>
-    <button class="settings-button">
-        <span class="material-icons">settings</span>
-    </button>
-</header>
-<div id="settings-overlay" class="settings-overlay">
-  <div class="settings-content">
-      <span class="close-settings">&times;</span>
-      <h2>Settings</h2>
-      
-      <!-- Dark Mode Toggle -->
-      <label class="switch">
-          <input type="checkbox" id="darkModeToggle">
-          <span class="slider round"></span>
-      </label>
-      <span>Dark Mode</span>
-      <hr>
+    <header>
+        <div class="logo-container">
+            <a href="/">
+                <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub Logo">
+            </a>
+        </div>
+        <h1>DriverHub.win: A personal project for common driver downloads and more!</h1>
+        <p>This is a list of common drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
+        
+        <nav class="nav-container">
+            <a href="/" class="download-button-h"><span class="material-icons">home</span> Home</a> 
+            <a href="/display" class="nvidia-button"><span class="material-icons">videocam</span> Video Drivers</a>  
+            <a href="/chipset" class="chipset-button"><span class="material-icons">memory</span> <u>Chipset Drivers</u></a> 
+            <a href="#" class="g-button"><span class="material-icons">wifi</span> <s>Network Drivers</s></a>  
+            <a href="#" class="g-button"><span class="material-icons">headphones</span> <s>Audio Drivers</s></a> 
+            <a href="/contact" class="g-button"><span class="material-icons">email</span> Contact</a> 
+            <a href="https://docs.rexxit.net/drivers-website/" target="_blank" class="download-button">
+                <span class="material-icons">description</span> Docs
+                <svg width="14px" height="14px" viewBox="0 0 24 24">
+                    <g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
+                        <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
+                    </g>
+                </svg>
+            </a>
+        </nav>
+        
+        <button class="settings-button">
+            <span class="material-icons">settings</span>
+        </button>
+    </header>
 
-      <!-- Region Selection -->
-      <label for="regionSelect">Select Region:</label>
-      <select id="regionSelect" class="region-dropdown">
-          <option value="USA">🇺🇸 USA</option>
-          <option value="EU">🇪🇺 EU</option>
-      </select>
-      <a href="https://docs.rexxit.net/drivers-website/articles/region-selection" style="color: lightslategray;">Learn more about region selection</a>
+    <div id="settings-overlay" class="settings-overlay">
+        <div class="settings-content">
+            <span class="close-settings">&times;</span>
+            <h2>Settings</h2>
+            
+            <!-- Dark Mode Toggle -->
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider round"></span>
+            </label>
+            <span>Dark Mode</span>
+            <hr>
       
-  </div>
-</div>
-<script src="regionSwitcher.js"></script>
+            <!-- Region Selection -->
+            <label for="regionSelect">Select Region:</label>
+            <select id="regionSelect" class="region-dropdown">
+                <option value="USA">🇺🇸 USA</option>
+                <option value="EU">🇪🇺 EU</option>
+            </select>
+            <a href="https://docs.rexxit.net/drivers-website/articles/region-selection">Learn more about region selection</a>
+        </div>
+    </div>
+
     <main>
-        <br>
-        <br>
-        <br>    
+        
+        
+        <h1 class="page-title">Chipset Drivers</h1>
 
-
-
-        <!--AMD CHIPSET BOX-->
         <section class="driver-section">
             <div class="container">
-                <img src="https://prod.rexxit.net/drweb/assets/amdryzen.png" alt='Platform' class="platform" width="6%" height="6%">
+                <img src="https://prod.rexxit.net/drweb/assets/amdryzen.png" alt="AMD Ryzen" class="platform">
                 <h2>AMD Ryzen Chipset Drivers</h2>
-              </div>
-              <br>
+            </div>
             <p>Select your Ryzen socket version below to be directed to the correct chipset download page.</p>
-            <p style="font-size: 12px;"><a href="https://www.amd.com/en/support/download/drivers.html" target="_blank" class="amd-button-h">Use Amd's auto-detect and install program</a></p>
-            <br>
-            <!--BEGIN AM5 SECTION-->
+            <p class="small-note">
+                <a href="https://www.amd.com/en/support/download/drivers.html" target="_blank" class="amd-button">
+                    <span class="material-icons">download</span> Use AMD's auto-detect and install program
+                </a>
+            </p>
+            
             <button class="Acollapsible">AM5</button>
             <div class="Gcontent">
-              <br>
-        <select id="AM5">
-          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/x870e.html">X870E</option>
-          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/x870.html">X870</option>
-          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/x670e.html">X670E</option>
-          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/x670.html">X670</option>
-          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/b650e.html">B650E</option>
-          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/b650.html">B650</option>
-          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/a620.html">A620</option>
-        </select>
-        <button onclick="goToAm5()" class="a-select-button">Select</button>
-                <br>
-                <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">List Updated 12-03-24</p>
+                <div class="select-container">
+                    <select id="AM5" class="chipset-select">
+                        <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/x870e.html">X870E</option>
+                        <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/x870.html">X870</option>
+                        <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/x670e.html">X670E</option>
+                        <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/x670.html">X670</option>
+                        <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/b650e.html">B650E</option>
+                        <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/b650.html">B650</option>
+                        <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/a620.html">A620</option>
+                    </select>
+                    <button onclick="goToAm5()" class="amd-button select-button">
+                        <span class="material-icons">arrow_forward</span> Go to Download
+                    </button>
+                </div>
+                <div class="update-note">
+                    List updated: 12-03-24
+                </div>
             </div>
-            <!--END AM5 SECTION-->
 
-            <br>
-            <!--BEGIN AM4 SECTION-->
             <button class="Acollapsible">AM4</button>
             <div class="Gcontent">
-              <br>
-        <select id="AM4">
-          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/x570.html">X570</option>
-          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/x470.html">X470</option>
-          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/x370.html">X370</option>
-          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/b550.html">B550</option>
-          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/b450.html">B450</option>
-          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/b350.html">B350</option>
-          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/a520.html">A520</option>
-          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/a320.html">A320</option>
-          <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/pro565.html">PRO565</option>
-        </select>
-        <button onclick="goToAm4()" class="a-select-button">Select</button>
-                <br>
-                <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">List Updated 5-10-24</p>
+                <div class="select-container">
+                    <select id="AM4" class="chipset-select">
+                        <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/x570.html">X570</option>
+                        <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/x470.html">X470</option>
+                        <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/x370.html">X370</option>
+                        <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/b550.html">B550</option>
+                        <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/b450.html">B450</option>
+                        <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/b350.html">B350</option>
+                        <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/a520.html">A520</option>
+                        <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/a320.html">A320</option>
+                        <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/pro565.html">PRO565</option>
+                    </select>
+                    <button onclick="goToAm4()" class="amd-button select-button">
+                        <span class="material-icons">arrow_forward</span> Go to Download
+                    </button>
+                </div>
+                <div class="update-note">
+                    List updated: 5-10-24
+                </div>
             </div>
-        
-        <!--END AM4 SECTION-->
         </section>
-        <!--END AMD BOX-->
-        
-        <!--BEGIN INTEL CHIPSET BOX-->
 
         <section class="driver-section">
-          <div class="container">
-              <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt='Platform' class="platform" width="6%" height="6%">
-              <h2>Intel Chipset Drivers</h2>
+            <div class="container">
+                <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt="Intel" class="platform">
+                <h2>Intel Chipset Drivers</h2>
             </div>
-            <br>
-          <p>Select the collapsible below to explore your intel chipset options.</p>
-          <!--BEGIN INTEL SECTION-->
-          <button class="Icollapsible">INTEL - ALL CHIPSETS</button>
-          <div class="Gcontent">
-            <br>
-            <p><a href="https://www.intel.com/content/www/us/en/download/19347/chipset-inf-utility.html" target="_blank" class="intel-button">Download Intel's Chipset INF Utility</a> (Intel does not have easily findable seperate installers for each of their chipsets, but this app will find them and install them if needed. Generaly you don't need seperate chipset drivers for Intel).</p>
-              <br>
-          </div>        
-          <!--END INTEL SECTION-->
-        <!--END INTEL CHIPSET BOX-->
-          </section>
-         <a href="/" class="download-button">< Back</a>
+            <p>Select the collapsible below to explore your Intel chipset options.</p>
+            
+            <button class="Icollapsible">INTEL - ALL CHIPSETS</button>
+            <div class="Gcontent">
+                <p>
+                    <a href="https://www.intel.com/content/www/us/en/download/19347/chipset-inf-utility.html" target="_blank" class="intel-button">
+                        <span class="material-icons">download</span> Download Intel's Chipset INF Utility
+                    </a>
+                </p>
+                <p class="info-text">
+                    Intel does not have easily findable separate installers for each of their chipsets, but this app will find them and install them if needed. Generally, you don't need separate chipset drivers for Intel.
+                </p>
+            </div>
+        </section>
 
-        <!--SCRIPTS FOR CHIPSET VERSIONS-->
+        <div class="back-container">
+            <a href="/" class="download-button">
+                <span class="material-icons">arrow_back</span> Back to Home
+            </a>
+        </div>
+    </main>
 
-         <script>
-          function goToAm5() {
+<footer>
+    <p><span id="site-version"></span>(<a href="https://github.com/BurntToasters/driverWeb/releases/latest" target="_blank">Release notes</a>)
+        <svg width="14px" height="14px" viewBox="0 0 24 24" style="cursor:pointer">
+            <g stroke-width="2.1" stroke="#595959" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
+                <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
+            </g>
+        </svg>
+    </p>
+    <p id="update-date"></p>
+    <p><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank">❤️ Support me :)</a> | <a href="/sitemap.xml">Sitemap</a></p>
+    <br>
+    <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
+        <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" style="max-width: 120px;" alt="DigitalOcean Referral Badge" />
+    </a>
+</footer>
+
+    <script src="darkMode.js"></script>
+    <script src="regionSwitcher.js"></script>
+    <script src="modern.js"></script>
+    <script src="versionInfo.js"></script>
+    <script>
+        function goToAm5() {
             var selectElement = document.getElementById("AM5");
             var selectedValue = selectElement.value;
             window.location.href = selectedValue;
-          }
+        }
 
-        </script>
+        function goToAm4() {
+            var selectElement = document.getElementById("AM4");
+            var selectedValue = selectElement.value;
+            window.location.href = selectedValue;
+        }
 
-<script>
-  function goToAm4() {
-    var selectElement = document.getElementById("AM4");
-    var selectedValue = selectElement.value;
-    window.location.href = selectedValue;
-  }
-
-</script>
-
-
- <!--END SCRIPTS FOR CHIPSET VERSIONS-->
-
-<script>
-  var coll = document.getElementsByClassName("Acollapsible");
-  var i;
-  
-  for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      if (content.style.maxHeight){
-        content.style.maxHeight = null;
-      } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-      } 
-    });
-  }
-  </script>
-
-<script>
-  var coll = document.getElementsByClassName("Icollapsible");
-  var i;
-  
-  for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      if (content.style.maxHeight){
-        content.style.maxHeight = null;
-      } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-      } 
-    });
-  }
-  </script>
-    </main>
-    <script src="darkMode.js"></script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            function removeExistingListeners(element) {
+                const newElement = element.cloneNode(true);
+                element.parentNode.replaceChild(newElement, element);
+                return newElement;
+            }
+            
+            
+            var acoll = document.getElementsByClassName("Acollapsible");
+            for (var i = 0; i < acoll.length; i++) {
+                acoll[i] = removeExistingListeners(acoll[i]);
+                acoll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    
+                    
+                    void content.offsetHeight;
+                    
+                    if (content.classList.contains('visible')) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        setTimeout(() => {
+                            content.style.maxHeight = null;
+                            content.classList.remove('visible');
+                        }, 10);
+                    } else {
+                        content.classList.add('visible');
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            }
+            
+            
+            var icoll = document.getElementsByClassName("Icollapsible");
+            for (var i = 0; i < icoll.length; i++) {
+                icoll[i] = removeExistingListeners(icoll[i]);
+                icoll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    
+                    void content.offsetHeight;
+                    
+                    if (content.classList.contains('visible')) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        setTimeout(() => {
+                            content.style.maxHeight = null;
+                            content.classList.remove('visible');
+                        }, 10);
+                    } else {
+                        content.classList.add('visible');
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

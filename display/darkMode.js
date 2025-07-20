@@ -1,14 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Check if user has a preference saved
     const userPreference = localStorage.getItem('darkMode');
     const darkModeToggle = document.getElementById('darkModeToggle');
     const settingsOverlay = document.getElementById('settings-overlay');
     const closeSettings = document.querySelector('.close-settings');
 
-    // Check if the user has dark mode enabled in their system
     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    // Function to apply dark or light mode
     function applyDarkMode(isDark) {
         if (isDark) {
             document.body.classList.add('dark-mode');
@@ -17,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Apply saved preference or system default
     if (darkModeToggle) {
         if (userPreference === null) {
             applyDarkMode(prefersDarkScheme);
@@ -27,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
             darkModeToggle.checked = userPreference === 'dark';
         }
 
-        // Toggle dark mode and save preference
         darkModeToggle.addEventListener('change', () => {
             if (darkModeToggle.checked) {
                 applyDarkMode(true);
@@ -39,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Show settings overlay
     const settingsButton = document.querySelector('.settings-button');
     if (settingsButton && settingsOverlay) {
         settingsButton.addEventListener('click', () => {
@@ -47,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Close settings overlay when clicking the X or outside the content
     if (closeSettings && settingsOverlay) {
         closeSettings.addEventListener('click', () => {
             settingsOverlay.style.display = 'none';
