@@ -940,3 +940,47 @@ footer img:hover {
         height: 550px;
     }
 }
+
+.hash-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.hash-button:hover {
+    background-color: var(--secondary-color-hover);
+}
+
+.hash-button.active {
+    background-color: var(--primary-color);
+}
+
+.hash-container {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    padding: 8px 12px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-left: 3px solid var(--primary-color);
+    border-radius: 2px;
+    font-family: monospace;
+    font-size: 0.9em;
+    word-break: break-all;
+    color: var(--text-color);
+}
+
+.hash-label {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.hash-value {
+    font-family: 'Courier New', Courier, monospace;
+}

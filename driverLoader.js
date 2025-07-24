@@ -5,7 +5,6 @@
 function loadDrivers(jsonUrl, containerId) {
     console.log(`Loading drivers from: ${jsonUrl} into #${containerId}`);
     
-    //region preference
     const userRegion = localStorage.getItem("userRegion") || "USA";
     
     fetch(jsonUrl)
@@ -23,7 +22,6 @@ function loadDrivers(jsonUrl, containerId) {
                 return;
             }
             
-            //Clear existing
             container.innerHTML = '';
             
             if (data.warningMessage) {
@@ -33,23 +31,21 @@ function loadDrivers(jsonUrl, containerId) {
                 container.appendChild(warningDiv);
             }
             
-            //driver list container
             const driverList = document.createElement('div');
             driverList.className = 'driver-list';
-            
-            //Add driver
+                   
             data.drivers.forEach(driver => {
                 const driverItem = document.createElement('div');
                 driverItem.className = driver.hasWarning ? 'driver-item warning' : 'driver-item';
                 
-                //driver link/warning link
+                
                 const driverLink = document.createElement('a');
                 if (driver.hasWarning && driver.warningUrl) {
                     driverLink.href = driver.warningUrl;
                     driverLink.className = 'amd-button';
                     driverLink.innerHTML = `⚠️ ${driver.version} - ${driver.type}`;
                 } else if (driver.downloadUrl) {
-                    //Apply region NVIDIA URLs
+                    
                     let downloadUrl = driver.downloadUrl;
                     if (containerId.includes('nvidia') && userRegion === "EU") {
                         downloadUrl = downloadUrl.replace("us.download.nvidia.com", "uk.download.nvidia.com");
@@ -59,7 +55,6 @@ function loadDrivers(jsonUrl, containerId) {
                     driverLink.target = '_blank';
                     driverLink.className = containerId.includes('nvidia') ? 'nvidia-button' : 'intel-button';
                     driverLink.textContent = `${driver.version} ${driver.type ? '- ' + driver.type : ''}`;
-                    
                     
                     driverLink.dataset.originalUrl = driver.downloadUrl;
                 } else {
@@ -75,11 +70,37 @@ function loadDrivers(jsonUrl, containerId) {
                 dateSpan.textContent = `Released ${driver.releaseDate}`;
                 driverItem.appendChild(dateSpan);
                 
-                //containers
+                if (driver.sha256sum) {
+                    const hashContainer = document.createElement('div');
+                    hashContainer.className = 'hash-container';
+                    hashContainer.style.display = 'none';
+                    hashContainer.innerHTML = `<span class="hash-label">SHA256:</span> <span class="hash-value">${driver.sha256sum}</span>`;
+                    
+                    const hashButton = document.createElement('button');
+                    hashButton.className = 'hash-button';
+                    hashButton.innerHTML = '<span class="material-icons">fingerprint</span>';
+                    hashButton.title = 'Show SHA256 hash';
+                    hashButton.onclick = function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if (hashContainer.style.display === 'none') {
+                            hashContainer.style.display = 'block';
+                            hashButton.title = 'Hide SHA256 hash';
+                            hashButton.classList.add('active');
+                        } else {
+                            hashContainer.style.display = 'none';
+                            hashButton.title = 'Show SHA256 hash';
+                            hashButton.classList.remove('active');
+                        }
+                    };
+                    
+                    driverItem.appendChild(hashButton);
+                    driverItem.appendChild(hashContainer);
+                }
+                
                 const iconsContainer = document.createElement('div');
                 iconsContainer.className = 'driver-icons-container';
                 
-                //Reddit link
                 if (driver.redditUrl) {
                     const communityLink = document.createElement('a');
                     communityLink.href = driver.redditUrl;
@@ -95,7 +116,6 @@ function loadDrivers(jsonUrl, containerId) {
                     iconsContainer.appendChild(communityLink);
                 }
                 
-                //stability grade
                 if (driver.isStable && driver.stabilityGrade) {
                     const gradeSpan = document.createElement('span');
                     gradeSpan.className = 'stability-grade';
@@ -110,7 +130,6 @@ function loadDrivers(jsonUrl, containerId) {
             
             container.appendChild(driverList);
             
-            //last updated note
             const updateNote = document.createElement('div');
             updateNote.className = 'update-note';
             updateNote.textContent = `Drivers list updated: ${data.lastUpdated}`;
