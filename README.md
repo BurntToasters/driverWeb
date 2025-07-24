@@ -1,7 +1,7 @@
 <p align="center"><img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" width="10%"></p>
 
-# DriverHub.win
-A website that lists common drivers and their native download links all in one place!
+# DriverWeb (Website: [driverhub.win](https://driverhub.win))
+A project that lists common drivers and their native download links all in one place!
 
 ## 🙌 Simplistic
 Intuative yet minimalistic UI allowing for easy viewing in both light or dark mode.
