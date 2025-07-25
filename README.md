@@ -12,7 +12,8 @@ Intuative yet minimalistic UI allowing for easy viewing in both light or dark mo
 - Reigon selection to those between EU and US based servers for driver downloads (on supported drivers [see more](https://docs.rexxit.net/drivers-website/articles/region-selection)).
 
 ## 🌐 Resources
-- [Driver List Data](https://github.com/BurntToasters/driverHub-data)
+- [📝 DriverHub.win Docs](https://docs.rexxit.net/drivers-website/)
+- [📜 Driver List Data](https://github.com/BurntToasters/driverHub-data)
 
 ## ⬇️ Direct downloads
 Downloads of any/all drivers on this website go the official companies download URL's and are **NOT** redistributed by me. This site is simply a "hub" for common drivers (such as video drivers).
