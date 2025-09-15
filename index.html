@@ -9,76 +9,6 @@
     <link rel="shortcut icon" type="image/x-icon" href="../global/favicon.ico">
 </head>
 <body>
-        <!-- TEMPORARY CODE - Banner notification for site update - TO BE DELETED -->
-    <div id="update-notification-banner" style="display: none;">
-      <div class="update-banner-content">
-        <div class="update-banner-message">
-          🚀 Major site update in progress! Some features may be temporarily unstable as we roll out visual and code improvements.
-        </div>
-        <button id="dismiss-update-banner">Dismiss</button>
-      </div>
-    </div>
-    <!-- END TEMPORARY CODE -->
-
-    <!-- TEMPORARY CODE - Banner CSS - TO BE DELETED -->
-    <style>
-      #update-notification-banner {
-        background-color: var(--primary-color);
-        color: white;
-        padding: 12px 20px;
-        text-align: center;
-        position: relative;
-        z-index: 1000;
-        width: 100%;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-      }
-
-      .dark-mode #update-notification-banner {
-        background-color: #1a3b6d;
-      }
-
-      .update-banner-content {
-        max-width: var(--content-max-width);
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 15px;
-      }
-
-      .update-banner-message {
-        flex: 1;
-        font-size: 15px;
-        line-height: 1.4;
-      }
-
-      #dismiss-update-banner {
-        background-color: white;
-        color: var(--primary-color);
-        border: none;
-        padding: 5px 12px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 500;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        transition: all 0.2s;
-        white-space: nowrap;
-      }
-
-      #dismiss-update-banner:hover {
-        background-color: #f0f0f0;
-        transform: none;
-      }
-
-      @media (max-width: 768px) {
-        .update-banner-content {
-          flex-direction: column;
-          gap: 10px;
-        }
-      }
-    </style>
-    <!-- END TEMPORARY CODE -->
     <header>
         <div class="logo-container">
             <a href="/">
@@ -210,25 +140,6 @@
         <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" style="max-width: 120px;" alt="DigitalOcean Referral Badge" />
     </a>
 </footer>
-
-    <!-- TEMPORARY CODE - Banner JavaScript - TO BE DELETED -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const updateBanner = document.getElementById('update-notification-banner');
-    const dismissButton = document.getElementById('dismiss-update-banner');
-    
-    if (!localStorage.getItem('updateBannerDismissed')) {
-      updateBanner.style.display = 'block';
-    }
-    
-    dismissButton.addEventListener('click', function() {
-      updateBanner.style.display = 'none';
-      localStorage.setItem('updateBannerDismissed', 'true');
-    });
-  });
-</script>
-<!-- END TEMPORARY CODE -->
-
     <script src="../global/darkMode.js"></script>
     <script src="../global/regionSwitcher.js"></script>
     <script src="../global/modern.js"></script>
