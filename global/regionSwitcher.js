@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateRegionIndicator(selectedRegion);
         
         //Force reload
-        const baseUrl = "https://raw.githubusercontent.com/BurntToasters/driverHub-data/main/";
+        const baseUrl = "https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/";
         
         //Check & load drivers
         if (document.getElementById('nvidia-game-ready-drivers')) {
