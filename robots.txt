@@ -2,5 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /display/warn
 Disallow: /404.html
-
 Sitemap: https://driverhub.win/sitemap.xml
