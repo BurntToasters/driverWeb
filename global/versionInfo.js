@@ -1,14 +1,14 @@
 const SITE_INFO = {
-    version: "V 4.2.6",
-    lastUpdated: "10/09/2025"
+    version: "V 4.2.7",
+    lastUpdated: "10/17/2025"
 };
 
 document.addEventListener('DOMContentLoaded', function() {
     
     const versionElement = document.getElementById('site-version');
     const dateElement = document.getElementById('update-date');
-    const fallbackVersion = "V 4.2.6";
-    const fallbackDate = "10/09/25";
+    const fallbackVersion = "V 4.2.7";
+    const fallbackDate = "10/17/25";
     
     function updateVersionInfo(version, date) {
         if (versionElement) versionElement.textContent = version + ' ';
