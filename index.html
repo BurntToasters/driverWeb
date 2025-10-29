@@ -55,6 +55,10 @@
     </script>
 </head>
 <body>
+    <div id="status-banner" class="status-banner" style="display: none;">
+        <span id="status-text">Site status update goes here.</span>
+        <button id="dismiss-banner" class="dismiss-banner" aria-label="Dismiss status banner">&times;</button>
+    </div>
     <header>
         <div class="logo-container">
             <a href="/">
@@ -190,5 +194,58 @@
     <script src="../global/regionSwitcher.js"></script>
     <script src="../global/modern.js"></script>
     <script src="../global/versionInfo.js"></script>
+    <script>
+    const STATUS_BANNER_ENABLED = true; // Banner toggle
+    const STATUS_BANNER_TEXT = "ⓘ STATUS 10/28/2025: Driver list update in progress. GPU Driver lists may be incomplete.";
+
+    const STATUS_BANNER_KEY = "statusBannerDismissed_" + STATUS_BANNER_TEXT;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const banner = document.getElementById('status-banner');
+        const text = document.getElementById('status-text');
+        const dismissBtn = document.getElementById('dismiss-banner');
+        const dismissed = localStorage.getItem(STATUS_BANNER_KEY);
+        if (STATUS_BANNER_ENABLED && !dismissed) {
+            banner.style.display = 'flex';
+            text.textContent = STATUS_BANNER_TEXT;
+        }
+        dismissBtn.addEventListener('click', function() {
+            banner.style.display = 'none';
+            localStorage.setItem(STATUS_BANNER_KEY, '1');
+        });
+    });
+    </script>
+    <style>
+    .status-banner {
+        width: 100%;
+        background: linear-gradient(90deg, #ff9800 0%, #ff5722 100%);
+        color: #fff;
+        font-weight: 500;
+        padding: 0.75em 1.5em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        font-size: 1.05em;
+        letter-spacing: 0.01em;
+    }
+    .dismiss-banner {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.5em;
+        cursor: pointer;
+        margin-left: 1em;
+        line-height: 1;
+        padding: 0 0.5em;
+        transition: color 0.2s;
+    }
+    .dismiss-banner:hover {
+        color: #ffd180;
+    }
+    </style>
 </body>
 </html>
