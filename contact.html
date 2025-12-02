@@ -32,9 +32,9 @@
         })();
     </script>
     
-    <link rel="stylesheet" href="../global/v4.css">
+    <link rel="stylesheet" href="../global/v5.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="../global/favicon.ico">
     
     <script type="application/ld+json">
@@ -63,33 +63,34 @@
 </head>
 <body>
     <header>
-        <div class="logo-container">
-            <a href="/">
-                <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub Logo">
-            </a>
+        <div class="header-content">
+            <div class="logo-container">
+                <a href="/">
+                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub Logo">
+                </a>
+            </div>
+            <h1>DriverHub.win</h1>
+            <p>Your trusted source for Windows 10 & 11 drivers — direct links to official downloads</p>
+        
+            <nav class="nav-container">
+                <a href="/" class="download-button-h"><span class="material-icons">home</span> Home</a> 
+                <a href="/display" class="nvidia-button"><span class="material-icons">videocam</span> Video Drivers</a>  
+                <a href="/chipset" class="chipset-button"><span class="material-icons">memory</span> Chipset Drivers</a> 
+                <a href="#" class="g-button"><span class="material-icons">wifi</span> <s>Network Drivers</s></a>  
+                <a href="#" class="g-button"><span class="material-icons">headphones</span> <s>Audio Drivers</s></a> 
+                <a href="/contact" class="g-button-h"><span class="material-icons">email</span> <u>Contact</u></a> 
+                <a href="https://docs.rexxit.net/drivers-website/" target="_blank" class="download-button">
+                    <span class="material-icons">description</span> Docs
+                    <svg width="14px" height="14px" viewBox="0 0 24 24">
+                        <g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
+                            <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
+                        </g>
+                    </svg>
+                </a>
+            </nav>
         </div>
-        <h1>DriverHub.win: A personal project for common driver downloads and more!</h1>
-        <p>This is a list of common drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
-        
-        <nav class="nav-container">
-            <a href="/" class="download-button-h"><span class="material-icons">home</span> Home</a> 
-            <a href="/display" class="nvidia-button"><span class="material-icons">videocam</span> Video Drivers</a>  
-            <a href="/chipset" class="chipset-button"><span class="material-icons">memory</span> Chipset Drivers</a> 
-            <a href="#" class="g-button"><span class="material-icons">wifi</span> <s>Network Drivers</s></a>  
-            <a href="#" class="g-button"><span class="material-icons">headphones</span> <s>Audio Drivers</s></a> 
-            <a href="/contact" class="g-button-h"><span class="material-icons">email</span> <u>Contact</u></a> 
-            <a href="https://docs.rexxit.net/drivers-website/" target="_blank" class="download-button">
-                <span class="material-icons">description</span> Docs
-                <svg width="14px" height="14px" viewBox="0 0 24 24">
-                    <g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
-                        <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
-                    </g>
-                </svg>
-            </a>
-        </nav>
-        
-        <button class="settings-button">
+        <button class="settings-button" aria-label="Settings">
             <span class="material-icons">settings</span>
         </button>
     </header>
