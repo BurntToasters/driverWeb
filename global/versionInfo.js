@@ -1,6 +1,6 @@
 const SITE_INFO = {
-    version: "V 4.2.7",
-    lastUpdated: "11/04/25"
+    version: "V 5.0.0",
+    lastUpdated: "12/04/25"
 };
 
 document.addEventListener('DOMContentLoaded', function() {
