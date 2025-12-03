@@ -195,8 +195,8 @@
     <script src="../global/modern.js"></script>
     <script src="../global/versionInfo.js"></script>
     <script>
-    const STATUS_BANNER_ENABLED = false; // Banner toggle
-    const STATUS_BANNER_TEXT = "N/A";
+    const STATUS_BANNER_ENABLED = true; // Banner toggle
+    const STATUS_BANNER_TEXT = "📣 DriverHub v5 is coming soon! If you would like to view the beta, please go to: <a href='https://beta.driverhub.win'>https://beta.driverhub.win</a>!";
 
     const STATUS_BANNER_KEY = "statusBannerDismissed_" + STATUS_BANNER_TEXT;
 
@@ -207,7 +207,7 @@
         const dismissed = localStorage.getItem(STATUS_BANNER_KEY);
         if (STATUS_BANNER_ENABLED && !dismissed) {
             banner.style.display = 'flex';
-            text.textContent = STATUS_BANNER_TEXT;
+            text.innerHTML = STATUS_BANNER_TEXT;
         }
         dismissBtn.addEventListener('click', function() {
             banner.style.display = 'none';
