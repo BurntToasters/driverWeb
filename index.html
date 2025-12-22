@@ -74,12 +74,12 @@
             </div>
         
         <nav class="nav-container">
-            <a href="/" class="download-button-h"><span class="material-icons">home</span> Home</a> 
-            <a href="/display" class="nvidia-button"><span class="material-icons">videocam</span> Video Drivers</a>  
-            <a href="/chipset" class="chipset-button"><span class="material-icons">memory</span> Chipset Drivers</a> 
-            <a href="#" class="g-button"><span class="material-icons">wifi</span> <s>Network Drivers</s></a>  
-            <a href="#" class="g-button"><span class="material-icons">headphones</span> <s>Audio Drivers</s></a> 
-            <a href="/contact" class="g-button"><span class="material-icons">email</span> Contact</a> 
+            <a href="/" class="download-button-h"><span class="material-icons">home</span> Home</a>
+            <a href="/display" class="nvidia-button"><span class="material-icons">videocam</span> Video Drivers</a>
+            <a href="/chipset" class="chipset-button"><span class="material-icons">memory</span> Chipset Drivers</a>
+            <a href="#" class="g-button"><span class="material-icons">wifi</span> <s>Network Drivers</s></a>
+            <a href="#" class="g-button"><span class="material-icons">headphones</span> <s>Audio Drivers</s></a>
+            <a href="/contact" class="g-button"><span class="material-icons">email</span> Contact</a>
             <a href="https://docs.rexxit.net/drivers-website/" target="_blank" class="download-button">
                 <span class="material-icons">description</span> Docs
                 <svg width="14px" height="14px" viewBox="0 0 24 24">
@@ -90,6 +90,14 @@
                 </svg>
             </a>
         </nav>
+        <div class="header-actions">
+            <button id="global-search-btn" class="action-btn" title="Search drivers (Ctrl+K)">
+                <span class="material-icons">search</span>
+            </button>
+            <button id="favorites-btn" class="action-btn" title="View favorites">
+                <span class="material-icons">star</span>
+            </button>
+        </div>
         </div>
         <button class="settings-button" aria-label="Settings">
             <span class="material-icons">settings</span>
@@ -195,6 +203,8 @@
         <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" style="max-width: 120px;" alt="DigitalOcean Referral Badge" />
     </a>
 </footer>
+    <script src="../global/favorites.js"></script>
+    <script src="../global/search.js"></script>
     <script src="../global/darkMode.js"></script>
     <script src="../global/regionSwitcher.js"></script>
     <script src="../global/modern.js"></script>

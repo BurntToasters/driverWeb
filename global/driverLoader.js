@@ -1,12 +1,6 @@
-/**
- * @param {string} jsonUrl 
- * @param {string} containerId
- */
 function loadDrivers(jsonUrl, containerId) {
-    console.log(`Loading drivers from: ${jsonUrl} into #${containerId}`);
-    
     const userRegion = localStorage.getItem("userRegion") || "USA";
-    
+
     fetch(jsonUrl)
         .then(response => {
             if (!response.ok) {
@@ -15,124 +9,142 @@ function loadDrivers(jsonUrl, containerId) {
             return response.json();
         })
         .then(data => {
-            console.log(`Successfully loaded data from ${jsonUrl}`, data);
             const container = document.getElementById(containerId);
-            if (!container) {
-                console.error(`Container element with ID ${containerId} not found`);
-                return;
-            }
-            
+            if (!container) return;
+
             container.innerHTML = '';
-            
+
             if (data.warningMessage) {
                 const warningDiv = document.createElement('div');
                 warningDiv.className = 'warning-message';
                 warningDiv.innerHTML = data.warningMessage;
                 container.appendChild(warningDiv);
             }
-            
+
+            const category = containerId.includes('nvidia') ? (containerId.includes('studio') ? 'NVIDIA Studio' : 'NVIDIA Game Ready') :
+                            (containerId.includes('intel') ? (containerId.includes('pro') ? 'Intel Pro' : 'Intel Game On') : 'Driver');
+            const brand = containerId.includes('nvidia') ? 'nvidia' : 'intel';
+
             const driverList = document.createElement('div');
             driverList.className = 'driver-list';
-                   
+
             data.drivers.forEach(driver => {
                 const driverItem = document.createElement('div');
                 driverItem.className = driver.hasWarning ? 'driver-item warning' : 'driver-item';
-                
-                
+
+                if (driver.isStable && driver.stabilityGrade) {
+                    driverItem.dataset.stable = 'true';
+                    driverItem.dataset.grade = driver.stabilityGrade;
+                }
+
                 const driverLink = document.createElement('a');
                 if (driver.hasWarning && driver.warningUrl) {
                     driverLink.href = driver.warningUrl;
                     driverLink.className = 'amd-button';
-                    driverLink.innerHTML = `⚠️ ${driver.version} - ${driver.type}`;
+                    driverLink.innerHTML = `<span class="material-icons" style="font-size:1rem">warning</span> ${driver.version} - ${driver.type}`;
                 } else if (driver.downloadUrl) {
-                    
                     let downloadUrl = driver.downloadUrl;
                     if (containerId.includes('nvidia') && userRegion === "EU") {
                         downloadUrl = downloadUrl.replace("us.download.nvidia.com", "uk.download.nvidia.com");
                     }
-                    
+
                     driverLink.href = downloadUrl;
                     driverLink.target = '_blank';
                     driverLink.className = containerId.includes('nvidia') ? 'nvidia-button' : 'intel-button';
                     driverLink.textContent = `${driver.version} ${driver.type ? '- ' + driver.type : ''}`;
-                    
                     driverLink.dataset.originalUrl = driver.downloadUrl;
                 } else {
-                    //Fallback
                     driverLink.className = 'g-button';
                     driverLink.textContent = `${driver.version} ${driver.type ? '- ' + driver.type : ''} (No download link)`;
                 }
                 driverItem.appendChild(driverLink);
-                
-                //release
+
                 const dateSpan = document.createElement('span');
                 dateSpan.className = 'driver-date';
                 dateSpan.textContent = `Released ${driver.releaseDate}`;
                 driverItem.appendChild(dateSpan);
-                
-                if (driver.sha256sum) {
-                    const hashContainer = document.createElement('div');
-                    hashContainer.className = 'hash-container';
-                    hashContainer.style.display = 'none';
-                    hashContainer.innerHTML = `<span class="hash-label">SHA256:</span> <span class="hash-value">${driver.sha256sum}</span>`;
-                    
-                    const hashButton = document.createElement('button');
-                    hashButton.className = 'hash-button';
-                    hashButton.innerHTML = '<span class="material-icons">fingerprint</span>';
-                    hashButton.title = 'Show SHA256 hash';
-                    hashButton.onclick = function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        if (hashContainer.style.display === 'none') {
-                            hashContainer.style.display = 'block';
-                            hashButton.title = 'Hide SHA256 hash';
-                            hashButton.classList.add('active');
-                        } else {
-                            hashContainer.style.display = 'none';
-                            hashButton.title = 'Show SHA256 hash';
-                            hashButton.classList.remove('active');
-                        }
-                    };
-                    
-                    driverItem.appendChild(hashButton);
-                    driverItem.appendChild(hashContainer);
-                }
-                
+
                 const iconsContainer = document.createElement('div');
                 iconsContainer.className = 'driver-icons-container';
-                
+
+                if (driver.isStable && driver.stabilityGrade) {
+                    const gradeSpan = document.createElement('span');
+                    gradeSpan.className = 'stability-grade';
+                    gradeSpan.innerHTML = `${driver.stabilityGrade}`;
+                    gradeSpan.title = "Stable driver based on community feedback";
+                    iconsContainer.appendChild(gradeSpan);
+                }
+
                 if (driver.redditUrl) {
                     const communityLink = document.createElement('a');
                     communityLink.href = driver.redditUrl;
                     communityLink.target = '_blank';
                     communityLink.className = 'community-link';
-                    
+                    communityLink.title = 'See community discussion';
+
                     const redditIcon = document.createElement('img');
                     redditIcon.src = 'https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg';
-                    redditIcon.title = 'See community discussion.';
-                    redditIcon.alt = 'See discussion';
-                    
+                    redditIcon.alt = 'Reddit';
+
                     communityLink.appendChild(redditIcon);
                     iconsContainer.appendChild(communityLink);
                 }
-                
-                if (driver.isStable && driver.stabilityGrade) {
-                    const gradeSpan = document.createElement('span');
-                    gradeSpan.className = 'stability-grade';
-                    gradeSpan.innerHTML = `<b>GRADE: </b><b style="color: forestgreen;">${driver.stabilityGrade}</b><b> | </b>`;
-                    gradeSpan.title = "This driver is considered stable based on community feedback";
-                    iconsContainer.appendChild(gradeSpan);
+
+                if (driver.sha256sum) {
+                    const copyHashBtn = document.createElement('button');
+                    copyHashBtn.className = 'copy-hash-btn';
+                    copyHashBtn.innerHTML = '<span class="material-icons">content_copy</span> SHA256';
+                    copyHashBtn.title = 'Copy SHA256 hash';
+                    copyHashBtn.onclick = function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        navigator.clipboard.writeText(driver.sha256sum).then(() => {
+                            copyHashBtn.classList.add('copied');
+                            copyHashBtn.innerHTML = '<span class="material-icons">check</span> Copied!';
+                            setTimeout(() => {
+                                copyHashBtn.classList.remove('copied');
+                                copyHashBtn.innerHTML = '<span class="material-icons">content_copy</span> SHA256';
+                            }, 2000);
+                        });
+                    };
+                    iconsContainer.appendChild(copyHashBtn);
                 }
-                
+
+                if (typeof FavoritesModule !== 'undefined') {
+                    const favBtn = document.createElement('button');
+                    const isFav = FavoritesModule.isFavorite(driver.version, category);
+                    favBtn.className = 'favorite-btn' + (isFav ? ' favorited' : '');
+                    favBtn.innerHTML = `<span class="material-icons">${isFav ? 'star' : 'star_border'}</span>`;
+                    favBtn.title = isFav ? 'Remove from favorites' : 'Add to favorites';
+                    favBtn.dataset.version = driver.version;
+                    favBtn.dataset.category = category;
+                    favBtn.onclick = function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        FavoritesModule.toggle({
+                            version: driver.version,
+                            type: driver.type,
+                            category: category,
+                            downloadUrl: driver.downloadUrl,
+                            brand: brand
+                        });
+                        const nowFav = FavoritesModule.isFavorite(driver.version, category);
+                        favBtn.classList.toggle('favorited', nowFav);
+                        favBtn.innerHTML = `<span class="material-icons">${nowFav ? 'star' : 'star_border'}</span>`;
+                        favBtn.title = nowFav ? 'Remove from favorites' : 'Add to favorites';
+                    };
+                    iconsContainer.appendChild(favBtn);
+                }
+
                 driverItem.appendChild(iconsContainer);
                 driverList.appendChild(driverItem);
             });
-            
+
             container.appendChild(driverList);
-            
+
             const updateNote = document.createElement('div');
             updateNote.className = 'update-note';
-            updateNote.textContent = `Drivers list updated: ${data.lastUpdated}`;
+            updateNote.textContent = `Last updated: ${data.lastUpdated}`;
             container.appendChild(updateNote);
         })
         .catch(error => {
@@ -147,4 +159,17 @@ function loadDrivers(jsonUrl, containerId) {
                 `;
             }
         });
+}
+
+function applyFilters(filterType) {
+    document.querySelectorAll('.driver-item').forEach(item => {
+        if (filterType === 'all') {
+            item.classList.remove('filtered-out');
+        } else if (filterType === 'stable') {
+            item.classList.toggle('filtered-out', item.dataset.stable !== 'true');
+        } else if (filterType.startsWith('grade-')) {
+            const grade = filterType.replace('grade-', '');
+            item.classList.toggle('filtered-out', item.dataset.grade !== grade);
+        }
+    });
 }
