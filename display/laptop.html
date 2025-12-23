@@ -81,12 +81,12 @@
             </div>
         
         <nav class="nav-container">
-            <a href="/" class="download-button-h"><span class="material-icons">home</span> Home</a> 
-            <a href="/display" class="nvidia-button"><span class="material-icons">videocam</span> <u>Video Drivers</u></a>  
-            <a href="/chipset" class="chipset-button"><span class="material-icons">memory</span> Chipset Drivers</a> 
-            <a href="#" class="g-button"><span class="material-icons">wifi</span> <s>Network Drivers</s></a>  
-            <a href="#" class="g-button"><span class="material-icons">headphones</span> <s>Audio Drivers</s></a> 
-            <a href="/contact" class="g-button"><span class="material-icons">email</span> Contact</a> 
+            <a href="/" class="download-button-h"><span class="material-icons">home</span> Home</a>
+            <a href="/display" class="nvidia-button"><span class="material-icons">videocam</span> <u>Video Drivers</u></a>
+            <a href="/chipset" class="chipset-button"><span class="material-icons">memory</span> Chipset Drivers</a>
+            <a href="#" class="g-button"><span class="material-icons">wifi</span> <s>Network Drivers</s></a>
+            <a href="#" class="g-button"><span class="material-icons">headphones</span> <s>Audio Drivers</s></a>
+            <a href="/contact" class="g-button"><span class="material-icons">email</span> Contact</a>
             <a href="https://docs.rexxit.net/drivers-website/" target="_blank" class="download-button">
                 <span class="material-icons">description</span> Docs
                 <svg width="14px" height="14px" viewBox="0 0 24 24">
@@ -97,6 +97,14 @@
                 </svg>
             </a>
         </nav>
+        <div class="header-actions">
+            <button id="global-search-btn" class="action-btn" title="Search drivers (Ctrl+K)">
+                <span class="material-icons">search</span>
+            </button>
+            <button id="favorites-btn" class="action-btn" title="View favorites">
+                <span class="material-icons">star</span>
+            </button>
+        </div>
         </div>
         <button class="settings-button" aria-label="Settings">
             <span class="material-icons">settings</span>
@@ -137,6 +145,19 @@
         </div>
         
         <div class="section-divider"></div>
+
+        <div class="quick-filters">
+            <span class="quick-filters-label">Filter:</span>
+            <button class="filter-chip active" data-filter="all">
+                <span class="material-icons">apps</span> All
+            </button>
+            <button class="filter-chip" data-filter="stable">
+                <span class="material-icons">verified</span> Stable Only
+            </button>
+            <button class="filter-chip" data-filter="grade-A+">A+</button>
+            <button class="filter-chip" data-filter="grade-A">A</button>
+            <button class="filter-chip" data-filter="grade-A-">A-</button>
+        </div>
 
         <section class="driver-section">
             <div class="container">
@@ -211,6 +232,8 @@
     </a>
 </footer>
 
+    <script src="../global/favorites.js"></script>
+    <script src="../global/search.js"></script>
     <script src="../global/darkMode.js"></script>
     <script src="../global/regionSwitcher.js"></script>
     <script src="../global/modern.js"></script>
@@ -218,14 +241,11 @@
     <script src="../global/driverLoader.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            //Base URL
             const baseUrl = "https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/";
-            
 
             loadDrivers(baseUrl + 'nvidia-game-ready-laptop.json', 'nvidia-game-ready-laptop-drivers');
             loadDrivers(baseUrl + 'nvidia-studio-laptop.json', 'nvidia-studio-laptop-drivers');
             loadDrivers(baseUrl + 'intel-game-on.json', 'intel-game-on-drivers');
-            
 
             function removeExistingListeners(elements) {
                 Array.from(elements).forEach(element => {
@@ -234,16 +254,13 @@
                 });
                 return document.getElementsByClassName(elements[0].className);
             }
-            
-            // NVIDIA collapsible 
+
             var coll = removeExistingListeners(document.getElementsByClassName("Ncollapsible"));
             for (var i = 0; i < coll.length; i++) {
                 coll[i].addEventListener("click", function() {
                     this.classList.toggle("active");
                     var content = this.nextElementSibling;
-                    
                     void content.offsetHeight;
-                    
                     if (content.classList.contains('visible')) {
                         content.style.maxHeight = content.scrollHeight + "px";
                         setTimeout(() => {
@@ -256,15 +273,13 @@
                     }
                 });
             }
-            
+
             var icoll = removeExistingListeners(document.getElementsByClassName("Icollapsible"));
             for (var i = 0; i < icoll.length; i++) {
                 icoll[i].addEventListener("click", function() {
                     this.classList.toggle("active");
                     var content = this.nextElementSibling;
-                    
                     void content.offsetHeight;
-                    
                     if (content.classList.contains('visible')) {
                         content.style.maxHeight = content.scrollHeight + "px";
                         setTimeout(() => {
@@ -277,6 +292,14 @@
                     }
                 });
             }
+
+            document.querySelectorAll('.filter-chip').forEach(chip => {
+                chip.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    applyFilters(this.dataset.filter);
+                });
+            });
         });
     </script>
 </body>
