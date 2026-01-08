@@ -3,31 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Download the latest NVIDIA GeForce, AMD Radeon, and Intel Arc graphics drivers for Windows 10 and 11. Game Ready, Studio, and WHQL certified drivers available.">
-    <meta name="keywords" content="NVIDIA drivers, AMD drivers, Intel graphics drivers, GeForce drivers, Radeon drivers, Arc drivers, Game Ready drivers, graphics card drivers">
+    <meta name="description" content="Download the latest NVIDIA GeForce, AMD Radeon, and Intel Arc graphics drivers for Windows 10 and 11.">
+    <meta name="keywords" content="NVIDIA drivers, AMD drivers, Intel graphics drivers, GeForce drivers, Radeon drivers, Arc drivers, Game Ready drivers">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://driverhub.win/display">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://driverhub.win/display">
-    <meta property="og:title" content="Graphics Drivers - NVIDIA, AMD & Intel | DriverHub.win">
+    <meta property="og:title" content="Graphics Drivers - NVIDIA, AMD & Intel | DriverHub">
     <meta property="og:description" content="Download the latest NVIDIA GeForce, AMD Radeon, and Intel Arc graphics drivers for Windows.">
     <meta property="og:image" content="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp">
     
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://driverhub.win/display">
-    <meta property="twitter:title" content="Graphics Drivers - NVIDIA, AMD & Intel | DriverHub.win">
-    <meta property="twitter:description" content="Download the latest NVIDIA GeForce, AMD Radeon, and Intel Arc graphics drivers.">
+    <meta property="twitter:title" content="Graphics Drivers - NVIDIA, AMD & Intel | DriverHub">
     
-    <title>Graphics Drivers Download - NVIDIA, AMD & Intel | DriverHub.win</title>
+    <title>Graphics Drivers - NVIDIA, AMD & Intel | DriverHub</title>
 
     <script>
         (function() {
             const userPreference = localStorage.getItem('darkMode');
             const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            const shouldUseDarkMode = userPreference === 'dark' || (userPreference === null && prefersDarkScheme);
-            
-            if (shouldUseDarkMode) {
+            if (userPreference === 'dark' || (userPreference === null && prefersDarkScheme)) {
                 document.documentElement.classList.add('dark-mode');
             }
         })();
@@ -35,7 +32,7 @@
     
     <link rel="stylesheet" href="../global/v5.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="../global/favicon.ico">
     
     <script type="application/ld+json">
@@ -43,7 +40,7 @@
       "@context": "https://schema.org",
       "@type": "WebPage",
       "name": "Graphics Drivers Download",
-      "description": "Download the latest NVIDIA GeForce, AMD Radeon, and Intel Arc graphics drivers for Windows 10 and 11.",
+      "description": "Download the latest NVIDIA GeForce, AMD Radeon, and Intel Arc graphics drivers for Windows.",
       "url": "https://driverhub.win/display",
       "breadcrumb": {
         "@type": "BreadcrumbList",
@@ -64,177 +61,138 @@
 </head>
 <body>
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    
     <header>
         <div class="header-content">
-            <div class="logo-container">
-                <a href="/">
-                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub Logo">
+            <div class="header-top">
+                <a href="/" class="logo-group">
+                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub">
+                    <h1>DriverHub</h1>
                 </a>
+                <div class="header-actions">
+                    <div id="region-indicator" class="region-badge" title="Click to change region">🇺🇸 USA</div>
+                    <button class="icon-btn" id="darkModeToggle" aria-label="Toggle dark mode">
+                        <span class="material-icons">dark_mode</span>
+                    </button>
+                    <button id="global-search-btn" class="icon-btn" title="Search (Ctrl+K)">
+                        <span class="material-icons">search</span>
+                    </button>
+                    <button id="favorites-btn" class="icon-btn" title="Favorites">
+                        <span class="material-icons">star_outline</span>
+                    </button>
+                </div>
             </div>
-            <h1>DriverHub.win</h1>
-            <div class="header-tagline">
-                <p>DriverHub.win: A personal project for common driver downloads and more!</p>
-                <p class="header-subtitle">This is a list of common drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
-            </div>
-        
-        <nav class="nav-container" role="navigation" aria-label="Main navigation">
-            <a href="/" class="download-button-h"><span class="material-icons">home</span> Home</a>
-            <a href="/display" class="nvidia-button"><span class="material-icons">videocam</span> <u>Video Drivers</u></a>
-            <a href="/chipset" class="chipset-button"><span class="material-icons">memory</span> Chipset Drivers</a>
-            <a href="#" class="g-button" title="Coming soon" aria-label="Network Drivers (coming soon)"><span class="material-icons">wifi</span> <s>Network Drivers</s></a>
-            <a href="#" class="g-button" title="Coming soon" aria-label="Audio Drivers (coming soon)"><span class="material-icons">headphones</span> <s>Audio Drivers</s></a>
-            <a href="/contact" class="g-button"><span class="material-icons">email</span> Contact</a>
-            <a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="download-button">
-                <span class="material-icons">description</span> Docs
-                <svg width="14px" height="14px" viewBox="0 0 24 24">
-                    <g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
-                        <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
-                    </g>
-                </svg>
-            </a>
-        </nav>
-        <div class="header-actions">
-            <button id="global-search-btn" class="action-btn" title="Search drivers (Ctrl+K)">
-                <span class="material-icons">search</span>
-            </button>
-            <button id="favorites-btn" class="action-btn" title="View favorites">
-                <span class="material-icons">star</span>
-            </button>
+            <nav class="nav-container" role="navigation" aria-label="Main navigation">
+                <a href="/" class="nav-link"><span class="material-icons">home</span>Home</a>
+                <a href="/display" class="nav-link active"><span class="material-icons">videocam</span>Graphics</a>
+                <a href="/chipset" class="nav-link"><span class="material-icons">memory</span>Chipset</a>
+                <a href="#" class="nav-link disabled" title="Coming soon"><span class="material-icons">wifi</span>Network</a>
+                <a href="#" class="nav-link disabled" title="Coming soon"><span class="material-icons">headphones</span>Audio</a>
+                <span class="nav-divider"></span>
+                <a href="/contact" class="nav-link"><span class="material-icons">mail_outline</span>Contact</a>
+                <a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="nav-link">
+                    <span class="material-icons">description</span>Docs
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+            </nav>
         </div>
-        </div>
-        <button class="settings-button" aria-label="Settings">
-            <span class="material-icons">settings</span>
-        </button>
     </header>
 
-    <div id="settings-overlay" class="settings-overlay" role="dialog" aria-modal="true" aria-labelledby="settings-title">
-        <div class="settings-content">
-            <button class="close-settings" aria-label="Close settings">&times;</button>
-            <h2 id="settings-title">Settings</h2>
-            
-            <!-- Dark Mode Toggle -->
-            <label class="switch">
-                <input type="checkbox" id="darkModeToggle">
-                <span class="slider round"></span>
-            </label>
-            <span>Dark Mode</span>
-            <hr>
-      
-            <!-- Region Selection -->
-            <label for="regionSelect">Select Region:</label>
-            <select id="regionSelect" class="region-dropdown">
-                <option value="USA">🇺🇸 USA</option>
-                <option value="EU">🇪🇺 EU</option>
-            </select>
-            <a href="https://docs.rexxit.net/drivers-website/articles/region-selection">Learn more about region selection</a>
-        </div>
-    </div>
-
     <main id="main-content">
-        <div id="region-indicator" class="region-indicator" title="Click the settings icon to change reigon!">Region: </div>
-        
-        <h1 class="page-title">Desktop GPU Drivers</h1>
-        
+        <div class="page-header">
+            <h1 class="page-title">Desktop GPU Drivers</h1>
+            <p class="page-description">Download graphics drivers for NVIDIA, AMD, and Intel desktop GPUs</p>
+        </div>
+
         <div class="display-type-selection">
-            <a href="/display/" class="download-button-h"><u>Desktop</u></a>
-            <a href="/display/laptop" class="download-button">Laptop</a>
+            <a href="/display/" class="download-button">Desktop</a>
+            <a href="/display/laptop" class="g-button">Laptop</a>
         </div>
         
-        <div class="section-divider"></div>
-
         <div class="quick-filters">
             <span class="quick-filters-label">Filter:</span>
             <button class="filter-chip active" data-filter="all">
                 <span class="material-icons">apps</span> All
             </button>
             <button class="filter-chip" data-filter="stable">
-                <span class="material-icons">verified</span> Stable Only
+                <span class="material-icons">verified</span> Stable
             </button>
             <button class="filter-chip" data-filter="grade-A+">A+</button>
             <button class="filter-chip" data-filter="grade-A">A</button>
             <button class="filter-chip" data-filter="grade-A-">A-</button>
         </div>
 
-        <section class="driver-section">
-            <div class="container">
-                <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt='NVIDIA' class="platform" loading="lazy">
-                <h2>NVIDIA Drivers</h2>
-            </div>
-            <p>These drivers on this list are game ready drivers and only for desktop GPU's currently supported by <a href="https://www.nvidia.com/en-us/geforce/drivers/" target="_blank" rel="noopener noreferrer">Nvidia</a>. For laptop drivers see <a href="/display/laptop">here</a>. This website is not affiliated with Nvidia in any way.</p>
-            <p>There are two Nvidia drivers types below. Select either the <b><u>Game Ready Drivers</u></b> or the <b><u>Studio Drivers</u></b> collapsible list to see the list of available drivers.</p>
+        <div class="driver-grid">
+            <section class="driver-section">
+                <div class="container">
+                    <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt="NVIDIA" class="platform" loading="lazy">
+                    <h2>NVIDIA Drivers</h2>
+                </div>
+                <p>Game Ready and Studio drivers for desktop GPUs. Downloads link directly to <a href="https://www.nvidia.com/en-us/geforce/drivers/" target="_blank" rel="noopener noreferrer">NVIDIA</a>. For laptop drivers, <a href="/display/laptop">click here</a>.</p>
 
-            <button class="Ncollapsible">Game Ready Drivers</button>
-            <div class="Gcontent">
-                <h3 class="driver-category">Game Ready Drivers:</h3>
-                <div id="nvidia-game-ready-drivers"></div>
-            </div>
+                <button class="Ncollapsible">Game Ready Drivers</button>
+                <div class="content">
+                    <h3 class="driver-category">Game Ready Drivers</h3>
+                    <div id="nvidia-game-ready-drivers"></div>
+                </div>
 
-            <button class="Ncollapsible">Studio Drivers</button>
-            <div class="Gcontent">
-                <h3 class="driver-category">Studio Drivers:</h3>
-                <div id="nvidia-studio-drivers"></div>
-            </div>
-        </section>
+                <button class="Ncollapsible">Studio Drivers</button>
+                <div class="content">
+                    <h3 class="driver-category">Studio Drivers</h3>
+                    <div id="nvidia-studio-drivers"></div>
+                </div>
+            </section>
 
-        <section class="driver-section">
-            <div class="container">
-                <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt='Intel' class="platform" loading="lazy">
-                <h2>Intel ARC Drivers</h2>
-            </div>
-            <p>These drivers on this list are game ready drivers and only for desktop ARC GPU's currently supported by <a href="https://www.intel.com/content/www/us/en/download/726609/intel-arc-graphics-windows-dch-driver.html" target="_blank" rel="noopener noreferrer">Intel</a>. For laptop drivers see <a href="/display/laptop">here</a>. This website is not affiliated with Intel in any way.</p>
-            <p>There are two Intel Arc drivers types below. Select either the <b><u>Game On GPU Drivers</u></b> or the <b><u>Professional GPU Drivers</u></b> collapsible list to see the list of available drivers.</p>
-            
-            <button class="Icollapsible">Game On GPU Drivers</button>
-            <div class="Gcontent">
-                <h3 class="driver-category">Game On GPU Drivers:</h3>
-                <div id="intel-game-on-drivers"></div>
-            </div>
-            
-            <button class="Icollapsible">Professional GPU Drivers</button>
-            <div class="Gcontent">
-                <h3 class="driver-category">Professional GPU Drivers:</h3>
-                <div id="intel-pro-drivers"></div>
-            </div>
-        </section>
+            <section class="driver-section">
+                <div class="container">
+                    <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt="Intel" class="platform" loading="lazy">
+                    <h2>Intel Arc Drivers</h2>
+                </div>
+                <p>Game On and Professional drivers for Intel Arc GPUs. Downloads link to <a href="https://www.intel.com/content/www/us/en/download/726609/intel-arc-graphics-windows-dch-driver.html" target="_blank" rel="noopener noreferrer">Intel</a>. For laptop drivers, <a href="/display/laptop">click here</a>.</p>
+                
+                <button class="Icollapsible">Game On GPU Drivers</button>
+                <div class="content">
+                    <h3 class="driver-category">Game On GPU Drivers</h3>
+                    <div id="intel-game-on-drivers"></div>
+                </div>
+                
+                <button class="Icollapsible">Professional GPU Drivers</button>
+                <div class="content">
+                    <h3 class="driver-category">Professional GPU Drivers</h3>
+                    <div id="intel-pro-drivers"></div>
+                </div>
+            </section>
 
-        <section class="driver-section">
-            <div class="container">
-                <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt='AMD' class="platform" loading="lazy">
-                <h2>AMD Radeon (Adrenalin) Drivers</h2>
-            </div>
-            <p>These drivers on this list are only for desktop GPU's currently supported by <a href="https://www.amd.com/en/support" target="_blank" rel="noopener noreferrer">AMD</a>. For laptop drivers see <a href="/display/laptop">here</a>. This website is not affiliated with AMD in any way. Direct downloads for AMD drivers are not available as <a href="https://www.amd.com/en/support/kb/faq/download-incomplete" target="_blank" rel="noopener noreferrer">amd does not permit them</a>.</p>
-            
-            <div class="amd-download-btn-container">
-                <a href="https://www.amd.com/en/support/download/drivers.html" target="_blank" rel="noopener noreferrer" class="amd-button">
-                    <span class="material-icons">download</span> AMD auto detect and download tool
-                </a>
-            </div>
-        </section>
+            <section class="driver-section">
+                <div class="container">
+                    <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt="AMD" class="platform" loading="lazy">
+                    <h2>AMD Radeon Drivers</h2>
+                </div>
+                <p>Adrenalin drivers for AMD Radeon GPUs. <a href="https://www.amd.com/en/support/kb/faq/download-incomplete" target="_blank" rel="noopener noreferrer">AMD doesn't permit direct downloads</a>, so use their auto-detect tool below.</p>
+                
+                <div class="amd-download-btn-container">
+                    <a href="https://www.amd.com/en/support/download/drivers.html" target="_blank" rel="noopener noreferrer" class="amd-button">
+                        <span class="material-icons">download</span> AMD Auto-Detect Tool
+                    </a>
+                </div>
+            </section>
+        </div>
 
-        <div class="back-container">
-            <a href="/" class="download-button">
+        <div class="back-link">
+            <a href="/" class="btn btn-secondary">
                 <span class="material-icons">arrow_back</span> Back to Home
             </a>
         </div>
     </main>
 
-<footer>
-    <p><span id="site-version"></span>(<a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer">Release notes</a>)
-        <svg width="14px" height="14px" viewBox="0 0 24 24" style="cursor:pointer" aria-hidden="true">
-            <g stroke-width="2.1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
-                <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
-                <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
-            </g>
-        </svg>
-    </p>
-    <p id="update-date"></p>
-    <p><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer">❤️ Support me :)</a> | <a href="/sitemap.xml">Sitemap</a></p>
-    <br>
-    <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" target="_blank" rel="noopener noreferrer">
-        <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" style="max-width: 120px;" alt="DigitalOcean Referral Badge" loading="lazy" />
-    </a>
-</footer>
+    <footer>
+        <p><span id="site-version"></span> <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer">Release notes</a></p>
+        <p id="update-date"></p>
+        <p><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer">❤️ Support</a> · <a href="/sitemap.xml">Sitemap</a></p>
+        <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" target="_blank" rel="noopener noreferrer">
+            <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" style="max-width: 100px;" alt="DigitalOcean" loading="lazy">
+        </a>
+    </footer>
 
     <script src="../global/favorites.js"></script>
     <script src="../global/search.js"></script>
@@ -244,6 +202,7 @@
     <script src="../global/versionInfo.js"></script>
     <script src="../global/driverLoader.js"></script>
     <script src="../global/backToTop.js"></script>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const baseUrl = "https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/";
@@ -253,51 +212,17 @@
             loadDrivers(baseUrl + 'intel-game-on.json', 'intel-game-on-drivers');
             loadDrivers(baseUrl + 'intel-pro.json', 'intel-pro-drivers');
 
-            function removeExistingListeners(elements) {
-                Array.from(elements).forEach(element => {
-                    const newElement = element.cloneNode(true);
-                    element.parentNode.replaceChild(newElement, element);
-                });
-                return document.getElementsByClassName(elements[0].className);
-            }
-
-            var coll = removeExistingListeners(document.getElementsByClassName("Ncollapsible"));
-            for (var i = 0; i < coll.length; i++) {
-                coll[i].addEventListener("click", function() {
-                    this.classList.toggle("active");
-                    var content = this.nextElementSibling;
-                    if (content.classList.contains('visible')) {
-                        content.style.maxHeight = content.scrollHeight + "px";
-                        requestAnimationFrame(() => {
-                            requestAnimationFrame(() => {
-                                content.style.maxHeight = null;
-                                content.classList.remove('visible');
-                            });
-                        });
-                    } else {
-                        content.classList.add('visible');
-                        content.style.maxHeight = content.scrollHeight + "px";
+            function applyFilters(filter) {
+                const items = document.querySelectorAll('.driver-item');
+                items.forEach(item => {
+                    let show = true;
+                    if (filter === 'stable') {
+                        show = item.dataset.stable === 'true';
+                    } else if (filter && filter.startsWith('grade-')) {
+                        const grade = filter.replace('grade-', '');
+                        show = item.dataset.grade === grade;
                     }
-                });
-            }
-
-            var icoll = removeExistingListeners(document.getElementsByClassName("Icollapsible"));
-            for (var i = 0; i < icoll.length; i++) {
-                icoll[i].addEventListener("click", function() {
-                    this.classList.toggle("active");
-                    var content = this.nextElementSibling;
-                    if (content.classList.contains('visible')) {
-                        content.style.maxHeight = content.scrollHeight + "px";
-                        requestAnimationFrame(() => {
-                            requestAnimationFrame(() => {
-                                content.style.maxHeight = null;
-                                content.classList.remove('visible');
-                            });
-                        });
-                    } else {
-                        content.classList.add('visible');
-                        content.style.maxHeight = content.scrollHeight + "px";
-                    }
+                    item.style.display = show ? 'flex' : 'none';
                 });
             }
 
@@ -308,6 +233,8 @@
                     applyFilters(this.dataset.filter);
                 });
             });
+
+            applyFilters('all');
         });
     </script>
 </body>

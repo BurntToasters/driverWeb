@@ -3,145 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Audio drivers download page for Windows. Coming soon - Realtek, Creative, and other audio driver downloads.">
-    <meta name="keywords" content="audio drivers, Realtek audio, sound card drivers, audio device drivers">
+    <meta name="description" content="Audio drivers download for Windows - Realtek and other audio driver downloads.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://driverhub.win/audio">
-    
-    <title>Audio Drivers Download - Coming Soon | DriverHub.win</title>
-
+    <title>Audio Drivers | DriverHub.win</title>
     <script>
         (function() {
             const userPreference = localStorage.getItem('darkMode');
             const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
             const shouldUseDarkMode = userPreference === 'dark' || (userPreference === null && prefersDarkScheme);
-            
             if (shouldUseDarkMode) {
                 document.documentElement.classList.add('dark-mode');
             }
         })();
     </script>
-    
-    <link rel="stylesheet" href="../global/v5.css">
+    <link rel="stylesheet" href="global/v5.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="../global/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="global/favicon.ico">
 </head>
 <body>
     <header>
-        <div class="header-content">
-            <div class="logo-container">
+        <div class="header-top">
+            <div class="logo-group">
                 <a href="/">
-                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub Logo">
+                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub Logo" class="logo">
                 </a>
+                <span class="site-name">DriverHub.win</span>
             </div>
-            <h1>DriverHub.win</h1>
-            <div class="header-tagline">
-                <p>DriverHub.win: A personal project for common driver downloads and more!</p>
-                <p class="header-subtitle">This is a list of common drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
+            <div class="header-actions">
+                <div id="region-indicator" class="region-badge" title="Click to change region">🇺🇸 USA</div>
+                <button class="icon-btn" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <span class="material-icons">dark_mode</span>
+                </button>
             </div>
-        
-        <nav class="nav-container" role="navigation" aria-label="Main navigation">
-            <a href="/" class="download-button-h"><span class="material-icons">home</span> Home</a>
-            <a href="/display" class="nvidia-button"><span class="material-icons">videocam</span> Video Drivers</a>
-            <a href="/chipset" class="chipset-button"><span class="material-icons">memory</span> Chipset Drivers</a>
-            <a href="#" class="g-button" title="Coming soon" aria-label="Network Drivers (coming soon)"><span class="material-icons">wifi</span> <s>Network Drivers</s></a>
-            <a href="/audio" class="g-button-h"><span class="material-icons">headphones</span> <u>Audio Drivers</u></a>
-            <a href="/contact" class="g-button"><span class="material-icons">email</span> Contact</a>
-            <a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="download-button">
-                <span class="material-icons">description</span> Docs
-                <svg width="14px" height="14px" viewBox="0 0 24 24">
-                    <g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
-                        <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
-                    </g>
-                </svg>
-            </a>
-        </nav>
         </div>
-        <button class="settings-button" aria-label="Settings">
-            <span class="material-icons">settings</span>
-        </button>
+        <nav id="main-nav"></nav>
     </header>
 
-    <div id="settings-overlay" class="settings-overlay">
-        <div class="settings-content">
-            <span class="close-settings">&times;</span>
-            <h2>Settings</h2>
-            
-            <!-- Dark Mode Toggle -->
-            <label class="switch">
-                <input type="checkbox" id="darkModeToggle">
-                <span class="slider round"></span>
-            </label>
-            <span>Dark Mode</span>
-            <hr>
-      
-            <!-- Region Selection -->
-            <label for="regionSelect">Select Region:</label>
-            <select id="regionSelect" class="region-dropdown">
-                <option value="USA">🇺🇸 USA</option>
-                <option value="EU">🇪🇺 EU</option>
-            </select>
-            <a href="https://docs.rexxit.net/drivers-website/articles/region-selection">Learn more about region selection</a>
-        </div>
-    </div>
-
     <main>
-        
-        
-        <h1 class="page-title">Audio Drivers</h1>
+        <div class="page-header">
+            <h1><span class="material-icons">headphones</span> Audio Drivers</h1>
+            <p>Download audio drivers for Windows 10/11</p>
+        </div>
 
         <section class="driver-section">
-            <div class="container">
-                <img src="https://prod.rexxit.net/drweb/assets/realtek.png" alt="Realtek" class="platform">
+            <div class="section-header">
+                <img src="https://prod.rexxit.net/drweb/assets/realtek.png" alt="Realtek" class="vendor-logo">
                 <h2>Realtek Audio Drivers</h2>
             </div>
+            <p class="disclaimer">This website is not affiliated with Realtek.</p>
             
-            <p>This website is not affiliated with Realtek in any way.</p>
-            
-            <div class="driver-list">
+            <div class="driver-list" id="realtek-audio-drivers">
                 <div class="driver-item">
-                    <a href="https://www.realtek.com/en/agree-to-download?downloadid=4842c7ef60f190fdf91711cf682f2192" target="_blank" class="realtek-button">R2.82 64BIT</a>
-                    <span class="driver-date">Released 2017/07/26</span>
-                    <span class="driver-compatibility">(Win Vista - 10)</span>
+                    <div class="driver-info">
+                        <span class="driver-version">R2.82</span>
+                        <span class="driver-meta">64-bit · Windows Vista - 10</span>
+                    </div>
+                    <a href="https://www.realtek.com/en/agree-to-download?downloadid=4842c7ef60f190fdf91711cf682f2192" target="_blank" class="btn btn-download">
+                        <span class="material-icons">download</span> Download
+                    </a>
                 </div>
-                
                 <div class="driver-item">
-                    <a href="https://www.realtek.com/en/agree-to-download?downloadid=8b9cdfd0da3bd4980715874678b1c02e" target="_blank" class="realtek-button">R2.82 32BIT</a>
-                    <span class="driver-date">Released 2017/07/26</span>
-                    <span class="driver-compatibility">(Win Vista - 10)</span>
+                    <div class="driver-info">
+                        <span class="driver-version">R2.82</span>
+                        <span class="driver-meta">32-bit · Windows Vista - 10</span>
+                    </div>
+                    <a href="https://www.realtek.com/en/agree-to-download?downloadid=8b9cdfd0da3bd4980715874678b1c02e" target="_blank" class="btn btn-download">
+                        <span class="material-icons">download</span> Download
+                    </a>
                 </div>
             </div>
         </section>
 
-        <div class="back-container">
-            <a href="/" class="download-button">
+        <div class="back-link">
+            <a href="/" class="btn btn-secondary">
                 <span class="material-icons">arrow_back</span> Back to Home
             </a>
         </div>
     </main>
 
     <footer>
-        <p><span id="site-version"></span>(<a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank">Release notes</a>)
-            <svg width="14px" height="14px" viewBox="0 0 24 24" style="cursor:pointer">
-                <g stroke-width="2.1" stroke="#595959" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
-                    <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
-                </g>
-            </svg>
-        </p>
+        <p><span id="site-version"></span> · <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank">Release Notes</a></p>
         <p id="update-date"></p>
-        <p><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank">❤️ Support me :)</a> | <a href="/sitemap.xml">Sitemap</a></p>
-        <br>
-        <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
-            <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" style="max-width: 120px;" alt="DigitalOcean Referral Badge" />
-        </a>
+        <p><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank">❤️ Support</a> · <a href="/sitemap.xml">Sitemap</a></p>
     </footer>
 
-    <script src="../global/darkMode.js"></script>
-    <script src="../global/regionSwitcher.js"></script>
-    <script src="../global/modern.js"></script>
-    <script src="../global/versionInfo.js"></script>
+    <script src="global/navigation.js"></script>
+    <script src="global/darkMode.js"></script>
+    <script src="global/regionSwitcher.js"></script>
+    <script src="global/versionInfo.js"></script>
 </body>
 </html>

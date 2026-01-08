@@ -3,76 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about driver stability ratings, what makes a driver stable, and how to choose the best driver for your system.">
-    <meta name="keywords" content="stable drivers, WHQL drivers, beta drivers, driver certification, driver quality">
+    <meta name="description" content="Learn about driver stability ratings and how to choose the best driver for your system.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://driverhub.win/info/about-stabledrivers">
-    
-    <title>About Stable Drivers - Understanding Driver Quality | DriverHub.win</title>
-    
+    <title>About Stable Drivers | DriverHub.win</title>
     <script>
         (function() {
             const userPreference = localStorage.getItem('darkMode');
             const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
             const shouldUseDarkMode = userPreference === 'dark' || (userPreference === null && prefersDarkScheme);
-            
             if (shouldUseDarkMode) {
                 document.documentElement.classList.add('dark-mode');
             }
         })();
     </script>
-    
     <link rel="stylesheet" href="../global/v5.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="../global/favicon.ico">
-    
-    <!-- JSON-LD Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "About Stable Drivers",
-      "description": "Understanding driver stability ratings and choosing the right driver for your system.",
-      "url": "https://driverhub.win/info/about-stabledrivers",
-      "author": {
-        "@type": "Organization",
-        "name": "DriverHub.win"
-      }
+      "description": "Understanding driver stability ratings and choosing the right driver.",
+      "url": "https://driverhub.win/info/about-stabledrivers"
     }
     </script>
 </head>
 <body>
     <header>
-        <h1>[POPUP] Driver Downloads</h1>
+        <div class="header-top">
+            <div class="logo-group">
+                <a href="/">
+                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub Logo" class="logo">
+                </a>
+                <span class="site-name">DriverHub.win</span>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <span class="material-icons">dark_mode</span>
+                </button>
+            </div>
+        </div>
+        <nav id="main-nav"></nav>
     </header>
+
     <main>
-        <section class="driver-section">
-            <div class="container">
-               <!-- <img src="/assets/nvidia.jpg" alt='Platform' class="platform" width="7%"> <img src="/assets/amd.png" alt='Platform' class="platform" width="6%"> -->
-                <h2>About driver grading and what "Considered a stable driver" means?</h2>
-              </div>
-              <hr>
-              <h3 style="font-family: Arial, Helvetica, sans-serif;">Driver ranking:</h3>
-              <p style="font-family: Arial, Helvetica, sans-serif;">Driver rankings are based off of my personal experience with using the "Considered a stable driver" Nvidia drivers.</p>
-              <h4>Example:</h4>
-              <li style="font-family: Arial, Helvetica, sans-serif; color: forestgreen;">A- <b>-</b> A+ | Best overall experience with drivers</li>
-              <br>
-              <li style="font-family: Arial, Helvetica, sans-serif; color: darkgreen;">B <b>-</b> B+ | Very good overall experience. Some bugs here and there but solid choice.</li>
-              <br>
-              <li style="font-family: Arial, Helvetica, sans-serif; color: darkolivegreen;">C+ <b>-</b> B- | Ok experience. Too many stutters and bugs to rate higher. Would reccomend a higher rated driver, unless this specific driver is needed for game/software compatibility.</li>
-              <br>
-              <li style="font-family: Arial, Helvetica, sans-serif; color: darkslategray;">C and below | Not good experience. High GPU latency, high amount of stutters and bugs. Personally do not reccomend installing.</li>
-              <br>
-              <li style="font-family: Arial, Helvetica, sans-serif; color: #383838;"><b>/</b> Means the driver is pending a grade. Check back later!</li>
-              <br>
-              
-              <p style="font-family: Arial, Helvetica, sans-serif;"><b style="color: cadetblue">&#9432</b> For reference, my current setup is: Ryzen 9 7900X, RTX 4080 SUPER, 64GB DDR5 6000MHz, Win 11 24H2</p>
-              <hr>
-              <h3 style="font-family: Arial, Helvetica, sans-serif;">What does "Considered a stable driver" mean?</h3>
-              <p style="font-family: arial;">The stable driver tag I have on some of the driver download pages refers to community feedback and response to newley release drivers. I usually look at reddit threads regarding a new driver release, and if the general outlook is that the driver seems to be working well and is worth an update, I put that specific text next to the driver version with a link to the thread I used to determine adding that tag. Additionally I also take into consideration my personal experience with using said drivers.</p>
-            <a href="#" onclick="window.close();">    [x]Close popup</a>
-        </section>
+        <div class="page-header">
+            <h1><span class="material-icons">info</span> About Stable Drivers</h1>
+            <p>Understanding driver grading and stability ratings</p>
+        </div>
+
+        <article class="content-card">
+            <section class="info-section">
+                <h2>Driver Rankings</h2>
+                <p>Driver rankings are based on personal experience with "Considered a stable driver" NVIDIA drivers.</p>
+                
+                <div class="grade-list">
+                    <div class="grade-item grade-a">
+                        <span class="grade">A- to A+</span>
+                        <span class="grade-desc">Best overall experience with drivers</span>
+                    </div>
+                    <div class="grade-item grade-b">
+                        <span class="grade">B to B+</span>
+                        <span class="grade-desc">Very good experience. Some minor bugs but solid choice.</span>
+                    </div>
+                    <div class="grade-item grade-c-plus">
+                        <span class="grade">C+ to B-</span>
+                        <span class="grade-desc">Okay experience. Too many stutters and bugs. Would recommend a higher rated driver unless needed for compatibility.</span>
+                    </div>
+                    <div class="grade-item grade-c">
+                        <span class="grade">C and below</span>
+                        <span class="grade-desc">Not recommended. High GPU latency, frequent stutters and bugs.</span>
+                    </div>
+                    <div class="grade-item grade-pending">
+                        <span class="grade">/</span>
+                        <span class="grade-desc">Driver is pending a grade. Check back later!</span>
+                    </div>
+                </div>
+
+                <div class="info-note">
+                    <span class="material-icons">computer</span>
+                    <p>Reference setup: Ryzen 9 7900X, RTX 4080 SUPER, 64GB DDR5 6000MHz, Win 11 24H2</p>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>What does "Considered a stable driver" mean?</h2>
+                <p>The stable driver tag refers to community feedback and response to newly released drivers. This is determined by reviewing Reddit threads about new driver releases. If the general outlook indicates the driver works well and is worth updating to, that tag is added along with a link to the reference thread. Personal experience is also taken into consideration.</p>
+            </section>
+        </article>
+
+        <div class="back-link">
+            <a href="/" class="btn btn-secondary">
+                <span class="material-icons">arrow_back</span> Back to Home
+            </a>
+        </div>
     </main>
+
+    <footer>
+        <p><span id="site-version"></span> · <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank">Release Notes</a></p>
+        <p id="update-date"></p>
+        <p><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank">❤️ Support</a> · <a href="/sitemap.xml">Sitemap</a></p>
+    </footer>
+
+    <script src="../global/navigation.js"></script>
+    <script src="../global/darkMode.js"></script>
+    <script src="../global/versionInfo.js"></script>
 </body>
 </html>

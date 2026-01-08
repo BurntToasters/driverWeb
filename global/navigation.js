@@ -1,21 +1,16 @@
 const Navigation = (function() {
     const navItems = [
-        { href: '/', label: 'Home', icon: 'home', class: 'download-button-h' },
-        { href: '/display', label: 'Video Drivers', icon: 'videocam', class: 'nvidia-button' },
-        { href: '/chipset', label: 'Chipset Drivers', icon: 'memory', class: 'chipset-button' },
-        { href: '#', label: 'Network Drivers', icon: 'wifi', class: 'g-button', disabled: true },
-        { href: '#', label: 'Audio Drivers', icon: 'headphones', class: 'g-button', disabled: true },
-        { href: '/contact', label: 'Contact', icon: 'email', class: 'g-button' },
-        {
-            href: 'https://docs.rexxit.net/drivers-website/',
-            label: 'Docs',
-            icon: 'description',
-            class: 'download-button',
-            external: true
-        }
+        { href: '/', label: 'Home', icon: 'home' },
+        { href: '/display', label: 'Graphics', icon: 'videocam' },
+        { href: '/chipset', label: 'Chipset', icon: 'memory' },
+        { href: '#', label: 'Network', icon: 'wifi', disabled: true },
+        { href: '#', label: 'Audio', icon: 'headphones', disabled: true },
+        { type: 'divider' },
+        { href: '/contact', label: 'Contact', icon: 'mail_outline' },
+        { href: 'https://docs.rexxit.net/drivers-website/', label: 'Docs', icon: 'description', external: true }
     ];
 
-    const externalIcon = `<svg width="14px" height="14px" viewBox="0 0 24 24"><g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg>`;
+    const externalIcon = `<svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`;
 
     function getCurrentPage() {
         const path = window.location.pathname;
@@ -38,29 +33,51 @@ const Navigation = (function() {
     }
 
     function generateNavHTML() {
-        const currentPage = getCurrentPage();
-
         return navItems.map(item => {
+            if (item.type === 'divider') {
+                return '<span class="nav-divider"></span>';
+            }
+
             const active = isActive(item.href);
-            let className = item.class;
-            let labelHTML = item.label;
+            let classes = ['nav-link'];
             let attrs = '';
 
             if (item.disabled) {
-                labelHTML = `<s>${item.label}</s>`;
-                attrs = `title="Coming soon" aria-label="${item.label} (coming soon)"`;
-            } else if (active) {
-                className = item.class.replace('-button', '-button-h');
-                if (!className.includes('-h')) className += '-h';
-                labelHTML = `<u>${item.label}</u>`;
+                classes.push('disabled');
+                attrs = `title="Coming soon" aria-disabled="true"`;
+            }
+            
+            if (active) {
+                classes.push('active');
             }
 
             if (item.external) {
                 attrs += ` target="_blank" rel="noopener noreferrer"`;
             }
 
-            return `<a href="${item.href}" class="${className}" ${attrs}><span class="material-icons">${item.icon}</span> ${labelHTML}${item.external ? ' ' + externalIcon : ''}</a>`;
-        }).join('\n            ');
+            return `<a href="${item.href}" class="${classes.join(' ')}" ${attrs}><span class="material-icons">${item.icon}</span>${item.label}${item.external ? externalIcon : ''}</a>`;
+        }).join('');
+    }
+
+    function generateHeaderHTML() {
+        return `
+        <div class="header-top">
+            <a href="/" class="logo-group">
+                <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub">
+                <h1>DriverHub</h1>
+            </a>
+            <div class="header-actions">
+                <button id="global-search-btn" class="action-btn" title="Search (Ctrl+K)">
+                    <span class="material-icons">search</span>
+                </button>
+                <button id="favorites-btn" class="action-btn" title="Favorites">
+                    <span class="material-icons">star_outline</span>
+                </button>
+            </div>
+        </div>
+        <nav class="nav-container" role="navigation" aria-label="Main navigation">
+            ${generateNavHTML()}
+        </nav>`;
     }
 
     function generateSettingsHTML() {
@@ -69,43 +86,40 @@ const Navigation = (function() {
         <div class="settings-content">
             <button class="close-settings" aria-label="Close settings">&times;</button>
             <h2 id="settings-title">Settings</h2>
-
-            <label class="switch">
-                <input type="checkbox" id="darkModeToggle">
-                <span class="slider round"></span>
-            </label>
-            <span>Dark Mode</span>
+            <div class="settings-row">
+                <label class="switch">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="slider round"></span>
+                </label>
+                <span>Dark Mode</span>
+            </div>
             <hr>
-
-            <label for="regionSelect">Select Region:</label>
+            <label for="regionSelect">Download Region</label>
             <select id="regionSelect" class="region-dropdown">
                 <option value="USA">🇺🇸 USA</option>
                 <option value="EU">🇪🇺 EU</option>
             </select>
-            <a href="https://docs.rexxit.net/drivers-website/articles/region-selection">Learn more about region selection</a>
+            <p class="info-text"><a href="https://docs.rexxit.net/drivers-website/articles/region-selection">Learn more about regions</a></p>
         </div>
     </div>`;
     }
 
     function generateFooterHTML() {
         return `
-    <p><span id="site-version"></span>(<a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer">Release notes</a>)
-        <svg width="14px" height="14px" viewBox="0 0 24 24" style="cursor:pointer" aria-hidden="true">
-            <g stroke-width="2.1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
-                <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
-                <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
-            </g>
-        </svg>
-    </p>
+    <p><span id="site-version"></span> <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer">Release notes</a></p>
     <p id="update-date"></p>
-    <p><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer">❤️ Support me :)</a> | <a href="/sitemap.xml">Sitemap</a></p>
-    <br>
+    <p><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer">❤️ Support</a> · <a href="/sitemap.xml">Sitemap</a></p>
     <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" target="_blank" rel="noopener noreferrer">
-        <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" style="max-width: 120px;" alt="DigitalOcean Referral Badge" loading="lazy" />
+        <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" style="max-width: 100px;" alt="DigitalOcean" loading="lazy">
     </a>`;
     }
 
     function init() {
+        const headerContent = document.querySelector('.header-content');
+        if (headerContent && headerContent.dataset.autoHeader === 'true') {
+            headerContent.innerHTML = generateHeaderHTML();
+        }
+
         const navContainer = document.querySelector('.nav-container');
         if (navContainer && navContainer.dataset.autoNav === 'true') {
             navContainer.innerHTML = generateNavHTML();
@@ -126,6 +140,7 @@ const Navigation = (function() {
 
     return {
         generateNavHTML,
+        generateHeaderHTML,
         generateSettingsHTML,
         generateFooterHTML,
         getCurrentPage,

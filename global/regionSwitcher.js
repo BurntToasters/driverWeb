@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const regionSelect = document.getElementById("regionSelect");
-    const settingsOverlay = document.getElementById("settings-overlay");
     const regionIndicator = document.getElementById("region-indicator");
 
     function getStoredRegion() {
@@ -15,24 +13,29 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
             localStorage.setItem("userRegion", region);
         } catch (e) {
-            // localStorage unavailable (private browsing)
         }
     }
 
     const savedRegion = getStoredRegion();
-    if (regionSelect) {
-        regionSelect.value = savedRegion;
-    }
     updateRegionIndicator(savedRegion);
 
-    if (regionSelect) {
-        regionSelect.addEventListener("change", function () {
-            const selectedRegion = regionSelect.value;
-            setStoredRegion(selectedRegion);
-            updateRegionIndicator(selectedRegion);
+    function updateRegionIndicator(region) {
+        if (regionIndicator) {
+            const flag = region === "EU" ? "🇪🇺" : "🇺🇸";
+            const label = region === "EU" ? "EU" : "USA";
+            regionIndicator.textContent = `${flag} ${label}`;
+        }
+    }
 
-            const baseUrl = "https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/";
+    function toggleRegion() {
+        const currentRegion = getStoredRegion();
+        const newRegion = currentRegion === "USA" ? "EU" : "USA";
+        setStoredRegion(newRegion);
+        updateRegionIndicator(newRegion);
 
+        const baseUrl = "https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/";
+
+        if (typeof loadDrivers === 'function') {
             if (document.getElementById('nvidia-game-ready-drivers')) {
                 loadDrivers(baseUrl + 'nvidia-game-ready.json', 'nvidia-game-ready-drivers');
                 loadDrivers(baseUrl + 'nvidia-studio.json', 'nvidia-studio-drivers');
@@ -42,24 +45,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 loadDrivers(baseUrl + 'nvidia-game-ready-laptop.json', 'nvidia-game-ready-laptop-drivers');
                 loadDrivers(baseUrl + 'nvidia-studio-laptop.json', 'nvidia-studio-laptop-drivers');
             }
-        });
+        }
     }
 
-    function updateRegionIndicator(region) {
-        if (regionIndicator) {
-            const flagUrl = region === "EU"
-                ? "https://prod.rexxit.net/global/_icons/EU.svg"
-                : "https://prod.rexxit.net/global/_icons/US.svg";
-
-            regionIndicator.innerHTML = `Region: <img src="${flagUrl}" alt="${region} flag" class="region-flag clickable-flag" width="24" height="24">`;
-
-            const flag = regionIndicator.querySelector(".clickable-flag");
-            if (flag && settingsOverlay) {
-                flag.addEventListener("click", () => {
-                    settingsOverlay.style.display = "block";
-                    settingsOverlay.classList.add("active");
-                });
-            }
-        }
+    if (regionIndicator) {
+        regionIndicator.addEventListener("click", toggleRegion);
+        regionIndicator.style.cursor = "pointer";
     }
 });
