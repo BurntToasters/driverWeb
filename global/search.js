@@ -48,19 +48,19 @@ const SearchModule = (function() {
         if (searchOverlay) return;
 
         searchOverlay = document.createElement('div');
-        searchOverlay.className = 'search-overlay';
+        searchOverlay.className = 'fixed inset-0 bg-black/60 backdrop-blur-sm z-[300] flex items-start justify-center pt-[10vh] opacity-0 pointer-events-none transition-opacity duration-200';
         searchOverlay.innerHTML = `
-            <div class="search-modal">
-                <div class="search-header">
-                    <span class="material-icons search-icon">search</span>
-                    <input type="text" class="search-input" placeholder="Search drivers by version, type..." autocomplete="off">
-                    <kbd class="search-kbd">ESC</kbd>
+            <div class="w-full max-w-xl mx-4 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-800 transform scale-95 transition-transform duration-200">
+                <div class="h-1 bg-gradient-to-r from-nvidia via-primary-500 to-intel"></div>
+                <div class="flex items-center gap-3 px-5 py-4 border-b border-gray-200 dark:border-gray-800">
+                    <span class="material-icons text-primary-500">search</span>
+                    <input type="text" class="search-input flex-1 bg-transparent text-lg outline-none text-gray-900 dark:text-white placeholder-gray-400" placeholder="Search drivers by version, type..." autocomplete="off">
+                    <kbd class="px-2 py-1 text-xs font-mono bg-gray-100 dark:bg-gray-800 rounded border border-gray-300 dark:border-gray-700 text-gray-500">ESC</kbd>
                 </div>
-                <div class="search-results"></div>
-                <div class="search-footer">
-                    <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
-                    <span><kbd>Enter</kbd> to select</span>
-                    <span><kbd>Esc</kbd> to close</span>
+                <div class="search-results max-h-[50vh] overflow-y-auto p-2"></div>
+                <div class="flex items-center justify-center gap-6 px-4 py-3 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-800 text-xs text-gray-500">
+                    <span><kbd class="px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded">↑</kbd> <kbd class="px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded">↓</kbd> navigate</span>
+                    <span><kbd class="px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded">Enter</kbd> select</span>
                 </div>
             </div>
         `;
@@ -89,12 +89,12 @@ const SearchModule = (function() {
         const query = searchInput.value.trim().toLowerCase();
 
         if (!query) {
-            searchResults.innerHTML = '<div class="search-empty">Start typing to search drivers...</div>';
+            searchResults.innerHTML = '<div class="p-8 text-center text-gray-400">Start typing to search drivers...</div>';
             return;
         }
 
         if (allDrivers.length === 0) {
-            searchResults.innerHTML = '<div class="search-loading"><span class="material-icons spinning">sync</span> Loading driver data...</div>';
+            searchResults.innerHTML = '<div class="p-8 text-center text-gray-400 flex items-center justify-center gap-2"><span class="material-icons animate-spin">sync</span> Loading driver data...</div>';
             loadAllDrivers().then(() => handleSearch());
             return;
         }
@@ -105,7 +105,7 @@ const SearchModule = (function() {
         });
 
         if (filtered.length === 0) {
-            searchResults.innerHTML = '<div class="search-empty">No drivers found matching your search.</div>';
+            searchResults.innerHTML = '<div class="p-8 text-center text-gray-400">No drivers found matching your search.</div>';
             return;
         }
 
@@ -117,28 +117,29 @@ const SearchModule = (function() {
 
         let html = '';
         for (const [category, drivers] of Object.entries(grouped)) {
-            html += `<div class="search-category">${category}</div>`;
+            html += `<div class="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">${category}</div>`;
             drivers.forEach((driver, idx) => {
-                const brandClass = driver.brand === 'nvidia' ? 'nvidia' : driver.brand === 'intel' ? 'intel' : 'amd';
-                const stableTag = driver.isStable ? `<span class="search-stable">${driver.stabilityGrade || 'Stable'}</span>` : '';
-                const favorited = FavoritesModule && FavoritesModule.isFavorite(driver.version) ? '<span class="material-icons search-fav-icon">star</span>' : '';
+                const brandColor = driver.brand === 'nvidia' ? 'bg-nvidia' : driver.brand === 'intel' ? 'bg-intel' : 'bg-amd';
+                const gradeColor = driver.stabilityGrade?.startsWith('A') ? 'bg-emerald-500' : driver.stabilityGrade?.startsWith('B') ? 'bg-amber-500' : 'bg-red-500';
+                const stableTag = driver.isStable ? `<span class="px-1.5 py-0.5 text-xs font-bold rounded ${gradeColor} text-white">${driver.stabilityGrade || 'Stable'}</span>` : '';
+                const favorited = typeof FavoritesModule !== 'undefined' && FavoritesModule.isFavorite(driver.version, driver.category) ? '<span class="material-icons text-yellow-500 text-sm">star</span>' : '';
                 html += `
-                    <a href="${driver.downloadUrl || driver.page}" class="search-result-item" data-index="${idx}" ${driver.downloadUrl ? 'target="_blank"' : ''}>
-                        <div class="search-result-main">
-                            <span class="search-brand ${brandClass}"></span>
-                            <span class="search-version">${driver.version}</span>
-                            ${driver.type ? `<span class="search-type">- ${driver.type}</span>` : ''}
+                    <a href="${driver.downloadUrl || driver.page}" class="search-result-item flex items-center justify-between px-4 py-3 rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-colors group" data-index="${idx}" ${driver.downloadUrl ? 'target="_blank"' : ''}>
+                        <div class="flex items-center gap-3">
+                            <span class="w-2 h-2 rounded-full ${brandColor}"></span>
+                            <span class="font-semibold text-gray-900 dark:text-white">${driver.version}</span>
+                            ${driver.type ? `<span class="text-gray-500">- ${driver.type}</span>` : ''}
                             ${stableTag}
                             ${favorited}
                         </div>
-                        <span class="search-date">${driver.releaseDate || ''}</span>
+                        <span class="text-sm text-gray-400">${driver.releaseDate || ''}</span>
                     </a>
                 `;
             });
         }
 
         if (filtered.length > 20) {
-            html += `<div class="search-more">${filtered.length - 20} more results...</div>`;
+            html += `<div class="px-4 py-3 text-center text-sm text-gray-400 border-t border-gray-200 dark:border-gray-700 mt-2">+${filtered.length - 20} more results...</div>`;
         }
 
         searchResults.innerHTML = html;
@@ -168,18 +169,22 @@ const SearchModule = (function() {
 
     function updateSelection(items) {
         items.forEach((item, i) => {
-            item.classList.toggle('selected', i === selectedIndex);
             if (i === selectedIndex) {
+                item.classList.add('bg-primary-100', 'dark:bg-primary-900/30');
                 item.scrollIntoView({ block: 'nearest' });
+            } else {
+                item.classList.remove('bg-primary-100', 'dark:bg-primary-900/30');
             }
         });
     }
 
     function openSearch() {
         createSearchOverlay();
-        searchOverlay.classList.add('active');
+        searchOverlay.classList.remove('opacity-0', 'pointer-events-none');
+        searchOverlay.classList.add('opacity-100', 'pointer-events-auto');
+        searchOverlay.querySelector('.bg-white, .dark\\:bg-gray-900')?.classList.remove('scale-95');
         searchInput.value = '';
-        searchResults.innerHTML = '<div class="search-empty">Start typing to search drivers...</div>';
+        searchResults.innerHTML = '<div class="p-8 text-center text-gray-400">Start typing to search drivers...</div>';
         selectedIndex = -1;
         setTimeout(() => searchInput.focus(), 50);
         loadAllDrivers();
@@ -187,7 +192,8 @@ const SearchModule = (function() {
 
     function closeSearch() {
         if (searchOverlay) {
-            searchOverlay.classList.remove('active');
+            searchOverlay.classList.add('opacity-0', 'pointer-events-none');
+            searchOverlay.classList.remove('opacity-100', 'pointer-events-auto');
         }
     }
 

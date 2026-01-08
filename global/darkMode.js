@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function applyDarkMode(isDark) {
         if (isDark) {
-            document.documentElement.classList.add('dark-mode');
+            document.documentElement.classList.add('dark');
         } else {
-            document.documentElement.classList.remove('dark-mode');
+            document.documentElement.classList.remove('dark');
         }
         updateToggleIcon(isDark);
     }
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         applyDarkMode(isDarkMode);
 
         darkModeToggle.addEventListener('click', () => {
-            const currentlyDark = document.documentElement.classList.contains('dark-mode');
+            const currentlyDark = document.documentElement.classList.contains('dark');
             applyDarkMode(!currentlyDark);
             setStoredDarkMode(!currentlyDark ? 'dark' : 'light');
         });

@@ -1,0 +1,12 @@
+{
+  "name": "driverhub",
+  "version": "5.0.0",
+  "description": "DriverHub - GPU and Chipset driver downloads",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./global/tailwind.css --minify",
+    "watch": "tailwindcss -i ./src/input.css -o ./global/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}

@@ -5,18 +5,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (settingsButton && settingsOverlay && closeSettings) {
     function openSettings() {
-      settingsOverlay.style.display = 'block';
-      void settingsOverlay.offsetWidth;
-      settingsOverlay.classList.add('active');
+      settingsOverlay.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
     }
 
     function closeSettingsPanel() {
-      settingsOverlay.classList.remove('active');
-      setTimeout(function() {
-        settingsOverlay.style.display = 'none';
-        document.body.style.overflow = '';
-      }, 300);
+      settingsOverlay.classList.add('hidden');
+      document.body.style.overflow = '';
     }
 
     settingsButton.addEventListener('click', openSettings);
@@ -29,36 +24,38 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && settingsOverlay.classList.contains('active')) {
+      if (e.key === 'Escape' && !settingsOverlay.classList.contains('hidden')) {
         closeSettingsPanel();
       }
     });
   }
 
-  const collapsibles = document.querySelectorAll('.Ncollapsible, .Acollapsible, .Icollapsible, .collapsible');
-  
+  const collapsibles = document.querySelectorAll('[data-collapsible]');
+
   collapsibles.forEach(function(coll) {
     coll.addEventListener('click', function() {
-      this.classList.toggle('active');
-      
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !expanded);
+
+      const icon = this.querySelector('.material-icons');
+      if (icon && icon.textContent === 'expand_more') {
+        icon.classList.toggle('rotate-180');
+      }
+
       const content = this.nextElementSibling;
-      
+
       if (content.style.maxHeight) {
         content.style.maxHeight = null;
+        content.style.opacity = '0';
         setTimeout(() => {
-          content.classList.remove('visible');
+          content.classList.add('hidden');
         }, 300);
       } else {
-        content.classList.add('visible');
+        content.classList.remove('hidden');
+        content.style.opacity = '1';
         content.style.maxHeight = content.scrollHeight + 'px';
       }
     });
-  });
-
-  document.querySelectorAll('a').forEach(link => {
-    if (!link.querySelector('img')) { 
-      link.classList.add('hover-effect');
-    }
   });
 
   const observerOptions = {
@@ -68,13 +65,15 @@ document.addEventListener('DOMContentLoaded', function() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
+        entry.target.classList.add('opacity-100', 'translate-y-0');
+        entry.target.classList.remove('opacity-0', 'translate-y-4');
         observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
-  document.querySelectorAll('.driver-section').forEach(section => {
+  document.querySelectorAll('[data-animate]').forEach(section => {
+    section.classList.add('opacity-0', 'translate-y-4', 'transition-all', 'duration-500');
     observer.observe(section);
   });
 });

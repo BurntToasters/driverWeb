@@ -6,92 +6,69 @@
     <meta name="description" content="Audio drivers download for Windows - Realtek and other audio driver downloads.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://driverhub.win/audio">
-    <title>Audio Drivers | DriverHub.win</title>
+    <title>Audio Drivers | DriverHub</title>
     <script>
         (function() {
             const userPreference = localStorage.getItem('darkMode');
             const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            const shouldUseDarkMode = userPreference === 'dark' || (userPreference === null && prefersDarkScheme);
-            if (shouldUseDarkMode) {
-                document.documentElement.classList.add('dark-mode');
+            if (userPreference === 'dark' || (userPreference === null && prefersDarkScheme)) {
+                document.documentElement.classList.add('dark');
             }
         })();
     </script>
-    <link rel="stylesheet" href="global/v5.css">
+
+    <link rel="stylesheet" href="global/tailwind.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="global/favicon.ico">
 </head>
-<body>
-    <header>
-        <div class="header-top">
-            <div class="logo-group">
-                <a href="/">
-                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub Logo" class="logo">
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
+    <header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-800/50">
+        <div class="max-w-6xl mx-auto px-4 md:px-6">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="flex items-center gap-3 group">
+                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-9 w-9 transition-transform group-hover:scale-110">
+                    <span class="text-xl font-bold bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent">DriverHub</span>
                 </a>
-                <span class="site-name">DriverHub.win</span>
-            </div>
-            <div class="header-actions">
-                <div id="region-indicator" class="region-badge" title="Click to change region">🇺🇸 USA</div>
-                <button class="icon-btn" id="darkModeToggle" aria-label="Toggle dark mode">
-                    <span class="material-icons">dark_mode</span>
-                </button>
+                <div class="flex items-center gap-2">
+                    <button id="darkModeToggle" class="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-400 transition-all duration-200" title="Toggle dark mode">
+                        <span class="material-icons text-xl">dark_mode</span>
+                    </button>
+                </div>
             </div>
         </div>
-        <nav id="main-nav"></nav>
     </header>
 
-    <main>
-        <div class="page-header">
-            <h1><span class="material-icons">headphones</span> Audio Drivers</h1>
-            <p>Download audio drivers for Windows 10/11</p>
-        </div>
-
-        <section class="driver-section">
-            <div class="section-header">
-                <img src="https://prod.rexxit.net/drweb/assets/realtek.png" alt="Realtek" class="vendor-logo">
-                <h2>Realtek Audio Drivers</h2>
+    <main class="flex-1 flex items-center justify-center">
+        <div class="text-center px-4">
+            <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-primary-100 dark:bg-primary-900/30 mb-6">
+                <span class="material-icons text-6xl text-primary-500">headphones</span>
             </div>
-            <p class="disclaimer">This website is not affiliated with Realtek.</p>
-            
-            <div class="driver-list" id="realtek-audio-drivers">
-                <div class="driver-item">
-                    <div class="driver-info">
-                        <span class="driver-version">R2.82</span>
-                        <span class="driver-meta">64-bit · Windows Vista - 10</span>
-                    </div>
-                    <a href="https://www.realtek.com/en/agree-to-download?downloadid=4842c7ef60f190fdf91711cf682f2192" target="_blank" class="btn btn-download">
-                        <span class="material-icons">download</span> Download
-                    </a>
-                </div>
-                <div class="driver-item">
-                    <div class="driver-info">
-                        <span class="driver-version">R2.82</span>
-                        <span class="driver-meta">32-bit · Windows Vista - 10</span>
-                    </div>
-                    <a href="https://www.realtek.com/en/agree-to-download?downloadid=8b9cdfd0da3bd4980715874678b1c02e" target="_blank" class="btn btn-download">
-                        <span class="material-icons">download</span> Download
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <div class="back-link">
-            <a href="/" class="btn btn-secondary">
-                <span class="material-icons">arrow_back</span> Back to Home
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
+                <span class="bg-gradient-to-r from-primary-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">Audio Drivers</span>
+            </h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto">Realtek and other audio drivers are coming soon.</p>
+            <a href="/" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/40 hover:-translate-y-0.5 transition-all duration-200">
+                <span class="material-icons">home</span>
+                Back to Home
             </a>
         </div>
     </main>
 
-    <footer>
-        <p><span id="site-version"></span> · <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank">Release Notes</a></p>
-        <p id="update-date"></p>
-        <p><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank">❤️ Support</a> · <a href="/sitemap.xml">Sitemap</a></p>
+    <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <span class="text-sm text-gray-500 dark:text-gray-400" id="site-version"></span>
+                <div class="flex items-center gap-6 text-sm">
+                    <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-primary-500 transition-colors">Release Notes</a>
+                    <a href="/sitemap.xml" class="text-gray-500 hover:text-primary-500 transition-colors">Sitemap</a>
+                    <a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-gradient-to-r from-pink-500 to-red-500 text-white rounded-full text-sm font-medium hover:shadow-lg hover:shadow-pink-500/25 transition-all">Support</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <script src="global/navigation.js"></script>
     <script src="global/darkMode.js"></script>
-    <script src="global/regionSwitcher.js"></script>
     <script src="global/versionInfo.js"></script>
 </body>
 </html>
