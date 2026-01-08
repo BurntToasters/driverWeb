@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="../global/v5.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" type="image/webp" href="../global/favicon.webp">
+    <link rel="shortcut icon" type="image/x-icon" href="../global/favicon.ico">
     
     <script type="application/ld+json">
     {
@@ -56,6 +56,7 @@
     </script>
 </head>
 <body>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
     <div id="status-banner" class="status-banner" style="display: none;">
         <span id="status-text">Site status update goes here.</span>
         <button id="dismiss-banner" class="dismiss-banner" aria-label="Dismiss status banner">&times;</button>
@@ -73,14 +74,14 @@
                 <p class="header-subtitle">This is a list of common drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
             </div>
         
-        <nav class="nav-container">
+        <nav class="nav-container" role="navigation" aria-label="Main navigation">
             <a href="/" class="download-button-h"><span class="material-icons">home</span> Home</a>
             <a href="/display" class="nvidia-button"><span class="material-icons">videocam</span> Video Drivers</a>
             <a href="/chipset" class="chipset-button"><span class="material-icons">memory</span> Chipset Drivers</a>
-            <a href="#" class="g-button"><span class="material-icons">wifi</span> <s>Network Drivers</s></a>
-            <a href="#" class="g-button"><span class="material-icons">headphones</span> <s>Audio Drivers</s></a>
+            <a href="#" class="g-button" title="Coming soon" aria-label="Network Drivers (coming soon)"><span class="material-icons">wifi</span> <s>Network Drivers</s></a>
+            <a href="#" class="g-button" title="Coming soon" aria-label="Audio Drivers (coming soon)"><span class="material-icons">headphones</span> <s>Audio Drivers</s></a>
             <a href="/contact" class="g-button"><span class="material-icons">email</span> Contact</a>
-            <a href="https://docs.rexxit.net/drivers-website/" target="_blank" class="download-button">
+            <a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="download-button">
                 <span class="material-icons">description</span> Docs
                 <svg width="14px" height="14px" viewBox="0 0 24 24">
                     <g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -104,10 +105,10 @@
         </button>
     </header>
 
-    <div id="settings-overlay" class="settings-overlay">
+    <div id="settings-overlay" class="settings-overlay" role="dialog" aria-modal="true" aria-labelledby="settings-title">
         <div class="settings-content">
-            <span class="close-settings">&times;</span>
-            <h2>Settings</h2>
+            <button class="close-settings" aria-label="Close settings">&times;</button>
+            <h2 id="settings-title">Settings</h2>
             
             <!-- Dark Mode Toggle -->
             <label class="switch">
@@ -127,12 +128,12 @@
         </div>
     </div>
 
-    <main>
+    <main id="main-content">
         <section class="driver-section">
             <div class="container">
-                <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt='NVIDIA' class="platform">
-                <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt='AMD' class="platform"> 
-                <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt='Intel' class="platform">
+                <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt='NVIDIA' class="platform" loading="lazy">
+                <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt='AMD' class="platform" loading="lazy"> 
+                <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt='Intel' class="platform" loading="lazy">
                 <h2>Graphics Drivers</h2>
             </div>
             <h3>Download NVIDIA, AMD, or INTEL Graphics Drivers:</h3>
@@ -143,8 +144,8 @@
         
         <section class="driver-section">
             <div class="container">
-                <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt='Intel' class="platform">
-                <img src="https://prod.rexxit.net/drweb/assets/amdryzen.png" alt='AMD Ryzen' class="platform">
+                <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt='Intel' class="platform" loading="lazy">
+                <img src="https://prod.rexxit.net/drweb/assets/amdryzen.png" alt='AMD Ryzen' class="platform" loading="lazy">
                 <h2>Chipset Drivers</h2>
             </div>
             <h3>Download INTEL/AMD Chipset Drivers:</h3>
@@ -155,7 +156,7 @@
 
         <section class="driver-section">
             <div class="container">
-                <img src="https://prod.rexxit.net/drweb/assets/realtek.png" alt='Realtek' class="platform">
+                <img src="https://prod.rexxit.net/drweb/assets/realtek.png" alt='Realtek' class="platform" loading="lazy">
                 <h2>Audio Drivers</h2>
             </div>
             <h3>Get the latest audio drivers:</h3>
@@ -177,7 +178,7 @@
 
         <section class="driver-section">
             <div class="container">
-                <img src="https://prod.rexxit.net/drweb/assets/mail.png" alt='Contact' class="platform">
+                <img src="https://prod.rexxit.net/drweb/assets/mail.png" alt='Contact' class="platform" loading="lazy">
                 <h2>Contact</h2>
             </div>
             <h3>Questions? Comments? or Something Else?</h3>
@@ -188,19 +189,19 @@
     </main>
 
 <footer>
-    <p><span id="site-version"></span>(<a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank">Release notes</a>)
-        <svg width="14px" height="14px" viewBox="0 0 24 24" style="cursor:pointer">
-            <g stroke-width="2.1" stroke="#595959" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <p><span id="site-version"></span>(<a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer">Release notes</a>)
+        <svg width="14px" height="14px" viewBox="0 0 24 24" style="cursor:pointer" aria-hidden="true">
+            <g stroke-width="2.1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
                 <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
                 <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
             </g>
         </svg>
     </p>
     <p id="update-date"></p>
-    <p><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank">❤️ Support me :)</a> | <a href="/sitemap.xml">Sitemap</a></p>
+    <p><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer">❤️ Support me :)</a> | <a href="/sitemap.xml">Sitemap</a></p>
     <br>
-    <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
-        <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" style="max-width: 120px;" alt="DigitalOcean Referral Badge" />
+    <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" target="_blank" rel="noopener noreferrer">
+        <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" style="max-width: 120px;" alt="DigitalOcean Referral Badge" loading="lazy" />
     </a>
 </footer>
     <script src="../global/favorites.js"></script>
@@ -209,6 +210,7 @@
     <script src="../global/regionSwitcher.js"></script>
     <script src="../global/modern.js"></script>
     <script src="../global/versionInfo.js"></script>
+    <script src="../global/backToTop.js"></script>
     <script>
     const STATUS_BANNER_ENABLED = true; // Banner toggle
     const STATUS_BANNER_TEXT = "Welcome to the Beta of DriverHub.win v5! Any issues, or feedback, please contact us!";

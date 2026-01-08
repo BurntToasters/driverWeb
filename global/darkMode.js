@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
     function applyDarkMode(isDark) {
+        document.documentElement.style.setProperty('--transition-duration', '0.3s');
         if (isDark) {
             document.documentElement.classList.add('dark-mode');
         } else {

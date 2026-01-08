@@ -4,26 +4,33 @@ document.addEventListener('DOMContentLoaded', function() {
   const closeSettings = document.querySelector('.close-settings');
 
   if (settingsButton && settingsOverlay && closeSettings) {
-    settingsButton.addEventListener('click', function() {
+    function openSettings() {
       settingsOverlay.style.display = 'block';
-      // Force reflow
       void settingsOverlay.offsetWidth;
       settingsOverlay.classList.add('active');
-    });
+      document.body.style.overflow = 'hidden';
+    }
 
-    closeSettings.addEventListener('click', function() {
+    function closeSettingsPanel() {
       settingsOverlay.classList.remove('active');
       setTimeout(function() {
         settingsOverlay.style.display = 'none';
+        document.body.style.overflow = '';
       }, 300);
-    });
+    }
+
+    settingsButton.addEventListener('click', openSettings);
+    closeSettings.addEventListener('click', closeSettingsPanel);
 
     settingsOverlay.addEventListener('click', function(e) {
       if (e.target === settingsOverlay) {
-        settingsOverlay.classList.remove('active');
-        setTimeout(function() {
-          settingsOverlay.style.display = 'none';
-        }, 300);
+        closeSettingsPanel();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && settingsOverlay.classList.contains('active')) {
+        closeSettingsPanel();
       }
     });
   }
