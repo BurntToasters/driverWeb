@@ -266,13 +266,14 @@
                 coll[i].addEventListener("click", function() {
                     this.classList.toggle("active");
                     var content = this.nextElementSibling;
-                    void content.offsetHeight;
                     if (content.classList.contains('visible')) {
                         content.style.maxHeight = content.scrollHeight + "px";
-                        setTimeout(() => {
-                            content.style.maxHeight = null;
-                            content.classList.remove('visible');
-                        }, 10);
+                        requestAnimationFrame(() => {
+                            requestAnimationFrame(() => {
+                                content.style.maxHeight = null;
+                                content.classList.remove('visible');
+                            });
+                        });
                     } else {
                         content.classList.add('visible');
                         content.style.maxHeight = content.scrollHeight + "px";
@@ -285,13 +286,14 @@
                 icoll[i].addEventListener("click", function() {
                     this.classList.toggle("active");
                     var content = this.nextElementSibling;
-                    void content.offsetHeight;
                     if (content.classList.contains('visible')) {
                         content.style.maxHeight = content.scrollHeight + "px";
-                        setTimeout(() => {
-                            content.style.maxHeight = null;
-                            content.classList.remove('visible');
-                        }, 10);
+                        requestAnimationFrame(() => {
+                            requestAnimationFrame(() => {
+                                content.style.maxHeight = null;
+                                content.classList.remove('visible');
+                            });
+                        });
                     } else {
                         content.classList.add('visible');
                         content.style.maxHeight = content.scrollHeight + "px";

@@ -261,39 +261,35 @@
                 acoll[i].addEventListener("click", function() {
                     this.classList.toggle("active");
                     var content = this.nextElementSibling;
-                    
-                    
-                    void content.offsetHeight;
-                    
                     if (content.classList.contains('visible')) {
                         content.style.maxHeight = content.scrollHeight + "px";
-                        setTimeout(() => {
-                            content.style.maxHeight = null;
-                            content.classList.remove('visible');
-                        }, 10);
+                        requestAnimationFrame(() => {
+                            requestAnimationFrame(() => {
+                                content.style.maxHeight = null;
+                                content.classList.remove('visible');
+                            });
+                        });
                     } else {
                         content.classList.add('visible');
                         content.style.maxHeight = content.scrollHeight + "px";
                     }
                 });
             }
-            
-            
+
             var icoll = document.getElementsByClassName("Icollapsible");
             for (var i = 0; i < icoll.length; i++) {
                 icoll[i] = removeExistingListeners(icoll[i]);
                 icoll[i].addEventListener("click", function() {
                     this.classList.toggle("active");
                     var content = this.nextElementSibling;
-                    
-                    void content.offsetHeight;
-                    
                     if (content.classList.contains('visible')) {
                         content.style.maxHeight = content.scrollHeight + "px";
-                        setTimeout(() => {
-                            content.style.maxHeight = null;
-                            content.classList.remove('visible');
-                        }, 10);
+                        requestAnimationFrame(() => {
+                            requestAnimationFrame(() => {
+                                content.style.maxHeight = null;
+                                content.classList.remove('visible');
+                            });
+                        });
                     } else {
                         content.classList.add('visible');
                         content.style.maxHeight = content.scrollHeight + "px";

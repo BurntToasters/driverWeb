@@ -26,7 +26,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="../global/favicon.ico">
-    <meta http-equiv="refresh" content="0; url='https://driverhub.win'"/>
 </head>
 <body>
     <header>
@@ -42,14 +41,14 @@
                 <p class="header-subtitle">This is a list of common drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
             </div>
         
-        <nav class="nav-container">
-            <a href="/" class="download-button-h"><span class="material-icons">home</span> Home</a> 
-            <a href="/display" class="nvidia-button"><span class="material-icons">videocam</span> Video Drivers</a>  
-            <a href="/chipset" class="chipset-button"><span class="material-icons">memory</span> Chipset Drivers</a> 
-            <a href="/network" class="g-button"><span class="material-icons">wifi</span> <u>Network Drivers</u></a>  
-            <a href="/audio" class="g-button"><span class="material-icons">headphones</span> Audio Drivers</a> 
-            <a href="/contact" class="g-button"><span class="material-icons">email</span> Contact</a> 
-            <a href="https://docs.rexxit.net/drivers-website/" target="_blank" class="download-button">
+        <nav class="nav-container" role="navigation" aria-label="Main navigation">
+            <a href="/" class="download-button-h"><span class="material-icons">home</span> Home</a>
+            <a href="/display" class="nvidia-button"><span class="material-icons">videocam</span> Video Drivers</a>
+            <a href="/chipset" class="chipset-button"><span class="material-icons">memory</span> Chipset Drivers</a>
+            <a href="/network" class="g-button-h"><span class="material-icons">wifi</span> <u>Network Drivers</u></a>
+            <a href="#" class="g-button" title="Coming soon" aria-label="Audio Drivers (coming soon)"><span class="material-icons">headphones</span> <s>Audio Drivers</s></a>
+            <a href="/contact" class="g-button"><span class="material-icons">email</span> Contact</a>
+            <a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="download-button">
                 <span class="material-icons">description</span> Docs
                 <svg width="14px" height="14px" viewBox="0 0 24 24">
                     <g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -59,8 +58,8 @@
                 </svg>
             </a>
         </nav>
-        
-        <button class="settings-button">
+        </div>
+        <button class="settings-button" aria-label="Settings">
             <span class="material-icons">settings</span>
         </button>
     </header>

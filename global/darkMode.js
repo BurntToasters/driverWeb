@@ -1,9 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const userPreference = localStorage.getItem('darkMode');
     const darkModeToggle = document.getElementById('darkModeToggle');
-    const settingsOverlay = document.getElementById('settings-overlay');
-    const closeSettings = document.querySelector('.close-settings');
 
+    function getStoredDarkMode() {
+        try {
+            return localStorage.getItem('darkMode');
+        } catch (e) {
+            return null;
+        }
+    }
+
+    function setStoredDarkMode(value) {
+        try {
+            localStorage.setItem('darkMode', value);
+        } catch (e) {
+            // localStorage unavailable (private browsing)
+        }
+    }
+
+    const userPreference = getStoredDarkMode();
     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
     function applyDarkMode(isDark) {
@@ -27,29 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
         darkModeToggle.addEventListener('change', () => {
             if (darkModeToggle.checked) {
                 applyDarkMode(true);
-                localStorage.setItem('darkMode', 'dark');
+                setStoredDarkMode('dark');
             } else {
                 applyDarkMode(false);
-                localStorage.setItem('darkMode', 'light');
-            }
-        });
-    }
-
-    const settingsButton = document.querySelector('.settings-button');
-    if (settingsButton && settingsOverlay) {
-        settingsButton.addEventListener('click', () => {
-            settingsOverlay.style.display = 'block';
-        });
-    }
-
-    if (closeSettings && settingsOverlay) {
-        closeSettings.addEventListener('click', () => {
-            settingsOverlay.style.display = 'none';
-        });
-
-        window.addEventListener('click', (e) => {
-            if (e.target === settingsOverlay) {
-                settingsOverlay.style.display = 'none';
+                setStoredDarkMode('light');
             }
         });
     }

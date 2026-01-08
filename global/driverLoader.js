@@ -1,5 +1,26 @@
+function getStoredRegion() {
+    try {
+        return localStorage.getItem("userRegion") || "USA";
+    } catch (e) {
+        return "USA";
+    }
+}
+
+function getRegionalUrl(originalUrl, region) {
+    if (region !== "EU") return originalUrl;
+    try {
+        const url = new URL(originalUrl);
+        if (url.hostname === "us.download.nvidia.com") {
+            url.hostname = "uk.download.nvidia.com";
+        }
+        return url.toString();
+    } catch (e) {
+        return originalUrl.replace("us.download.nvidia.com", "uk.download.nvidia.com");
+    }
+}
+
 function loadDrivers(jsonUrl, containerId) {
-    const userRegion = localStorage.getItem("userRegion") || "USA";
+    const userRegion = getStoredRegion();
 
     fetch(jsonUrl)
         .then(response => {
@@ -44,8 +65,8 @@ function loadDrivers(jsonUrl, containerId) {
                     driverLink.innerHTML = `<span class="material-icons" style="font-size:1rem">warning</span> ${driver.version} - ${driver.type}`;
                 } else if (driver.downloadUrl) {
                     let downloadUrl = driver.downloadUrl;
-                    if (containerId.includes('nvidia') && userRegion === "EU") {
-                        downloadUrl = downloadUrl.replace("us.download.nvidia.com", "uk.download.nvidia.com");
+                    if (containerId.includes('nvidia')) {
+                        downloadUrl = getRegionalUrl(downloadUrl, userRegion);
                     }
 
                     driverLink.href = downloadUrl;

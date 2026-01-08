@@ -80,6 +80,11 @@ html {
   scroll-padding-top: calc(var(--header-height) + 2rem);
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-hover) var(--bg-base);
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -1162,6 +1167,7 @@ footer img:hover {
   }
   header {
     padding: 0.5rem 0.75rem;
+    padding-right: 3.5rem;
   }
   header h1 {
     font-size: 0.9rem;
@@ -1403,7 +1409,7 @@ select:focus-visible {
   font-family: inherit;
 }
 .search-results {
-  max-height: 400px;
+  max-height: min(400px, 50vh);
   overflow-y: auto;
   padding: 0.5rem;
 }
@@ -1737,6 +1743,12 @@ select:focus-visible {
   color: var(--primary);
   background: var(--primary-light);
   transform: translateY(-1px);
+}
+.filter-chip:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-color: var(--primary);
+  color: var(--primary);
 }
 .filter-chip:active {
   transform: translateY(0);
