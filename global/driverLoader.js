@@ -38,7 +38,7 @@ function loadDrivers(jsonUrl, containerId) {
             if (data.warningMessage) {
                 const warningDiv = document.createElement('div');
                 warningDiv.className = 'p-4 mb-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl text-amber-800 dark:text-amber-200 text-sm';
-                warningDiv.innerHTML = data.warningMessage;
+                warningDiv.textContent = data.warningMessage;
                 container.appendChild(warningDiv);
             }
 
@@ -70,7 +70,12 @@ function loadDrivers(jsonUrl, containerId) {
                 if (driver.hasWarning && driver.warningUrl) {
                     driverLink.href = driver.warningUrl;
                     driverLink.className = 'px-4 py-2 bg-gradient-to-r from-amd to-amd-light text-white text-sm font-medium rounded-lg shadow-sm hover:shadow-glow-amd/50 inline-flex items-center gap-2 transition-all duration-200';
-                    driverLink.innerHTML = `<span class="material-icons text-base">warning</span> ${driver.version} - ${driver.type}`;
+                    const icon = document.createElement('span');
+                    icon.className = 'material-icons text-base';
+                    icon.textContent = 'warning';
+                    driverLink.appendChild(icon);
+                    const text = document.createTextNode(` ${driver.version} - ${driver.type}`);
+                    driverLink.appendChild(text);
                 } else if (driver.downloadUrl) {
                     let downloadUrl = driver.downloadUrl;
                     if (containerId.includes('nvidia')) {
@@ -105,7 +110,7 @@ function loadDrivers(jsonUrl, containerId) {
                     const gradeColor = driver.stabilityGrade.startsWith('A') ? 'bg-emerald-500' :
                                        driver.stabilityGrade.startsWith('B') ? 'bg-amber-500' : 'bg-red-500';
                     gradeSpan.className = `px-2 py-0.5 text-xs font-bold rounded-md ${gradeColor} text-white`;
-                    gradeSpan.innerHTML = `${driver.stabilityGrade}`;
+                    gradeSpan.textContent = driver.stabilityGrade;
                     gradeSpan.title = "Stable driver based on community feedback";
                     iconsContainer.appendChild(gradeSpan);
                 }
@@ -129,17 +134,31 @@ function loadDrivers(jsonUrl, containerId) {
                 if (driver.sha256sum) {
                     const copyHashBtn = document.createElement('button');
                     copyHashBtn.className = 'px-2 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-colors inline-flex items-center gap-1';
-                    copyHashBtn.innerHTML = '<span class="material-icons text-sm">content_copy</span> SHA256';
+                    const copyIcon = document.createElement('span');
+                    copyIcon.className = 'material-icons text-sm';
+                    copyIcon.textContent = 'content_copy';
+                    copyHashBtn.appendChild(copyIcon);
+                    copyHashBtn.appendChild(document.createTextNode(' SHA256'));
                     copyHashBtn.title = 'Copy SHA256 hash';
                     copyHashBtn.onclick = function(e) {
                         e.preventDefault();
                         e.stopPropagation();
                         navigator.clipboard.writeText(driver.sha256sum).then(() => {
                             copyHashBtn.className = 'px-2 py-1 text-xs font-medium rounded-md bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 inline-flex items-center gap-1';
-                            copyHashBtn.innerHTML = '<span class="material-icons text-sm">check</span> Copied!';
+                            copyHashBtn.textContent = '';
+                            const checkIcon = document.createElement('span');
+                            checkIcon.className = 'material-icons text-sm';
+                            checkIcon.textContent = 'check';
+                            copyHashBtn.appendChild(checkIcon);
+                            copyHashBtn.appendChild(document.createTextNode(' Copied!'));
                             setTimeout(() => {
                                 copyHashBtn.className = 'px-2 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-colors inline-flex items-center gap-1';
-                                copyHashBtn.innerHTML = '<span class="material-icons text-sm">content_copy</span> SHA256';
+                                copyHashBtn.textContent = '';
+                                const resetIcon = document.createElement('span');
+                                resetIcon.className = 'material-icons text-sm';
+                                resetIcon.textContent = 'content_copy';
+                                copyHashBtn.appendChild(resetIcon);
+                                copyHashBtn.appendChild(document.createTextNode(' SHA256'));
                             }, 2000);
                         });
                     };
@@ -152,7 +171,10 @@ function loadDrivers(jsonUrl, containerId) {
                     favBtn.className = isFav
                         ? 'p-1.5 rounded-lg text-yellow-500 bg-yellow-100 dark:bg-yellow-900/30 transition-colors'
                         : 'p-1.5 rounded-lg text-gray-400 hover:text-yellow-500 hover:bg-yellow-100 dark:hover:bg-yellow-900/30 transition-colors';
-                    favBtn.innerHTML = `<span class="material-icons text-lg">${isFav ? 'star' : 'star_border'}</span>`;
+                    const favIcon = document.createElement('span');
+                    favIcon.className = 'material-icons text-lg';
+                    favIcon.textContent = isFav ? 'star' : 'star_border';
+                    favBtn.appendChild(favIcon);
                     favBtn.title = isFav ? 'Remove from favorites' : 'Add to favorites';
                     favBtn.dataset.version = driver.version;
                     favBtn.dataset.category = category;
@@ -170,7 +192,7 @@ function loadDrivers(jsonUrl, containerId) {
                         favBtn.className = nowFav
                             ? 'p-1.5 rounded-lg text-yellow-500 bg-yellow-100 dark:bg-yellow-900/30 transition-colors'
                             : 'p-1.5 rounded-lg text-gray-400 hover:text-yellow-500 hover:bg-yellow-100 dark:hover:bg-yellow-900/30 transition-colors';
-                        favBtn.innerHTML = `<span class="material-icons text-lg">${nowFav ? 'star' : 'star_border'}</span>`;
+                        favIcon.textContent = nowFav ? 'star' : 'star_border';
                         favBtn.title = nowFav ? 'Remove from favorites' : 'Add to favorites';
                     };
                     iconsContainer.appendChild(favBtn);
@@ -188,15 +210,16 @@ function loadDrivers(jsonUrl, containerId) {
             container.appendChild(updateNote);
         })
         .catch(error => {
-            console.error(`Error loading driver data from ${jsonUrl}:`, error);
             const container = document.getElementById(containerId);
             if (container) {
-                container.innerHTML = `
-                    <div class="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-red-800 dark:text-red-200">
-                        <p class="font-medium">Error loading driver data. Please try refreshing the page.</p>
-                        <p class="text-sm mt-1 opacity-75">Technical details: ${error.message}</p>
-                    </div>
-                `;
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-red-800 dark:text-red-200';
+                const errorTitle = document.createElement('p');
+                errorTitle.className = 'font-medium';
+                errorTitle.textContent = 'Error loading driver data. Please try refreshing the page.';
+                errorDiv.appendChild(errorTitle);
+                container.innerHTML = '';
+                container.appendChild(errorDiv);
             }
         });
 }

@@ -38,7 +38,6 @@ const SearchModule = (function() {
             const results = await Promise.all(promises);
             allDrivers = results.flat();
         } catch (err) {
-            console.error('Error loading drivers for search:', err);
         } finally {
             isLoading = false;
         }
@@ -49,25 +48,67 @@ const SearchModule = (function() {
 
         searchOverlay = document.createElement('div');
         searchOverlay.className = 'fixed inset-0 bg-black/60 backdrop-blur-sm z-[300] flex items-start justify-center pt-[10vh] opacity-0 pointer-events-none transition-opacity duration-200';
-        searchOverlay.innerHTML = `
-            <div class="w-full max-w-xl mx-4 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-800 transform scale-95 transition-transform duration-200">
-                <div class="h-1 bg-gradient-to-r from-nvidia via-primary-500 to-intel"></div>
-                <div class="flex items-center gap-3 px-5 py-4 border-b border-gray-200 dark:border-gray-800">
-                    <span class="material-icons text-primary-500">search</span>
-                    <input type="text" class="search-input flex-1 bg-transparent text-lg outline-none text-gray-900 dark:text-white placeholder-gray-400" placeholder="Search drivers by version, type..." autocomplete="off">
-                    <kbd class="px-2 py-1 text-xs font-mono bg-gray-100 dark:bg-gray-800 rounded border border-gray-300 dark:border-gray-700 text-gray-500">ESC</kbd>
-                </div>
-                <div class="search-results max-h-[50vh] overflow-y-auto p-2"></div>
-                <div class="flex items-center justify-center gap-6 px-4 py-3 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-800 text-xs text-gray-500">
-                    <span><kbd class="px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded">↑</kbd> <kbd class="px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded">↓</kbd> navigate</span>
-                    <span><kbd class="px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded">Enter</kbd> select</span>
-                </div>
-            </div>
-        `;
-
+        
+        const container = document.createElement('div');
+        container.className = 'w-full max-w-xl mx-4 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-800 transform scale-95 transition-transform duration-200';
+        
+        const colorBar = document.createElement('div');
+        colorBar.className = 'h-1 bg-gradient-to-r from-nvidia via-primary-500 to-intel';
+        container.appendChild(colorBar);
+        
+        const searchHeader = document.createElement('div');
+        searchHeader.className = 'flex items-center gap-3 px-5 py-4 border-b border-gray-200 dark:border-gray-800';
+        
+        const searchIcon = document.createElement('span');
+        searchIcon.className = 'material-icons text-primary-500';
+        searchIcon.textContent = 'search';
+        searchHeader.appendChild(searchIcon);
+        
+        searchInput = document.createElement('input');
+        searchInput.type = 'text';
+        searchInput.className = 'search-input flex-1 bg-transparent text-lg outline-none text-gray-900 dark:text-white placeholder-gray-400';
+        searchInput.placeholder = 'Search drivers by version, type...';
+        searchInput.autocomplete = 'off';
+        searchHeader.appendChild(searchInput);
+        
+        const escKey = document.createElement('kbd');
+        escKey.className = 'px-2 py-1 text-xs font-mono bg-gray-100 dark:bg-gray-800 rounded border border-gray-300 dark:border-gray-700 text-gray-500';
+        escKey.textContent = 'ESC';
+        searchHeader.appendChild(escKey);
+        
+        container.appendChild(searchHeader);
+        
+        searchResults = document.createElement('div');
+        searchResults.className = 'search-results max-h-[50vh] overflow-y-auto p-2';
+        container.appendChild(searchResults);
+        
+        const footer = document.createElement('div');
+        footer.className = 'flex items-center justify-center gap-6 px-4 py-3 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-800 text-xs text-gray-500';
+        
+        const navHint = document.createElement('span');
+        const upKey = document.createElement('kbd');
+        upKey.className = 'px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded';
+        upKey.textContent = '↑';
+        const downKey = document.createElement('kbd');
+        downKey.className = 'px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded';
+        downKey.textContent = '↓';
+        navHint.appendChild(upKey);
+        navHint.appendChild(document.createTextNode(' '));
+        navHint.appendChild(downKey);
+        navHint.appendChild(document.createTextNode(' navigate'));
+        footer.appendChild(navHint);
+        
+        const enterHint = document.createElement('span');
+        const enterKey = document.createElement('kbd');
+        enterKey.className = 'px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded';
+        enterKey.textContent = 'Enter';
+        enterHint.appendChild(enterKey);
+        enterHint.appendChild(document.createTextNode(' select'));
+        footer.appendChild(enterHint);
+        
+        container.appendChild(footer);
+        searchOverlay.appendChild(container);
         document.body.appendChild(searchOverlay);
-        searchInput = searchOverlay.querySelector('.search-input');
-        searchResults = searchOverlay.querySelector('.search-results');
 
         searchOverlay.addEventListener('click', (e) => {
             if (e.target === searchOverlay) closeSearch();
@@ -89,12 +130,24 @@ const SearchModule = (function() {
         const query = searchInput.value.trim().toLowerCase();
 
         if (!query) {
-            searchResults.innerHTML = '<div class="p-8 text-center text-gray-400">Start typing to search drivers...</div>';
+            searchResults.textContent = '';
+            const emptyDiv = document.createElement('div');
+            emptyDiv.className = 'p-8 text-center text-gray-400';
+            emptyDiv.textContent = 'Start typing to search drivers...';
+            searchResults.appendChild(emptyDiv);
             return;
         }
 
         if (allDrivers.length === 0) {
-            searchResults.innerHTML = '<div class="p-8 text-center text-gray-400 flex items-center justify-center gap-2"><span class="material-icons animate-spin">sync</span> Loading driver data...</div>';
+            searchResults.textContent = '';
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'p-8 text-center text-gray-400 flex items-center justify-center gap-2';
+            const loadingIcon = document.createElement('span');
+            loadingIcon.className = 'material-icons animate-spin';
+            loadingIcon.textContent = 'sync';
+            loadingDiv.appendChild(loadingIcon);
+            loadingDiv.appendChild(document.createTextNode(' Loading driver data...'));
+            searchResults.appendChild(loadingDiv);
             loadAllDrivers().then(() => handleSearch());
             return;
         }
@@ -105,7 +158,11 @@ const SearchModule = (function() {
         });
 
         if (filtered.length === 0) {
-            searchResults.innerHTML = '<div class="p-8 text-center text-gray-400">No drivers found matching your search.</div>';
+            searchResults.textContent = '';
+            const noResultsDiv = document.createElement('div');
+            noResultsDiv.className = 'p-8 text-center text-gray-400';
+            noResultsDiv.textContent = 'No drivers found matching your search.';
+            searchResults.appendChild(noResultsDiv);
             return;
         }
 
@@ -115,34 +172,82 @@ const SearchModule = (function() {
             grouped[driver.category].push(driver);
         });
 
-        let html = '';
+        searchResults.textContent = '';
+        const fragment = document.createDocumentFragment();
+
         for (const [category, drivers] of Object.entries(grouped)) {
-            html += `<div class="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">${category}</div>`;
+            const categoryHeader = document.createElement('div');
+            categoryHeader.className = 'px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider';
+            categoryHeader.textContent = category;
+            fragment.appendChild(categoryHeader);
+
             drivers.forEach((driver, idx) => {
                 const brandColor = driver.brand === 'nvidia' ? 'bg-nvidia' : driver.brand === 'intel' ? 'bg-intel' : 'bg-amd';
-                const gradeColor = driver.stabilityGrade?.startsWith('A') ? 'bg-emerald-500' : driver.stabilityGrade?.startsWith('B') ? 'bg-amber-500' : 'bg-red-500';
-                const stableTag = driver.isStable ? `<span class="px-1.5 py-0.5 text-xs font-bold rounded ${gradeColor} text-white">${driver.stabilityGrade || 'Stable'}</span>` : '';
-                const favorited = typeof FavoritesModule !== 'undefined' && FavoritesModule.isFavorite(driver.version, driver.category) ? '<span class="material-icons text-yellow-500 text-sm">star</span>' : '';
-                html += `
-                    <a href="${driver.downloadUrl || driver.page}" class="search-result-item flex items-center justify-between px-4 py-3 rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-colors group" data-index="${idx}" ${driver.downloadUrl ? 'target="_blank"' : ''}>
-                        <div class="flex items-center gap-3">
-                            <span class="w-2 h-2 rounded-full ${brandColor}"></span>
-                            <span class="font-semibold text-gray-900 dark:text-white">${driver.version}</span>
-                            ${driver.type ? `<span class="text-gray-500">- ${driver.type}</span>` : ''}
-                            ${stableTag}
-                            ${favorited}
-                        </div>
-                        <span class="text-sm text-gray-400">${driver.releaseDate || ''}</span>
-                    </a>
-                `;
+                
+                const resultItem = document.createElement('a');
+                resultItem.href = driver.downloadUrl || driver.page;
+                resultItem.className = 'search-result-item flex items-center justify-between px-4 py-3 rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-colors group';
+                resultItem.dataset.index = idx;
+                if (driver.downloadUrl) {
+                    resultItem.target = '_blank';
+                }
+
+                const leftDiv = document.createElement('div');
+                leftDiv.className = 'flex items-center gap-3';
+
+                const brandDot = document.createElement('span');
+                brandDot.className = `w-2 h-2 rounded-full ${brandColor}`;
+                leftDiv.appendChild(brandDot);
+
+                const versionSpan = document.createElement('span');
+                versionSpan.className = 'font-semibold text-gray-900 dark:text-white';
+                versionSpan.textContent = driver.version;
+                leftDiv.appendChild(versionSpan);
+
+                if (driver.type) {
+                    const typeSpan = document.createElement('span');
+                    typeSpan.className = 'text-gray-500';
+                    typeSpan.textContent = `- ${driver.type}`;
+                    leftDiv.appendChild(typeSpan);
+                }
+
+                if (driver.isStable && driver.stabilityGrade) {
+                    const gradeColor = driver.stabilityGrade.startsWith('A') ? 'bg-emerald-500' : 
+                                      driver.stabilityGrade.startsWith('B') ? 'bg-amber-500' : 'bg-red-500';
+                    const stableTag = document.createElement('span');
+                    stableTag.className = `px-1.5 py-0.5 text-xs font-bold rounded ${gradeColor} text-white`;
+                    stableTag.textContent = driver.stabilityGrade || 'Stable';
+                    leftDiv.appendChild(stableTag);
+                }
+
+                if (typeof FavoritesModule !== 'undefined' && FavoritesModule.isFavorite(driver.version, driver.category)) {
+                    const favIcon = document.createElement('span');
+                    favIcon.className = 'material-icons text-yellow-500 text-sm';
+                    favIcon.textContent = 'star';
+                    leftDiv.appendChild(favIcon);
+                }
+
+                resultItem.appendChild(leftDiv);
+
+                if (driver.releaseDate) {
+                    const dateSpan = document.createElement('span');
+                    dateSpan.className = 'text-sm text-gray-400';
+                    dateSpan.textContent = driver.releaseDate;
+                    resultItem.appendChild(dateSpan);
+                }
+
+                fragment.appendChild(resultItem);
             });
         }
 
         if (filtered.length > 20) {
-            html += `<div class="px-4 py-3 text-center text-sm text-gray-400 border-t border-gray-200 dark:border-gray-700 mt-2">+${filtered.length - 20} more results...</div>`;
+            const moreDiv = document.createElement('div');
+            moreDiv.className = 'px-4 py-3 text-center text-sm text-gray-400 border-t border-gray-200 dark:border-gray-700 mt-2';
+            moreDiv.textContent = `+${filtered.length - 20} more results...`;
+            fragment.appendChild(moreDiv);
         }
 
-        searchResults.innerHTML = html;
+        searchResults.appendChild(fragment);
     }
 
     let selectedIndex = -1;
@@ -184,7 +289,11 @@ const SearchModule = (function() {
         searchOverlay.classList.add('opacity-100', 'pointer-events-auto');
         searchOverlay.querySelector('.bg-white, .dark\\:bg-gray-900')?.classList.remove('scale-95');
         searchInput.value = '';
-        searchResults.innerHTML = '<div class="p-8 text-center text-gray-400">Start typing to search drivers...</div>';
+        searchResults.textContent = '';
+        const initialDiv = document.createElement('div');
+        initialDiv.className = 'p-8 text-center text-gray-400';
+        initialDiv.textContent = 'Start typing to search drivers...';
+        searchResults.appendChild(initialDiv);
         selectedIndex = -1;
         setTimeout(() => searchInput.focus(), 50);
         loadAllDrivers();

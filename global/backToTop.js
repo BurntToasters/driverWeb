@@ -2,7 +2,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const backToTopButton = document.createElement('button');
     backToTopButton.className = 'back-to-top';
     backToTopButton.setAttribute('aria-label', 'Back to top');
-    backToTopButton.innerHTML = '<span class="material-icons">arrow_upward</span>';
+    const icon = document.createElement('span');
+    icon.className = 'material-icons';
+    icon.textContent = 'arrow_upward';
+    backToTopButton.appendChild(icon);
     document.body.appendChild(backToTopButton);
 
     let scrollTimeout;
