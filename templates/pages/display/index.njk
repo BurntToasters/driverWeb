@@ -1,0 +1,192 @@
+{% extends "layouts/base.njk" %}
+{% set assetPrefix = '../' %}
+{% set title = 'Graphics Drivers - NVIDIA, AMD & Intel | DriverHub' %}
+{% set metaDescription = 'Download the latest NVIDIA GeForce, AMD Radeon, and Intel Arc graphics drivers for Windows 10 and 11.' %}
+{% set metaKeywords = 'NVIDIA drivers, AMD drivers, Intel graphics drivers, GeForce drivers, Radeon drivers, Arc drivers, Game Ready drivers' %}
+{% set metaRobots = 'index, follow' %}
+{% set canonical = 'https://driverhub.win/display' %}
+{% set showSkipLink = true %}
+{% set headerVariant = 'main' %}
+{% set navActive = 'graphics' %}
+{% set showSearchButton = true %}
+{% set showFavoritesButton = true %}
+{% set showDarkModeButton = true %}
+{% set showSettings = true %}
+{% set footerVariant = 'full' %}
+{% set scripts = ['global/favorites.js', 'global/search.js', 'global/darkMode.js', 'global/regionSwitcher.js', 'global/modern.js', 'global/versionInfo.js', 'global/driverLoader.js', 'global/backToTop.js'] %}
+
+{% block metaExtra %}
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://driverhub.win/display">
+<meta property="og:title" content="Graphics Drivers - NVIDIA, AMD & Intel | DriverHub">
+<meta property="og:description" content="Download the latest NVIDIA GeForce, AMD Radeon, and Intel Arc graphics drivers for Windows.">
+<meta property="og:image" content="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://driverhub.win/display">
+<meta property="twitter:title" content="Graphics Drivers - NVIDIA, AMD & Intel | DriverHub">
+{% endblock %}
+
+{% block headExtra %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Graphics Drivers Download",
+  "description": "Download the latest NVIDIA GeForce, AMD Radeon, and Intel Arc graphics drivers for Windows.",
+  "url": "https://driverhub.win/display",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://driverhub.win"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Graphics Drivers",
+      "item": "https://driverhub.win/display"
+    }]
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<main id="main-content" class="flex-1 max-w-6xl mx-auto px-4 md:px-6 py-12 w-full">
+    <div class="mb-8">
+        <h1 class="page-heading mb-2">Desktop GPU Drivers</h1>
+        <p class="page-subheading">Download graphics drivers for NVIDIA, AMD, and Intel desktop GPUs</p>
+    </div>
+
+    <div class="flex items-center justify-between flex-wrap gap-4 mb-8">
+        <div class="inline-flex rounded-lg bg-gray-100 dark:bg-gray-800 p-1">
+            <a href="/display/" class="px-4 py-2 text-sm font-medium rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm">Desktop</a>
+            <a href="/display/laptop" class="px-4 py-2 text-sm font-medium rounded-md text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Laptop</a>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+            <span class="text-sm text-gray-500 dark:text-gray-400 mr-1">Filter:</span>
+            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-medium bg-gray-900 dark:bg-white text-white dark:text-gray-900 transition-all duration-200" data-filter="all" type="button">All</button>
+            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-medium text-gray-500 border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-200" data-filter="stable" type="button">Stable</button>
+            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-bold text-gray-500 border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-200" data-filter="grade-A+" type="button">A+</button>
+            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-bold text-gray-500 border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-200" data-filter="grade-A" type="button">A</button>
+            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-bold text-gray-500 border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-200" data-filter="grade-A-" type="button">A-</button>
+        </div>
+    </div>
+
+    <div class="space-y-6">
+        <section class="card overflow-hidden" data-animate>
+            <div class="p-6 border-l-4 border-nvidia">
+                <div class="flex items-center gap-3 mb-1">
+                    <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt="NVIDIA" class="h-9 w-9 object-contain rounded" loading="lazy">
+                    <h2 class="section-heading">NVIDIA Drivers</h2>
+                </div>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Game Ready and Studio drivers for desktop GPUs. Downloads link directly to <a href="https://www.nvidia.com/en-us/geforce/drivers/" target="_blank" rel="noopener noreferrer" class="text-primary-500 hover:underline">NVIDIA</a>. For laptop drivers, <a href="/display/laptop" class="text-primary-500 hover:underline">click here</a>.</p>
+
+                <button data-collapsible aria-expanded="false" class="w-full px-4 py-3 rounded-lg font-medium text-left bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800/80 text-gray-900 dark:text-white flex items-center justify-between transition-colors mb-2" type="button">
+                    <span class="flex items-center gap-2">
+                        <span class="material-icons text-nvidia text-lg">folder</span>
+                        Game Ready Drivers
+                    </span>
+                    <span data-collapsible-icon class="material-icons text-gray-400 transition-transform duration-200 text-lg">expand_more</span>
+                </button>
+                <div class="hidden overflow-hidden transition-all duration-300 mb-3" style="max-height: 0; opacity: 0;">
+                    <div class="pt-2" id="nvidia-game-ready-drivers"></div>
+                </div>
+
+                <button data-collapsible aria-expanded="false" class="w-full px-4 py-3 rounded-lg font-medium text-left bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800/80 text-gray-900 dark:text-white flex items-center justify-between transition-colors" type="button">
+                    <span class="flex items-center gap-2">
+                        <span class="material-icons text-nvidia text-lg">folder</span>
+                        Studio Drivers
+                    </span>
+                    <span data-collapsible-icon class="material-icons text-gray-400 transition-transform duration-200 text-lg">expand_more</span>
+                </button>
+                <div class="hidden overflow-hidden transition-all duration-300" style="max-height: 0; opacity: 0;">
+                    <div class="pt-2" id="nvidia-studio-drivers"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card overflow-hidden" data-animate>
+            <div class="p-6 border-l-4 border-intel">
+                <div class="flex items-center gap-3 mb-1">
+                    <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt="Intel" class="h-9 w-9 object-contain" loading="lazy">
+                    <h2 class="section-heading">Intel Arc Drivers</h2>
+                </div>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Game On and Professional drivers for Intel Arc GPUs. Downloads link to <a href="https://www.intel.com/content/www/us/en/download/726609/intel-arc-graphics-windows-dch-driver.html" target="_blank" rel="noopener noreferrer" class="text-primary-500 hover:underline">Intel</a>. For laptop drivers, <a href="/display/laptop" class="text-primary-500 hover:underline">click here</a>.</p>
+
+                <button data-collapsible aria-expanded="false" class="w-full px-4 py-3 rounded-lg font-medium text-left bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800/80 text-gray-900 dark:text-white flex items-center justify-between transition-colors mb-2" type="button">
+                    <span class="flex items-center gap-2">
+                        <span class="material-icons text-intel text-lg">folder</span>
+                        Game On GPU Drivers
+                    </span>
+                    <span data-collapsible-icon class="material-icons text-gray-400 transition-transform duration-200 text-lg">expand_more</span>
+                </button>
+                <div class="hidden overflow-hidden transition-all duration-300 mb-3" style="max-height: 0; opacity: 0;">
+                    <div class="pt-2" id="intel-game-on-drivers"></div>
+                </div>
+
+                <button data-collapsible aria-expanded="false" class="w-full px-4 py-3 rounded-lg font-medium text-left bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800/80 text-gray-900 dark:text-white flex items-center justify-between transition-colors" type="button">
+                    <span class="flex items-center gap-2">
+                        <span class="material-icons text-intel text-lg">folder</span>
+                        Professional GPU Drivers
+                    </span>
+                    <span data-collapsible-icon class="material-icons text-gray-400 transition-transform duration-200 text-lg">expand_more</span>
+                </button>
+                <div class="hidden overflow-hidden transition-all duration-300" style="max-height: 0; opacity: 0;">
+                    <div class="pt-2" id="intel-pro-drivers"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card overflow-hidden" data-animate>
+            <div class="p-6 border-l-4 border-amd">
+                <div class="flex items-center gap-3 mb-1">
+                    <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt="AMD" class="h-9 w-9 object-contain" loading="lazy">
+                    <h2 class="section-heading">AMD Radeon Drivers</h2>
+                </div>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Adrenalin drivers for AMD Radeon GPUs. <a href="https://www.amd.com/en/support/kb/faq/download-incomplete" target="_blank" rel="noopener noreferrer" class="text-primary-500 hover:underline">AMD doesn't permit direct downloads</a>, so use their auto-detect tool below.</p>
+
+                <a href="https://www.amd.com/en/support/download/drivers.html" target="_blank" rel="noopener noreferrer" class="btn-brand-amd">
+                    <span class="material-icons text-lg">download</span>
+                    AMD Auto-Detect Tool
+                </a>
+            </div>
+        </section>
+    </div>
+
+    {% include 'partials/driver-row-templates.njk' %}
+</main>
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const baseUrl = "https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/";
+
+    loadDrivers(baseUrl + 'nvidia-game-ready.json', 'nvidia-game-ready-drivers');
+    loadDrivers(baseUrl + 'nvidia-studio.json', 'nvidia-studio-drivers');
+    loadDrivers(baseUrl + 'intel-game-on.json', 'intel-game-on-drivers');
+    loadDrivers(baseUrl + 'intel-pro.json', 'intel-pro-drivers');
+
+    const activeClasses = ['bg-gray-900', 'dark:bg-white', 'text-white', 'dark:text-gray-900'];
+    const inactiveClasses = ['text-gray-500', 'border', 'border-gray-200', 'dark:border-gray-700'];
+
+    document.querySelectorAll('.filter-chip').forEach(chip => {
+        chip.addEventListener('click', function() {
+            document.querySelectorAll('.filter-chip').forEach(c => {
+                c.classList.remove(...activeClasses);
+                c.classList.add(...inactiveClasses);
+            });
+            this.classList.remove(...inactiveClasses);
+            this.classList.add(...activeClasses);
+            applyFilters(this.dataset.filter);
+        });
+    });
+
+    applyFilters('all');
+});
+</script>
+{% endblock %}

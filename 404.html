@@ -1,10 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://raw.githubusercontent.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://prod.rexxit.net https://web-platforms.sfo2.cdn.digitaloceanspaces.com data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://raw.githubusercontent.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    
+    
     <title>404 - Page Not Found | DriverHub</title>
+
     <script>
         (function() {
             const userPreference = localStorage.getItem('darkMode');
@@ -15,69 +23,114 @@
         })();
     </script>
 
-    <link rel="stylesheet" href="/global/tailwind.css">
+    <link rel="stylesheet" href="global/tailwind.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="global/favicon.ico">
+    
 </head>
 <body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
-    <header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800">
-        <div class="max-w-6xl mx-auto px-4 md:px-6">
-            <div class="flex items-center justify-between h-14">
-                <a href="/" class="flex items-center gap-2.5">
-                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-8 w-8">
-                    <span class="text-lg font-bold text-gray-900 dark:text-white">DriverHub</span>
-                </a>
-                <div class="flex items-center gap-1.5">
-                    <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Toggle dark mode">
-                        <span class="material-icons text-[20px]">dark_mode</span>
-                    </button>
-                </div>
-            </div>
-            <nav class="flex items-center gap-0.5 -mb-px overflow-x-auto scrollbar-hide" role="navigation" aria-label="Main navigation">
-                <a href="/" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
-                    <span class="material-icons text-[18px]">home</span>Home
-                </a>
-                <a href="/display" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
-                    <span class="material-icons text-[18px]">videocam</span>Graphics
-                </a>
-                <a href="/chipset" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
-                    <span class="material-icons text-[18px]">memory</span>Chipset
-                </a>
-                <div class="w-px h-5 bg-gray-200 dark:bg-gray-700 mx-1.5"></div>
-                <a href="/contact" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
-                    <span class="material-icons text-[18px]">mail_outline</span>Contact
-                </a>
-            </nav>
-        </div>
-    </header>
+    
 
-    <main class="flex-1 flex items-center justify-center">
-        <div class="text-center px-4 py-16">
-            <p class="text-7xl md:text-8xl font-extrabold text-primary-600 dark:text-primary-400 mb-4">404</p>
-            <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Page not found</h1>
-            <p class="text-gray-500 dark:text-gray-400 mb-8 max-w-md mx-auto">The page you are looking for does not exist or has been moved.</p>
-            <a href="/" class="btn-primary">
-                <span class="material-icons text-lg">home</span>
-                Back to Home
+    
+
+    
+        <header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+        <div class="flex items-center justify-between h-14">
+            <a href="/" class="flex items-center gap-2.5">
+                <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-8 w-8">
+                <span class="text-lg font-bold text-gray-900 dark:text-white">DriverHub</span>
             </a>
-        </div>
-    </main>
-
-    <footer class="border-t border-gray-200 dark:border-gray-800">
-        <div class="max-w-6xl mx-auto px-4 md:px-6 py-8">
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-400 dark:text-gray-500">
-                <span id="site-version"></span>
-                <div class="flex items-center gap-6">
-                    <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-white transition-colors">Release Notes</a>
-                    <a href="/sitemap.xml" class="hover:text-gray-900 dark:hover:text-white transition-colors">Sitemap</a>
-                    <a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-white transition-colors">Support Us</a>
-                </div>
+            <div class="flex items-center gap-1.5">
+                
+                <button id="global-search-btn" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Search (Ctrl+K)">
+                    <span class="material-icons text-[20px]">search</span>
+                </button>
+                
+                
+                
+                <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Toggle dark mode">
+                    <span class="material-icons text-[20px]">dark_mode</span>
+                </button>
+                
+                
             </div>
         </div>
-    </footer>
+        <nav class="flex items-center gap-0.5 -mb-px overflow-x-auto scrollbar-hide" role="navigation" aria-label="Main navigation">
+            <a href="/" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                <span class="material-icons text-[18px]">home</span>Home
+            </a>
+            <a href="/display" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                <span class="material-icons text-[18px]">videocam</span>Graphics
+            </a>
+            <a href="/chipset" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                <span class="material-icons text-[18px]">memory</span>Chipset
+            </a>
+            
+            <span class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 text-gray-300 dark:text-gray-600 whitespace-nowrap" title="Coming soon">
+                <span class="material-icons text-[18px]">wifi</span>Network
+            </span>
+            <span class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 text-gray-300 dark:text-gray-600 whitespace-nowrap" title="Coming soon">
+                <span class="material-icons text-[18px]">headphones</span>Audio
+            </span>
+            
+            <div class="w-px h-5 bg-gray-200 dark:bg-gray-700 mx-1.5"></div>
+            <a href="/contact" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                <span class="material-icons text-[18px]">mail_outline</span>Contact
+            </a>
+            
+            <a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                <span class="material-icons text-[18px]">description</span>Docs
+                <svg class="w-3 h-3 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            
+        </nav>
+    </div>
+</header>
 
+    
+
+    
+
+    
+<main class="flex-1 flex items-center justify-center">
+    <div class="text-center px-4 py-16">
+        <p class="text-7xl md:text-8xl font-extrabold text-primary-600 dark:text-primary-400 mb-4">404</p>
+        <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Page not found</h1>
+        <p class="text-gray-500 dark:text-gray-400 mb-8 max-w-md mx-auto">The page you are looking for does not exist or has been moved.</p>
+        <a href="/" class="btn-primary">
+            <span class="material-icons text-lg">home</span>
+            Back to Home
+        </a>
+    </div>
+</main>
+
+
+    
+        <footer class="border-t border-gray-200 dark:border-gray-800">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 py-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-400 dark:text-gray-500">
+            <div class="flex items-center gap-3">
+                <span id="site-version"></span>
+                <span id="update-date"></span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-white transition-colors">Release Notes</a>
+                <a href="/sitemap.xml" class="hover:text-gray-900 dark:hover:text-white transition-colors">Sitemap</a>
+                <a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-white transition-colors">Support Us</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+
+    
     <script src="global/darkMode.js"></script>
+    
     <script src="global/versionInfo.js"></script>
+    
+    
 </body>
 </html>

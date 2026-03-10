@@ -1,0 +1,29 @@
+{% extends "layouts/base.njk" %}
+{% set assetPrefix = '' %}
+{% set title = 'Audio Drivers | DriverHub' %}
+{% set metaDescription = 'Audio drivers download for Windows - Realtek and other audio driver downloads.' %}
+{% set metaRobots = 'index, follow' %}
+{% set canonical = 'https://driverhub.win/audio' %}
+{% set headerVariant = 'simple' %}
+{% set showDarkModeButton = true %}
+{% set showSettings = false %}
+{% set footerVariant = 'compact' %}
+{% set compactFooterMarginTop = false %}
+{% set showUpdateDate = false %}
+{% set scripts = ['global/darkMode.js', 'global/versionInfo.js'] %}
+
+{% block content %}
+<main class="flex-1 flex items-center justify-center">
+    <div class="text-center px-4 py-16">
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary-50 dark:bg-primary-900/20 mb-6">
+            <span class="material-icons text-5xl text-primary-500">headphones</span>
+        </div>
+        <h1 class="page-heading mb-4">Audio Drivers</h1>
+        <p class="text-lg text-gray-500 dark:text-gray-400 mb-8 max-w-md mx-auto">Realtek and other audio drivers are coming soon.</p>
+        <a href="/" class="btn-primary">
+            <span class="material-icons text-lg">home</span>
+            Back to Home
+        </a>
+    </div>
+</main>
+{% endblock %}

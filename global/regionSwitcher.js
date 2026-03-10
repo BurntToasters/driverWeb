@@ -1,55 +1,87 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const regionIndicator = document.getElementById("region-indicator");
-
+document.addEventListener('DOMContentLoaded', function() {
     function getStoredRegion() {
         try {
-            return localStorage.getItem("userRegion") || "USA";
+            return localStorage.getItem('userRegion') || 'USA';
         } catch (e) {
-            return "USA";
+            return 'USA';
         }
     }
 
     function setStoredRegion(region) {
         try {
-            localStorage.setItem("userRegion", region);
+            localStorage.setItem('userRegion', region);
         } catch (e) {
         }
     }
 
-    const savedRegion = getStoredRegion();
-    updateRegionIndicator(savedRegion);
-
-    function updateRegionIndicator(region) {
-        if (regionIndicator) {
-            const flag = region === "EU" ? "🇪🇺" : "🇺🇸";
-            const label = region === "EU" ? "EU" : "USA";
-            regionIndicator.textContent = `${flag} ${label}`;
-        }
+    function normalizeRegion(region) {
+        return region === 'EU' ? 'EU' : 'USA';
     }
 
-    function toggleRegion() {
-        const currentRegion = getStoredRegion();
-        const newRegion = currentRegion === "USA" ? "EU" : "USA";
-        setStoredRegion(newRegion);
-        updateRegionIndicator(newRegion);
-
-        const baseUrl = "https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/";
-
-        if (typeof loadDrivers === 'function') {
-            if (document.getElementById('nvidia-game-ready-drivers')) {
-                loadDrivers(baseUrl + 'nvidia-game-ready.json', 'nvidia-game-ready-drivers');
-                loadDrivers(baseUrl + 'nvidia-studio.json', 'nvidia-studio-drivers');
-                loadDrivers(baseUrl + 'intel-game-on.json', 'intel-game-on-drivers');
-                loadDrivers(baseUrl + 'intel-pro.json', 'intel-pro-drivers');
-            } else if (document.getElementById('nvidia-game-ready-laptop-drivers')) {
-                loadDrivers(baseUrl + 'nvidia-game-ready-laptop.json', 'nvidia-game-ready-laptop-drivers');
-                loadDrivers(baseUrl + 'nvidia-studio-laptop.json', 'nvidia-studio-laptop-drivers');
+    function syncRegionSelects(region) {
+        document.querySelectorAll('#regionSelect').forEach(function(select) {
+            if (select.value !== region) {
+                select.value = region;
             }
-        }
+        });
     }
 
-    if (regionIndicator) {
-        regionIndicator.addEventListener("click", toggleRegion);
-        regionIndicator.style.cursor = "pointer";
+    function emitRegionChanged(region) {
+        document.dispatchEvent(new CustomEvent('driverhub:region-changed', {
+            detail: { region }
+        }));
     }
+
+    function reloadDriverLists() {
+        if (typeof loadDrivers !== 'function') return;
+
+        const baseUrl = 'https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/';
+        const driverSources = [
+            { id: 'nvidia-game-ready-drivers', file: 'nvidia-game-ready.json' },
+            { id: 'nvidia-studio-drivers', file: 'nvidia-studio.json' },
+            { id: 'intel-game-on-drivers', file: 'intel-game-on.json' },
+            { id: 'intel-pro-drivers', file: 'intel-pro.json' },
+            { id: 'nvidia-game-ready-laptop-drivers', file: 'nvidia-game-ready-laptop.json' },
+            { id: 'nvidia-studio-laptop-drivers', file: 'nvidia-studio-laptop.json' }
+        ];
+
+        driverSources.forEach(function(source) {
+            if (document.getElementById(source.id)) {
+                loadDrivers(baseUrl + source.file, source.id);
+            }
+        });
+    }
+
+    function applyRegion(region, options) {
+        const normalized = normalizeRegion(region);
+        const settings = options || {};
+
+        setStoredRegion(normalized);
+        syncRegionSelects(normalized);
+
+        if (!settings.skipReload) {
+            reloadDriverLists();
+        }
+
+        emitRegionChanged(normalized);
+    }
+
+    const initialRegion = normalizeRegion(getStoredRegion());
+    syncRegionSelects(initialRegion);
+    emitRegionChanged(initialRegion);
+
+    document.querySelectorAll('#regionSelect').forEach(function(select) {
+        select.addEventListener('change', function(event) {
+            applyRegion(event.target.value);
+        });
+    });
+
+    window.DriverHubRegion = {
+        get: function() {
+            return normalizeRegion(getStoredRegion());
+        },
+        set: function(region, options) {
+            applyRegion(region, options);
+        }
+    };
 });

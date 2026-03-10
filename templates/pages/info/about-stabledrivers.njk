@@ -1,33 +1,18 @@
+{% extends "layouts/base.njk" %}
+{% set assetPrefix = '../' %}
+{% set title = 'About Stable Drivers | DriverHub' %}
+{% set metaDescription = 'Learn about driver stability ratings and how to choose the best driver for your system.' %}
+{% set metaRobots = 'index, follow' %}
+{% set canonical = 'https://driverhub.win/info/about-stabledrivers' %}
+{% set headerVariant = 'simple' %}
+{% set showDarkModeButton = true %}
+{% set showSettings = false %}
+{% set footerVariant = 'compact' %}
+{% set compactFooterMarginTop = true %}
+{% set showUpdateDate = true %}
+{% set scripts = ['global/darkMode.js', 'global/versionInfo.js'] %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about driver stability ratings and how to choose the best driver for your system.">
-    
-    
-    <meta name="robots" content="index, follow">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://raw.githubusercontent.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://prod.rexxit.net https://web-platforms.sfo2.cdn.digitaloceanspaces.com data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://raw.githubusercontent.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
-    <link rel="canonical" href="https://driverhub.win/info/about-stabledrivers">
-    
-    <title>About Stable Drivers | DriverHub</title>
-
-    <script>
-        (function() {
-            const userPreference = localStorage.getItem('darkMode');
-            const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            if (userPreference === 'dark' || (userPreference === null && prefersDarkScheme)) {
-                document.documentElement.classList.add('dark');
-            }
-        })();
-    </script>
-
-    <link rel="stylesheet" href="../global/tailwind.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="../global/favicon.ico">
-    
+{% block headExtra %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -37,40 +22,9 @@
   "url": "https://driverhub.win/info/about-stabledrivers"
 }
 </script>
+{% endblock %}
 
-</head>
-<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
-    
-
-    
-
-    
-        <header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800">
-    <div class="max-w-6xl mx-auto px-4 md:px-6">
-        <div class="flex items-center justify-between h-14">
-            <a href="/" class="flex items-center gap-2.5">
-                <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-8 w-8">
-                <span class="text-lg font-bold text-gray-900 dark:text-white">DriverHub</span>
-            </a>
-            <div class="flex items-center gap-1.5">
-                
-                
-                
-                <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Toggle dark mode">
-                    <span class="material-icons text-[20px]">dark_mode</span>
-                </button>
-                
-                
-            </div>
-        </div>
-    </div>
-</header>
-
-    
-
-    
-
-    
+{% block content %}
 <main class="flex-1 max-w-4xl mx-auto px-4 md:px-6 py-12 w-full">
     <div class="mb-8">
         <h1 class="page-heading mb-2">About Stable Drivers</h1>
@@ -129,32 +83,4 @@
         </div>
     </article>
 </main>
-
-
-    
-        <footer class="border-t border-gray-200 dark:border-gray-800 mt-auto">
-    <div class="max-w-6xl mx-auto px-4 md:px-6 py-8">
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-400 dark:text-gray-500">
-            <div class="flex items-center gap-3">
-                <span id="site-version"></span>
-                <span id="update-date"></span>
-            </div>
-            <div class="flex items-center gap-6">
-                <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-white transition-colors">Release Notes</a>
-                <a href="/sitemap.xml" class="hover:text-gray-900 dark:hover:text-white transition-colors">Sitemap</a>
-                <a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-white transition-colors">Support Us</a>
-            </div>
-        </div>
-    </div>
-</footer>
-
-    
-
-    
-    <script src="../global/darkMode.js"></script>
-    
-    <script src="../global/versionInfo.js"></script>
-    
-    
-</body>
-</html>
+{% endblock %}

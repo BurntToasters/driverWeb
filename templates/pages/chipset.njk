@@ -1,0 +1,146 @@
+{% extends "layouts/base.njk" %}
+{% set assetPrefix = '' %}
+{% set title = 'Chipset Drivers - Intel & AMD | DriverHub' %}
+{% set metaDescription = 'Download the latest Intel and AMD chipset drivers for Windows. Support for Intel 500, 600, 700 series and AMD AM4, AM5 chipsets.' %}
+{% set metaKeywords = 'chipset drivers, Intel chipset, AMD chipset, motherboard drivers, AM4 drivers, AM5 drivers' %}
+{% set metaRobots = 'index, follow' %}
+{% set canonical = 'https://driverhub.win/chipset' %}
+{% set showSkipLink = true %}
+{% set headerVariant = 'main' %}
+{% set navActive = 'chipset' %}
+{% set showSearchButton = true %}
+{% set showFavoritesButton = true %}
+{% set showDarkModeButton = true %}
+{% set showSettings = true %}
+{% set footerVariant = 'full' %}
+{% set scripts = ['global/favorites.js', 'global/search.js', 'global/darkMode.js', 'global/regionSwitcher.js', 'global/modern.js', 'global/versionInfo.js', 'global/backToTop.js'] %}
+
+{% block metaExtra %}
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://driverhub.win/chipset">
+<meta property="og:title" content="Chipset Drivers - Intel & AMD | DriverHub">
+<meta property="og:description" content="Download the latest Intel and AMD chipset drivers for Windows.">
+<meta property="og:image" content="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp">
+{% endblock %}
+
+{% block content %}
+<main id="main-content" class="flex-1 max-w-6xl mx-auto px-4 md:px-6 py-12 w-full">
+    <div class="mb-8">
+        <h1 class="page-heading mb-2">Chipset Drivers</h1>
+        <p class="page-subheading">Intel and AMD motherboard chipset drivers for Windows</p>
+    </div>
+
+    <div class="space-y-6">
+        <section class="card overflow-hidden" data-animate>
+            <div class="p-6 border-l-4 border-amd">
+                <div class="flex items-center gap-3 mb-1">
+                    <img src="https://prod.rexxit.net/drweb/assets/amdryzen.png" alt="AMD Ryzen" class="h-9 w-9 object-contain" loading="lazy">
+                    <h2 class="section-heading">AMD Ryzen Chipset</h2>
+                </div>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Select your socket type below to find the right chipset driver, or use AMD's auto-detect tool.</p>
+
+                <a href="https://www.amd.com/en/support/download/drivers.html" target="_blank" rel="noopener noreferrer" class="btn-brand-amd mb-6">
+                    <span class="material-icons text-lg">download</span>
+                    AMD Auto-Detect Tool
+                </a>
+
+                <hr class="border-gray-200 dark:border-gray-700 my-6">
+
+                <button data-collapsible aria-expanded="false" class="w-full px-4 py-3 rounded-lg font-medium text-left bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800/80 text-gray-900 dark:text-white flex items-center justify-between transition-colors mb-2" type="button">
+                    <span class="flex items-center gap-2">
+                        <span class="material-icons text-amd text-lg">folder</span>
+                        AM5 Chipsets
+                    </span>
+                    <span data-collapsible-icon class="material-icons text-gray-400 transition-transform duration-200 text-lg">expand_more</span>
+                </button>
+                <div class="hidden overflow-hidden transition-all duration-300 mb-3" style="max-height: 0; opacity: 0;">
+                    <div class="pt-4 pb-2">
+                        <div class="flex flex-wrap gap-3 items-center">
+                            <select id="AM5" class="flex-1 min-w-[200px] px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-amd outline-none transition-colors text-gray-900 dark:text-white">
+                                <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/x870e.html">X870E</option>
+                                <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/x870.html">X870</option>
+                                <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/x670e.html">X670E</option>
+                                <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/x670.html">X670</option>
+                                <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/b650e.html">B650E</option>
+                                <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/b650.html">B650</option>
+                                <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/a620.html">A620</option>
+                            </select>
+                            <button onclick="goToAm5()" class="btn-brand-amd" type="button">
+                                <span class="material-icons text-lg">arrow_forward</span> Go
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-3">Updated: 12-03-24</p>
+                    </div>
+                </div>
+
+                <button data-collapsible aria-expanded="false" class="w-full px-4 py-3 rounded-lg font-medium text-left bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800/80 text-gray-900 dark:text-white flex items-center justify-between transition-colors" type="button">
+                    <span class="flex items-center gap-2">
+                        <span class="material-icons text-amd text-lg">folder</span>
+                        AM4 Chipsets
+                    </span>
+                    <span data-collapsible-icon class="material-icons text-gray-400 transition-transform duration-200 text-lg">expand_more</span>
+                </button>
+                <div class="hidden overflow-hidden transition-all duration-300" style="max-height: 0; opacity: 0;">
+                    <div class="pt-4 pb-2">
+                        <div class="flex flex-wrap gap-3 items-center">
+                            <select id="AM4" class="flex-1 min-w-[200px] px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-amd outline-none transition-colors text-gray-900 dark:text-white">
+                                <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/x570.html">X570</option>
+                                <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/x470.html">X470</option>
+                                <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/x370.html">X370</option>
+                                <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/b550.html">B550</option>
+                                <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/b450.html">B450</option>
+                                <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/b350.html">B350</option>
+                                <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/a520.html">A520</option>
+                                <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/a320.html">A320</option>
+                                <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/pro565.html">PRO565</option>
+                            </select>
+                            <button onclick="goToAm4()" class="btn-brand-amd" type="button">
+                                <span class="material-icons text-lg">arrow_forward</span> Go
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-3">Updated: 5-10-24</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card overflow-hidden" data-animate>
+            <div class="p-6 border-l-4 border-intel">
+                <div class="flex items-center gap-3 mb-1">
+                    <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt="Intel" class="h-9 w-9 object-contain">
+                    <h2 class="section-heading">Intel Chipset</h2>
+                </div>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Intel provides a unified chipset utility that works for all supported chipsets.</p>
+
+                <button data-collapsible aria-expanded="false" class="w-full px-4 py-3 rounded-lg font-medium text-left bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800/80 text-gray-900 dark:text-white flex items-center justify-between transition-colors" type="button">
+                    <span class="flex items-center gap-2">
+                        <span class="material-icons text-intel text-lg">folder</span>
+                        Intel Chipset Utility
+                    </span>
+                    <span data-collapsible-icon class="material-icons text-gray-400 transition-transform duration-200 text-lg">expand_more</span>
+                </button>
+                <div class="hidden overflow-hidden transition-all duration-300" style="max-height: 0; opacity: 0;">
+                    <div class="pt-4 pb-2">
+                        <a href="https://www.intel.com/content/www/us/en/download/19347/chipset-inf-utility.html" target="_blank" rel="noopener noreferrer" class="btn-brand-intel">
+                            <span class="material-icons text-lg">download</span>
+                            Intel Chipset INF Utility
+                        </a>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-3">This utility will detect and install the appropriate chipset drivers for your Intel system.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+function goToAm5() {
+    window.open(document.getElementById("AM5").value, '_blank');
+}
+function goToAm4() {
+    window.open(document.getElementById("AM4").value, '_blank');
+}
+</script>
+{% endblock %}

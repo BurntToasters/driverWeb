@@ -1,0 +1,60 @@
+{% set defaultCsp = "default-src 'self'; script-src 'self' 'unsafe-inline' https://raw.githubusercontent.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://prod.rexxit.net https://web-platforms.sfo2.cdn.digitaloceanspaces.com data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://raw.githubusercontent.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';" %}
+<!DOCTYPE html>
+<html lang="{{ lang | default('en', true) }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if metaDescription %}<meta name="description" content="{{ metaDescription }}">{% endif %}
+    {% if metaKeywords %}<meta name="keywords" content="{{ metaKeywords }}">{% endif %}
+    {% if metaAuthor %}<meta name="author" content="{{ metaAuthor }}">{% endif %}
+    {% if metaRobots %}<meta name="robots" content="{{ metaRobots }}">{% endif %}
+    {% if includeCsp | default(true, true) %}<meta http-equiv="Content-Security-Policy" content="{{ csp | default(defaultCsp, true) }}">{% endif %}
+    {% if canonical %}<link rel="canonical" href="{{ canonical }}">{% endif %}
+    {% block metaExtra %}{% endblock %}
+    <title>{{ title }}</title>
+
+    <script>
+        (function() {
+            const userPreference = localStorage.getItem('darkMode');
+            const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            if (userPreference === 'dark' || (userPreference === null && prefersDarkScheme)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+
+    <link rel="stylesheet" href="{{ assetPrefix | default('', true) }}global/tailwind.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ assetPrefix | default('', true) }}global/favicon.ico">
+    {% block headExtra %}{% endblock %}
+</head>
+<body class="{{ bodyClass | default('bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col', true) }}">
+    {% if showSkipLink %}<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-500 focus:text-white focus:rounded-lg">Skip to main content</a>{% endif %}
+
+    {% block top %}{% endblock %}
+
+    {% if headerVariant == 'main' %}
+        {% include 'partials/header-main.njk' %}
+    {% elif headerVariant == 'simple' %}
+        {% include 'partials/header-simple.njk' %}
+    {% endif %}
+
+    {% if showSettings %}
+        {% include 'partials/settings-modal.njk' %}
+    {% endif %}
+
+    {% block content %}{% endblock %}
+
+    {% if footerVariant == 'full' %}
+        {% include 'partials/footer-full.njk' %}
+    {% elif footerVariant == 'compact' %}
+        {% include 'partials/footer-compact.njk' %}
+    {% endif %}
+
+    {% for script in scripts | default([], true) %}
+    <script src="{{ assetPrefix | default('', true) }}{{ script }}"></script>
+    {% endfor %}
+    {% block pageScripts %}{% endblock %}
+</body>
+</html>

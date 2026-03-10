@@ -1,0 +1,59 @@
+<template id="driver-item-template">
+    <div class="flex flex-wrap items-center gap-3 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 transition-all duration-200"></div>
+</template>
+
+<template id="driver-item-warning-template">
+    <div class="flex flex-wrap items-center gap-3 p-4 bg-amber-50 dark:bg-amber-900/10 rounded-lg border border-amber-200 dark:border-amber-800 transition-all duration-200"></div>
+</template>
+
+<template id="driver-download-link-template">
+    <a class="px-4 py-2 text-white text-sm font-medium rounded-lg shadow-sm hover:shadow-md inline-flex items-center gap-2 transition-all duration-200" target="_blank" rel="noopener noreferrer"></a>
+</template>
+
+<template id="driver-warning-link-template">
+    <a class="px-4 py-2 bg-amd hover:bg-amd-dark text-white text-sm font-medium rounded-lg shadow-sm hover:shadow-md inline-flex items-center gap-2">
+        <span class="material-icons text-base">warning</span>
+        <span data-driver-label></span>
+    </a>
+</template>
+
+<template id="driver-disabled-link-template">
+    <span class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 text-sm font-medium rounded-lg cursor-not-allowed"></span>
+</template>
+
+<template id="driver-date-template">
+    <span class="text-sm text-gray-500 dark:text-gray-400 ml-auto"></span>
+</template>
+
+<template id="driver-icons-template">
+    <div class="flex items-center gap-2"></div>
+</template>
+
+<template id="driver-grade-template">
+    <span class="px-2 py-0.5 text-xs font-bold rounded-md text-white"></span>
+</template>
+
+<template id="driver-reddit-link-template">
+    <a target="_blank" rel="noopener noreferrer" class="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" title="See community discussion">
+        <img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" alt="Reddit" class="w-5 h-5">
+    </a>
+</template>
+
+<template id="driver-copy-btn-template">
+    <button class="px-2 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-colors inline-flex items-center gap-1" title="Copy SHA256 hash">
+        <span class="material-icons text-sm">content_copy</span>
+        <span data-copy-label>SHA256</span>
+    </button>
+</template>
+
+<template id="driver-fav-btn-template">
+    <button class="p-1.5 rounded-lg transition-colors" title="Add to favorites">
+        <span class="material-icons text-lg">star_border</span>
+    </button>
+</template>
+
+<template id="driver-error-template">
+    <div class="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-red-800 dark:text-red-200">
+        <p class="font-medium">Error loading driver data. Please try refreshing the page.</p>
+    </div>
+</template>

@@ -75,7 +75,7 @@ const FavoritesModule = (function() {
         let toast = document.querySelector('.toast-notification');
         if (!toast) {
             toast = document.createElement('div');
-            toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-xl shadow-2xl font-medium z-[400] opacity-0 translate-y-4 transition-all duration-300 pointer-events-none';
+            toast.className = 'toast-notification fixed bottom-6 left-1/2 -translate-x-1/2 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-xl shadow-2xl font-medium z-[400] opacity-0 translate-y-4 transition-all duration-300 pointer-events-none';
             document.body.appendChild(toast);
         }
         toast.textContent = message;

@@ -1,0 +1,15 @@
+<footer class="border-t border-gray-200 dark:border-gray-800{% if compactFooterMarginTop | default(false, true) %} mt-auto{% endif %}">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 py-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-400 dark:text-gray-500">
+            <div class="flex items-center gap-3">
+                <span id="site-version"></span>
+                {% if showUpdateDate | default(true, true) %}<span id="update-date"></span>{% endif %}
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-white transition-colors">Release Notes</a>
+                <a href="/sitemap.xml" class="hover:text-gray-900 dark:hover:text-white transition-colors">Sitemap</a>
+                <a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-white transition-colors">Support Us</a>
+            </div>
+        </div>
+    </div>
+</footer>

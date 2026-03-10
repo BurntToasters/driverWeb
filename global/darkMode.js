@@ -16,9 +16,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    const userPreference = getStoredDarkMode();
-    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const isDarkMode = userPreference === 'dark' || (userPreference === null && prefersDarkScheme);
+    function updateToggleIcon(isDark) {
+        if (!darkModeToggle) return;
+        const icon = darkModeToggle.querySelector('.material-icons');
+        if (!icon) return;
+        icon.textContent = isDark ? 'light_mode' : 'dark_mode';
+    }
+
+    function notifyModeChange(isDark) {
+        document.dispatchEvent(new CustomEvent('driverhub:dark-mode-changed', {
+            detail: { isDark }
+        }));
+    }
 
     function applyDarkMode(isDark) {
         if (isDark) {
@@ -27,24 +36,21 @@ document.addEventListener('DOMContentLoaded', () => {
             document.documentElement.classList.remove('dark');
         }
         updateToggleIcon(isDark);
+        notifyModeChange(isDark);
     }
 
-    function updateToggleIcon(isDark) {
-        if (darkModeToggle) {
-            const icon = darkModeToggle.querySelector('.material-icons');
-            if (icon) {
-                icon.textContent = isDark ? 'light_mode' : 'dark_mode';
-            }
-        }
-    }
+    const userPreference = getStoredDarkMode();
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDarkMode = userPreference === 'dark' || (userPreference === null && prefersDarkScheme);
+
+    applyDarkMode(isDarkMode);
 
     if (darkModeToggle) {
-        applyDarkMode(isDarkMode);
-
         darkModeToggle.addEventListener('click', () => {
             const currentlyDark = document.documentElement.classList.contains('dark');
-            applyDarkMode(!currentlyDark);
-            setStoredDarkMode(!currentlyDark ? 'dark' : 'light');
+            const nextDark = !currentlyDark;
+            applyDarkMode(nextDark);
+            setStoredDarkMode(nextDark ? 'dark' : 'light');
         });
     }
 });
