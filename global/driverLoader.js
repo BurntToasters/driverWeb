@@ -37,7 +37,7 @@ function loadDrivers(jsonUrl, containerId) {
 
             if (data.warningMessage) {
                 const warningDiv = document.createElement('div');
-                warningDiv.className = 'p-4 mb-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl text-amber-800 dark:text-amber-200 text-sm';
+                warningDiv.className = 'p-4 mb-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg text-amber-800 dark:text-amber-200 text-sm';
                 warningDiv.textContent = data.warningMessage;
                 container.appendChild(warningDiv);
             }
@@ -52,8 +52,8 @@ function loadDrivers(jsonUrl, containerId) {
             data.drivers.forEach(driver => {
                 const driverItem = document.createElement('div');
                 driverItem.className = driver.hasWarning
-                    ? 'flex flex-wrap items-center gap-3 p-4 bg-amber-50 dark:bg-amber-900/10 rounded-xl border border-amber-200 dark:border-amber-800 transition-all duration-200'
-                    : 'flex flex-wrap items-center gap-3 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-200';
+                    ? 'flex flex-wrap items-center gap-3 p-4 bg-amber-50 dark:bg-amber-900/10 rounded-lg border border-amber-200 dark:border-amber-800 transition-all duration-200'
+                    : 'flex flex-wrap items-center gap-3 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-200';
 
                 if (brand === 'nvidia') {
                     driverItem.className += ' hover:border-nvidia/50 hover:shadow-nvidia/10';
@@ -69,7 +69,7 @@ function loadDrivers(jsonUrl, containerId) {
                 const driverLink = document.createElement('a');
                 if (driver.hasWarning && driver.warningUrl) {
                     driverLink.href = driver.warningUrl;
-                    driverLink.className = 'px-4 py-2 bg-gradient-to-r from-amd to-amd-light text-white text-sm font-medium rounded-lg shadow-sm hover:shadow-glow-amd/50 inline-flex items-center gap-2 transition-all duration-200';
+                    driverLink.className = 'px-4 py-2 bg-amd hover:bg-amd-dark text-white text-sm font-medium rounded-lg shadow-sm hover:shadow-md inline-flex items-center gap-2 transition-all duration-200';
                     const icon = document.createElement('span');
                     icon.className = 'material-icons text-base';
                     icon.textContent = 'warning';
@@ -85,9 +85,9 @@ function loadDrivers(jsonUrl, containerId) {
                     driverLink.href = downloadUrl;
                     driverLink.target = '_blank';
                     if (containerId.includes('nvidia')) {
-                        driverLink.className = 'px-4 py-2 bg-gradient-to-r from-nvidia to-nvidia-light text-white text-sm font-medium rounded-lg shadow-sm hover:shadow-glow-nvidia/50 hover:-translate-y-0.5 inline-flex items-center gap-2 transition-all duration-200';
+                        driverLink.className = 'px-4 py-2 bg-nvidia hover:bg-nvidia-dark text-white text-sm font-medium rounded-lg shadow-sm hover:shadow-md inline-flex items-center gap-2 transition-all duration-200';
                     } else {
-                        driverLink.className = 'px-4 py-2 bg-gradient-to-r from-intel to-intel-light text-white text-sm font-medium rounded-lg shadow-sm hover:shadow-glow-intel/50 hover:-translate-y-0.5 inline-flex items-center gap-2 transition-all duration-200';
+                        driverLink.className = 'px-4 py-2 bg-intel hover:bg-intel-dark text-white text-sm font-medium rounded-lg shadow-sm hover:shadow-md inline-flex items-center gap-2 transition-all duration-200';
                     }
                     driverLink.textContent = `${driver.version} ${driver.type ? '- ' + driver.type : ''}`;
                     driverLink.dataset.originalUrl = driver.downloadUrl;
@@ -213,7 +213,7 @@ function loadDrivers(jsonUrl, containerId) {
             const container = document.getElementById(containerId);
             if (container) {
                 const errorDiv = document.createElement('div');
-                errorDiv.className = 'p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-red-800 dark:text-red-200';
+                errorDiv.className = 'p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-red-800 dark:text-red-200';
                 const errorTitle = document.createElement('p');
                 errorTitle.className = 'font-medium';
                 errorTitle.textContent = 'Error loading driver data. Please try refreshing the page.';

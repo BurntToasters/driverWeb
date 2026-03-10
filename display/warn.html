@@ -23,17 +23,16 @@
     <link rel="shortcut icon" type="image/x-icon" href="../global/favicon.ico">
 </head>
 <body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
-    <header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-800/50">
+    <header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800">
         <div class="max-w-6xl mx-auto px-4 md:px-6">
-            <div class="flex items-center justify-between h-16">
-                <a href="/" class="flex items-center gap-3 group">
-                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-9 w-9 transition-transform group-hover:scale-110">
-                    <span class="text-xl font-bold bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent">DriverHub</span>
+            <div class="flex items-center justify-between h-14">
+                <a href="/" class="flex items-center gap-2.5">
+                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-8 w-8">
+                    <span class="text-lg font-bold text-gray-900 dark:text-white">DriverHub</span>
                 </a>
-                <div class="flex items-center gap-2">
-                    <div id="region-indicator" class="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-sm font-medium text-gray-600 dark:text-gray-400 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" title="Click to change region">USA</div>
-                    <button id="darkModeToggle" class="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-400 transition-all duration-200" title="Toggle dark mode">
-                        <span class="material-icons text-xl">dark_mode</span>
+                <div class="flex items-center gap-1.5">
+                    <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Toggle dark mode">
+                        <span class="material-icons text-[20px]">dark_mode</span>
                     </button>
                 </div>
             </div>
@@ -45,43 +44,39 @@
             <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-amber-100 dark:bg-amber-900/30 mb-4">
                 <span class="material-icons text-5xl text-amber-500">warning</span>
             </div>
-            <h1 class="text-3xl md:text-4xl font-bold mb-2">
-                <span class="bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 bg-clip-text text-transparent">Driver Warning</span>
-            </h1>
-            <p class="text-lg text-gray-600 dark:text-gray-400">This driver version has known stability issues</p>
+            <h1 class="page-heading mb-2">Driver Warning</h1>
+            <p class="page-subheading">This driver version has known stability issues</p>
         </div>
 
-        <section class="bg-white dark:bg-gray-900 rounded-2xl border border-amber-200 dark:border-amber-800 shadow-lg overflow-hidden">
-            <div class="h-1 bg-gradient-to-r from-amber-500 via-orange-500 to-red-500"></div>
-
-            <div class="p-6 md:p-8">
+        <section class="card border-amber-200 dark:border-amber-800 overflow-hidden">
+            <div class="p-6 md:p-8 border-l-4 border-amber-500">
                 <div class="flex items-start gap-4 mb-6">
                     <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
                         <span class="material-icons text-2xl text-red-500">error</span>
                     </div>
                     <div>
-                        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Stability Warning</h2>
+                        <h2 class="section-heading mb-2">Stability Warning</h2>
                         <p id="warning-message" class="text-gray-600 dark:text-gray-400 mb-2">This driver version may cause stability issues including black screens and crashes.</p>
                         <p class="text-gray-600 dark:text-gray-400">It is recommended to use a more stable driver version if possible.</p>
                     </div>
                 </div>
 
                 <div id="video-container" class="hidden mb-6">
-                    <div class="aspect-video rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800">
+                    <div class="aspect-video rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
                         <iframe id="warning-video" src="" title="Warning video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
                     </div>
                 </div>
 
                 <div class="flex flex-wrap items-center gap-3 pt-6 border-t border-gray-200 dark:border-gray-700">
-                    <a href="/display" id="back-button" class="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-xl hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                    <a href="/display" id="back-button" class="btn-secondary">
                         <span class="material-icons text-lg">arrow_back</span>
                         Go Back
                     </a>
-                    <a href="#" id="continue-download" class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+                    <a href="#" id="continue-download" class="inline-flex items-center gap-2 px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-lg shadow-sm hover:shadow-md transition-all duration-200">
                         <span class="material-icons text-lg">download</span>
                         Download Anyway
                     </a>
-                    <a href="#" id="hotfix-download" class="hidden inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-nvidia to-nvidia-light text-white font-medium rounded-xl shadow-md hover:shadow-glow-nvidia hover:-translate-y-0.5 transition-all duration-200">
+                    <a href="#" id="hotfix-download" class="hidden btn-brand-nvidia">
                         <span class="material-icons text-lg">security</span>
                         Download Hotfix
                     </a>
@@ -90,18 +85,17 @@
         </section>
     </main>
 
-    <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 mt-auto">
+    <footer class="border-t border-gray-200 dark:border-gray-800 mt-auto">
         <div class="max-w-6xl mx-auto px-4 md:px-6 py-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                <div class="flex items-center gap-4">
-                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-8 opacity-75">
-                    <span class="text-sm text-gray-500 dark:text-gray-400" id="site-version"></span>
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-400 dark:text-gray-500">
+                <div class="flex items-center gap-3">
+                    <span id="site-version"></span>
+                    <span id="update-date"></span>
                 </div>
-                <div class="flex items-center gap-6 text-sm">
-                    <span id="update-date" class="text-gray-500 dark:text-gray-400"></span>
-                    <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-primary-500 transition-colors">Release Notes</a>
-                    <a href="/sitemap.xml" class="text-gray-500 hover:text-primary-500 transition-colors">Sitemap</a>
-                    <a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-gradient-to-r from-pink-500 to-red-500 text-white rounded-full text-sm font-medium hover:shadow-lg hover:shadow-pink-500/25 transition-all">Support</a>
+                <div class="flex items-center gap-6">
+                    <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-white transition-colors">Release Notes</a>
+                    <a href="/sitemap.xml" class="hover:text-gray-900 dark:hover:text-white transition-colors">Sitemap</a>
+                    <a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-white transition-colors">Support Us</a>
                 </div>
             </div>
         </div>

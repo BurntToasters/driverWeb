@@ -54,71 +54,71 @@
     }
     </script>
 </head>
-<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen">
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-500 focus:text-white focus:rounded-lg">Skip to main content</a>
 
-    <div id="status-banner" class="hidden fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-primary-500 via-purple-500 to-pink-500 text-white px-4 py-3 text-center text-sm font-medium">
+    <div id="status-banner" class="hidden fixed top-0 left-0 right-0 z-50 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-4 py-2.5 text-center text-sm font-medium">
         <span id="status-text"></span>
-        <button id="dismiss-banner" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-xl leading-none" aria-label="Dismiss">&times;</button>
+        <button id="dismiss-banner" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 dark:text-gray-900/70 hover:text-white dark:hover:text-gray-900 text-xl leading-none" aria-label="Dismiss">&times;</button>
     </div>
 
-    <header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-800/50">
+    <header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800">
         <div class="max-w-6xl mx-auto px-4 md:px-6">
-            <div class="flex items-center justify-between h-16">
-                <a href="/" class="flex items-center gap-3 group">
-                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-9 w-9 transition-transform group-hover:scale-110">
-                    <h1 class="text-xl font-bold bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">DriverHub</h1>
+            <div class="flex items-center justify-between h-14">
+                <a href="/" class="flex items-center gap-2.5">
+                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-8 w-8">
+                    <span class="text-lg font-bold text-gray-900 dark:text-white">DriverHub</span>
                 </a>
-                <div class="flex items-center gap-2">
-                    <button id="global-search-btn" class="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-primary-100 dark:hover:bg-primary-900/30 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200" title="Search (Ctrl+K)">
-                        <span class="material-icons text-xl">search</span>
+                <div class="flex items-center gap-1.5">
+                    <button id="global-search-btn" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Search (Ctrl+K)">
+                        <span class="material-icons text-[20px]">search</span>
                     </button>
-                    <button id="favorites-btn" class="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-yellow-100 dark:hover:bg-yellow-900/30 text-gray-600 dark:text-gray-400 hover:text-yellow-500 transition-all duration-200" title="Favorites">
-                        <span class="material-icons text-xl">star_outline</span>
+                    <button id="favorites-btn" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Favorites">
+                        <span class="material-icons text-[20px]">star_outline</span>
                     </button>
-                    <button id="darkModeToggle" class="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-400 transition-all duration-200" title="Toggle dark mode">
-                        <span class="material-icons text-xl">dark_mode</span>
+                    <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Toggle dark mode">
+                        <span class="material-icons text-[20px]">dark_mode</span>
                     </button>
-                    <button class="settings-button p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-400 transition-all duration-200 hover:rotate-45" aria-label="Settings" title="Settings">
-                        <span class="material-icons text-xl">settings</span>
+                    <button class="settings-button p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" aria-label="Settings" title="Settings">
+                        <span class="material-icons text-[20px]">tune</span>
                     </button>
                 </div>
             </div>
-            <nav class="flex items-center gap-1 pb-3 overflow-x-auto scrollbar-hide" role="navigation" aria-label="Main navigation">
-                <a href="/" class="px-4 py-2 rounded-xl text-sm font-medium flex items-center gap-2 bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 shadow-sm whitespace-nowrap transition-all duration-200">
-                    <span class="material-icons text-lg">home</span>Home
+            <nav class="flex items-center gap-0.5 -mb-px overflow-x-auto scrollbar-hide" role="navigation" aria-label="Main navigation">
+                <a href="/" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400 whitespace-nowrap transition-colors">
+                    <span class="material-icons text-[18px]">home</span>Home
                 </a>
-                <a href="/display" class="px-4 py-2 rounded-xl text-sm font-medium flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/30 whitespace-nowrap transition-all duration-200">
-                    <span class="material-icons text-lg">videocam</span>Graphics
+                <a href="/display" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                    <span class="material-icons text-[18px]">videocam</span>Graphics
                 </a>
-                <a href="/chipset" class="px-4 py-2 rounded-xl text-sm font-medium flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/30 whitespace-nowrap transition-all duration-200">
-                    <span class="material-icons text-lg">memory</span>Chipset
+                <a href="/chipset" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                    <span class="material-icons text-[18px]">memory</span>Chipset
                 </a>
-                <span class="px-4 py-2 rounded-xl text-sm font-medium flex items-center gap-2 text-gray-400 dark:text-gray-600 cursor-not-allowed whitespace-nowrap" title="Coming soon">
-                    <span class="material-icons text-lg">wifi</span>Network
+                <span class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 text-gray-300 dark:text-gray-600 whitespace-nowrap" title="Coming soon">
+                    <span class="material-icons text-[18px]">wifi</span>Network
                 </span>
-                <span class="px-4 py-2 rounded-xl text-sm font-medium flex items-center gap-2 text-gray-400 dark:text-gray-600 cursor-not-allowed whitespace-nowrap" title="Coming soon">
-                    <span class="material-icons text-lg">headphones</span>Audio
+                <span class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 text-gray-300 dark:text-gray-600 whitespace-nowrap" title="Coming soon">
+                    <span class="material-icons text-[18px]">headphones</span>Audio
                 </span>
-                <div class="w-px h-6 bg-gray-300 dark:bg-gray-700 mx-2"></div>
-                <a href="/contact" class="px-4 py-2 rounded-xl text-sm font-medium flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/30 whitespace-nowrap transition-all duration-200">
-                    <span class="material-icons text-lg">mail_outline</span>Contact
+                <div class="w-px h-5 bg-gray-200 dark:bg-gray-700 mx-1.5"></div>
+                <a href="/contact" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                    <span class="material-icons text-[18px]">mail_outline</span>Contact
                 </a>
-                <a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl text-sm font-medium flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/30 whitespace-nowrap transition-all duration-200">
-                    <span class="material-icons text-lg">description</span>Docs
-                    <svg class="w-3 h-3 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                <a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                    <span class="material-icons text-[18px]">description</span>Docs
+                    <svg class="w-3 h-3 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                 </a>
             </nav>
         </div>
     </header>
 
     <div id="settings-overlay" class="settings-overlay hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="settings-title">
-        <div class="w-full max-w-md mx-4 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden transform transition-all">
-            <div class="bg-gradient-to-r from-primary-500 to-primary-600 px-6 py-4">
+        <div class="w-full max-w-md mx-4 bg-white dark:bg-gray-900 rounded-xl shadow-2xl overflow-hidden transform transition-all">
+            <div class="bg-gray-900 dark:bg-gray-800 px-6 py-4">
                 <div class="flex items-center justify-between">
-                    <h2 id="settings-title" class="text-xl font-bold text-white">Settings</h2>
-                    <button class="close-settings p-2 rounded-xl bg-white/20 hover:bg-white/30 text-white transition-colors" aria-label="Close settings">
-                        <span class="material-icons">close</span>
+                    <h2 id="settings-title" class="text-lg font-semibold text-white">Settings</h2>
+                    <button class="close-settings p-1.5 rounded-lg hover:bg-white/10 text-white/70 hover:text-white transition-colors" aria-label="Close settings">
+                        <span class="material-icons text-[20px]">close</span>
                     </button>
                 </div>
             </div>
@@ -138,7 +138,7 @@
                         <span class="material-icons text-gray-400">public</span>
                         <span class="font-medium text-gray-900 dark:text-white">Download Region</span>
                     </label>
-                    <select id="regionSelect" class="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-xl border-2 border-transparent focus:border-primary-500 outline-none transition-colors text-gray-900 dark:text-white">
+                    <select id="regionSelect" class="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none transition-colors text-gray-900 dark:text-white">
                         <option value="USA">USA</option>
                         <option value="EU">EU</option>
                     </select>
@@ -148,112 +148,140 @@
         </div>
     </div>
 
-    <main id="main-content" class="max-w-6xl mx-auto px-4 md:px-6 py-12">
-        <div class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4">
-                <span class="bg-gradient-to-r from-primary-600 via-purple-500 to-pink-500 bg-clip-text text-transparent">Driver Downloads</span>
-            </h1>
-            <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Free Windows drivers from official sources. All downloads link directly to manufacturer websites.</p>
+    <main id="main-content" class="flex-1 max-w-6xl mx-auto px-4 md:px-6 w-full">
+        <section class="pt-16 pb-12 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight mb-4">Free Windows Driver Downloads</h1>
+            <p class="page-subheading max-w-xl mx-auto mb-8">Official drivers from NVIDIA, AMD, and Intel. Every download links directly to the manufacturer.</p>
+            <div class="flex items-center justify-center gap-3 flex-wrap">
+                <a href="/display" class="btn-primary">
+                    <span class="material-icons text-lg">download</span>
+                    Browse Drivers
+                </a>
+                <button id="hero-search-btn" class="btn-secondary">
+                    <span class="material-icons text-lg">search</span>
+                    Search Drivers
+                    <kbd class="ml-1 px-1.5 py-0.5 text-xs font-mono bg-gray-200 dark:bg-gray-700 rounded text-gray-500 dark:text-gray-400">Ctrl+K</kbd>
+                </button>
+            </div>
+        </section>
+
+        <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 py-6 border-y border-gray-200 dark:border-gray-800 mb-12">
+            <div class="flex items-center gap-2">
+                <span class="material-icons text-lg text-primary-500">verified</span>
+                <span class="text-sm font-medium text-gray-600 dark:text-gray-400">Direct from manufacturers</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="material-icons text-lg text-primary-500">security</span>
+                <span class="text-sm font-medium text-gray-600 dark:text-gray-400">SHA256 verified</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="material-icons text-lg text-primary-500">thumb_up</span>
+                <span class="text-sm font-medium text-gray-600 dark:text-gray-400">Community stability ratings</span>
+            </div>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <section class="group relative bg-white dark:bg-gray-900 rounded-2xl p-6 border-2 border-gray-200 dark:border-gray-800 hover:border-primary-400 dark:hover:border-primary-600 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-nvidia/5 via-transparent to-intel/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div class="relative">
-                    <div class="flex items-center gap-2 mb-4">
-                        <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt="NVIDIA" class="h-8 w-8 object-contain rounded" loading="lazy">
-                        <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt="AMD" class="h-8 w-8 object-contain" loading="lazy">
-                        <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt="Intel" class="h-8 w-8 object-contain" loading="lazy">
-                    </div>
-                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Graphics Drivers</h2>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6">NVIDIA, AMD, and Intel GPU drivers for gaming and productivity</p>
-                    <a href="/display" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/40 hover:-translate-y-0.5 transition-all duration-200">
-                        <span class="material-icons text-lg">download</span>
-                        Download Drivers
-                    </a>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
+            <a href="/display" class="card-hover group p-5 flex items-start gap-4" data-animate>
+                <div class="flex-shrink-0 flex items-center gap-1.5 mt-0.5">
+                    <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt="NVIDIA" class="h-7 w-7 rounded object-contain" loading="lazy">
+                    <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt="AMD" class="h-7 w-7 object-contain" loading="lazy">
+                    <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt="Intel" class="h-7 w-7 object-contain" loading="lazy">
                 </div>
-            </section>
+                <div class="flex-1 min-w-0">
+                    <h2 class="section-heading mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">Graphics Drivers</h2>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">NVIDIA, AMD, and Intel GPU drivers for desktop and laptop</p>
+                </div>
+                <span class="material-icons text-gray-300 dark:text-gray-600 group-hover:text-primary-500 transition-colors mt-1">arrow_forward</span>
+            </a>
 
-            <section class="group relative bg-white dark:bg-gray-900 rounded-2xl p-6 border-2 border-gray-200 dark:border-gray-800 hover:border-primary-400 dark:hover:border-primary-600 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-intel/5 via-transparent to-amd/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div class="relative">
-                    <div class="flex items-center gap-2 mb-4">
-                        <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt="Intel" class="h-8 w-8 object-contain" loading="lazy">
-                        <img src="https://prod.rexxit.net/drweb/assets/amdryzen.png" alt="AMD Ryzen" class="h-8 w-8 object-contain" loading="lazy">
-                    </div>
-                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Chipset Drivers</h2>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6">Intel and AMD motherboard chipset drivers</p>
-                    <a href="/chipset" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/40 hover:-translate-y-0.5 transition-all duration-200">
-                        <span class="material-icons text-lg">download</span>
-                        Download Drivers
-                    </a>
+            <a href="/chipset" class="card-hover group p-5 flex items-start gap-4" data-animate>
+                <div class="flex-shrink-0 flex items-center gap-1.5 mt-0.5">
+                    <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt="Intel" class="h-7 w-7 object-contain" loading="lazy">
+                    <img src="https://prod.rexxit.net/drweb/assets/amdryzen.png" alt="AMD Ryzen" class="h-7 w-7 object-contain" loading="lazy">
                 </div>
-            </section>
+                <div class="flex-1 min-w-0">
+                    <h2 class="section-heading mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">Chipset Drivers</h2>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Intel and AMD motherboard chipset drivers</p>
+                </div>
+                <span class="material-icons text-gray-300 dark:text-gray-600 group-hover:text-primary-500 transition-colors mt-1">arrow_forward</span>
+            </a>
 
-            <section class="group relative bg-white dark:bg-gray-900 rounded-2xl p-6 border-2 border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 overflow-hidden opacity-75">
-                <div class="relative">
-                    <div class="flex items-center gap-2 mb-4">
-                        <img src="https://prod.rexxit.net/drweb/assets/realtek.png" alt="Realtek" class="h-8 w-8 object-contain" loading="lazy">
-                    </div>
-                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Audio Drivers</h2>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6">Realtek and other audio drivers</p>
-                    <span class="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 font-semibold rounded-xl cursor-not-allowed">
-                        <span class="material-icons text-lg">schedule</span>
-                        Coming Soon
-                    </span>
+            <div class="card p-5 flex items-start gap-4 opacity-60" data-animate>
+                <div class="flex-shrink-0 mt-0.5">
+                    <img src="https://prod.rexxit.net/drweb/assets/realtek.png" alt="Realtek" class="h-7 w-7 object-contain" loading="lazy">
                 </div>
-            </section>
+                <div class="flex-1 min-w-0">
+                    <h2 class="section-heading mb-1">Audio Drivers</h2>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Realtek and other audio drivers</p>
+                </div>
+                <span class="px-2.5 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500 rounded-md whitespace-nowrap">Coming Soon</span>
+            </div>
 
-            <section class="group relative bg-white dark:bg-gray-900 rounded-2xl p-6 border-2 border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 overflow-hidden opacity-75">
-                <div class="relative">
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="material-icons text-3xl text-primary-500">wifi</span>
-                    </div>
-                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Network Drivers</h2>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6">Wi-Fi and Ethernet adapter drivers</p>
-                    <span class="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 font-semibold rounded-xl cursor-not-allowed">
-                        <span class="material-icons text-lg">schedule</span>
-                        Coming Soon
-                    </span>
+            <div class="card p-5 flex items-start gap-4 opacity-60" data-animate>
+                <div class="flex-shrink-0 mt-0.5">
+                    <span class="material-icons text-2xl text-gray-400">wifi</span>
                 </div>
-            </section>
+                <div class="flex-1 min-w-0">
+                    <h2 class="section-heading mb-1">Network Drivers</h2>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Wi-Fi and Ethernet adapter drivers</p>
+                </div>
+                <span class="px-2.5 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500 rounded-md whitespace-nowrap">Coming Soon</span>
+            </div>
 
-            <section class="group relative bg-white dark:bg-gray-900 rounded-2xl p-6 border-2 border-gray-200 dark:border-gray-800 hover:border-pink-400 dark:hover:border-pink-600 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-pink-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div class="relative">
-                    <div class="flex items-center gap-2 mb-4">
-                        <img src="https://prod.rexxit.net/drweb/assets/mail.png" alt="Contact" class="h-8 w-8 object-contain" loading="lazy">
-                    </div>
-                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Contact</h2>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6">Questions, feedback, or suggestions?</p>
-                    <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold rounded-xl shadow-lg shadow-pink-500/25 hover:shadow-xl hover:shadow-pink-500/40 hover:-translate-y-0.5 transition-all duration-200">
-                        <span class="material-icons text-lg">email</span>
-                        Get in Touch
-                    </a>
+            <a href="/contact" class="card-hover group p-5 flex items-start gap-4" data-animate>
+                <div class="flex-shrink-0 mt-0.5">
+                    <span class="material-icons text-2xl text-primary-500">mail_outline</span>
                 </div>
-            </section>
+                <div class="flex-1 min-w-0">
+                    <h2 class="section-heading mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">Contact</h2>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Questions, feedback, or suggestions?</p>
+                </div>
+                <span class="material-icons text-gray-300 dark:text-gray-600 group-hover:text-primary-500 transition-colors mt-1">arrow_forward</span>
+            </a>
         </div>
     </main>
 
-    <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 mt-16">
-        <div class="max-w-6xl mx-auto px-4 md:px-6 py-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                <div class="flex items-center gap-4">
-                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-8 opacity-75">
-                    <span class="text-sm text-gray-500 dark:text-gray-400" id="site-version"></span>
-                </div>
-                <div class="flex items-center gap-6 text-sm">
-                    <span id="update-date" class="text-gray-500 dark:text-gray-400"></span>
-                    <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-primary-500 transition-colors">Release Notes</a>
-                    <a href="/sitemap.xml" class="text-gray-500 hover:text-primary-500 transition-colors">Sitemap</a>
-                    <a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-gradient-to-r from-pink-500 to-red-500 text-white rounded-full text-sm font-medium hover:shadow-lg hover:shadow-pink-500/25 transition-all">
-                        Support
+    <footer class="border-t border-gray-200 dark:border-gray-800 mt-auto">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 py-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-2 md:col-span-1">
+                    <a href="/" class="flex items-center gap-2 mb-3">
+                        <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-7 w-7">
+                        <span class="font-semibold text-gray-900 dark:text-white">DriverHub</span>
                     </a>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Free Windows driver downloads from official sources.</p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">Drivers</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/display" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Graphics</a></li>
+                        <li><a href="/chipset" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Chipset</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Release Notes</a></li>
+                        <li><a href="/info/about-stabledrivers" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Stability Ratings</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">About</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/contact" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="/sitemap.xml" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Sitemap</a></li>
+                        <li><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Support Us</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-800 flex items-center justify-center">
-                <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" target="_blank" rel="noopener noreferrer" class="opacity-60 hover:opacity-100 transition-opacity">
-                    <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" style="max-width: 100px;" alt="DigitalOcean" loading="lazy">
+            <div class="pt-6 border-t border-gray-200 dark:border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-400 dark:text-gray-500">
+                <div class="flex items-center gap-3">
+                    <span id="site-version"></span>
+                    <span id="update-date"></span>
+                </div>
+                <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" target="_blank" rel="noopener noreferrer" class="opacity-50 hover:opacity-80 transition-opacity">
+                    <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" class="h-6" alt="DigitalOcean" loading="lazy">
                 </a>
             </div>
         </div>
@@ -315,6 +343,16 @@
             settingsDarkToggle.addEventListener('click', () => {
                 const darkModeToggle = document.getElementById('darkModeToggle');
                 if (darkModeToggle) darkModeToggle.click();
+            });
+        }
+
+        const heroSearchBtn = document.getElementById('hero-search-btn');
+        if (heroSearchBtn && typeof SearchModule !== 'undefined') {
+            heroSearchBtn.addEventListener('click', () => SearchModule.open());
+        } else if (heroSearchBtn) {
+            heroSearchBtn.addEventListener('click', () => {
+                const searchBtn = document.getElementById('global-search-btn');
+                if (searchBtn) searchBtn.click();
             });
         }
     });

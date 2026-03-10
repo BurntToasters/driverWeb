@@ -32,88 +32,91 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="global/favicon.ico">
 </head>
-<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen">
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-500 focus:text-white focus:rounded-lg">Skip to main content</a>
 
-    <header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-800/50">
+    <header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800">
         <div class="max-w-6xl mx-auto px-4 md:px-6">
-            <div class="flex items-center justify-between h-16">
-                <a href="/" class="flex items-center gap-3 group">
-                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-9 w-9 transition-transform group-hover:scale-110">
-                    <h1 class="text-xl font-bold bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">DriverHub</h1>
+            <div class="flex items-center justify-between h-14">
+                <a href="/" class="flex items-center gap-2.5">
+                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-8 w-8">
+                    <span class="text-lg font-bold text-gray-900 dark:text-white">DriverHub</span>
                 </a>
-                <div class="flex items-center gap-2">
-                    <button id="darkModeToggle" class="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-400 transition-all duration-200" title="Toggle dark mode">
-                        <span class="material-icons text-xl">dark_mode</span>
+                <div class="flex items-center gap-1.5">
+                    <button id="global-search-btn" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Search (Ctrl+K)">
+                        <span class="material-icons text-[20px]">search</span>
                     </button>
-                    <button id="global-search-btn" class="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-primary-100 dark:hover:bg-primary-900/30 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200" title="Search (Ctrl+K)">
-                        <span class="material-icons text-xl">search</span>
+                    <button id="favorites-btn" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Favorites">
+                        <span class="material-icons text-[20px]">star_outline</span>
                     </button>
-                    <button id="favorites-btn" class="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-yellow-100 dark:hover:bg-yellow-900/30 text-gray-600 dark:text-gray-400 hover:text-yellow-500 transition-all duration-200" title="Favorites">
-                        <span class="material-icons text-xl">star_outline</span>
+                    <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Toggle dark mode">
+                        <span class="material-icons text-[20px]">dark_mode</span>
+                    </button>
+                    <button class="settings-button p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" aria-label="Settings" title="Settings">
+                        <span class="material-icons text-[20px]">tune</span>
                     </button>
                 </div>
             </div>
-            <nav class="flex items-center gap-1 pb-3 overflow-x-auto scrollbar-hide" role="navigation" aria-label="Main navigation">
-                <a href="/" class="px-4 py-2 rounded-xl text-sm font-medium flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/30 whitespace-nowrap transition-all duration-200">
-                    <span class="material-icons text-lg">home</span>Home
+            <nav class="flex items-center gap-0.5 -mb-px overflow-x-auto scrollbar-hide" role="navigation" aria-label="Main navigation">
+                <a href="/" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                    <span class="material-icons text-[18px]">home</span>Home
                 </a>
-                <a href="/display" class="px-4 py-2 rounded-xl text-sm font-medium flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/30 whitespace-nowrap transition-all duration-200">
-                    <span class="material-icons text-lg">videocam</span>Graphics
+                <a href="/display" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                    <span class="material-icons text-[18px]">videocam</span>Graphics
                 </a>
-                <a href="/chipset" class="px-4 py-2 rounded-xl text-sm font-medium flex items-center gap-2 bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 shadow-sm whitespace-nowrap transition-all duration-200">
-                    <span class="material-icons text-lg">memory</span>Chipset
+                <a href="/chipset" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400 whitespace-nowrap transition-colors">
+                    <span class="material-icons text-[18px]">memory</span>Chipset
                 </a>
-                <span class="px-4 py-2 rounded-xl text-sm font-medium flex items-center gap-2 text-gray-400 dark:text-gray-600 cursor-not-allowed whitespace-nowrap" title="Coming soon">
-                    <span class="material-icons text-lg">wifi</span>Network
+                <span class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 text-gray-300 dark:text-gray-600 whitespace-nowrap" title="Coming soon">
+                    <span class="material-icons text-[18px]">wifi</span>Network
                 </span>
-                <span class="px-4 py-2 rounded-xl text-sm font-medium flex items-center gap-2 text-gray-400 dark:text-gray-600 cursor-not-allowed whitespace-nowrap" title="Coming soon">
-                    <span class="material-icons text-lg">headphones</span>Audio
+                <span class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 text-gray-300 dark:text-gray-600 whitespace-nowrap" title="Coming soon">
+                    <span class="material-icons text-[18px]">headphones</span>Audio
                 </span>
-                <div class="w-px h-6 bg-gray-300 dark:bg-gray-700 mx-2"></div>
-                <a href="/contact" class="px-4 py-2 rounded-xl text-sm font-medium flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/30 whitespace-nowrap transition-all duration-200">
-                    <span class="material-icons text-lg">mail_outline</span>Contact
+                <div class="w-px h-5 bg-gray-200 dark:bg-gray-700 mx-1.5"></div>
+                <a href="/contact" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                    <span class="material-icons text-[18px]">mail_outline</span>Contact
                 </a>
-                <a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl text-sm font-medium flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/30 whitespace-nowrap transition-all duration-200">
-                    <span class="material-icons text-lg">description</span>Docs
+                <a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                    <span class="material-icons text-[18px]">description</span>Docs
                 </a>
             </nav>
         </div>
     </header>
 
-    <main id="main-content" class="max-w-6xl mx-auto px-4 md:px-6 py-12">
-        <div class="text-center mb-12">
-            <h1 class="text-3xl md:text-4xl font-bold mb-2">
-                <span class="bg-gradient-to-r from-amd via-primary-500 to-intel bg-clip-text text-transparent">Chipset Drivers</span>
-            </h1>
-            <p class="text-lg text-gray-600 dark:text-gray-300">Intel and AMD motherboard chipset drivers for Windows</p>
+    <main id="main-content" class="flex-1 max-w-6xl mx-auto px-4 md:px-6 py-12 w-full">
+        <div class="mb-8">
+            <h1 class="page-heading mb-2">Chipset Drivers</h1>
+            <p class="page-subheading">Intel and AMD motherboard chipset drivers for Windows</p>
         </div>
 
-        <div class="space-y-8">
-            <section class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-lg overflow-hidden" data-animate>
-                <div class="h-1 bg-gradient-to-r from-amd to-amd-light"></div>
-                <div class="p-6">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://prod.rexxit.net/drweb/assets/amdryzen.png" alt="AMD Ryzen" class="h-10 w-10 object-contain" loading="lazy">
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">AMD Ryzen Chipset</h2>
+        <div class="space-y-6">
+            <section class="card overflow-hidden" data-animate>
+                <div class="p-6 border-l-4 border-amd">
+                    <div class="flex items-center gap-3 mb-1">
+                        <img src="https://prod.rexxit.net/drweb/assets/amdryzen.png" alt="AMD Ryzen" class="h-9 w-9 object-contain" loading="lazy">
+                        <h2 class="section-heading">AMD Ryzen Chipset</h2>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6">Select your socket type below to find the right chipset driver, or use AMD's auto-detect tool.</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Select your socket type below to find the right chipset driver, or use AMD's auto-detect tool.</p>
 
-                    <a href="https://www.amd.com/en/support/download/drivers.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amd to-amd-light text-white font-semibold rounded-xl shadow-lg shadow-amd/25 hover:shadow-xl hover:shadow-amd/40 hover:-translate-y-0.5 transition-all duration-200 mb-6">
-                        <span class="material-icons">download</span>
+                    <a href="https://www.amd.com/en/support/download/drivers.html" target="_blank" rel="noopener noreferrer" class="btn-brand-amd mb-6">
+                        <span class="material-icons text-lg">download</span>
                         AMD Auto-Detect Tool
                     </a>
 
                     <hr class="border-gray-200 dark:border-gray-700 my-6">
 
-                    <button data-collapsible aria-expanded="false" class="w-full px-5 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-amd to-amd-light hover:shadow-glow-amd flex items-center justify-between transition-all duration-200 mb-3">
-                        <span class="flex items-center gap-3"><span class="material-icons">folder</span>AM5 Chipsets</span>
-                        <span class="material-icons transition-transform duration-200">expand_more</span>
+                    <button data-collapsible aria-expanded="false" class="w-full px-4 py-3 rounded-lg font-medium text-left bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800/80 text-gray-900 dark:text-white flex items-center justify-between transition-colors mb-2">
+                        <span class="flex items-center gap-2">
+                            <span class="material-icons text-amd text-lg">folder</span>
+                            AM5 Chipsets
+                        </span>
+                        <span class="material-icons text-gray-400 transition-transform duration-200 text-lg">expand_more</span>
                     </button>
-                    <div class="hidden overflow-hidden transition-all duration-300 mb-4" style="opacity: 0;">
+                    <div class="hidden overflow-hidden transition-all duration-300 mb-3" style="opacity: 0;">
                         <div class="pt-4 pb-2">
                             <div class="flex flex-wrap gap-3 items-center">
-                                <select id="AM5" class="flex-1 min-w-[200px] px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-xl border-2 border-transparent focus:border-amd outline-none transition-colors text-gray-900 dark:text-white">
+                                <select id="AM5" class="flex-1 min-w-[200px] px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-amd outline-none transition-colors text-gray-900 dark:text-white">
                                     <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/x870e.html">X870E</option>
                                     <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/x870.html">X870</option>
                                     <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/x670e.html">X670E</option>
@@ -122,22 +125,25 @@
                                     <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/b650.html">B650</option>
                                     <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/a620.html">A620</option>
                                 </select>
-                                <button onclick="goToAm5()" class="px-5 py-3 bg-gradient-to-r from-amd to-amd-light text-white font-medium rounded-xl hover:shadow-glow-amd/50 transition-all inline-flex items-center gap-2">
-                                    <span class="material-icons">arrow_forward</span> Go
+                                <button onclick="goToAm5()" class="btn-brand-amd">
+                                    <span class="material-icons text-lg">arrow_forward</span> Go
                                 </button>
                             </div>
                             <p class="text-sm text-gray-500 dark:text-gray-400 mt-3">Updated: 12-03-24</p>
                         </div>
                     </div>
 
-                    <button data-collapsible aria-expanded="false" class="w-full px-5 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-amd to-amd-light hover:shadow-glow-amd flex items-center justify-between transition-all duration-200">
-                        <span class="flex items-center gap-3"><span class="material-icons">folder</span>AM4 Chipsets</span>
-                        <span class="material-icons transition-transform duration-200">expand_more</span>
+                    <button data-collapsible aria-expanded="false" class="w-full px-4 py-3 rounded-lg font-medium text-left bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800/80 text-gray-900 dark:text-white flex items-center justify-between transition-colors">
+                        <span class="flex items-center gap-2">
+                            <span class="material-icons text-amd text-lg">folder</span>
+                            AM4 Chipsets
+                        </span>
+                        <span class="material-icons text-gray-400 transition-transform duration-200 text-lg">expand_more</span>
                     </button>
                     <div class="hidden overflow-hidden transition-all duration-300" style="opacity: 0;">
                         <div class="pt-4 pb-2">
                             <div class="flex flex-wrap gap-3 items-center">
-                                <select id="AM4" class="flex-1 min-w-[200px] px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-xl border-2 border-transparent focus:border-amd outline-none transition-colors text-gray-900 dark:text-white">
+                                <select id="AM4" class="flex-1 min-w-[200px] px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-amd outline-none transition-colors text-gray-900 dark:text-white">
                                     <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/x570.html">X570</option>
                                     <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/x470.html">X470</option>
                                     <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/x370.html">X370</option>
@@ -148,8 +154,8 @@
                                     <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/a320.html">A320</option>
                                     <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/pro565.html">PRO565</option>
                                 </select>
-                                <button onclick="goToAm4()" class="px-5 py-3 bg-gradient-to-r from-amd to-amd-light text-white font-medium rounded-xl hover:shadow-glow-amd/50 transition-all inline-flex items-center gap-2">
-                                    <span class="material-icons">arrow_forward</span> Go
+                                <button onclick="goToAm4()" class="btn-brand-amd">
+                                    <span class="material-icons text-lg">arrow_forward</span> Go
                                 </button>
                             </div>
                             <p class="text-sm text-gray-500 dark:text-gray-400 mt-3">Updated: 5-10-24</p>
@@ -158,23 +164,25 @@
                 </div>
             </section>
 
-            <section class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-lg overflow-hidden" data-animate>
-                <div class="h-1 bg-gradient-to-r from-intel to-intel-light"></div>
-                <div class="p-6">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt="Intel" class="h-10 w-10 object-contain">
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Intel Chipset</h2>
+            <section class="card overflow-hidden" data-animate>
+                <div class="p-6 border-l-4 border-intel">
+                    <div class="flex items-center gap-3 mb-1">
+                        <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt="Intel" class="h-9 w-9 object-contain">
+                        <h2 class="section-heading">Intel Chipset</h2>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6">Intel provides a unified chipset utility that works for all supported chipsets.</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Intel provides a unified chipset utility that works for all supported chipsets.</p>
 
-                    <button data-collapsible aria-expanded="false" class="w-full px-5 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-intel to-intel-light hover:shadow-glow-intel flex items-center justify-between transition-all duration-200">
-                        <span class="flex items-center gap-3"><span class="material-icons">folder</span>Intel Chipset Utility</span>
-                        <span class="material-icons transition-transform duration-200">expand_more</span>
+                    <button data-collapsible aria-expanded="false" class="w-full px-4 py-3 rounded-lg font-medium text-left bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800/80 text-gray-900 dark:text-white flex items-center justify-between transition-colors">
+                        <span class="flex items-center gap-2">
+                            <span class="material-icons text-intel text-lg">folder</span>
+                            Intel Chipset Utility
+                        </span>
+                        <span class="material-icons text-gray-400 transition-transform duration-200 text-lg">expand_more</span>
                     </button>
                     <div class="hidden overflow-hidden transition-all duration-300" style="opacity: 0;">
                         <div class="pt-4 pb-2">
-                            <a href="https://www.intel.com/content/www/us/en/download/19347/chipset-inf-utility.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-intel to-intel-light text-white font-semibold rounded-xl shadow-lg shadow-intel/25 hover:shadow-xl hover:shadow-intel/40 hover:-translate-y-0.5 transition-all duration-200">
-                                <span class="material-icons">download</span>
+                            <a href="https://www.intel.com/content/www/us/en/download/19347/chipset-inf-utility.html" target="_blank" rel="noopener noreferrer" class="btn-brand-intel">
+                                <span class="material-icons text-lg">download</span>
                                 Intel Chipset INF Utility
                             </a>
                             <p class="text-sm text-gray-500 dark:text-gray-400 mt-3">This utility will detect and install the appropriate chipset drivers for your Intel system.</p>
@@ -183,37 +191,56 @@
                 </div>
             </section>
         </div>
-
-        <div class="mt-12 text-center">
-            <a href="/" class="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-xl hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
-                <span class="material-icons">arrow_back</span>
-                Back to Home
-            </a>
-        </div>
     </main>
 
-    <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 mt-16">
-        <div class="max-w-6xl mx-auto px-4 md:px-6 py-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                <div class="flex items-center gap-4">
-                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-8 opacity-75">
-                    <span class="text-sm text-gray-500 dark:text-gray-400" id="site-version"></span>
+    <footer class="border-t border-gray-200 dark:border-gray-800 mt-auto">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 py-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-2 md:col-span-1">
+                    <a href="/" class="flex items-center gap-2 mb-3">
+                        <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-7 w-7">
+                        <span class="font-semibold text-gray-900 dark:text-white">DriverHub</span>
+                    </a>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Free Windows driver downloads from official sources.</p>
                 </div>
-                <div class="flex items-center gap-6 text-sm">
-                    <span id="update-date" class="text-gray-500 dark:text-gray-400"></span>
-                    <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-primary-500 transition-colors">Release Notes</a>
-                    <a href="/sitemap.xml" class="text-gray-500 hover:text-primary-500 transition-colors">Sitemap</a>
-                    <a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-gradient-to-r from-pink-500 to-red-500 text-white rounded-full text-sm font-medium hover:shadow-lg hover:shadow-pink-500/25 transition-all">Support</a>
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">Drivers</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/display" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Graphics</a></li>
+                        <li><a href="/chipset" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Chipset</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Release Notes</a></li>
+                        <li><a href="/info/about-stabledrivers" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Stability Ratings</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">About</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/contact" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="/sitemap.xml" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Sitemap</a></li>
+                        <li><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Support Us</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-800 flex items-center justify-center">
-                <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" target="_blank" rel="noopener noreferrer" class="opacity-60 hover:opacity-100 transition-opacity">
-                    <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" style="max-width: 100px;" alt="DigitalOcean" loading="lazy">
+            <div class="pt-6 border-t border-gray-200 dark:border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-400 dark:text-gray-500">
+                <div class="flex items-center gap-3">
+                    <span id="site-version"></span>
+                    <span id="update-date"></span>
+                </div>
+                <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" target="_blank" rel="noopener noreferrer" class="opacity-50 hover:opacity-80 transition-opacity">
+                    <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" class="h-6" alt="DigitalOcean" loading="lazy">
                 </a>
             </div>
         </div>
     </footer>
 
+    <script src="global/favorites.js"></script>
+    <script src="global/search.js"></script>
     <script src="global/darkMode.js"></script>
     <script src="global/regionSwitcher.js"></script>
     <script src="global/modern.js"></script>
