@@ -65,7 +65,7 @@
                                 <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/b650.html">B650</option>
                                 <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am5/a620.html">A620</option>
                             </select>
-                            <button onclick="goToAm5()" class="btn-brand-amd" type="button">
+                            <button id="am5-go-btn" class="btn-brand-amd" type="button">
                                 <span class="material-icons text-lg">arrow_forward</span> Go
                             </button>
                         </div>
@@ -94,7 +94,7 @@
                                 <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/a320.html">A320</option>
                                 <option value="https://www.amd.com/en/support/downloads/drivers.html/chipsets/am4/pro565.html">PRO565</option>
                             </select>
-                            <button onclick="goToAm4()" class="btn-brand-amd" type="button">
+                            <button id="am4-go-btn" class="btn-brand-amd" type="button">
                                 <span class="material-icons text-lg">arrow_forward</span> Go
                             </button>
                         </div>
@@ -136,11 +136,26 @@
 
 {% block pageScripts %}
 <script>
-function goToAm5() {
-    window.open(document.getElementById("AM5").value, '_blank');
-}
-function goToAm4() {
-    window.open(document.getElementById("AM4").value, '_blank');
-}
+document.addEventListener('DOMContentLoaded', function() {
+    function openSelectedChipset(selectId) {
+        const select = document.getElementById(selectId);
+        if (!select || !select.value) return;
+        window.open(select.value, '_blank', 'noopener,noreferrer');
+    }
+
+    const am5Button = document.getElementById('am5-go-btn');
+    if (am5Button) {
+        am5Button.addEventListener('click', function() {
+            openSelectedChipset('AM5');
+        });
+    }
+
+    const am4Button = document.getElementById('am4-go-btn');
+    if (am4Button) {
+        am4Button.addEventListener('click', function() {
+            openSelectedChipset('AM4');
+        });
+    }
+});
 </script>
 {% endblock %}

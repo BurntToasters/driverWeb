@@ -43,9 +43,9 @@
         <div class="space-y-4">
             <div class="card p-5">
                 <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-3">Other ways to reach us</h3>
-                <a href="mailto:contact@driverhub@@win" id="email-link" onmouseover="deobfuscateEmail(this)" oncontextmenu="deobfuscateEmail(this)" onclick="return deobfuscateEmail(this, true)" class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                <a href="mailto:contact@driverhub.win" id="email-link" class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
                     <span class="material-icons text-lg">email</span>
-                    Click to reveal email
+                    <span id="email-link-text">contact@driverhub.win</span>
                 </a>
             </div>
             <div class="card p-5">
@@ -68,11 +68,18 @@
 
 {% block pageScripts %}
 <script>
-function deobfuscateEmail(element, isClick) {
+document.addEventListener('DOMContentLoaded', function() {
+    const emailLink = document.getElementById('email-link');
+    const emailText = document.getElementById('email-link-text');
     const email = 'contact' + '@' + 'driverhub' + '.' + 'win';
-    element.href = 'mailto:' + email;
-    element.textContent = email;
-    if (isClick) return true;
-}
+
+    if (emailLink) {
+        emailLink.href = 'mailto:' + email;
+    }
+
+    if (emailText) {
+        emailText.textContent = email;
+    }
+});
 </script>
 {% endblock %}
