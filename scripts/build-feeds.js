@@ -136,6 +136,23 @@ function fetchWithFallback(url, options) {
   });
 }
 
+function loadLocalSourceFallback(source) {
+  try {
+    const filename = source.filename || path.basename(source.url);
+    const localPath = path.join(localDataDir, filename);
+    if (!fs.existsSync(localPath)) return null;
+
+    const data = JSON.parse(fs.readFileSync(localPath, 'utf8'));
+    const drivers = Array.isArray(data.drivers) ? data.drivers : [];
+    const entries = drivers.map((driver, index) => normalizeDriver(source, data, driver, index));
+    process.stdout.write(`Feed source loaded from local fallback: ${filename}\n`);
+    return { entries, source, skipped: false, localFallback: true };
+  } catch (error) {
+    process.stderr.write(`Local fallback parse failed for ${source.url}: ${String(error.message || error)}\n`);
+    return null;
+  }
+}
+
 async function fetchSource(source) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 12000);
@@ -143,6 +160,8 @@ async function fetchSource(source) {
   try {
     const response = await fetchWithFallback(source.url, { signal: controller.signal });
     if (!response.ok) {
+      const localFallback = loadLocalSourceFallback(source);
+      if (localFallback) return localFallback;
       if (source.optional) return { entries: [], source, skipped: true };
       throw new Error(`Failed ${source.url}: ${response.status}`);
     }
@@ -152,19 +171,8 @@ async function fetchSource(source) {
     const entries = drivers.map((driver, index) => normalizeDriver(source, data, driver, index));
     return { entries, source, skipped: false };
   } catch (error) {
-    try {
-      const filename = source.filename || path.basename(source.url);
-      const localPath = path.join(localDataDir, filename);
-      if (fs.existsSync(localPath)) {
-        const data = JSON.parse(fs.readFileSync(localPath, 'utf8'));
-        const drivers = Array.isArray(data.drivers) ? data.drivers : [];
-        const entries = drivers.map((driver, index) => normalizeDriver(source, data, driver, index));
-        process.stdout.write(`Feed source loaded from local fallback: ${filename}\n`);
-        return { entries, source, skipped: false, localFallback: true };
-      }
-    } catch (localError) {
-      process.stderr.write(`Local fallback parse failed for ${source.url}: ${String(localError.message || localError)}\n`);
-    }
+    const localFallback = loadLocalSourceFallback(source);
+    if (localFallback) return localFallback;
     process.stderr.write(`Feed source skipped: ${source.url}\n`);
     return { entries: [], source, skipped: true, error: String(error.message || error) };
   } finally {

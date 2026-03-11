@@ -221,21 +221,34 @@ function printRecentEntries(entries, count = 15) {
 async function pickEntryIndex(rl, entries, actionLabel) {
   if (!entries.length) {
     process.stdout.write('No entries available.\n');
-    return -1;
+    return null;
   }
 
-  printRecentEntries(entries, Math.min(entries.length, 20));
-  const raw = await ask(rl, `Select ${actionLabel} entry by index or id: `);
-  const trimmed = raw.trim();
-  if (!trimmed) return -1;
+  while (true) {
+    printRecentEntries(entries, Math.min(entries.length, 20));
+    const raw = await ask(rl, `Select ${actionLabel} entry by index or id (q to go back): `);
+    const trimmed = raw.trim();
+    if (!trimmed) {
+      process.stdout.write('Enter an index, id, or q.\n');
+      continue;
+    }
 
-  const numeric = Number(trimmed);
-  if (Number.isInteger(numeric) && numeric >= 1 && numeric <= entries.length) {
-    return numeric - 1;
+    if (trimmed.toLowerCase() === 'q') {
+      return null;
+    }
+
+    const numeric = Number(trimmed);
+    if (Number.isInteger(numeric) && numeric >= 1 && numeric <= entries.length) {
+      return numeric - 1;
+    }
+
+    const indexById = entries.findIndex((entry) => entry.id === trimmed);
+    if (indexById >= 0) {
+      return indexById;
+    }
+
+    process.stdout.write('Entry not found. Try again or type q to go back.\n');
   }
-
-  const indexById = entries.findIndex((entry) => entry.id === trimmed);
-  return indexById;
 }
 
 async function collectDriverInput(rl, source, existing, isEditMode) {
@@ -378,48 +391,63 @@ async function main() {
     const datasetPath = path.join(canonicalDataDir, source.filename);
     const dataset = readDataset(datasetPath);
     dataset.drivers = normalizeDatasetEntries(source, dataset);
+    let hasChanges = false;
 
-    printDivider();
-    const actionIndex = await chooseFromMenu(rl, 'Select action', ['List recent entries', 'Add entry', 'Edit entry', 'Remove entry']);
-    const action = ['list', 'add', 'edit', 'remove'][actionIndex];
-
-    if (action === 'list') {
+    while (true) {
       printDivider();
-      printRecentEntries(dataset.drivers, 20);
-      return;
-    }
+      const actionIndex = await chooseFromMenu(rl, 'Select action', ['List recent entries', 'Add entry', 'Edit entry', 'Remove entry']);
+      const action = ['list', 'add', 'edit', 'remove'][actionIndex];
 
-    if (action === 'add') {
-      printDivider();
-      const input = await collectDriverInput(rl, source, null, false);
-      dataset.drivers.unshift(input);
-    }
-
-    if (action === 'edit') {
-      printDivider();
-      const index = await pickEntryIndex(rl, dataset.drivers, 'edit');
-      if (index < 0) {
-        throw new Error('Entry not found for edit.');
-      }
-      process.stdout.write(`Editing: ${summarizeSingleEntry(dataset.drivers[index])}\n`);
-      const input = await collectDriverInput(rl, source, dataset.drivers[index], true);
-      dataset.drivers[index] = input;
-    }
-
-    if (action === 'remove') {
-      printDivider();
-      const index = await pickEntryIndex(rl, dataset.drivers, 'remove');
-      if (index < 0) {
-        throw new Error('Entry not found for remove.');
-      }
-      const target = dataset.drivers[index];
-      process.stdout.write(`Remove: ${summarizeSingleEntry(target)}\n`);
-      const confirmed = await promptBoolean(rl, 'Confirm remove', false);
-      if (!confirmed) {
-        process.stdout.write('Remove cancelled.\n');
+      if (action === 'list') {
+        printDivider();
+        printRecentEntries(dataset.drivers, 20);
         return;
       }
-      dataset.drivers.splice(index, 1);
+
+      if (action === 'add') {
+        printDivider();
+        const input = await collectDriverInput(rl, source, null, false);
+        dataset.drivers.unshift(input);
+        hasChanges = true;
+        break;
+      }
+
+      if (action === 'edit') {
+        printDivider();
+        const index = await pickEntryIndex(rl, dataset.drivers, 'edit');
+        if (index === null) {
+          process.stdout.write('Back to action menu.\n');
+          continue;
+        }
+        process.stdout.write(`Editing: ${summarizeSingleEntry(dataset.drivers[index])}\n`);
+        const input = await collectDriverInput(rl, source, dataset.drivers[index], true);
+        dataset.drivers[index] = input;
+        hasChanges = true;
+        break;
+      }
+
+      if (action === 'remove') {
+        printDivider();
+        const index = await pickEntryIndex(rl, dataset.drivers, 'remove');
+        if (index === null) {
+          process.stdout.write('Back to action menu.\n');
+          continue;
+        }
+        const target = dataset.drivers[index];
+        process.stdout.write(`Remove: ${summarizeSingleEntry(target)}\n`);
+        const confirmed = await promptBoolean(rl, 'Confirm remove', false);
+        if (!confirmed) {
+          process.stdout.write('Remove cancelled.\n');
+          continue;
+        }
+        dataset.drivers.splice(index, 1);
+        hasChanges = true;
+        break;
+      }
+    }
+
+    if (!hasChanges) {
+      return;
     }
 
     dataset.drivers = normalizeDatasetEntries(source, dataset);
