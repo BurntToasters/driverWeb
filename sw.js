@@ -1,4 +1,4 @@
-const CACHE_NAME = 'driverhub-v5-static-1';
+const CACHE_NAME = 'driverhub-v5-static-2';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -42,17 +42,44 @@ self.addEventListener('activate', function(event) {
 
 self.addEventListener('fetch', function(event) {
   if (event.request.method !== 'GET') return;
+  const requestUrl = new URL(event.request.url);
+  const isPageOrFeed = event.request.mode === 'navigate'
+    || requestUrl.pathname.endsWith('.html')
+    || requestUrl.pathname.startsWith('/feeds/');
+
+  if (isPageOrFeed) {
+    event.respondWith(
+      fetch(event.request).then(function(networkResponse) {
+        if (networkResponse && networkResponse.ok && requestUrl.origin === self.location.origin) {
+          const responseClone = networkResponse.clone();
+          caches.open(CACHE_NAME).then(function(cache) {
+            cache.put(event.request, responseClone);
+          });
+        }
+        return networkResponse;
+      }).catch(function() {
+        return caches.match(event.request).then(function(cachedResponse) {
+          if (cachedResponse) return cachedResponse;
+          if (event.request.mode === 'navigate') {
+            return caches.match('/index.html');
+          }
+          return Response.error();
+        });
+      })
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then(function(cachedResponse) {
       if (cachedResponse) return cachedResponse;
       return fetch(event.request).then(function(networkResponse) {
-        if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
-          return networkResponse;
+        if (networkResponse && networkResponse.ok && requestUrl.origin === self.location.origin) {
+          const responseClone = networkResponse.clone();
+          caches.open(CACHE_NAME).then(function(cache) {
+            cache.put(event.request, responseClone);
+          });
         }
-        const responseClone = networkResponse.clone();
-        caches.open(CACHE_NAME).then(function(cache) {
-          cache.put(event.request, responseClone);
-        });
         return networkResponse;
       }).catch(function() {
         return cachedResponse;

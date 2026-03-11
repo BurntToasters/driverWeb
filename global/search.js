@@ -30,6 +30,21 @@ const SearchModule = (function() {
         return ['low', 'medium', 'high'].includes(normalized) ? normalized : '';
     }
 
+    function escapeHtml(value) {
+        return String(value == null ? '' : value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function safeInternalPath(pathValue) {
+        const value = String(pathValue || '').trim();
+        if (value.startsWith('/') && !value.startsWith('//')) return value;
+        return '/display';
+    }
+
     function parseDate(value) {
         if (!value) return 0;
         const d = new Date(value);
@@ -103,12 +118,14 @@ const SearchModule = (function() {
         return allDrivers;
     }
 
-    function getResultHref(driver) {
+    function getResultHref(driver, options) {
+        const settings = options || {};
         const params = new URLSearchParams();
         if (driver.version) params.set('q', driver.version);
         if (driver.brand) params.set('brand', driver.brand);
         if (driver.channel) params.set('channel', driver.channel);
-        return `${driver.page || '/display'}${params.toString() ? `?${params.toString()}` : ''}`;
+        if (settings.detailId) params.set('detail', settings.detailId);
+        return `${safeInternalPath(driver.page)}${params.toString() ? `?${params.toString()}` : ''}`;
     }
 
     function createFacetSelect(id, label, options) {
@@ -309,7 +326,13 @@ const SearchModule = (function() {
             row.setAttribute('data-result-index', String(index));
             row.setAttribute('tabindex', '-1');
             row.setAttribute('role', 'option');
-            row.innerHTML = `<div class="flex items-start justify-between gap-3"><div class="min-w-0"><div class="font-semibold text-gray-900 dark:text-white truncate">${driver.version || 'Unknown'}${driver.type ? ` - ${driver.type}` : ''}</div><div class="text-xs text-gray-500 mt-0.5">${driver.category || 'Driver'} · ${driver.channel || 'general'} · ${driver.riskLevel || 'medium'} risk</div></div><div class="text-xs text-gray-400">${driver.releaseDate || ''}</div></div>`;
+            const safeVersion = escapeHtml(driver.version || 'Unknown');
+            const safeType = escapeHtml(driver.type || '');
+            const safeCategory = escapeHtml(driver.category || 'Driver');
+            const safeChannel = escapeHtml(driver.channel || 'general');
+            const safeRisk = escapeHtml(driver.riskLevel || 'medium');
+            const safeReleaseDate = escapeHtml(driver.releaseDate || '');
+            row.innerHTML = `<div class="flex items-start justify-between gap-3"><div class="min-w-0"><div class="font-semibold text-gray-900 dark:text-white truncate">${safeVersion}${safeType ? ` - ${safeType}` : ''}</div><div class="text-xs text-gray-500 mt-0.5">${safeCategory} · ${safeChannel} · ${safeRisk} risk</div></div><div class="text-xs text-gray-400">${safeReleaseDate}</div></div>`;
 
             const quick = document.createElement('div');
             quick.className = 'mt-2 flex flex-wrap items-center gap-2';
@@ -319,14 +342,7 @@ const SearchModule = (function() {
             }));
 
             quick.appendChild(createQuickButton('Details', 'info', function() {
-                if (window.DriverHubDrivers && typeof window.DriverHubDrivers.openDetails === 'function') {
-                    window.location.href = getResultHref(driver);
-                    setTimeout(function() {
-                        window.DriverHubDrivers.openDetails(driver.id);
-                    }, 200);
-                } else {
-                    window.location.href = getResultHref(driver);
-                }
+                window.location.href = getResultHref(driver, { detailId: driver.id || '' });
                 closeSearch({ restoreFocus: true });
             }));
 

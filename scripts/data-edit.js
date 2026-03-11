@@ -14,6 +14,7 @@ const {
   validateEntries
 } = require('./driver-data-schema');
 
+const scriptVersion = '1.0.0';
 const rootDir = path.resolve(__dirname, '..');
 const canonicalDataDir = path.resolve(rootDir, '..', 'driverWeb-data');
 const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
@@ -62,6 +63,7 @@ const nvidiaDesktopMirrorKeyBySource = {
   'nvidia-game-ready': 'nvidia-game-ready-laptop',
   'nvidia-studio': 'nvidia-studio-laptop'
 };
+const promptBack = Symbol('prompt-back');
 
 function formatLegacyDate(value) {
   const date = value ? new Date(value) : new Date();
@@ -448,57 +450,79 @@ function ask(rl, prompt) {
   return new Promise((resolve) => rl.question(prompt, (answer) => resolve(answer)));
 }
 
-async function chooseFromMenu(rl, title, items) {
+function isBackInput(value) {
+  return String(value || '').trim().toLowerCase() === 'q';
+}
+
+async function chooseFromMenu(rl, title, items, options = {}) {
+  const allowBack = Boolean(options.allowBack);
   process.stdout.write(`${title}\n`);
   items.forEach((item, index) => {
     process.stdout.write(`${index + 1}. ${item}\n`);
   });
 
   while (true) {
-    const raw = await ask(rl, 'Choose number: ');
-    const value = Number(raw.trim());
+    const raw = await ask(rl, allowBack ? 'Choose number (q to go back): ' : 'Choose number: ');
+    const trimmed = raw.trim();
+    if (allowBack && isBackInput(trimmed)) {
+      return null;
+    }
+    const value = Number(trimmed);
     if (Number.isInteger(value) && value >= 1 && value <= items.length) {
       return value - 1;
     }
-    process.stdout.write('Invalid choice. Try again.\n');
+    process.stdout.write(allowBack ? 'Invalid choice. Try again or type q to go back.\n' : 'Invalid choice. Try again.\n');
   }
 }
 
-async function promptText(rl, label, defaultValue = '') {
+async function promptText(rl, label, defaultValue = '', options = {}) {
+  const allowBack = Boolean(options.allowBack);
   const suffix = defaultValue ? ` [${defaultValue}]` : '';
   const answer = await ask(rl, `${label}${suffix}: `);
+  if (allowBack && isBackInput(answer)) {
+    return promptBack;
+  }
   if (!answer.trim()) return defaultValue;
   return answer.trim();
 }
 
-async function promptRequired(rl, label, defaultValue = '') {
+async function promptRequired(rl, label, defaultValue = '', options = {}) {
   while (true) {
-    const value = await promptText(rl, label, defaultValue);
+    const value = await promptText(rl, label, defaultValue, options);
+    if (value === promptBack) return promptBack;
     if (value) return value;
     process.stdout.write('This field is required.\n');
   }
 }
 
-async function promptBoolean(rl, label, defaultValue) {
+async function promptBoolean(rl, label, defaultValue, options = {}) {
+  const allowBack = Boolean(options.allowBack);
   const suffix = defaultValue ? '[Y/n]' : '[y/N]';
   const answer = await ask(rl, `${label} ${suffix}: `);
+  if (allowBack && isBackInput(answer)) {
+    return promptBack;
+  }
   return parseBooleanInput(answer, defaultValue);
 }
 
-async function promptEnum(rl, label, allowedValues, defaultValue) {
+async function promptEnum(rl, label, allowedValues, defaultValue, options = {}) {
   while (true) {
-    const value = (await promptText(rl, label, defaultValue)).toLowerCase();
-    if (allowedValues.has(value)) return value;
+    const value = await promptText(rl, label, defaultValue, options);
+    if (value === promptBack) return promptBack;
+    const normalized = value.toLowerCase();
+    if (allowedValues.has(normalized)) return normalized;
     process.stdout.write(`Invalid value. Allowed: ${Array.from(allowedValues).join(', ')}\n`);
   }
 }
 
-async function promptStabilityGrade(rl, defaultValue = '') {
+async function promptStabilityGrade(rl, defaultValue = '', options = {}) {
   const defaultLabel = defaultValue || 'none';
   while (true) {
-    const value = (await promptText(rl, `Stability grade (${stabilityGradeOptions.join('/')}, or none)`, defaultLabel)).trim().toUpperCase();
-    if (!value || value === 'NONE') return '';
-    if (stabilityGradeSet.has(value)) return value;
+    const value = await promptText(rl, `Stability grade (${stabilityGradeOptions.join('/')}, or none)`, defaultLabel, options);
+    if (value === promptBack) return promptBack;
+    const normalized = value.trim().toUpperCase();
+    if (!normalized || normalized === 'NONE') return '';
+    if (stabilityGradeSet.has(normalized)) return normalized;
     process.stdout.write(`Invalid grade. Allowed: ${stabilityGradeOptions.join(', ')}, or none.\n`);
   }
 }
@@ -524,6 +548,339 @@ function printRecentEntries(entries, count = 15) {
   });
 }
 
+function findPreviousActiveStep(steps, index, draft) {
+  for (let i = index - 1; i >= 0; i -= 1) {
+    const step = steps[i];
+    const active = typeof step.when === 'function' ? step.when(draft) : true;
+    if (active) return i;
+  }
+  return -1;
+}
+
+async function collectDriverInput(rl, source, existing, isEditMode) {
+  const base = existing ? { ...existing } : {};
+  const effectiveVendor = String(base.vendor || source.vendor || '').toLowerCase();
+  const defaultType = base.type || (effectiveVendor === 'nvidia' ? 'WHQL' : '');
+  const riskOptions = ['auto', ...Array.from(allowedRisk)];
+  const defaultRisk = base.riskLevel && allowedRisk.has(String(base.riskLevel).toLowerCase()) ? String(base.riskLevel).toLowerCase() : 'auto';
+
+  const draft = {
+    regenerateId: true,
+    version: base.version || '',
+    type: defaultType,
+    releaseDate: base.releaseDate || base.releaseDateIso || '',
+    publishedAt: base.publishedAt || '',
+    downloadUrl: base.downloadUrl || '',
+    releaseNotesUrl: base.releaseNotesUrl || '',
+    knownIssuesUrl: base.knownIssuesUrl || '',
+    redditUrl: base.redditUrl || '',
+    hasWarning: Boolean(base.hasWarning),
+    isStable: Boolean(base.isStable),
+    vendor: (base.vendor || source.vendor).toLowerCase(),
+    family: (base.family || source.family).toLowerCase(),
+    channel: (base.channel || source.channel).toLowerCase(),
+    stabilityGrade: base.stabilityGrade || '',
+    warningUrl: base.warningUrl || '',
+    previousVersion: base.previousVersion || '',
+    supersedes: base.supersedes || '',
+    supersededBy: base.supersededBy || '',
+    checksumInput: base.sha256sum || (base.checksum && base.checksum.value) || '',
+    riskLevel: defaultRisk,
+    osSupportRaw: Array.isArray(base.osSupport) ? base.osSupport.join(', ') : 'windows-10, windows-11',
+    architecturesRaw: Array.isArray(base.architectures) ? base.architectures.join(', ') : 'x64',
+    highlightsRaw: Array.isArray(base.highlights) ? base.highlights.join(', ') : '',
+    issueTagsRaw: Array.isArray(base.issueTags) ? base.issueTags.join(', ') : '',
+    idOverride: ''
+  };
+
+  const steps = [];
+  if (isEditMode) {
+    steps.push({
+      key: 'regenerateId',
+      run: async () => promptBoolean(rl, 'Regenerate ID from current fields', draft.regenerateId, { allowBack: true }),
+      apply: (value) => {
+        draft.regenerateId = value;
+      }
+    });
+  }
+
+  steps.push(
+    {
+      key: 'version',
+      run: async () => promptRequired(rl, 'Version', draft.version, { allowBack: true }),
+      apply: (value) => {
+        draft.version = value;
+      }
+    },
+    {
+      key: 'type',
+      run: async () => promptText(rl, 'Type', draft.type, { allowBack: true }),
+      apply: (value) => {
+        draft.type = value;
+      }
+    },
+    {
+      key: 'releaseDate',
+      run: async () => promptRequired(rl, 'Release date (example: Nov 19, 2025)', draft.releaseDate, { allowBack: true }),
+      apply: (value) => {
+        draft.releaseDate = value;
+      }
+    },
+    {
+      key: 'publishedAt',
+      run: async () => promptText(rl, 'Published at (ISO/date, blank to auto from release date)', draft.publishedAt, { allowBack: true }),
+      apply: (value) => {
+        draft.publishedAt = value;
+      }
+    },
+    {
+      key: 'downloadUrl',
+      run: async () => promptText(rl, 'Download URL', draft.downloadUrl, { allowBack: true }),
+      apply: (value) => {
+        draft.downloadUrl = value;
+      }
+    },
+    {
+      key: 'releaseNotesUrl',
+      run: async () => promptText(rl, 'Release notes URL', draft.releaseNotesUrl, { allowBack: true }),
+      apply: (value) => {
+        draft.releaseNotesUrl = value;
+      }
+    },
+    {
+      key: 'knownIssuesUrl',
+      run: async () => promptText(rl, 'Known issues URL', draft.knownIssuesUrl, { allowBack: true }),
+      apply: (value) => {
+        draft.knownIssuesUrl = value;
+      }
+    },
+    {
+      key: 'redditUrl',
+      run: async () => promptText(rl, 'Community URL (Reddit/thread)', draft.redditUrl, { allowBack: true }),
+      apply: (value) => {
+        draft.redditUrl = value;
+      }
+    },
+    {
+      key: 'hasWarning',
+      run: async () => promptBoolean(rl, 'Has warning', draft.hasWarning, { allowBack: true }),
+      apply: (value) => {
+        draft.hasWarning = value;
+      }
+    },
+    {
+      key: 'isStable',
+      run: async () => promptBoolean(rl, 'Marked stable', draft.isStable, { allowBack: true }),
+      apply: (value) => {
+        draft.isStable = value;
+      }
+    },
+    {
+      key: 'vendor',
+      run: async () => {
+        process.stdout.write(`Vendor options: ${Array.from(allowedVendors).join(', ')}\n`);
+        return promptEnum(rl, 'Vendor', allowedVendors, draft.vendor, { allowBack: true });
+      },
+      apply: (value) => {
+        draft.vendor = value;
+      }
+    },
+    {
+      key: 'family',
+      run: async () => {
+        process.stdout.write(`Family options: ${Array.from(allowedFamilies).join(', ')}\n`);
+        return promptEnum(rl, 'Family', allowedFamilies, draft.family, { allowBack: true });
+      },
+      apply: (value) => {
+        draft.family = value;
+      }
+    },
+    {
+      key: 'channel',
+      run: async () => {
+        process.stdout.write(`Channel options: ${Array.from(allowedChannels).join(', ')}\n`);
+        return promptEnum(rl, 'Channel', allowedChannels, draft.channel, { allowBack: true });
+      },
+      apply: (value) => {
+        draft.channel = value;
+      }
+    },
+    {
+      key: 'stabilityGrade',
+      when: () => draft.vendor === 'nvidia',
+      clear: () => {
+        draft.stabilityGrade = '';
+      },
+      run: async () => promptStabilityGrade(rl, draft.stabilityGrade, { allowBack: true }),
+      apply: (value) => {
+        draft.stabilityGrade = value;
+      }
+    },
+    {
+      key: 'warningUrl',
+      when: () => draft.hasWarning,
+      clear: () => {
+        draft.warningUrl = '';
+      },
+      run: async () => {
+        const defaultWarningUrl = draft.warningUrl || deriveDefaultWarningUrl(draft.vendor, draft.family, draft.channel, draft.version);
+        while (true) {
+          const value = await promptText(rl, 'Warning URL (redirect page)', defaultWarningUrl, { allowBack: true });
+          if (value === promptBack) return promptBack;
+          const validation = validateWarningUrlForDataset(value, draft.vendor, draft.family, draft.channel, draft.version);
+          if (validation.isValid) return value;
+          process.stdout.write(`${validation.reason}\n`);
+        }
+      },
+      apply: (value) => {
+        draft.warningUrl = value;
+      }
+    },
+    {
+      key: 'previousVersion',
+      run: async () => promptText(rl, 'Previous version', draft.previousVersion, { allowBack: true }),
+      apply: (value) => {
+        draft.previousVersion = value;
+      }
+    },
+    {
+      key: 'supersedes',
+      run: async () => promptText(rl, 'Supersedes', draft.supersedes || draft.previousVersion || '', { allowBack: true }),
+      apply: (value) => {
+        draft.supersedes = value;
+      }
+    },
+    {
+      key: 'supersededBy',
+      run: async () => promptText(rl, 'Superseded by', draft.supersededBy, { allowBack: true }),
+      apply: (value) => {
+        draft.supersededBy = value;
+      }
+    },
+    {
+      key: 'checksumInput',
+      run: async () => promptText(rl, 'SHA-256 checksum', draft.checksumInput, { allowBack: true }),
+      apply: (value) => {
+        draft.checksumInput = value;
+      }
+    },
+    {
+      key: 'riskLevel',
+      run: async () => {
+        process.stdout.write(`Risk options: ${riskOptions.join(', ')}\n`);
+        while (true) {
+          const value = await promptText(rl, 'Risk level', draft.riskLevel || defaultRisk, { allowBack: true });
+          if (value === promptBack) return promptBack;
+          const normalized = String(value).toLowerCase();
+          if (riskOptions.includes(normalized)) return normalized;
+          process.stdout.write(`Invalid value. Allowed: ${riskOptions.join(', ')}\n`);
+        }
+      },
+      apply: (value) => {
+        draft.riskLevel = value;
+      }
+    },
+    {
+      key: 'osSupportRaw',
+      run: async () => promptText(rl, 'OS support (comma separated)', draft.osSupportRaw, { allowBack: true }),
+      apply: (value) => {
+        draft.osSupportRaw = value;
+      }
+    },
+    {
+      key: 'architecturesRaw',
+      run: async () => promptText(rl, 'Architectures (comma separated)', draft.architecturesRaw, { allowBack: true }),
+      apply: (value) => {
+        draft.architecturesRaw = value;
+      }
+    },
+    {
+      key: 'highlightsRaw',
+      run: async () => promptText(rl, 'Highlights (comma separated)', draft.highlightsRaw, { allowBack: true }),
+      apply: (value) => {
+        draft.highlightsRaw = value;
+      }
+    },
+    {
+      key: 'issueTagsRaw',
+      run: async () => promptText(rl, 'Issue tags (comma separated)', draft.issueTagsRaw, { allowBack: true }),
+      apply: (value) => {
+        draft.issueTagsRaw = value;
+      }
+    },
+    {
+      key: 'idOverride',
+      run: async () => {
+        const defaultValue = draft.regenerateId ? draft.idOverride : (draft.idOverride || base.id || '');
+        if (draft.regenerateId) {
+          return promptText(rl, 'ID override (leave blank for auto)', defaultValue, { allowBack: true });
+        }
+        return promptRequired(rl, 'ID override', defaultValue, { allowBack: true });
+      },
+      apply: (value) => {
+        draft.idOverride = value;
+      }
+    }
+  );
+
+  let stepIndex = 0;
+  while (stepIndex < steps.length) {
+    const step = steps[stepIndex];
+    const active = typeof step.when === 'function' ? step.when(draft) : true;
+    if (!active) {
+      if (typeof step.clear === 'function') {
+        step.clear(draft);
+      }
+      stepIndex += 1;
+      continue;
+    }
+
+    const value = await step.run();
+    if (value === promptBack) {
+      const previousIndex = findPreviousActiveStep(steps, stepIndex, draft);
+      if (previousIndex < 0) {
+        process.stdout.write('Input cancelled.\n');
+        return null;
+      }
+      stepIndex = previousIndex;
+      continue;
+    }
+
+    step.apply(value);
+    stepIndex += 1;
+  }
+
+  return {
+    ...(isEditMode ? base : {}),
+    id: draft.idOverride,
+    vendor: draft.vendor,
+    family: draft.family,
+    channel: draft.channel,
+    version: draft.version,
+    type: draft.type,
+    releaseDate: draft.releaseDate,
+    publishedAt: draft.publishedAt,
+    downloadUrl: draft.downloadUrl,
+    releaseNotesUrl: draft.releaseNotesUrl,
+    knownIssuesUrl: draft.knownIssuesUrl,
+    redditUrl: draft.redditUrl,
+    warningUrl: draft.warningUrl,
+    hasWarning: draft.hasWarning,
+    isStable: draft.isStable,
+    stabilityGrade: draft.stabilityGrade,
+    riskLevel: draft.riskLevel === 'auto' ? '' : draft.riskLevel,
+    previousVersion: draft.previousVersion,
+    supersedes: draft.supersedes,
+    supersededBy: draft.supersededBy,
+    sha256sum: draft.checksumInput,
+    checksum: draft.checksumInput ? { algorithm: 'sha256', value: draft.checksumInput } : null,
+    osSupport: normalizeCsv(draft.osSupportRaw, { lowerCase: true }),
+    architectures: normalizeCsv(draft.architecturesRaw, { lowerCase: true }),
+    highlights: normalizeCsv(draft.highlightsRaw),
+    issueTags: normalizeCsv(draft.issueTagsRaw, { lowerCase: true })
+  };
+}
+
 async function pickEntryIndex(rl, entries, actionLabel) {
   if (!entries.length) {
     process.stdout.write('No entries available.\n');
@@ -539,7 +896,7 @@ async function pickEntryIndex(rl, entries, actionLabel) {
       continue;
     }
 
-    if (trimmed.toLowerCase() === 'q') {
+    if (isBackInput(trimmed)) {
       return null;
     }
 
@@ -555,107 +912,6 @@ async function pickEntryIndex(rl, entries, actionLabel) {
 
     process.stdout.write('Entry not found. Try again or type q to go back.\n');
   }
-}
-
-async function collectDriverInput(rl, source, existing, isEditMode) {
-  const base = existing ? { ...existing } : {};
-  const regenerateId = isEditMode ? await promptBoolean(rl, 'Regenerate ID from current fields', true) : true;
-
-  const version = await promptRequired(rl, 'Version', base.version || '');
-  const type = await promptText(rl, 'Type', base.type || '');
-  const releaseDate = await promptRequired(rl, 'Release date (example: Nov 19, 2025)', base.releaseDate || base.releaseDateIso || '');
-  const publishedAt = await promptText(rl, 'Published at (ISO/date, blank to auto from release date)', base.publishedAt || '');
-  const downloadUrl = await promptText(rl, 'Download URL', base.downloadUrl || '');
-  const releaseNotesUrl = await promptText(rl, 'Release notes URL', base.releaseNotesUrl || '');
-  const knownIssuesUrl = await promptText(rl, 'Known issues URL', base.knownIssuesUrl || '');
-  const redditUrl = await promptText(rl, 'Community URL (Reddit/thread)', base.redditUrl || '');
-  const hasWarning = await promptBoolean(rl, 'Has warning', Boolean(base.hasWarning));
-  const isStable = await promptBoolean(rl, 'Marked stable', Boolean(base.isStable));
-
-  process.stdout.write(`Vendor options: ${Array.from(allowedVendors).join(', ')}\n`);
-  const vendor = await promptEnum(rl, 'Vendor', allowedVendors, (base.vendor || source.vendor).toLowerCase());
-  process.stdout.write(`Family options: ${Array.from(allowedFamilies).join(', ')}\n`);
-  const family = await promptEnum(rl, 'Family', allowedFamilies, (base.family || source.family).toLowerCase());
-  process.stdout.write(`Channel options: ${Array.from(allowedChannels).join(', ')}\n`);
-  const channel = await promptEnum(rl, 'Channel', allowedChannels, (base.channel || source.channel).toLowerCase());
-
-  let stabilityGrade = '';
-  if (vendor === 'nvidia') {
-    stabilityGrade = await promptStabilityGrade(rl, base.stabilityGrade || '');
-  } else {
-    process.stdout.write('Stability grade will be blank for non-NVIDIA drivers.\n');
-  }
-
-  const defaultWarningUrl = hasWarning
-    ? (base.warningUrl || deriveDefaultWarningUrl(vendor, family, channel, version))
-    : '';
-  let warningUrl = '';
-  if (hasWarning) {
-    while (true) {
-      warningUrl = await promptText(rl, 'Warning URL (redirect page)', defaultWarningUrl);
-      const validation = validateWarningUrlForDataset(warningUrl, vendor, family, channel, version);
-      if (validation.isValid) break;
-      process.stdout.write(`${validation.reason}\n`);
-    }
-  }
-
-  const previousVersion = await promptText(rl, 'Previous version', base.previousVersion || '');
-  const supersedes = await promptText(rl, 'Supersedes', base.supersedes || previousVersion || '');
-  const supersededBy = await promptText(rl, 'Superseded by', base.supersededBy || '');
-  const checksumInput = await promptText(rl, 'SHA-256 checksum', base.sha256sum || (base.checksum && base.checksum.value) || '');
-
-  const riskOptions = ['auto', ...Array.from(allowedRisk)];
-  const defaultRisk = base.riskLevel && allowedRisk.has(String(base.riskLevel).toLowerCase()) ? String(base.riskLevel).toLowerCase() : 'auto';
-  process.stdout.write(`Risk options: ${riskOptions.join(', ')}\n`);
-  let riskLevel = '';
-  while (!riskOptions.includes(riskLevel)) {
-    riskLevel = (await promptText(rl, 'Risk level', defaultRisk)).toLowerCase();
-    if (!riskOptions.includes(riskLevel)) {
-      process.stdout.write(`Invalid value. Allowed: ${riskOptions.join(', ')}\n`);
-    }
-  }
-
-  const osSupportRaw = await promptText(rl, 'OS support (comma separated)', Array.isArray(base.osSupport) ? base.osSupport.join(', ') : 'windows-10, windows-11');
-  const architecturesRaw = await promptText(rl, 'Architectures (comma separated)', Array.isArray(base.architectures) ? base.architectures.join(', ') : 'x64');
-  const highlightsRaw = await promptText(rl, 'Highlights (comma separated)', Array.isArray(base.highlights) ? base.highlights.join(', ') : '');
-  const issueTagsRaw = await promptText(rl, 'Issue tags (comma separated)', Array.isArray(base.issueTags) ? base.issueTags.join(', ') : '');
-
-  let idOverride = '';
-  if (!regenerateId) {
-    idOverride = await promptRequired(rl, 'ID override', base.id || '');
-  } else {
-    idOverride = await promptText(rl, 'ID override (leave blank for auto)', '');
-  }
-
-  return {
-    ...(isEditMode ? base : {}),
-    id: idOverride,
-    vendor,
-    family,
-    channel,
-    version,
-    type,
-    releaseDate,
-    publishedAt,
-    downloadUrl,
-    releaseNotesUrl,
-    knownIssuesUrl,
-    redditUrl,
-    warningUrl,
-    hasWarning,
-    isStable,
-    stabilityGrade,
-    riskLevel: riskLevel === 'auto' ? '' : riskLevel,
-    previousVersion,
-    supersedes,
-    supersededBy,
-    sha256sum: checksumInput,
-    checksum: checksumInput ? { algorithm: 'sha256', value: checksumInput } : null,
-    osSupport: normalizeCsv(osSupportRaw, { lowerCase: true }),
-    architectures: normalizeCsv(architecturesRaw, { lowerCase: true }),
-    highlights: normalizeCsv(highlightsRaw),
-    issueTags: normalizeCsv(issueTagsRaw, { lowerCase: true })
-  };
 }
 
 function summarizeSingleEntry(entry) {
@@ -739,8 +995,13 @@ async function main() {
     const datasetIndex = await chooseFromMenu(
       rl,
       'Select dataset',
-      sourceDefs.map((source) => `${source.editorLabel} (${source.filename})`)
+      sourceDefs.map((source) => `${source.editorLabel} (${source.filename})`),
+      { allowBack: true }
     );
+    if (datasetIndex === null) {
+      process.stdout.write('Cancelled.\n');
+      return;
+    }
     const source = sourceDefs[datasetIndex];
     const stateByFilename = new Map();
     const changedIdSet = new Set();
@@ -758,7 +1019,16 @@ async function main() {
 
     while (true) {
       printDivider();
-      const actionIndex = await chooseFromMenu(rl, 'Select action', ['List recent entries', 'Add entry', 'Edit entry', 'Remove entry']);
+      const actionIndex = await chooseFromMenu(
+        rl,
+        'Select action',
+        ['List recent entries', 'Add entry', 'Edit entry', 'Remove entry'],
+        { allowBack: true }
+      );
+      if (actionIndex === null) {
+        process.stdout.write('Cancelled.\n');
+        return;
+      }
       const action = ['list', 'add', 'edit', 'remove'][actionIndex];
 
       if (action === 'list') {
@@ -770,6 +1040,10 @@ async function main() {
       if (action === 'add') {
         printDivider();
         const input = await collectDriverInput(rl, source, null, false);
+        if (!input) {
+          process.stdout.write('Add cancelled. Back to action menu.\n');
+          continue;
+        }
         primaryState.dataset.drivers.unshift(input);
         primaryState.touched = true;
         changedIdSet.add(input.id || '');
@@ -799,6 +1073,10 @@ async function main() {
         const previousEntry = primaryState.dataset.drivers[index];
         process.stdout.write(`Editing: ${summarizeSingleEntry(previousEntry)}\n`);
         const input = await collectDriverInput(rl, source, previousEntry, true);
+        if (!input) {
+          process.stdout.write('Edit cancelled. Back to action menu.\n');
+          continue;
+        }
         primaryState.dataset.drivers[index] = input;
         primaryState.touched = true;
         changedIdSet.add(previousEntry.id || '');

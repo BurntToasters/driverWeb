@@ -68,8 +68,6 @@
                 <option value="">Any channel</option>
                 <option value="game-ready">Game Ready</option>
                 <option value="studio">Studio</option>
-                <option value="game-on">Game On</option>
-                <option value="pro">Pro</option>
             </select>
             <select id="rec-risk" class="px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-gray-900 dark:text-white">
                 <option value="">Any risk</option>
@@ -120,7 +118,7 @@
         </a>
     </section>
 
-    <section class="grid lg:grid-cols-2 gap-6 mb-16" data-animate>
+    <section class="grid lg:grid-cols-2 items-start gap-6 mb-16" data-animate>
         <div class="card p-6">
             <button type="button" class="w-full flex items-center justify-between gap-3 text-left" data-home-panel-toggle="best-picks-panel" aria-expanded="true" aria-controls="best-picks-panel">
                 <span class="flex items-center gap-2">
@@ -191,25 +189,143 @@ document.addEventListener('DOMContentLoaded', function() {
     const recOs = document.getElementById('rec-os');
     const recGo = document.getElementById('rec-go');
     const previewLink = document.getElementById('wizard-link-preview');
+    const amdSupportUrl = 'https://www.amd.com/en/support/download/drivers.html';
 
-    function buildWizardUrl() {
-        const params = new URLSearchParams();
-        if (recBrand && recBrand.value) params.set('brand', recBrand.value);
-        if (recChannel && recChannel.value) params.set('channel', recChannel.value);
-        if (recRisk && recRisk.value) params.set('risk', recRisk.value);
-        if (recOs && recOs.value) params.set('os', recOs.value);
-        return `/display${params.toString() ? `?${params.toString()}` : ''}`;
+    const channelOptionsByBrand = {
+        nvidia: [
+            { value: '', label: 'Any channel' },
+            { value: 'game-ready', label: 'Game Ready' },
+            { value: 'studio', label: 'Studio' }
+        ],
+        intel: [
+            { value: '', label: 'Any channel' },
+            { value: 'game-on', label: 'Game On' },
+            { value: 'pro', label: 'Pro' },
+            { value: 'chipset', label: 'Chipset' }
+        ],
+        amd: [
+            { value: 'graphics', label: 'Graphics' },
+            { value: 'chipset', label: 'Chipset' }
+        ]
+    };
+
+    function setControlDisabled(node, disabled) {
+        if (!node) return;
+        node.disabled = disabled;
+        node.classList.toggle('opacity-60', disabled);
+        node.classList.toggle('cursor-not-allowed', disabled);
     }
 
-    [recBrand, recChannel, recRisk, recOs].forEach(function(node) {
-        if (!node) return;
-        node.addEventListener('change', function() {
-            if (previewLink) previewLink.href = buildWizardUrl();
+    function syncChannelOptions() {
+        if (!recBrand || !recChannel) return;
+        const brand = recBrand.value || 'nvidia';
+        const options = channelOptionsByBrand[brand] || channelOptionsByBrand.nvidia;
+        const previousValue = recChannel.value;
+
+        recChannel.textContent = '';
+        options.forEach(function(optionDef) {
+            const option = document.createElement('option');
+            option.value = optionDef.value;
+            option.textContent = optionDef.label;
+            recChannel.appendChild(option);
         });
+
+        const hasPrevious = options.some((optionDef) => optionDef.value === previousValue);
+        recChannel.value = hasPrevious ? previousValue : options[0].value;
+    }
+
+    function buildWizardTarget() {
+        const brand = recBrand ? recBrand.value : '';
+        const channel = recChannel ? recChannel.value : '';
+
+        if (brand === 'amd') {
+            return {
+                href: amdSupportUrl,
+                external: true,
+                usesDisplayFilters: false
+            };
+        }
+
+        if (brand === 'intel' && channel === 'chipset') {
+            return {
+                href: '/chipset',
+                external: false,
+                usesDisplayFilters: false
+            };
+        }
+
+        const params = new URLSearchParams();
+        if (brand) params.set('brand', brand);
+        if (channel) params.set('channel', channel);
+        if (recRisk && recRisk.value) params.set('risk', recRisk.value);
+        if (recOs && recOs.value) params.set('os', recOs.value);
+
+        return {
+            href: `/display${params.toString() ? `?${params.toString()}` : ''}`,
+            external: false,
+            usesDisplayFilters: true
+        };
+    }
+
+    function syncWizardUi() {
+        const target = buildWizardTarget();
+        setControlDisabled(recRisk, !target.usesDisplayFilters);
+        setControlDisabled(recOs, !target.usesDisplayFilters);
+        if (!target.usesDisplayFilters) {
+            if (recRisk) recRisk.value = '';
+            if (recOs) recOs.value = '';
+        }
+        if (previewLink) {
+            previewLink.href = target.href;
+            if (target.external) {
+                previewLink.target = '_blank';
+                previewLink.rel = 'noopener noreferrer';
+            } else {
+                previewLink.removeAttribute('target');
+                previewLink.removeAttribute('rel');
+            }
+        }
+    }
+
+    function escapeHtml(value) {
+        return String(value == null ? '' : value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function safeInternalPath(pathValue) {
+        const value = String(pathValue || '').trim();
+        if (value.startsWith('/') && !value.startsWith('//')) return value;
+        return '/display';
+    }
+
+    if (recBrand) {
+        recBrand.addEventListener('change', function() {
+            syncChannelOptions();
+            syncWizardUi();
+        });
+    }
+    [recChannel, recRisk, recOs].forEach(function(node) {
+        if (!node) return;
+        node.addEventListener('change', syncWizardUi);
     });
 
-    if (previewLink) previewLink.href = buildWizardUrl();
-    if (recGo) recGo.addEventListener('click', function() { window.location.href = buildWizardUrl(); });
+    syncChannelOptions();
+    syncWizardUi();
+
+    if (recGo) {
+        recGo.addEventListener('click', function() {
+            const target = buildWizardTarget();
+            if (target.external) {
+                window.open(target.href, '_blank', 'noopener,noreferrer');
+            } else {
+                window.location.href = target.href;
+            }
+        });
+    }
 
     function renderBestPicks(entries) {
         const target = document.getElementById('best-picks');
@@ -226,7 +342,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!item) {
                 row.textContent = `${brand.toUpperCase()}: No low-risk pick found`;
             } else {
-                row.innerHTML = `<a href="${item.page || '/display'}?q=${encodeURIComponent(item.version)}&brand=${encodeURIComponent(item.brand)}" class="font-medium text-primary-600 dark:text-primary-400 hover:underline">${brand.toUpperCase()} ${item.version}</a><div class="text-xs text-gray-500 mt-1">${item.type || item.channel || 'General'} · ${item.releaseDate || 'Unknown date'} · ${item.riskLevel || 'medium'} risk</div>`;
+                const pagePath = safeInternalPath(item.page || '/display');
+                const href = `${pagePath}?q=${encodeURIComponent(item.version || '')}&brand=${encodeURIComponent(item.brand || '')}`;
+                const label = `${brand.toUpperCase()} ${item.version || ''}`;
+                const meta = `${item.type || item.channel || 'General'} · ${item.releaseDate || 'Unknown date'} · ${item.riskLevel || 'medium'} risk`;
+                row.innerHTML = `<a href="${escapeHtml(href)}" class="font-medium text-primary-600 dark:text-primary-400 hover:underline">${escapeHtml(label)}</a><div class="text-xs text-gray-500 mt-1">${escapeHtml(meta)}</div>`;
             }
             target.appendChild(row);
         });
@@ -244,7 +364,9 @@ document.addEventListener('DOMContentLoaded', function() {
         rows.forEach(function(item) {
             const row = document.createElement('div');
             row.className = 'p-3 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700';
-            row.innerHTML = `<div class="font-medium text-gray-900 dark:text-white">${item.vendor ? item.vendor.toUpperCase() : 'Driver'} ${item.version}</div><div class="text-xs text-gray-500 mt-1">${item.category || 'Update'} · ${item.type || 'changed'} · ${item.publishedAt || ''}</div>`;
+            const title = `${item.vendor ? String(item.vendor).toUpperCase() : 'Driver'} ${item.version || ''}`;
+            const meta = `${item.category || 'Update'} · ${item.type || 'changed'} · ${item.publishedAt || ''}`;
+            row.innerHTML = `<div class="font-medium text-gray-900 dark:text-white">${escapeHtml(title)}</div><div class="text-xs text-gray-500 mt-1">${escapeHtml(meta)}</div>`;
             target.appendChild(row);
         });
     }
