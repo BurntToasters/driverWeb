@@ -84,7 +84,9 @@ function normalizeOs(osValue) {
 function normalizeFilter(filterType) {
     if (!filterType || filterType === 'all') return 'all';
     if (filterType === 'stable') return 'stable';
-    if (filterType === 'grade-A+' || filterType === 'grade-A' || filterType === 'grade-A-') return filterType;
+    if (/^grade-[a-f](\+|-)?$/i.test(filterType)) {
+        return `grade-${filterType.slice(6).toUpperCase()}`;
+    }
     return 'all';
 }
 
@@ -133,6 +135,41 @@ function riskClass(level) {
 function channelLabel(channel) {
     if (!channel) return 'General';
     return channel.split('-').map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(' ');
+}
+
+function getPrimaryAction(driver) {
+    if (driver.hasWarning && driver.warningUrl) {
+        const warningHref = String(driver.warningUrl);
+        return {
+            href: warningHref,
+            label: 'Review Warning',
+            icon: 'warning',
+            external: /^https?:\/\//i.test(warningHref),
+            disabled: false,
+            warning: true
+        };
+    }
+
+    if (driver.downloadUrl) {
+        const downloadHref = String(driver.downloadUrl);
+        return {
+            href: downloadHref,
+            label: 'Download',
+            icon: 'download',
+            external: true,
+            disabled: false,
+            warning: false
+        };
+    }
+
+    return {
+        href: '#',
+        label: 'Unavailable',
+        icon: 'block',
+        external: false,
+        disabled: true,
+        warning: false
+    };
 }
 
 function copyToClipboard(text, onSuccess) {
@@ -198,6 +235,13 @@ function ensureDetailUi() {
 }
 function openDetailPanel(driver) {
     const ui = ensureDetailUi();
+    const action = getPrimaryAction(driver);
+    const actionAttrs = action.disabled ? '' : action.external ? 'target="_blank" rel="noopener noreferrer"' : '';
+    const actionClass = action.disabled
+        ? 'btn-secondary !px-3 !py-2 text-sm pointer-events-none opacity-70'
+        : action.warning
+            ? 'btn-secondary !px-3 !py-2 text-sm'
+            : 'btn-primary !px-3 !py-2 text-sm';
     const sources = (driver.sources || []).map((s) => `<a href="${s.url}" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">${s.type}</a>`).join(' · ');
     ui.content.innerHTML = `
         <div class="space-y-2">
@@ -216,7 +260,7 @@ function openDetailPanel(driver) {
         <div class="text-sm text-gray-600 dark:text-gray-300">${(driver.highlights || []).join(' • ') || 'No highlights'}</div>
         <div class="text-sm text-gray-600 dark:text-gray-300">${sources || 'No sources listed.'}</div>
         <div class="flex flex-wrap gap-2">
-            ${driver.downloadUrl ? `<a href="${driver.downloadUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary !px-3 !py-2 text-sm"><span class="material-icons text-base">download</span>Download</a>` : ''}
+            <a href="${action.href}" ${actionAttrs} class="${actionClass}"><span class="material-icons text-base">${action.icon}</span>${action.label}</a>
             ${driver.releaseNotesUrl ? `<a href="${driver.releaseNotesUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm"><span class="material-icons text-base">notes</span>Release Notes</a>` : ''}
             ${driver.knownIssuesUrl ? `<a href="${driver.knownIssuesUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm"><span class="material-icons text-base">warning</span>Known Issues</a>` : ''}
         </div>
@@ -239,7 +283,7 @@ function renderCompareModal() {
     function row(label, fn) {
         return `<tr class="border-t border-gray-200 dark:border-gray-700"><th class="px-3 py-2 text-xs uppercase tracking-wide text-gray-500 text-left align-top">${label}</th>${selected.map((d) => `<td class="px-3 py-2 text-sm text-gray-700 dark:text-gray-300 align-top">${fn(d)}</td>`).join('')}</tr>`;
     }
-    ui.content.innerHTML = `<div class="overflow-auto rounded-xl border border-gray-200 dark:border-gray-700"><table class="w-full text-sm"><thead class="bg-gray-50 dark:bg-gray-800/60"><tr><th class="px-3 py-2 text-left text-xs uppercase tracking-wide text-gray-500">Field</th>${headers}</tr></thead><tbody>${row('Risk', (d) => d.riskLevel || 'medium')}${row('Channel', (d) => channelLabel(d.channel))}${row('Vendor', (d) => (d.vendor || '').toUpperCase())}${row('Release', (d) => d.releaseDate || 'Unknown')}${row('OS', (d) => (d.osSupport || []).join(', ') || 'Unknown')}${row('Architecture', (d) => (d.architectures || []).join(', ') || 'Unknown')}${row('Stable', (d) => d.stabilityGrade || 'N/A')}${row('Download', (d) => d.downloadUrl ? `<a href="${d.downloadUrl}" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">Open</a>` : 'N/A')}</tbody></table></div>`;
+    ui.content.innerHTML = `<div class="overflow-auto rounded-xl border border-gray-200 dark:border-gray-700"><table class="w-full text-sm"><thead class="bg-gray-50 dark:bg-gray-800/60"><tr><th class="px-3 py-2 text-left text-xs uppercase tracking-wide text-gray-500">Field</th>${headers}</tr></thead><tbody>${row('Risk', (d) => d.riskLevel || 'medium')}${row('Channel', (d) => channelLabel(d.channel))}${row('Vendor', (d) => (d.vendor || '').toUpperCase())}${row('Release', (d) => d.releaseDate || 'Unknown')}${row('OS', (d) => (d.osSupport || []).join(', ') || 'Unknown')}${row('Architecture', (d) => (d.architectures || []).join(', ') || 'Unknown')}${row('Stable', (d) => d.stabilityGrade || 'N/A')}${row('Download', (d) => { const action = getPrimaryAction(d); if (action.disabled) return 'N/A'; return `<a href="${action.href}" ${action.external ? 'target="_blank" rel="noopener noreferrer"' : ''} class="text-primary-600 dark:text-primary-400 hover:underline">${action.warning ? 'Warning' : 'Open'}</a>`; })}</tbody></table></div>`;
 }
 
 function updateCompareUi() {
@@ -279,7 +323,7 @@ function toggleCompare(id) {
 
 function matchesCard(card) {
     const queryMatch = !activeQuery || (card.dataset.search || '').includes(activeQuery);
-    const filterMatch = activeFilter === 'all' || (activeFilter === 'stable' ? card.dataset.stable === 'true' : card.dataset.grade === activeFilter.replace('grade-', ''));
+    const filterMatch = activeFilter === 'all' || (activeFilter === 'stable' ? card.dataset.stable === 'true' : (card.dataset.grade || '').toUpperCase() === activeFilter.replace('grade-', '').toUpperCase());
     const brandMatch = !activeBrand || card.dataset.brand === activeBrand;
     const channelMatch = !activeChannel || card.dataset.channel === activeChannel;
     const riskMatch = !activeRisk || card.dataset.risk === activeRisk;
@@ -368,13 +412,16 @@ function normalizeDriverEntry(driver, category, brand, containerId, userRegion, 
     const typeSlug = String(driver.type || '').toLowerCase().replace(/[^a-z0-9]+/g, '-');
     const id = String(driver.id || [brand, settings.family || '', settings.channel || '', versionSlug, typeSlug, String(releaseDateIso).replace(/-/g, '')].filter(Boolean).join('|')).replace(/\s+/g, '-');
     const channel = normalizeChannel(driver.channel || settings.channel || '');
+    const vendor = (driver.vendor || brand || 'generic').toLowerCase();
+    const stabilityGradeRaw = String(driver.stabilityGrade || '').trim().toUpperCase();
+    const stabilityGrade = vendor === 'nvidia' ? stabilityGradeRaw : '';
     const riskLevel = normalizeRisk(driver.riskLevel || (driver.hasWarning ? 'high' : driver.isStable ? 'low' : 'medium')) || 'medium';
     const osSupport = Array.isArray(driver.osSupport) && driver.osSupport.length ? driver.osSupport.map((v) => String(v).toLowerCase()) : ['windows-10', 'windows-11'];
     const architectures = Array.isArray(driver.architectures) && driver.architectures.length ? driver.architectures.map((v) => String(v).toLowerCase()) : ['x64'];
     const downloadUrl = brand === 'nvidia' ? getRegionalUrl(driver.downloadUrl || '', userRegion) : (driver.downloadUrl || '');
     return {
         id,
-        vendor: (driver.vendor || brand || 'generic').toLowerCase(),
+        vendor,
         family: (driver.family || settings.family || '').toLowerCase(),
         channel,
         category,
@@ -393,7 +440,7 @@ function normalizeDriverEntry(driver, category, brand, containerId, userRegion, 
         redditUrl: driver.redditUrl || '',
         hasWarning: Boolean(driver.hasWarning),
         isStable: Boolean(driver.isStable),
-        stabilityGrade: driver.stabilityGrade || '',
+        stabilityGrade,
         riskLevel,
         checksum: driver.checksum || (driver.sha256sum ? { algorithm: 'sha256', value: String(driver.sha256sum).toUpperCase() } : null),
         sources: Array.isArray(driver.sources) ? driver.sources : [],
@@ -417,7 +464,14 @@ function createDriverRow(driver) {
     card.dataset.osList = (driver.osSupport || []).join(',');
     card.dataset.search = [driver.version, driver.type, driver.category, driver.vendor, driver.channel, (driver.highlights || []).join(' ')].join(' ').toLowerCase();
     const typeLabel = driver.type || channelLabel(driver.channel);
-    card.innerHTML = `<div class="flex flex-wrap items-start justify-between gap-3"><div class="min-w-0 flex-1"><h3 class="text-base font-semibold text-gray-900 dark:text-white">${driver.version}</h3><p class="text-sm text-gray-500 dark:text-gray-400">${typeLabel}</p></div><span class="text-xs font-medium text-gray-500 dark:text-gray-400">${driver.releaseDate ? `Released ${driver.releaseDate}` : ''}</span></div><div class="flex flex-wrap gap-2"><span class="px-2 py-1 rounded-md text-xs font-semibold ${riskClass(driver.riskLevel)}">${driver.riskLevel || 'medium'} risk</span><span class="px-2 py-1 rounded-md text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">${channelLabel(driver.channel)}</span>${driver.isStable && driver.stabilityGrade ? `<span class="px-2 py-1 rounded-md text-xs font-semibold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">Stable ${driver.stabilityGrade}</span>` : ''}</div><div class="text-sm text-gray-600 dark:text-gray-300">${(driver.highlights || []).slice(0, 3).join(' • ') || ''}</div><div class="flex flex-wrap items-center gap-2"><a href="${driver.downloadUrl || '#'}" ${driver.downloadUrl ? 'target="_blank" rel="noopener noreferrer"' : ''} class="${driver.downloadUrl ? 'btn-primary !px-3 !py-2 text-sm' : 'btn-secondary !px-3 !py-2 text-sm pointer-events-none opacity-70'}"><span class="material-icons text-base">${driver.downloadUrl ? 'download' : 'block'}</span>${driver.downloadUrl ? 'Download' : 'Unavailable'}</a>${driver.releaseNotesUrl ? `<a href="${driver.releaseNotesUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm"><span class="material-icons text-base">notes</span>Notes</a>` : ''}${driver.knownIssuesUrl ? `<a href="${driver.knownIssuesUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm"><span class="material-icons text-base">warning</span>Issues</a>` : ''}${driver.redditUrl ? `<a href="${driver.redditUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm"><span class="material-icons text-base">forum</span>Community</a>` : ''}<button type="button" data-driver-compare-id="${driver.id}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300"><span class="material-icons text-[14px]">compare_arrows</span><span data-compare-label>Compare</span></button><button type="button" data-driver-favorite-id="${driver.id}" data-version="${driver.version}" data-category="${driver.category}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300"><span class="material-icons text-[14px]">star_border</span>Watch</button><button type="button" data-driver-detail-id="${driver.id}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300"><span class="material-icons text-[14px]">info</span>Details</button>${driver.checksum && driver.checksum.value ? `<button type="button" data-driver-copy-hash="${driver.id}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300"><span class="material-icons text-[14px]">content_copy</span>SHA256</button>` : ''}</div>`;
+    const action = getPrimaryAction(driver);
+    const actionAttrs = action.disabled ? '' : action.external ? 'target="_blank" rel="noopener noreferrer"' : '';
+    const actionClass = action.disabled
+        ? 'btn-secondary !px-3 !py-2 text-sm pointer-events-none opacity-70'
+        : action.warning
+            ? 'btn-secondary !px-3 !py-2 text-sm'
+            : 'btn-primary !px-3 !py-2 text-sm';
+    card.innerHTML = `<div class="flex flex-wrap items-start justify-between gap-3"><div class="min-w-0 flex-1"><h3 class="text-base font-semibold text-gray-900 dark:text-white">${driver.version}</h3><p class="text-sm text-gray-500 dark:text-gray-400">${typeLabel}</p></div><span class="text-xs font-medium text-gray-500 dark:text-gray-400">${driver.releaseDate ? `Released ${driver.releaseDate}` : ''}</span></div><div class="flex flex-wrap gap-2"><span class="px-2 py-1 rounded-md text-xs font-semibold ${riskClass(driver.riskLevel)}">${driver.riskLevel || 'medium'} risk</span><span class="px-2 py-1 rounded-md text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">${channelLabel(driver.channel)}</span>${driver.isStable && driver.stabilityGrade ? `<span class="px-2 py-1 rounded-md text-xs font-semibold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">Stable ${driver.stabilityGrade}</span>` : ''}</div><div class="text-sm text-gray-600 dark:text-gray-300">${(driver.highlights || []).slice(0, 3).join(' • ') || ''}</div><div class="flex flex-wrap items-center gap-2"><a href="${action.href}" ${actionAttrs} class="${actionClass}"><span class="material-icons text-base">${action.icon}</span>${action.label}</a>${driver.releaseNotesUrl ? `<a href="${driver.releaseNotesUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm"><span class="material-icons text-base">notes</span>Notes</a>` : ''}${driver.knownIssuesUrl ? `<a href="${driver.knownIssuesUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm"><span class="material-icons text-base">warning</span>Issues</a>` : ''}${driver.redditUrl ? `<a href="${driver.redditUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm"><span class="material-icons text-base">forum</span>Community</a>` : ''}<button type="button" data-driver-compare-id="${driver.id}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300"><span class="material-icons text-[14px]">compare_arrows</span><span data-compare-label>Compare</span></button><button type="button" data-driver-favorite-id="${driver.id}" data-version="${driver.version}" data-category="${driver.category}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300"><span class="material-icons text-[14px]">star_border</span>Watch</button><button type="button" data-driver-detail-id="${driver.id}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300"><span class="material-icons text-[14px]">info</span>Details</button>${driver.checksum && driver.checksum.value ? `<button type="button" data-driver-copy-hash="${driver.id}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300"><span class="material-icons text-[14px]">content_copy</span>SHA256</button>` : ''}</div>`;
     card.querySelector(`[data-driver-detail-id="${driver.id}"]`).addEventListener('click', function(event) { event.preventDefault(); event.stopPropagation(); openDetailPanel(driver); });
     card.querySelector(`[data-driver-compare-id="${driver.id}"]`).addEventListener('click', function(event) { event.preventDefault(); event.stopPropagation(); toggleCompare(driver.id); });
     const favoriteBtn = card.querySelector(`[data-driver-favorite-id="${driver.id}"]`);

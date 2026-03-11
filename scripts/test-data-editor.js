@@ -38,6 +38,55 @@ function run() {
   assert.equal(normalized.riskLevel, 'low');
   assert.equal(normalized.sha256sum, 'B596920F9C8FA4BE09D122EB39506282A46C4113E90DA6F48C0E00D26686F7E6');
   assert.ok(isValidChecksumBlock(normalizeChecksum(normalized.sha256sum)));
+  assert.equal(normalized.stabilityGrade, '');
+
+  const nvidiaGradeNormalized = normalizeDatasetDriver(
+    source,
+    { lastUpdated: '11-23-25', warningMessage: '' },
+    {
+      version: '581.80',
+      type: 'WHQL',
+      releaseDate: '2025-11-04',
+      stabilityGrade: 'a-',
+      isStable: true
+    },
+    2
+  );
+  assert.equal(nvidiaGradeNormalized.stabilityGrade, 'A-');
+
+  const warningNormalized = normalizeDatasetDriver(
+    source,
+    { lastUpdated: '11-23-25', warningMessage: '' },
+    {
+      version: '576.02',
+      type: 'WHQL',
+      releaseDate: '2025-04-16',
+      hasWarning: true,
+      isStable: false,
+      warningUrl: '/display/warn?nvgrd=576.02',
+      downloadUrl: 'https://example.com/driver-57602.exe'
+    },
+    5
+  );
+  assert.equal(warningNormalized.warningUrl, '/display/warn?nvgrd=576.02');
+
+  const intelNormalized = normalizeDatasetDriver(
+    {
+      vendor: 'intel',
+      family: 'graphics',
+      channel: 'game-on'
+    },
+    { lastUpdated: '11-23-25', warningMessage: '' },
+    {
+      version: '32.0.101.8250',
+      type: '',
+      releaseDate: '2025-11-11',
+      stabilityGrade: 'A',
+      isStable: true
+    },
+    3
+  );
+  assert.equal(intelNormalized.stabilityGrade, '');
 
   const idA = makeDriverId(source, normalized, 0, normalized.releaseDateIso);
   const idB = makeDriverId(source, normalized, 99, normalized.releaseDateIso);

@@ -89,40 +89,62 @@
         </div>
     </section>
 
-    <section class="grid lg:grid-cols-2 gap-6 mb-8">
-        <div class="card p-6" data-animate>
-            <div class="flex items-center gap-2 mb-3">
-                <span class="material-icons text-primary-500">verified</span>
-                <h2 class="section-heading">Current Best Picks</h2>
-            </div>
-            <div id="best-picks" class="space-y-3 text-sm text-gray-600 dark:text-gray-300"></div>
-        </div>
-        <div class="card p-6" data-animate>
-            <div class="flex items-center gap-2 mb-3">
-                <span class="material-icons text-primary-500">timeline</span>
-                <h2 class="section-heading">Recent Update Timeline</h2>
-            </div>
-            <div id="recent-timeline" class="space-y-3 text-sm text-gray-600 dark:text-gray-300"></div>
-        </div>
-    </section>
-
-    <section class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16" data-animate>
+    <section class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8" data-animate>
         <a href="/display" class="card-hover p-5">
-            <h3 class="font-semibold text-gray-900 dark:text-white mb-1">Graphics</h3>
+            <div class="flex items-center gap-2 mb-1">
+                <span class="material-icons text-primary-500 text-[20px]" aria-hidden="true">videocam</span>
+                <h3 class="font-semibold text-gray-900 dark:text-white">Graphics</h3>
+            </div>
             <p class="text-sm text-gray-500 dark:text-gray-400">Desktop and laptop GPU channels.</p>
         </a>
         <a href="/chipset" class="card-hover p-5">
-            <h3 class="font-semibold text-gray-900 dark:text-white mb-1">Chipset</h3>
+            <div class="flex items-center gap-2 mb-1">
+                <span class="material-icons text-primary-500 text-[20px]" aria-hidden="true">memory</span>
+                <h3 class="font-semibold text-gray-900 dark:text-white">Chipset</h3>
+            </div>
             <p class="text-sm text-gray-500 dark:text-gray-400">AMD and Intel chipset utilities.</p>
         </a>
         <a href="/audio" class="card-hover p-5">
-            <h3 class="font-semibold text-gray-900 dark:text-white mb-1">Audio</h3>
+            <div class="flex items-center gap-2 mb-1">
+                <span class="material-icons text-primary-500 text-[20px]" aria-hidden="true">headphones</span>
+                <h3 class="font-semibold text-gray-900 dark:text-white">Audio</h3>
+            </div>
             <p class="text-sm text-gray-500 dark:text-gray-400">Production audio listings.</p>
         </a>
         <a href="/network" class="card-hover p-5">
-            <h3 class="font-semibold text-gray-900 dark:text-white mb-1">Network</h3>
+            <div class="flex items-center gap-2 mb-1">
+                <span class="material-icons text-primary-500 text-[20px]" aria-hidden="true">wifi</span>
+                <h3 class="font-semibold text-gray-900 dark:text-white">Network</h3>
+            </div>
             <p class="text-sm text-gray-500 dark:text-gray-400">Wi-Fi and ethernet listings.</p>
         </a>
+    </section>
+
+    <section class="grid lg:grid-cols-2 gap-6 mb-16" data-animate>
+        <div class="card p-6">
+            <button type="button" class="w-full flex items-center justify-between gap-3 text-left" data-home-panel-toggle="best-picks-panel" aria-expanded="true" aria-controls="best-picks-panel">
+                <span class="flex items-center gap-2">
+                    <span class="material-icons text-primary-500">verified</span>
+                    <h2 class="section-heading">Current Best Picks</h2>
+                </span>
+                <span class="material-icons text-gray-500 dark:text-gray-400" data-home-panel-icon>expand_less</span>
+            </button>
+            <div id="best-picks-panel" class="mt-3">
+                <div id="best-picks" class="space-y-3 text-sm text-gray-600 dark:text-gray-300"></div>
+            </div>
+        </div>
+        <div class="card p-6">
+            <button type="button" class="w-full flex items-center justify-between gap-3 text-left" data-home-panel-toggle="recent-timeline-panel" aria-expanded="true" aria-controls="recent-timeline-panel">
+                <span class="flex items-center gap-2">
+                    <span class="material-icons text-primary-500">timeline</span>
+                    <h2 class="section-heading">Recent Update Timeline</h2>
+                </span>
+                <span class="material-icons text-gray-500 dark:text-gray-400" data-home-panel-icon>expand_less</span>
+            </button>
+            <div id="recent-timeline-panel" class="mt-3">
+                <div id="recent-timeline" class="space-y-3 text-sm text-gray-600 dark:text-gray-300"></div>
+            </div>
+        </div>
     </section>
 </main>
 {% endblock %}
@@ -130,6 +152,19 @@
 {% block pageScripts %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-home-panel-toggle]').forEach(function(button) {
+        button.addEventListener('click', function() {
+            const panelId = button.getAttribute('data-home-panel-toggle');
+            const panel = panelId ? document.getElementById(panelId) : null;
+            if (!panel) return;
+            const expanded = button.getAttribute('aria-expanded') !== 'false';
+            button.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            panel.classList.toggle('hidden', expanded);
+            const icon = button.querySelector('[data-home-panel-icon]');
+            if (icon) icon.textContent = expanded ? 'expand_more' : 'expand_less';
+        });
+    });
+
     const heroSearchBtn = document.getElementById('hero-search-btn');
     if (heroSearchBtn && typeof SearchModule !== 'undefined') {
         heroSearchBtn.addEventListener('click', () => SearchModule.open());

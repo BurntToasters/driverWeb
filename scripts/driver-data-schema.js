@@ -38,14 +38,26 @@ function toIsoDateTime(value, fallback) {
   return parsed.toISOString();
 }
 
-function normalizeUrl(value) {
+function normalizeUrl(value, options = {}) {
+  const allowRelative = Boolean(options.allowRelative);
   if (!value) return '';
+  const text = String(value).trim();
+  if (!text) return '';
+
+  if (allowRelative && text.startsWith('/')) {
+    return text;
+  }
+
   try {
-    const url = new URL(String(value).trim());
+    const url = new URL(text);
     return url.toString();
   } catch {
     return '';
   }
+}
+
+function normalizeWarningUrl(value) {
+  return normalizeUrl(value, { allowRelative: true });
 }
 
 function normalizeChecksum(value) {
@@ -223,14 +235,15 @@ function normalizeDatasetDriver(source, data, driver, index) {
   const downloadUrl = normalizeUrl(driver.downloadUrl);
   const releaseNotesUrl = normalizeUrl(driver.releaseNotesUrl);
   const knownIssuesUrl = normalizeUrl(driver.knownIssuesUrl);
-  const warningUrl = normalizeUrl(driver.warningUrl);
+  const warningUrl = normalizeWarningUrl(driver.warningUrl);
   const redditUrl = normalizeUrl(driver.redditUrl);
   const version = String(driver.version || 'Unknown version').trim();
   const type = String(driver.type || '').trim();
   const id = makeDriverId({ vendor, family, channel }, driver, index, releaseDateIso);
   const hasWarning = normalizeBoolean(driver.hasWarning, false);
   const isStable = normalizeBoolean(driver.isStable, false);
-  const stabilityGrade = driver.stabilityGrade === null || driver.stabilityGrade === undefined ? '' : String(driver.stabilityGrade).trim();
+  const rawStabilityGrade = driver.stabilityGrade === null || driver.stabilityGrade === undefined ? '' : String(driver.stabilityGrade).trim().toUpperCase();
+  const stabilityGrade = vendor === 'nvidia' ? rawStabilityGrade : '';
 
   return {
     id,
@@ -399,6 +412,7 @@ module.exports = {
   toIsoDate,
   toIsoDateTime,
   normalizeUrl,
+  normalizeWarningUrl,
   normalizeChecksum,
   isValidChecksumBlock,
   makeDriverId,
