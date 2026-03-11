@@ -63,7 +63,7 @@
     </div>
 
     <div class="space-y-6">
-        <section class="card overflow-hidden" data-animate>
+        <section class="card overflow-hidden" data-animate data-brand-section="nvidia">
             <div class="p-6 border-l-4 border-nvidia">
                 <div class="flex items-center gap-3 mb-1">
                     <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt="NVIDIA" class="h-9 w-9 object-contain rounded" loading="lazy">
@@ -95,7 +95,7 @@
             </div>
         </section>
 
-        <section class="card overflow-hidden" data-animate>
+        <section class="card overflow-hidden" data-animate data-brand-section="amd">
             <div class="p-6 border-l-4 border-amd">
                 <div class="flex items-center gap-3 mb-1">
                     <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt="AMD" class="h-9 w-9 object-contain" loading="lazy">
@@ -124,19 +124,46 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const activeClasses = ['bg-gray-900', 'dark:bg-white', 'text-white', 'dark:text-gray-900'];
     const inactiveClasses = ['text-gray-500', 'border', 'border-gray-200', 'dark:border-gray-700'];
+    const params = new URLSearchParams(window.location.search);
+    const requestedFilter = params.get('filter') || 'all';
+    const requestedBrand = params.get('brand') || '';
+    const requestedQuery = params.get('q') || '';
+
+    function setActiveFilterChip(filter) {
+        document.querySelectorAll('.filter-chip').forEach(c => {
+            c.classList.remove(...activeClasses);
+            c.classList.add(...inactiveClasses);
+            if (c.dataset.filter === filter) {
+                c.classList.remove(...inactiveClasses);
+                c.classList.add(...activeClasses);
+            }
+        });
+    }
 
     document.querySelectorAll('.filter-chip').forEach(chip => {
         chip.addEventListener('click', function() {
-            document.querySelectorAll('.filter-chip').forEach(c => {
-                c.classList.remove(...activeClasses);
-                c.classList.add(...inactiveClasses);
-            });
-            this.classList.remove(...inactiveClasses);
-            this.classList.add(...activeClasses);
-            applyFilters(this.dataset.filter);
+            setActiveFilterChip(this.dataset.filter);
+            if (window.DriverHubDrivers && typeof window.DriverHubDrivers.applyFilters === 'function') {
+                window.DriverHubDrivers.applyFilters(this.dataset.filter);
+            } else {
+                applyFilters(this.dataset.filter);
+            }
         });
     });
-    applyFilters('all');
+
+    const initialFilterChip = document.querySelector(`.filter-chip[data-filter="${requestedFilter}"]`) ? requestedFilter : 'all';
+    setActiveFilterChip(initialFilterChip);
+    if (window.DriverHubDrivers) {
+        window.DriverHubDrivers.applyFilters(initialFilterChip, { skipUrlUpdate: true });
+        if (requestedBrand && typeof window.DriverHubDrivers.setBrand === 'function') {
+            window.DriverHubDrivers.setBrand(requestedBrand, { skipUrlUpdate: true });
+        }
+        if (requestedQuery && typeof window.DriverHubDrivers.setQuery === 'function') {
+            window.DriverHubDrivers.setQuery(requestedQuery, { skipUrlUpdate: true });
+        }
+    } else {
+        applyFilters(initialFilterChip);
+    }
 });
 </script>
 {% endblock %}

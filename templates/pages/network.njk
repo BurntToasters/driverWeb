@@ -1,29 +1,112 @@
 {% extends "layouts/base.njk" %}
 {% set assetPrefix = '' %}
-{% set title = 'Network Drivers | DriverHub' %}
-{% set metaDescription = 'Network drivers download for Windows - Realtek, Intel, and Broadcom network adapter drivers.' %}
+{% set title = 'Network Drivers Preview | DriverHub' %}
+{% set metaDescription = 'Network driver preview for DriverHub. Track progress and request launch notifications for Wi-Fi and Ethernet driver listings.' %}
 {% set metaRobots = 'index, follow' %}
 {% set canonical = 'https://driverhub.win/network' %}
-{% set headerVariant = 'simple' %}
+{% set showSkipLink = true %}
+{% set headerVariant = 'main' %}
+{% set navActive = 'network' %}
+{% set showSearchButton = true %}
+{% set showFavoritesButton = true %}
 {% set showDarkModeButton = true %}
-{% set showSettings = false %}
-{% set footerVariant = 'compact' %}
-{% set compactFooterMarginTop = false %}
-{% set showUpdateDate = false %}
-{% set scripts = ['global/darkMode.js', 'global/versionInfo.js'] %}
+{% set showSettings = true %}
+{% set footerVariant = 'full' %}
+{% set scripts = ['global/favorites.js', 'global/search.js', 'global/darkMode.js', 'global/regionSwitcher.js', 'global/modern.js', 'global/versionInfo.js', 'global/backToTop.js'] %}
 
 {% block content %}
-<main class="flex-1 flex items-center justify-center">
-    <div class="text-center px-4 py-16">
-        <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary-50 dark:bg-primary-900/20 mb-6">
-            <span class="material-icons text-5xl text-primary-500">wifi</span>
-        </div>
-        <h1 class="page-heading mb-4">Network Drivers</h1>
-        <p class="text-lg text-gray-500 dark:text-gray-400 mb-8 max-w-md mx-auto">Wi-Fi and Ethernet adapter drivers are coming soon.</p>
-        <a href="/" class="btn-primary">
-            <span class="material-icons text-lg">home</span>
-            Back to Home
-        </a>
+<main id="main-content" class="flex-1 max-w-6xl mx-auto px-4 md:px-6 py-12 w-full">
+    <div class="mb-8">
+        <h1 class="page-heading mb-2">Network Drivers Preview</h1>
+        <p class="page-subheading">Wi-Fi and Ethernet adapter listings are planned for v5.x. Follow rollout status and request notification.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-6">
+        <section class="lg:col-span-2 card p-6" data-animate>
+            <div class="flex items-center gap-2 mb-4">
+                <span class="material-icons text-primary-500">wifi</span>
+                <h2 class="section-heading">Roadmap Status</h2>
+            </div>
+            <div class="space-y-3 text-sm">
+                <div class="flex items-center justify-between gap-3 p-3 rounded-lg bg-gray-100 dark:bg-gray-800">
+                    <span class="text-gray-700 dark:text-gray-300">Initial vendor matrix (Intel / Realtek / Broadcom)</span>
+                    <span class="px-2 py-0.5 rounded text-xs font-semibold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">Done</span>
+                </div>
+                <div class="flex items-center justify-between gap-3 p-3 rounded-lg bg-gray-100 dark:bg-gray-800">
+                    <span class="text-gray-700 dark:text-gray-300">Feed automation + validation</span>
+                    <span class="px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300">In progress</span>
+                </div>
+                <div class="flex items-center justify-between gap-3 p-3 rounded-lg bg-gray-100 dark:bg-gray-800">
+                    <span class="text-gray-700 dark:text-gray-300">Public listing launch</span>
+                    <span class="px-2 py-0.5 rounded text-xs font-semibold bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300">ETA v5.x</span>
+                </div>
+            </div>
+            <div class="mt-5 flex flex-wrap gap-2">
+                <span class="trust-chip"><span class="material-icons text-[14px]">schedule</span>ETA: v5.x</span>
+                <span class="trust-chip"><span class="material-icons text-[14px]">verified</span>Official vendor links only</span>
+            </div>
+        </section>
+
+        <aside class="card p-6" data-animate>
+            <h2 class="section-heading mb-2">Notify Me</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Save your email locally and jump to contact with a pre-filled request.</p>
+
+            <label for="network-notify-email" class="sr-only">Email</label>
+            <input id="network-notify-email" type="email" class="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none transition-colors text-gray-900 dark:text-white" placeholder="you@example.com">
+
+            <div class="mt-3 grid grid-cols-1 gap-2">
+                <button id="network-save-notify" type="button" class="btn-primary justify-center">
+                    <span class="material-icons text-lg">notifications</span>
+                    Save Notification Request
+                </button>
+                <a id="network-contact-link" href="/contact" class="btn-secondary justify-center">
+                    <span class="material-icons text-lg">mail_outline</span>
+                    Contact About Network Launch
+                </a>
+            </div>
+
+            <p id="network-notify-status" class="text-xs text-gray-500 mt-3" aria-live="polite"></p>
+        </aside>
     </div>
 </main>
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const storageKey = 'driverhub_notify_network';
+    const input = document.getElementById('network-notify-email');
+    const saveButton = document.getElementById('network-save-notify');
+    const status = document.getElementById('network-notify-status');
+    const contactLink = document.getElementById('network-contact-link');
+
+    function updateContactLink(email) {
+        const params = new URLSearchParams();
+        params.set('topic', 'network-launch');
+        if (email) {
+            params.set('email', email);
+        }
+        contactLink.href = `/contact?${params.toString()}`;
+    }
+
+    const storedEmail = localStorage.getItem(storageKey) || '';
+    if (storedEmail && input) {
+        input.value = storedEmail;
+    }
+    updateContactLink(storedEmail);
+
+    if (saveButton && input) {
+        saveButton.addEventListener('click', function() {
+            const email = input.value.trim();
+            if (!email || !email.includes('@')) {
+                status.textContent = 'Enter a valid email address.';
+                return;
+            }
+            localStorage.setItem(storageKey, email);
+            updateContactLink(email);
+            status.textContent = 'Saved locally. Use the contact button to send your request.';
+        });
+    }
+});
+</script>
 {% endblock %}

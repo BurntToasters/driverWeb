@@ -25,6 +25,30 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://driverhub.win/audio</loc>
+      <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://driverhub.win/network</loc>
+      <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://driverhub.win/feeds/drivers.json</loc>
+      <lastmod>2026-03-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://driverhub.win/feeds/drivers.xml</loc>
+      <lastmod>2026-03-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://driverhub.win/info/about-stabledrivers</loc>
       <lastmod>2025-12-02</lastmod>
     <changefreq>monthly</changefreq>

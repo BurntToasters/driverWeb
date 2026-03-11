@@ -1,0 +1,40 @@
+{
+  "generatedAt": "2026-03-11T01:58:01.742Z",
+  "site": "https://driverhub.win",
+  "sourceCount": 6,
+  "entryCount": 2,
+  "entries": [
+    {
+      "id": "fallback|graphics",
+      "category": "Driver Feed Status",
+      "brand": "nvidia",
+      "version": "Live feed temporarily unavailable",
+      "type": "Use on-site search (Ctrl+K) for latest results",
+      "releaseDate": "",
+      "publishedAt": "2026-03-11T01:58:01.742Z",
+      "page": "/display",
+      "downloadUrl": "",
+      "releaseNotesUrl": "",
+      "knownIssuesUrl": "",
+      "previousVersion": "",
+      "isStable": false,
+      "stabilityGrade": ""
+    },
+    {
+      "id": "fallback|chipset",
+      "category": "Driver Feed Status",
+      "brand": "intel",
+      "version": "Chipset listings remain available",
+      "type": "Browse /chipset for Intel and AMD options",
+      "releaseDate": "",
+      "publishedAt": "2026-03-11T01:58:01.742Z",
+      "page": "/chipset",
+      "downloadUrl": "",
+      "releaseNotesUrl": "",
+      "knownIssuesUrl": "",
+      "previousVersion": "",
+      "isStable": false,
+      "stabilityGrade": ""
+    }
+  ]
+}

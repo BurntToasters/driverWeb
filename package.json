@@ -3,7 +3,8 @@
   "version": "5.0.0",
   "description": "DriverHub - GPU and Chipset driver downloads",
   "scripts": {
-    "build": "npm run build:html && npm run build:css",
+    "build": "npm run build:feeds && npm run build:html && npm run build:css",
+    "build:feeds": "node ./scripts/build-feeds.js",
     "build:html": "node ./scripts/build-html.js",
     "build:css": "tailwindcss -i ./src/input.css -o ./global/tailwind.css --minify",
     "watch": "tailwindcss -i ./src/input.css -o ./global/tailwind.css --watch"

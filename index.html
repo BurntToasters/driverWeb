@@ -81,7 +81,7 @@
                 </button>
                 
                 
-                <button id="favorites-btn" type="button" aria-haspopup="dialog" aria-controls="favorites-panel" aria-expanded="false" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Favorites">
+                <button id="favorites-btn" type="button" aria-haspopup="dialog" aria-controls="favorites-panel" aria-expanded="false" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Watchlist">
                     <span class="material-icons text-[20px]">star_outline</span>
                 </button>
                 
@@ -108,12 +108,14 @@
                 <span class="material-icons text-[18px]">memory</span>Chipset
             </a>
             
-            <span class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 text-gray-300 dark:text-gray-600 whitespace-nowrap" title="Coming soon">
+            <a href="/network" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
                 <span class="material-icons text-[18px]">wifi</span>Network
-            </span>
-            <span class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 text-gray-300 dark:text-gray-600 whitespace-nowrap" title="Coming soon">
+                <span class="px-1.5 py-0.5 text-[10px] font-semibold tracking-wide uppercase rounded bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-300">Preview</span>
+            </a>
+            <a href="/audio" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
                 <span class="material-icons text-[18px]">headphones</span>Audio
-            </span>
+                <span class="px-1.5 py-0.5 text-[10px] font-semibold tracking-wide uppercase rounded bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-300">Preview</span>
+            </a>
             
             <div class="w-px h-5 bg-gray-200 dark:bg-gray-700 mx-1.5"></div>
             <a href="/contact" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
@@ -175,7 +177,17 @@
     <section class="pt-16 pb-12 text-center">
         <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight mb-4">Free Windows Driver Downloads</h1>
         <p class="page-subheading max-w-xl mx-auto mb-8">Official drivers from NVIDIA, AMD, and Intel. Every download links directly to the manufacturer.</p>
-        <div class="flex items-center justify-center gap-3 flex-wrap">
+        <form id="hero-command-form" class="hero-command" role="search" aria-label="Command search">
+            <span class="material-icons text-primary-500">terminal</span>
+            <input id="hero-command-input" type="text" class="hero-command-input" placeholder="Search: NVIDIA 572.70, Intel Pro, AM5 chipset..." autocomplete="off">
+            <kbd class="hero-command-chip">Ctrl+K</kbd>
+            <button type="submit" class="btn-primary !px-4 !py-2">
+                <span class="material-icons text-lg">search</span>
+                Search
+            </button>
+        </form>
+
+        <div class="mobile-hero-actions">
             <a href="/display" class="btn-primary">
                 <span class="material-icons text-lg">download</span>
                 Browse Drivers
@@ -203,6 +215,34 @@
         </div>
     </div>
 
+    <section class="card p-6 mb-10" data-animate>
+        <div class="flex items-center gap-3 mb-1">
+            <span class="material-icons text-primary-500">auto_fix_high</span>
+            <h2 class="section-heading">Recommended Driver</h2>
+        </div>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-5">Quick-pick the right page by brand, device, and update preference.</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <select id="rec-brand" class="px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none transition-colors text-gray-900 dark:text-white">
+                <option value="nvidia">NVIDIA</option>
+                <option value="intel">Intel</option>
+                <option value="amd">AMD</option>
+            </select>
+            <select id="rec-device" class="px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none transition-colors text-gray-900 dark:text-white">
+                <option value="desktop">Desktop</option>
+                <option value="laptop">Laptop</option>
+                <option value="chipset">Chipset</option>
+            </select>
+            <select id="rec-preference" class="px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none transition-colors text-gray-900 dark:text-white">
+                <option value="latest">Latest</option>
+                <option value="stable">Stable</option>
+            </select>
+            <button id="rec-go" type="button" class="btn-primary justify-center">
+                <span class="material-icons text-lg">arrow_forward</span>
+                Get Recommendation
+            </button>
+        </div>
+    </section>
+
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
         <a href="/display" class="card-hover group p-5 flex items-start gap-4" data-animate>
             <div class="flex-shrink-0 flex items-center gap-1.5 mt-0.5">
@@ -213,6 +253,10 @@
             <div class="flex-1 min-w-0">
                 <h2 class="section-heading mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">Graphics Drivers</h2>
                 <p class="text-sm text-gray-500 dark:text-gray-400">NVIDIA, AMD, and Intel GPU drivers for desktop and laptop</p>
+                <div class="mt-3 flex flex-wrap items-center gap-2">
+                    <span class="trust-chip"><span class="material-icons text-[14px]">verified</span>Source: Official</span>
+                    <span class="trust-chip"><span class="material-icons text-[14px]">security</span>SHA256 available</span>
+                </div>
             </div>
             <span class="material-icons text-gray-300 dark:text-gray-600 group-hover:text-primary-500 transition-colors mt-1">arrow_forward</span>
         </a>
@@ -225,31 +269,43 @@
             <div class="flex-1 min-w-0">
                 <h2 class="section-heading mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">Chipset Drivers</h2>
                 <p class="text-sm text-gray-500 dark:text-gray-400">Intel and AMD motherboard chipset drivers</p>
+                <div class="mt-3 flex flex-wrap items-center gap-2">
+                    <span class="trust-chip"><span class="material-icons text-[14px]">memory</span>Intel + AMD</span>
+                    <span class="trust-chip"><span class="material-icons text-[14px]">schedule</span>Frequently updated</span>
+                </div>
             </div>
             <span class="material-icons text-gray-300 dark:text-gray-600 group-hover:text-primary-500 transition-colors mt-1">arrow_forward</span>
         </a>
 
-        <div class="card p-5 flex items-start gap-4 opacity-60" data-animate>
+        <a href="/audio" class="card-hover group p-5 flex items-start gap-4" data-animate>
             <div class="flex-shrink-0 mt-0.5">
                 <img src="https://prod.rexxit.net/drweb/assets/realtek.png" alt="Realtek" class="h-7 w-7 object-contain" loading="lazy">
             </div>
             <div class="flex-1 min-w-0">
                 <h2 class="section-heading mb-1">Audio Drivers</h2>
-                <p class="text-sm text-gray-500 dark:text-gray-400">Realtek and other audio drivers</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Preview page with roadmap status and notify-me option</p>
+                <div class="mt-3 flex items-center gap-2">
+                    <span class="trust-chip"><span class="material-icons text-[14px]">schedule</span>ETA: v5.x</span>
+                    <span class="trust-chip"><span class="material-icons text-[14px]">notifications</span>Notify me</span>
+                </div>
             </div>
-            <span class="px-2.5 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500 rounded-md whitespace-nowrap">Coming Soon</span>
-        </div>
+            <span class="px-2.5 py-1 text-xs font-medium bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-300 rounded-md whitespace-nowrap">Preview</span>
+        </a>
 
-        <div class="card p-5 flex items-start gap-4 opacity-60" data-animate>
+        <a href="/network" class="card-hover group p-5 flex items-start gap-4" data-animate>
             <div class="flex-shrink-0 mt-0.5">
                 <span class="material-icons text-2xl text-gray-400">wifi</span>
             </div>
             <div class="flex-1 min-w-0">
                 <h2 class="section-heading mb-1">Network Drivers</h2>
-                <p class="text-sm text-gray-500 dark:text-gray-400">Wi-Fi and Ethernet adapter drivers</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Preview page with progress tracker and notify-me option</p>
+                <div class="mt-3 flex items-center gap-2">
+                    <span class="trust-chip"><span class="material-icons text-[14px]">schedule</span>ETA: v5.x</span>
+                    <span class="trust-chip"><span class="material-icons text-[14px]">notifications</span>Notify me</span>
+                </div>
             </div>
-            <span class="px-2.5 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500 rounded-md whitespace-nowrap">Coming Soon</span>
-        </div>
+            <span class="px-2.5 py-1 text-xs font-medium bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-300 rounded-md whitespace-nowrap">Preview</span>
+        </a>
 
         <a href="/contact" class="card-hover group p-5 flex items-start gap-4" data-animate>
             <div class="flex-shrink-0 mt-0.5">
@@ -289,6 +345,8 @@
                     <li><a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Documentation</a></li>
                     <li><a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Release Notes</a></li>
                     <li><a href="/info/about-stabledrivers" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Stability Ratings</a></li>
+                    <li><a href="/feeds/drivers.json" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Driver Feed (JSON)</a></li>
+                    <li><a href="/feeds/drivers.xml" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Driver Feed (RSS)</a></li>
                 </ul>
             </div>
             <div>
@@ -362,6 +420,53 @@ document.addEventListener('DOMContentLoaded', function() {
         heroSearchBtn.addEventListener('click', () => {
             const searchBtn = document.getElementById('global-search-btn');
             if (searchBtn) searchBtn.click();
+        });
+    }
+
+    const heroCommandForm = document.getElementById('hero-command-form');
+    const heroCommandInput = document.getElementById('hero-command-input');
+    if (heroCommandForm && heroCommandInput) {
+        heroCommandForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const query = heroCommandInput.value.trim();
+            if (!query) return;
+
+            if (typeof SearchModule !== 'undefined' && typeof SearchModule.openWithQuery === 'function') {
+                SearchModule.openWithQuery(query);
+            } else {
+                window.location.href = `/display?q=${encodeURIComponent(query)}`;
+            }
+        });
+    }
+
+    const recBrand = document.getElementById('rec-brand');
+    const recDevice = document.getElementById('rec-device');
+    const recPreference = document.getElementById('rec-preference');
+    const recGo = document.getElementById('rec-go');
+
+    if (recGo && recBrand && recDevice && recPreference) {
+        recGo.addEventListener('click', function() {
+            let brand = recBrand.value;
+            const device = recDevice.value;
+            const preference = recPreference.value;
+
+            let targetPath = '/display';
+            if (device === 'laptop') {
+                targetPath = brand === 'intel' ? '/display' : '/display/laptop';
+            } else if (device === 'chipset') {
+                if (brand === 'nvidia') {
+                    brand = 'intel';
+                }
+                targetPath = '/chipset';
+            }
+
+            const params = new URLSearchParams();
+            params.set('brand', brand);
+            if (device !== 'chipset') {
+                params.set('filter', preference === 'stable' ? 'stable' : 'all');
+            }
+
+            window.location.href = `${targetPath}?${params.toString()}`;
         });
     }
 });

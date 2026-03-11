@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>DriverHub Driver Updates</title>
+    <link>https://driverhub.win/feeds/drivers.xml</link>
+    <description>Latest Windows driver updates indexed by DriverHub.</description>
+    <lastBuildDate>Wed, 11 Mar 2026 01:58:01 GMT</lastBuildDate>
+  <item>
+    <title>Driver Feed Status Live feed temporarily unavailable - Use on-site search (Ctrl+K) for latest results</title>
+    <link>https://driverhub.win/display?q=Live+feed+temporarily+unavailable&amp;brand=nvidia</link>
+    <guid>fallback|graphics</guid>
+    <pubDate>Wed, 11 Mar 2026 01:58:01 GMT</pubDate>
+    <description>Category: Driver Feed Status</description>
+  </item>
+  <item>
+    <title>Driver Feed Status Chipset listings remain available - Browse /chipset for Intel and AMD options</title>
+    <link>https://driverhub.win/chipset?q=Chipset+listings+remain+available&amp;brand=intel</link>
+    <guid>fallback|chipset</guid>
+    <pubDate>Wed, 11 Mar 2026 01:58:01 GMT</pubDate>
+    <description>Category: Driver Feed Status</description>
+  </item>
+  </channel>
+</rss>

@@ -47,6 +47,7 @@
                     <span class="material-icons text-lg">email</span>
                     <span id="email-link-text">contact@driverhub.win</span>
                 </a>
+                <p id="contact-prefill-hint" class="hidden mt-3 text-xs text-gray-500 dark:text-gray-400"></p>
             </div>
             <div class="card p-5">
                 <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-3">Helpful links</h3>
@@ -71,14 +72,31 @@
 document.addEventListener('DOMContentLoaded', function() {
     const emailLink = document.getElementById('email-link');
     const emailText = document.getElementById('email-link-text');
+    const prefillHint = document.getElementById('contact-prefill-hint');
     const email = 'contact' + '@' + 'driverhub' + '.' + 'win';
+    const params = new URLSearchParams(window.location.search);
+    const topic = params.get('topic') || '';
+    const senderEmail = params.get('email') || '';
+    const topicLabel = topic ? topic.replace(/-/g, ' ') : '';
 
     if (emailLink) {
-        emailLink.href = 'mailto:' + email;
+        const mailtoParams = new URLSearchParams();
+        if (topicLabel) {
+            mailtoParams.set('subject', `DriverHub ${topicLabel} request`);
+        }
+        if (senderEmail) {
+            mailtoParams.set('body', `Hi DriverHub,\n\nPlease notify me about ${topicLabel || 'upcoming updates'}.\n\nMy email: ${senderEmail}`);
+        }
+        emailLink.href = 'mailto:' + email + (mailtoParams.toString() ? '?' + mailtoParams.toString() : '');
     }
 
     if (emailText) {
         emailText.textContent = email;
+    }
+
+    if (prefillHint && (topicLabel || senderEmail)) {
+        prefillHint.classList.remove('hidden');
+        prefillHint.textContent = `Prepared contact context: ${topicLabel || 'general update'}${senderEmail ? ` (${senderEmail})` : ''}`;
     }
 });
 </script>

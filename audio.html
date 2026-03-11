@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Audio drivers download for Windows - Realtek and other audio driver downloads.">
+    <meta name="description" content="Audio driver preview for DriverHub. Track progress and request launch notifications for Realtek and related audio drivers.">
     
     
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://raw.githubusercontent.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://prod.rexxit.net https://web-platforms.sfo2.cdn.digitaloceanspaces.com data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://raw.githubusercontent.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
     <link rel="canonical" href="https://driverhub.win/audio">
     
-    <title>Audio Drivers | DriverHub</title>
+    <title>Audio Drivers Preview | DriverHub</title>
 
     <script>
         (function() {
@@ -30,7 +30,7 @@
     
 </head>
 <body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
-    
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-500 focus:text-white focus:rounded-lg">Skip to main content</a>
 
     
 
@@ -44,6 +44,14 @@
             </a>
             <div class="flex items-center gap-1.5">
                 
+                <button id="global-search-btn" type="button" aria-haspopup="dialog" aria-controls="search-overlay" aria-expanded="false" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Search (Ctrl+K)">
+                    <span class="material-icons text-[20px]">search</span>
+                </button>
+                
+                
+                <button id="favorites-btn" type="button" aria-haspopup="dialog" aria-controls="favorites-panel" aria-expanded="false" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Watchlist">
+                    <span class="material-icons text-[20px]">star_outline</span>
+                </button>
                 
                 
                 <button id="darkModeToggle" type="button" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Toggle dark mode">
@@ -51,44 +59,189 @@
                 </button>
                 
                 
+                <button class="settings-button p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" type="button" aria-label="Settings" aria-haspopup="dialog" aria-controls="settings-overlay" aria-expanded="false" title="Settings">
+                    <span class="material-icons text-[20px]">tune</span>
+                </button>
+                
             </div>
         </div>
+        <nav class="flex items-center gap-0.5 -mb-px overflow-x-auto scrollbar-hide" role="navigation" aria-label="Main navigation">
+            <a href="/" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                <span class="material-icons text-[18px]">home</span>Home
+            </a>
+            <a href="/display" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                <span class="material-icons text-[18px]">videocam</span>Graphics
+            </a>
+            <a href="/chipset" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                <span class="material-icons text-[18px]">memory</span>Chipset
+            </a>
+            
+            <a href="/network" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                <span class="material-icons text-[18px]">wifi</span>Network
+                <span class="px-1.5 py-0.5 text-[10px] font-semibold tracking-wide uppercase rounded bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-300">Preview</span>
+            </a>
+            <a href="/audio" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400 whitespace-nowrap transition-colors">
+                <span class="material-icons text-[18px]">headphones</span>Audio
+                <span class="px-1.5 py-0.5 text-[10px] font-semibold tracking-wide uppercase rounded bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-300">Preview</span>
+            </a>
+            
+            <div class="w-px h-5 bg-gray-200 dark:bg-gray-700 mx-1.5"></div>
+            <a href="/contact" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                <span class="material-icons text-[18px]">mail_outline</span>Contact
+            </a>
+            
+            <a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                <span class="material-icons text-[18px]">description</span>Docs
+                <svg class="w-3 h-3 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            
+        </nav>
     </div>
 </header>
 
     
 
     
+        <div id="settings-overlay" class="settings-overlay hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="settings-title" aria-hidden="true" tabindex="-1">
+    <div id="settings-dialog" class="w-full max-w-md mx-4 bg-white dark:bg-gray-900 rounded-xl shadow-2xl overflow-hidden transform transition-all" tabindex="-1">
+        <div class="bg-gray-900 dark:bg-gray-800 px-6 py-4">
+            <div class="flex items-center justify-between">
+                <h2 id="settings-title" class="text-lg font-semibold text-white">Settings</h2>
+                <button class="close-settings p-1.5 rounded-lg hover:bg-white/10 text-white/70 hover:text-white transition-colors" type="button" aria-label="Close settings">
+                    <span class="material-icons text-[20px]">close</span>
+                </button>
+            </div>
+        </div>
+        <div class="p-6 space-y-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="material-icons text-gray-400">dark_mode</span>
+                    <span class="font-medium text-gray-900 dark:text-white">Dark Mode</span>
+                </div>
+                <button id="settingsDarkToggle" class="relative w-14 h-8 bg-gray-200 dark:bg-primary-500 rounded-full transition-colors" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+                    <span class="absolute left-1 dark:left-7 top-1 w-6 h-6 bg-white rounded-full shadow-md transition-all duration-200"></span>
+                </button>
+            </div>
+            <hr class="border-gray-200 dark:border-gray-700">
+            <div class="space-y-3">
+                <label for="regionSelect" class="flex items-center gap-3">
+                    <span class="material-icons text-gray-400">public</span>
+                    <span class="font-medium text-gray-900 dark:text-white">Download Region</span>
+                </label>
+                <select id="regionSelect" class="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none transition-colors text-gray-900 dark:text-white">
+                    <option value="USA">USA</option>
+                    <option value="EU">EU</option>
+                </select>
+                <p class="text-sm text-gray-500"><a href="https://docs.rexxit.net/drivers-website/articles/region-selection" target="_blank" rel="noopener noreferrer" class="text-primary-500 hover:text-primary-600 hover:underline">Learn more about regions</a></p>
+            </div>
+        </div>
+    </div>
+</div>
 
     
-<main class="flex-1 flex items-center justify-center">
-    <div class="text-center px-4 py-16">
-        <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary-50 dark:bg-primary-900/20 mb-6">
-            <span class="material-icons text-5xl text-primary-500">headphones</span>
-        </div>
-        <h1 class="page-heading mb-4">Audio Drivers</h1>
-        <p class="text-lg text-gray-500 dark:text-gray-400 mb-8 max-w-md mx-auto">Realtek and other audio drivers are coming soon.</p>
-        <a href="/" class="btn-primary">
-            <span class="material-icons text-lg">home</span>
-            Back to Home
-        </a>
+
+    
+<main id="main-content" class="flex-1 max-w-6xl mx-auto px-4 md:px-6 py-12 w-full">
+    <div class="mb-8">
+        <h1 class="page-heading mb-2">Audio Drivers Preview</h1>
+        <p class="page-subheading">Realtek and other Windows audio drivers are planned for v5.x. Follow progress and get notified.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-6">
+        <section class="lg:col-span-2 card p-6" data-animate>
+            <div class="flex items-center gap-2 mb-4">
+                <span class="material-icons text-primary-500">headphones</span>
+                <h2 class="section-heading">Roadmap Status</h2>
+            </div>
+            <div class="space-y-3 text-sm">
+                <div class="flex items-center justify-between gap-3 p-3 rounded-lg bg-gray-100 dark:bg-gray-800">
+                    <span class="text-gray-700 dark:text-gray-300">Data schema finalized</span>
+                    <span class="px-2 py-0.5 rounded text-xs font-semibold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">Done</span>
+                </div>
+                <div class="flex items-center justify-between gap-3 p-3 rounded-lg bg-gray-100 dark:bg-gray-800">
+                    <span class="text-gray-700 dark:text-gray-300">Vendor source validation</span>
+                    <span class="px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300">In progress</span>
+                </div>
+                <div class="flex items-center justify-between gap-3 p-3 rounded-lg bg-gray-100 dark:bg-gray-800">
+                    <span class="text-gray-700 dark:text-gray-300">Public listing launch</span>
+                    <span class="px-2 py-0.5 rounded text-xs font-semibold bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300">ETA v5.x</span>
+                </div>
+            </div>
+            <div class="mt-5 flex flex-wrap gap-2">
+                <span class="trust-chip"><span class="material-icons text-[14px]">schedule</span>ETA: v5.x</span>
+                <span class="trust-chip"><span class="material-icons text-[14px]">verified</span>Official vendor links only</span>
+            </div>
+        </section>
+
+        <aside class="card p-6" data-animate>
+            <h2 class="section-heading mb-2">Notify Me</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Save your email locally and jump to contact with a pre-filled request.</p>
+
+            <label for="audio-notify-email" class="sr-only">Email</label>
+            <input id="audio-notify-email" type="email" class="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none transition-colors text-gray-900 dark:text-white" placeholder="you@example.com">
+
+            <div class="mt-3 grid grid-cols-1 gap-2">
+                <button id="audio-save-notify" type="button" class="btn-primary justify-center">
+                    <span class="material-icons text-lg">notifications</span>
+                    Save Notification Request
+                </button>
+                <a id="audio-contact-link" href="/contact" class="btn-secondary justify-center">
+                    <span class="material-icons text-lg">mail_outline</span>
+                    Contact About Audio Launch
+                </a>
+            </div>
+
+            <p id="audio-notify-status" class="text-xs text-gray-500 mt-3" aria-live="polite"></p>
+        </aside>
     </div>
 </main>
 
 
     
-        <footer class="border-t border-gray-200 dark:border-gray-800">
-    <div class="max-w-6xl mx-auto px-4 md:px-6 py-8">
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-400 dark:text-gray-500">
+        <footer class="border-t border-gray-200 dark:border-gray-800 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 py-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+            <div class="col-span-2 md:col-span-1">
+                <a href="/" class="flex items-center gap-2 mb-3">
+                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-7 w-7">
+                    <span class="font-semibold text-gray-900 dark:text-white">DriverHub</span>
+                </a>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Free Windows driver downloads from official sources.</p>
+            </div>
+            <div>
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">Drivers</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="/display" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Graphics</a></li>
+                    <li><a href="/chipset" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Chipset</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">Resources</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Documentation</a></li>
+                    <li><a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Release Notes</a></li>
+                    <li><a href="/info/about-stabledrivers" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Stability Ratings</a></li>
+                    <li><a href="/feeds/drivers.json" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Driver Feed (JSON)</a></li>
+                    <li><a href="/feeds/drivers.xml" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Driver Feed (RSS)</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">About</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="/contact" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a></li>
+                    <li><a href="/sitemap.xml" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Sitemap</a></li>
+                    <li><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Support Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="pt-6 border-t border-gray-200 dark:border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-400 dark:text-gray-500">
             <div class="flex items-center gap-3">
                 <span id="site-version"></span>
                 <span id="update-date"></span>
             </div>
-            <div class="flex items-center gap-6">
-                <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-white transition-colors">Release Notes</a>
-                <a href="/sitemap.xml" class="hover:text-gray-900 dark:hover:text-white transition-colors">Sitemap</a>
-                <a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-white transition-colors">Support Us</a>
-            </div>
+            <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" target="_blank" rel="noopener noreferrer" class="opacity-50 hover:opacity-80 transition-opacity">
+                <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" class="h-6" alt="DigitalOcean" loading="lazy">
+            </a>
         </div>
     </div>
 </footer>
@@ -96,10 +249,58 @@
     
 
     
+    <script src="global/favorites.js"></script>
+    
+    <script src="global/search.js"></script>
+    
     <script src="global/darkMode.js"></script>
+    
+    <script src="global/regionSwitcher.js"></script>
+    
+    <script src="global/modern.js"></script>
     
     <script src="global/versionInfo.js"></script>
     
+    <script src="global/backToTop.js"></script>
     
+    
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const storageKey = 'driverhub_notify_audio';
+    const input = document.getElementById('audio-notify-email');
+    const saveButton = document.getElementById('audio-save-notify');
+    const status = document.getElementById('audio-notify-status');
+    const contactLink = document.getElementById('audio-contact-link');
+
+    function updateContactLink(email) {
+        const params = new URLSearchParams();
+        params.set('topic', 'audio-launch');
+        if (email) {
+            params.set('email', email);
+        }
+        contactLink.href = `/contact?${params.toString()}`;
+    }
+
+    const storedEmail = localStorage.getItem(storageKey) || '';
+    if (storedEmail && input) {
+        input.value = storedEmail;
+    }
+    updateContactLink(storedEmail);
+
+    if (saveButton && input) {
+        saveButton.addEventListener('click', function() {
+            const email = input.value.trim();
+            if (!email || !email.includes('@')) {
+                status.textContent = 'Enter a valid email address.';
+                return;
+            }
+            localStorage.setItem(storageKey, email);
+            updateContactLink(email);
+            status.textContent = 'Saved locally. Use the contact button to send your request.';
+        });
+    }
+});
+</script>
+
 </body>
 </html>
