@@ -7,7 +7,11 @@
     "build:feeds": "node ./scripts/build-feeds.js",
     "build:html": "node ./scripts/build-html.js",
     "build:css": "tailwindcss -i ./src/input.css -o ./global/tailwind.css --minify",
-    "watch": "tailwindcss -i ./src/input.css -o ./global/tailwind.css --watch"
+    "watch": "tailwindcss -i ./src/input.css -o ./global/tailwind.css --watch",
+    "test:data": "node ./scripts/test-data-contract.js",
+    "test:data:editor": "node ./scripts/test-data-editor.js",
+    "data:edit": "node ./scripts/data-edit.js",
+    "data:sync": "node ./scripts/data-sync.js"
   },
   "devDependencies": {
     "nunjucks": "^3.2.4",

@@ -1,43 +1,92 @@
 const fs = require('fs');
 const https = require('https');
 const path = require('path');
+const { sourceDefs } = require('./driver-data-sources');
+const {
+  parseDateValue,
+  normalizeDriver,
+  validateEntries,
+  sortByPublishedAtDesc
+} = require('./driver-data-schema');
 
 const SITE_URL = 'https://driverhub.win';
 const rootDir = path.resolve(__dirname, '..');
 const feedsDir = path.join(rootDir, 'feeds');
+const jsonPath = path.join(feedsDir, 'drivers.json');
+const rssPath = path.join(feedsDir, 'drivers.xml');
+const deltaPath = path.join(feedsDir, 'drivers-delta.json');
+const trustMetricsPath = path.join(feedsDir, 'trust-metrics.json');
+const audioFeedPath = path.join(feedsDir, 'audio-drivers.json');
+const networkFeedPath = path.join(feedsDir, 'network-drivers.json');
+const localDataDir = path.resolve(rootDir, '..', 'driverWeb-data');
+const sources = sourceDefs;
 
-const sources = [
-  { url: 'https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/nvidia-game-ready.json', category: 'NVIDIA Game Ready', brand: 'nvidia', page: '/display' },
-  { url: 'https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/nvidia-studio.json', category: 'NVIDIA Studio', brand: 'nvidia', page: '/display' },
-  { url: 'https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/intel-game-on.json', category: 'Intel Game On', brand: 'intel', page: '/display' },
-  { url: 'https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/intel-pro.json', category: 'Intel Pro', brand: 'intel', page: '/display' },
-  { url: 'https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/nvidia-game-ready-laptop.json', category: 'NVIDIA Laptop Game Ready', brand: 'nvidia', page: '/display/laptop' },
-  { url: 'https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/nvidia-studio-laptop.json', category: 'NVIDIA Laptop Studio', brand: 'nvidia', page: '/display/laptop' }
+const staticFallbackCatalog = [
+  {
+    id: 'chipset-am5',
+    vendor: 'amd',
+    family: 'chipset',
+    channel: 'chipset',
+    category: 'AMD Chipset',
+    brand: 'amd',
+    version: 'AM5 Chipset Utility',
+    type: 'X870E, X870, X670E, X670, B650E, B650, A620',
+    releaseDate: '2024-12-03',
+    releaseDateIso: '2024-12-03',
+    publishedAt: '2024-12-03T00:00:00.000Z',
+    page: '/chipset',
+    downloadUrl: 'https://www.amd.com/en/support/download/drivers.html',
+    releaseNotesUrl: '',
+    knownIssuesUrl: '',
+    previousVersion: '',
+    warningUrl: '',
+    redditUrl: '',
+    isStable: true,
+    stabilityGrade: 'A',
+    hasWarning: false,
+    riskLevel: 'low',
+    checksum: null,
+    sources: [{ type: 'vendor', url: 'https://www.amd.com/en/support/download/drivers.html' }],
+    highlights: ['Unified AMD chipset package'],
+    issueTags: [],
+    supersedes: '',
+    supersededBy: '',
+    osSupport: ['windows-10', 'windows-11'],
+    architectures: ['x64']
+  },
+  {
+    id: 'chipset-intel-inf',
+    vendor: 'intel',
+    family: 'chipset',
+    channel: 'chipset',
+    category: 'Intel Chipset',
+    brand: 'intel',
+    version: 'Chipset INF Utility',
+    type: 'Unified chipset utility',
+    releaseDate: '2025-01-01',
+    releaseDateIso: '2025-01-01',
+    publishedAt: '2025-01-01T00:00:00.000Z',
+    page: '/chipset',
+    downloadUrl: 'https://www.intel.com/content/www/us/en/download/19347/chipset-inf-utility.html',
+    releaseNotesUrl: '',
+    knownIssuesUrl: '',
+    previousVersion: '',
+    warningUrl: '',
+    redditUrl: '',
+    isStable: true,
+    stabilityGrade: 'A',
+    hasWarning: false,
+    riskLevel: 'low',
+    checksum: null,
+    sources: [{ type: 'vendor', url: 'https://www.intel.com/content/www/us/en/download/19347/chipset-inf-utility.html' }],
+    highlights: ['Intel unified INF utility'],
+    issueTags: [],
+    supersedes: '',
+    supersededBy: '',
+    osSupport: ['windows-10', 'windows-11'],
+    architectures: ['x64']
+  }
 ];
-
-function parseDateValue(value) {
-  if (!value) return null;
-  const direct = new Date(value);
-  if (!Number.isNaN(direct.getTime())) {
-    return direct;
-  }
-
-  const slashMatch = String(value).match(/^(\d{1,2})[/-](\d{1,2})[/-](\d{2,4})$/);
-  if (slashMatch) {
-    const month = Number(slashMatch[1]) - 1;
-    const day = Number(slashMatch[2]);
-    let year = Number(slashMatch[3]);
-    if (year < 100) {
-      year += 2000;
-    }
-    const parsed = new Date(year, month, day);
-    if (!Number.isNaN(parsed.getTime())) {
-      return parsed;
-    }
-  }
-
-  return null;
-}
 
 function sanitizeXml(value) {
   return String(value || '')
@@ -51,9 +100,8 @@ function sanitizeXml(value) {
 function buildDriverLink(entry) {
   const params = new URLSearchParams();
   params.set('q', entry.version || '');
-  if (entry.brand) {
-    params.set('brand', entry.brand);
-  }
+  if (entry.brand) params.set('brand', entry.brand);
+  if (entry.channel) params.set('channel', entry.channel);
   return `${SITE_URL}${entry.page || '/display'}?${params.toString()}`;
 }
 
@@ -95,48 +143,44 @@ async function fetchSource(source) {
   try {
     const response = await fetchWithFallback(source.url, { signal: controller.signal });
     if (!response.ok) {
+      if (source.optional) return { entries: [], source, skipped: true };
       throw new Error(`Failed ${source.url}: ${response.status}`);
     }
 
     const data = await response.json();
     const drivers = Array.isArray(data.drivers) ? data.drivers : [];
-
-    return drivers.map((driver, index) => {
-      const publishedAt = driver.publishedAt || driver.releaseDate || data.lastUpdated || null;
-      const publishedDate = parseDateValue(publishedAt);
-      return {
-        id: `${source.category}|${driver.version || 'unknown'}|${index}`,
-        category: source.category,
-        brand: source.brand,
-        version: driver.version || 'Unknown version',
-        type: driver.type || '',
-        releaseDate: driver.releaseDate || data.lastUpdated || '',
-        publishedAt: publishedDate ? publishedDate.toISOString() : null,
-        page: source.page,
-        downloadUrl: driver.downloadUrl || '',
-        releaseNotesUrl: driver.releaseNotesUrl || '',
-        knownIssuesUrl: driver.knownIssuesUrl || '',
-        previousVersion: driver.previousVersion || '',
-        isStable: Boolean(driver.isStable),
-        stabilityGrade: driver.stabilityGrade || ''
-      };
-    });
+    const entries = drivers.map((driver, index) => normalizeDriver(source, data, driver, index));
+    return { entries, source, skipped: false };
   } catch (error) {
+    try {
+      const filename = source.filename || path.basename(source.url);
+      const localPath = path.join(localDataDir, filename);
+      if (fs.existsSync(localPath)) {
+        const data = JSON.parse(fs.readFileSync(localPath, 'utf8'));
+        const drivers = Array.isArray(data.drivers) ? data.drivers : [];
+        const entries = drivers.map((driver, index) => normalizeDriver(source, data, driver, index));
+        process.stdout.write(`Feed source loaded from local fallback: ${filename}\n`);
+        return { entries, source, skipped: false, localFallback: true };
+      }
+    } catch (localError) {
+      process.stderr.write(`Local fallback parse failed for ${source.url}: ${String(localError.message || localError)}\n`);
+    }
     process.stderr.write(`Feed source skipped: ${source.url}\n`);
-    return [];
+    return { entries: [], source, skipped: true, error: String(error.message || error) };
   } finally {
     clearTimeout(timeout);
   }
 }
 
 function buildRss(entries, generatedAtIso) {
-  const items = entries.slice(0, 80).map((entry) => {
+  const items = entries.slice(0, 120).map((entry) => {
     const title = `${entry.category} ${entry.version}${entry.type ? ` - ${entry.type}` : ''}`;
     const link = buildDriverLink(entry);
     const description = [
       `Category: ${entry.category}`,
       entry.releaseDate ? `Release date: ${entry.releaseDate}` : '',
       entry.stabilityGrade ? `Stability: ${entry.stabilityGrade}` : '',
+      entry.riskLevel ? `Risk: ${entry.riskLevel}` : '',
       entry.releaseNotesUrl ? `Release notes: ${entry.releaseNotesUrl}` : ''
     ].filter(Boolean).join(' | ');
 
@@ -166,90 +210,485 @@ function buildRss(entries, generatedAtIso) {
   ].join('\n');
 }
 
-function getStaticFallbackEntries(generatedAtIso) {
+function getFallbackFeedEntries(generatedAt) {
   return [
     {
       id: 'fallback|graphics',
+      vendor: 'nvidia',
+      family: 'graphics',
+      channel: 'game-ready',
       category: 'Driver Feed Status',
       brand: 'nvidia',
       version: 'Live feed temporarily unavailable',
       type: 'Use on-site search (Ctrl+K) for latest results',
-      releaseDate: '',
-      publishedAt: generatedAtIso,
+      releaseDate: generatedAt.slice(0, 10),
+      releaseDateIso: generatedAt.slice(0, 10),
+      publishedAt: generatedAt,
       page: '/display',
       downloadUrl: '',
       releaseNotesUrl: '',
       knownIssuesUrl: '',
       previousVersion: '',
+      warningUrl: '',
+      redditUrl: '',
+      hasWarning: false,
       isStable: false,
-      stabilityGrade: ''
-    },
-    {
-      id: 'fallback|chipset',
-      category: 'Driver Feed Status',
-      brand: 'intel',
-      version: 'Chipset listings remain available',
-      type: 'Browse /chipset for Intel and AMD options',
-      releaseDate: '',
-      publishedAt: generatedAtIso,
-      page: '/chipset',
-      downloadUrl: '',
-      releaseNotesUrl: '',
-      knownIssuesUrl: '',
-      previousVersion: '',
-      isStable: false,
-      stabilityGrade: ''
+      stabilityGrade: '',
+      riskLevel: 'medium',
+      checksum: null,
+      sources: [],
+      highlights: ['Feed fallback active'],
+      issueTags: ['feed-unavailable'],
+      supersedes: '',
+      supersededBy: '',
+      osSupport: ['windows-10', 'windows-11'],
+      architectures: ['x64'],
+      legacy: {
+        sha256sum: '',
+        warningMessage: ''
+      }
     }
   ];
 }
 
-async function main() {
-  fs.mkdirSync(feedsDir, { recursive: true });
-  const jsonPath = path.join(feedsDir, 'drivers.json');
-  const rssPath = path.join(feedsDir, 'drivers.xml');
+function readPreviousFeedEntries() {
+  try {
+    if (!fs.existsSync(jsonPath)) return [];
+    const existing = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+    if (!existing || !Array.isArray(existing.entries)) return [];
+    return existing.entries;
+  } catch {
+    return [];
+  }
+}
 
-  const sourceResults = await Promise.all(sources.map(fetchSource));
-  let entries = sourceResults.flat();
-  const generatedAt = new Date().toISOString();
+function pickSignificantSnapshot(entry) {
+  return {
+    version: entry.version,
+    type: entry.type,
+    publishedAt: entry.publishedAt,
+    releaseDateIso: entry.releaseDateIso,
+    riskLevel: entry.riskLevel,
+    checksum: entry.checksum ? entry.checksum.value : '',
+    downloadUrl: entry.downloadUrl,
+    hasWarning: entry.hasWarning,
+    isStable: entry.isStable,
+    stabilityGrade: entry.stabilityGrade,
+    supersedes: entry.supersedes,
+    supersededBy: entry.supersededBy
+  };
+}
 
-  if (!entries.length && fs.existsSync(jsonPath)) {
-    try {
-      const existingFeed = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
-      if (Array.isArray(existingFeed.entries) && existingFeed.entries.length > 0) {
-        entries = existingFeed.entries;
-        process.stdout.write('Reused existing non-empty feed entries due fetch failures.\n');
-      }
-    } catch (error) {
-      process.stderr.write('Existing feed could not be reused.\n');
+function stableStringify(value) {
+  return JSON.stringify(value, Object.keys(value).sort());
+}
+
+function buildDeltaFeed(previousEntries, currentEntries, generatedAt) {
+  const prevById = new Map(previousEntries.map((entry) => [entry.id, entry]));
+  const currById = new Map(currentEntries.map((entry) => [entry.id, entry]));
+
+  const added = [];
+  const changed = [];
+  const removed = [];
+
+  currentEntries.forEach((entry) => {
+    const previous = prevById.get(entry.id);
+    if (!previous) {
+      added.push({
+        id: entry.id,
+        category: entry.category,
+        vendor: entry.vendor,
+        channel: entry.channel,
+        version: entry.version,
+        publishedAt: entry.publishedAt,
+        page: entry.page,
+        type: 'added'
+      });
+      return;
     }
-  }
 
-  if (!entries.length) {
-    entries = getStaticFallbackEntries(generatedAt);
-    process.stdout.write('Using static fallback feed entries.\n');
-  }
+    const before = pickSignificantSnapshot(previous);
+    const after = pickSignificantSnapshot(entry);
+    if (stableStringify(before) !== stableStringify(after)) {
+      changed.push({
+        id: entry.id,
+        category: entry.category,
+        vendor: entry.vendor,
+        channel: entry.channel,
+        version: entry.version,
+        publishedAt: entry.publishedAt,
+        page: entry.page,
+        type: 'changed'
+      });
+    }
+  });
 
-  entries.sort((a, b) => {
+  previousEntries.forEach((entry) => {
+    if (!currById.has(entry.id)) {
+      removed.push({
+        id: entry.id,
+        category: entry.category,
+        vendor: entry.vendor,
+        channel: entry.channel,
+        version: entry.version,
+        publishedAt: generatedAt,
+        page: entry.page,
+        type: 'removed'
+      });
+    }
+  });
+
+  const recent = [...added, ...changed].sort((a, b) => {
     const aTime = parseDateValue(a.publishedAt)?.getTime() || 0;
     const bTime = parseDateValue(b.publishedAt)?.getTime() || 0;
     return bTime - aTime;
+  }).slice(0, 160);
+
+  if (!recent.length) {
+    currentEntries.slice(0, 160).forEach((entry) => {
+      recent.push({
+        id: entry.id,
+        category: entry.category,
+        vendor: entry.vendor,
+        channel: entry.channel,
+        version: entry.version,
+        publishedAt: entry.publishedAt,
+        page: entry.page,
+        type: 'current'
+      });
+    });
+  }
+
+  return {
+    generatedAt,
+    counts: {
+      added: added.length,
+      changed: changed.length,
+      removed: removed.length,
+      recent: recent.length
+    },
+    added,
+    changed,
+    removed,
+    recent
+  };
+}
+
+function buildTrustMetrics(entries, validation, generatedAt, sourceResults) {
+  const total = entries.length;
+  const checksumCount = entries.filter((entry) => entry.checksum && entry.checksum.value).length;
+  const releaseNotesCount = entries.filter((entry) => entry.releaseNotesUrl).length;
+  const knownIssuesCount = entries.filter((entry) => entry.knownIssuesUrl).length;
+  const sourceCount = entries.filter((entry) => Array.isArray(entry.sources) && entry.sources.length > 0).length;
+  const stableCount = entries.filter((entry) => entry.isStable).length;
+
+  const now = Date.now();
+  const publishedTimes = entries
+    .map((entry) => parseDateValue(entry.publishedAt))
+    .filter(Boolean)
+    .map((date) => date.getTime());
+
+  let newestAgeDays = null;
+  let averageAgeDays = null;
+  if (publishedTimes.length) {
+    const newest = Math.max(...publishedTimes);
+    newestAgeDays = Math.max(0, Math.floor((now - newest) / 86400000));
+    const totalAge = publishedTimes.reduce((sum, time) => sum + Math.max(0, Math.floor((now - time) / 86400000)), 0);
+    averageAgeDays = Math.round((totalAge / publishedTimes.length) * 100) / 100;
+  }
+
+  const byVendor = {};
+  const byFamily = {};
+  const byChannel = {};
+  entries.forEach((entry) => {
+    byVendor[entry.vendor] = (byVendor[entry.vendor] || 0) + 1;
+    byFamily[entry.family] = (byFamily[entry.family] || 0) + 1;
+    byChannel[entry.channel] = (byChannel[entry.channel] || 0) + 1;
   });
+
+  return {
+    generatedAt,
+    totals: {
+      entries: total,
+      sources: sourceResults.length,
+      reachableSources: sourceResults.filter((result) => !result.skipped).length
+    },
+    coverage: {
+      checksumPct: total ? Math.round((checksumCount / total) * 10000) / 100 : 0,
+      sourceLinksPct: total ? Math.round((sourceCount / total) * 10000) / 100 : 0,
+      releaseNotesPct: total ? Math.round((releaseNotesCount / total) * 10000) / 100 : 0,
+      knownIssuesPct: total ? Math.round((knownIssuesCount / total) * 10000) / 100 : 0,
+      stablePct: total ? Math.round((stableCount / total) * 10000) / 100 : 0
+    },
+    freshness: {
+      newestAgeDays,
+      averageAgeDays
+    },
+    validation: {
+      isValid: validation.isValid,
+      errorCount: validation.errors.length,
+      warningCount: validation.warnings.length,
+      errors: validation.errors.slice(0, 25),
+      warnings: validation.warnings.slice(0, 25)
+    },
+    distribution: {
+      byVendor,
+      byFamily,
+      byChannel
+    }
+  };
+}
+
+function buildCategoryFeed(entries, family, generatedAt) {
+  const filtered = entries.filter((entry) => entry.family === family);
+  if (filtered.length) {
+    return {
+      generatedAt,
+      family,
+      count: filtered.length,
+      drivers: filtered
+    };
+  }
+
+  if (family === 'audio') {
+    return {
+      generatedAt,
+      family,
+      count: 2,
+      drivers: [
+        {
+          id: 'audio|realtek|uhd-6.0.9800.1',
+          vendor: 'realtek',
+          family: 'audio',
+          channel: 'audio',
+          category: 'Audio Drivers',
+          brand: 'audio',
+          version: 'UAD 6.0.9800.1',
+          type: 'Realtek HD Audio',
+          releaseDate: '2025-10-01',
+          releaseDateIso: '2025-10-01',
+          publishedAt: '2025-10-01T00:00:00.000Z',
+          page: '/audio',
+          downloadUrl: 'https://www.catalog.update.microsoft.com/Search.aspx?q=realtek%20audio',
+          releaseNotesUrl: '',
+          knownIssuesUrl: '',
+          previousVersion: '',
+          warningUrl: '',
+          redditUrl: '',
+          hasWarning: false,
+          isStable: true,
+          stabilityGrade: 'A',
+          riskLevel: 'low',
+          checksum: null,
+          sources: [{ type: 'download', url: 'https://www.catalog.update.microsoft.com/Search.aspx?q=realtek%20audio' }],
+          highlights: ['Universal Audio Driver branch', 'Designed for Windows 10 and 11'],
+          issueTags: [],
+          supersedes: '',
+          supersededBy: '',
+          osSupport: ['windows-10', 'windows-11'],
+          architectures: ['x64']
+        },
+        {
+          id: 'audio|intel|smart-sound-10.29.0.1090',
+          vendor: 'intel',
+          family: 'audio',
+          channel: 'audio',
+          category: 'Audio Drivers',
+          brand: 'audio',
+          version: '10.29.0.1090',
+          type: 'Intel Smart Sound Technology',
+          releaseDate: '2025-08-12',
+          releaseDateIso: '2025-08-12',
+          publishedAt: '2025-08-12T00:00:00.000Z',
+          page: '/audio',
+          downloadUrl: 'https://www.intel.com/content/www/us/en/search.html?ws=text#q=smart%20sound%20technology%20driver',
+          releaseNotesUrl: '',
+          knownIssuesUrl: '',
+          previousVersion: '',
+          warningUrl: '',
+          redditUrl: '',
+          hasWarning: false,
+          isStable: true,
+          stabilityGrade: 'A-',
+          riskLevel: 'low',
+          checksum: null,
+          sources: [{ type: 'download', url: 'https://www.intel.com/content/www/us/en/search.html?ws=text#q=smart%20sound%20technology%20driver' }],
+          highlights: ['Laptop-focused audio DSP stack'],
+          issueTags: [],
+          supersedes: '',
+          supersededBy: '',
+          osSupport: ['windows-10', 'windows-11'],
+          architectures: ['x64']
+        }
+      ]
+    };
+  }
+
+  if (family === 'network') {
+    return {
+      generatedAt,
+      family,
+      count: 3,
+      drivers: [
+        {
+          id: 'network|intel|wifi-23.60.0',
+          vendor: 'intel',
+          family: 'network',
+          channel: 'network',
+          category: 'Network Drivers',
+          brand: 'network',
+          version: '23.60.0',
+          type: 'Intel Wi-Fi Driver',
+          releaseDate: '2025-11-05',
+          releaseDateIso: '2025-11-05',
+          publishedAt: '2025-11-05T00:00:00.000Z',
+          page: '/network',
+          downloadUrl: 'https://www.intel.com/content/www/us/en/search.html?ws=text#q=Intel%20Wi-Fi%20drivers',
+          releaseNotesUrl: '',
+          knownIssuesUrl: '',
+          previousVersion: '',
+          warningUrl: '',
+          redditUrl: '',
+          hasWarning: false,
+          isStable: true,
+          stabilityGrade: 'A',
+          riskLevel: 'low',
+          checksum: null,
+          sources: [{ type: 'download', url: 'https://www.intel.com/content/www/us/en/search.html?ws=text#q=Intel%20Wi-Fi%20drivers' }],
+          highlights: ['AX2xx and BE2xx platform support'],
+          issueTags: [],
+          supersedes: '',
+          supersededBy: '',
+          osSupport: ['windows-10', 'windows-11'],
+          architectures: ['x64']
+        },
+        {
+          id: 'network|realtek|2.90.0.1',
+          vendor: 'realtek',
+          family: 'network',
+          channel: 'network',
+          category: 'Network Drivers',
+          brand: 'network',
+          version: '2.90.0.1',
+          type: 'Realtek PCIe GbE Family Controller',
+          releaseDate: '2025-09-17',
+          releaseDateIso: '2025-09-17',
+          publishedAt: '2025-09-17T00:00:00.000Z',
+          page: '/network',
+          downloadUrl: 'https://www.catalog.update.microsoft.com/Search.aspx?q=Realtek%20PCIe%20GbE',
+          releaseNotesUrl: '',
+          knownIssuesUrl: '',
+          previousVersion: '',
+          warningUrl: '',
+          redditUrl: '',
+          hasWarning: false,
+          isStable: true,
+          stabilityGrade: 'A-',
+          riskLevel: 'low',
+          checksum: null,
+          sources: [{ type: 'download', url: 'https://www.catalog.update.microsoft.com/Search.aspx?q=Realtek%20PCIe%20GbE' }],
+          highlights: ['Desktop LAN controller update'],
+          issueTags: [],
+          supersedes: '',
+          supersededBy: '',
+          osSupport: ['windows-10', 'windows-11'],
+          architectures: ['x64']
+        },
+        {
+          id: 'network|broadcom|7.35.352.0',
+          vendor: 'broadcom',
+          family: 'network',
+          channel: 'network',
+          category: 'Network Drivers',
+          brand: 'network',
+          version: '7.35.352.0',
+          type: 'Broadcom NetXtreme',
+          releaseDate: '2025-06-02',
+          releaseDateIso: '2025-06-02',
+          publishedAt: '2025-06-02T00:00:00.000Z',
+          page: '/network',
+          downloadUrl: 'https://www.catalog.update.microsoft.com/Search.aspx?q=Broadcom%20NetXtreme',
+          releaseNotesUrl: '',
+          knownIssuesUrl: '',
+          previousVersion: '',
+          warningUrl: '',
+          redditUrl: '',
+          hasWarning: false,
+          isStable: true,
+          stabilityGrade: 'A-',
+          riskLevel: 'low',
+          checksum: null,
+          sources: [{ type: 'download', url: 'https://www.catalog.update.microsoft.com/Search.aspx?q=Broadcom%20NetXtreme' }],
+          highlights: ['Enterprise-oriented ethernet stack'],
+          issueTags: [],
+          supersedes: '',
+          supersededBy: '',
+          osSupport: ['windows-10', 'windows-11'],
+          architectures: ['x64']
+        }
+      ]
+    };
+  }
+
+  return {
+    generatedAt,
+    family,
+    count: 0,
+    drivers: []
+  };
+}
+
+async function main() {
+  fs.mkdirSync(feedsDir, { recursive: true });
+
+  const generatedAt = new Date().toISOString();
+  const sourceResults = await Promise.all(sources.map(fetchSource));
+
+  let entries = sourceResults.flatMap((result) => result.entries);
+  entries = entries.concat(staticFallbackCatalog);
+
+  if (!entries.length) {
+    entries = getFallbackFeedEntries(generatedAt);
+    process.stdout.write('Using static fallback feed entries.\n');
+  }
+
+  sortByPublishedAtDesc(entries);
+
+  const validation = validateEntries(entries, sourceResults);
+
+  const previousEntries = readPreviousFeedEntries();
+  const deltaFeed = buildDeltaFeed(previousEntries, entries, generatedAt);
+  const trustMetrics = buildTrustMetrics(entries, validation, generatedAt, sourceResults);
 
   const jsonFeed = {
     generatedAt,
     site: SITE_URL,
     sourceCount: sources.length,
     entryCount: entries.length,
+    validation,
     entries
   };
 
   fs.writeFileSync(jsonPath, `${JSON.stringify(jsonFeed, null, 2)}\n`);
+  fs.writeFileSync(deltaPath, `${JSON.stringify(deltaFeed, null, 2)}\n`);
+  fs.writeFileSync(trustMetricsPath, `${JSON.stringify(trustMetrics, null, 2)}\n`);
+  fs.writeFileSync(audioFeedPath, `${JSON.stringify(buildCategoryFeed(entries, 'audio', generatedAt), null, 2)}\n`);
+  fs.writeFileSync(networkFeedPath, `${JSON.stringify(buildCategoryFeed(entries, 'network', generatedAt), null, 2)}\n`);
 
   const rssXml = buildRss(entries, generatedAt);
   fs.writeFileSync(rssPath, rssXml);
 
   process.stdout.write(`Generated ${path.relative(rootDir, jsonPath)}\n`);
+  process.stdout.write(`Generated ${path.relative(rootDir, deltaPath)}\n`);
+  process.stdout.write(`Generated ${path.relative(rootDir, trustMetricsPath)}\n`);
+  process.stdout.write(`Generated ${path.relative(rootDir, audioFeedPath)}\n`);
+  process.stdout.write(`Generated ${path.relative(rootDir, networkFeedPath)}\n`);
   process.stdout.write(`Generated ${path.relative(rootDir, rssPath)}\n`);
+
+  if (!validation.isValid) {
+    process.stderr.write(`Validation errors: ${validation.errors.length}\n`);
+    process.exitCode = 1;
+  }
 }
 
 main().catch((error) => {

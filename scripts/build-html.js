@@ -20,7 +20,8 @@ const pages = [
   { template: 'pages/display/index.njk', output: 'display/index.html' },
   { template: 'pages/display/laptop.njk', output: 'display/laptop.html' },
   { template: 'pages/display/warn.njk', output: 'display/warn.html' },
-  { template: 'pages/info/about-stabledrivers.njk', output: 'info/about-stabledrivers.html' }
+  { template: 'pages/info/about-stabledrivers.njk', output: 'info/about-stabledrivers.html' },
+  { template: 'pages/info/trust-center.njk', output: 'info/trust-center.html' },
 ];
 
 for (const page of pages) {

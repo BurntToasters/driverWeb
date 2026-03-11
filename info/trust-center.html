@@ -4,24 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Download the latest NVIDIA GeForce, AMD Radeon, and Intel Arc graphics drivers for Windows 10 and 11.">
-    <meta name="keywords" content="NVIDIA drivers, AMD drivers, Intel graphics drivers, GeForce drivers, Radeon drivers, Arc drivers, Game Ready drivers">
+    <meta name="description" content="Data freshness, coverage, and validation health for DriverHub feeds.">
+    
     
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://raw.githubusercontent.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://prod.rexxit.net https://web-platforms.sfo2.cdn.digitaloceanspaces.com data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://raw.githubusercontent.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
-    <link rel="canonical" href="https://driverhub.win/display">
+    <link rel="canonical" href="https://driverhub.win/info/trust-center">
     
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://driverhub.win/display">
-<meta property="og:title" content="Graphics Drivers - NVIDIA, AMD & Intel | DriverHub">
-<meta property="og:description" content="Download the latest NVIDIA GeForce, AMD Radeon, and Intel Arc graphics drivers for Windows.">
-<meta property="og:image" content="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp">
-
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://driverhub.win/display">
-<meta property="twitter:title" content="Graphics Drivers - NVIDIA, AMD & Intel | DriverHub">
-
-    <title>Graphics Drivers - NVIDIA, AMD & Intel | DriverHub</title>
+    <title>Trust Center | DriverHub</title>
 
     <script>
         (function() {
@@ -61,10 +51,6 @@
                 </button>
                 
                 
-                <button id="favorites-btn" type="button" aria-haspopup="dialog" aria-controls="favorites-panel" aria-expanded="false" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Watchlist">
-                    <span class="material-icons text-[20px]">star_outline</span>
-                </button>
-                
                 
                 <button id="darkModeToggle" type="button" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Toggle dark mode">
                     <span class="material-icons text-[20px]">dark_mode</span>
@@ -81,7 +67,7 @@
             <a href="/" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
                 <span class="material-icons text-[18px]">home</span>Home
             </a>
-            <a href="/display" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400 whitespace-nowrap transition-colors">
+            <a href="/display" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
                 <span class="material-icons text-[18px]">videocam</span>Graphics
             </a>
             <a href="/chipset" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
@@ -153,119 +139,22 @@
     
 
     
-<main id="main-content" class="flex-1 max-w-7xl mx-auto px-4 md:px-6 py-10 w-full">
+<main id="main-content" class="flex-1 max-w-6xl mx-auto px-4 md:px-6 py-10 w-full">
     <div class="mb-8">
-        <h1 class="page-heading mb-2">Desktop GPU Drivers</h1>
-        <p class="page-subheading">Professional driver catalog with risk labels, compare mode, and compatibility filtering</p>
+        <h1 class="page-heading mb-2">Trust Center</h1>
+        <p class="page-subheading">Live feed validation status, coverage, and freshness metrics.</p>
     </div>
 
-    <div class="flex items-center justify-between flex-wrap gap-4 mb-8">
-        <div class="inline-flex rounded-lg bg-gray-100 dark:bg-gray-800 p-1">
-            <a href="/display/" class="px-4 py-2 text-sm font-medium rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm">Desktop</a>
-            <a href="/display/laptop" class="px-4 py-2 text-sm font-medium rounded-md text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Laptop</a>
-        </div>
-        <div class="flex items-center gap-2">
-            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-medium bg-gray-900 dark:bg-white text-white dark:text-gray-900" data-filter="all" type="button">All</button>
-            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-medium text-gray-500 border border-gray-200 dark:border-gray-700" data-filter="stable" type="button">Stable</button>
-            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-bold text-gray-500 border border-gray-200 dark:border-gray-700" data-filter="grade-A+" type="button">A+</button>
-            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-bold text-gray-500 border border-gray-200 dark:border-gray-700" data-filter="grade-A" type="button">A</button>
-            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-bold text-gray-500 border border-gray-200 dark:border-gray-700" data-filter="grade-A-" type="button">A-</button>
-        </div>
-    </div>
-
-    <div class="grid lg:grid-cols-[280px_1fr] gap-6 items-start">
-        <aside class="card p-4 sticky top-20 space-y-3" data-animate>
-            <h2 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wide">Compatibility Assistant</h2>
-            <input id="filter-query-input" type="text" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white" placeholder="Search version or notes...">
-            <select id="filter-brand-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
-                <option value="">All vendors</option>
-                <option value="nvidia">NVIDIA</option>
-                <option value="intel">Intel</option>
-                <option value="amd">AMD</option>
-            </select>
-            <select id="filter-channel-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
-                <option value="">All channels</option>
-                <option value="game-ready">Game Ready</option>
-                <option value="studio">Studio</option>
-                <option value="game-on">Game On</option>
-                <option value="pro">Pro</option>
-            </select>
-            <select id="filter-risk-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
-                <option value="">All risk levels</option>
-                <option value="low">Low risk</option>
-                <option value="medium">Medium risk</option>
-                <option value="high">High risk</option>
-            </select>
-            <select id="filter-os-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
-                <option value="">All OS targets</option>
-                <option value="windows-11">Windows 11</option>
-                <option value="windows-10">Windows 10</option>
-            </select>
-            <select id="filter-view-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
-                <option value="comfortable">Comfortable view</option>
-                <option value="dense">Dense view</option>
-            </select>
-            <button id="filter-clear-button" type="button" class="btn-secondary w-full justify-center !px-3 !py-2 text-sm">
-                <span class="material-icons text-base">refresh</span>
-                Reset Filters
-            </button>
-        </aside>
-
-        <div class="space-y-6">
-            <section class="card overflow-hidden" data-animate data-brand-section="nvidia">
-                <div class="p-5 border-l-4 border-nvidia">
-                    <div class="flex items-center gap-3 mb-1">
-                        <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt="NVIDIA" class="h-9 w-9 object-contain rounded" loading="lazy">
-                        <h2 class="section-heading">NVIDIA Desktop Drivers</h2>
-                    </div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Game Ready and Studio channels with compare and risk-aware filtering.</p>
-                    <div class="space-y-4">
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Game Ready</h3>
-                            <div id="nvidia-game-ready-drivers"></div>
-                        </div>
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Studio</h3>
-                            <div id="nvidia-studio-drivers"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="card overflow-hidden" data-animate data-brand-section="intel">
-                <div class="p-5 border-l-4 border-intel">
-                    <div class="flex items-center gap-3 mb-1">
-                        <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt="Intel" class="h-9 w-9 object-contain" loading="lazy">
-                        <h2 class="section-heading">Intel Arc Drivers</h2>
-                    </div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Game On and Professional channels with stability-focused controls.</p>
-                    <div class="space-y-4">
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Game On</h3>
-                            <div id="intel-game-on-drivers"></div>
-                        </div>
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Pro</h3>
-                            <div id="intel-pro-drivers"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="card overflow-hidden" data-animate data-brand-section="amd">
-                <div class="p-5 border-l-4 border-amd">
-                    <div class="flex items-center gap-3 mb-1">
-                        <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt="AMD" class="h-9 w-9 object-contain" loading="lazy">
-                        <h2 class="section-heading">AMD Radeon Drivers</h2>
-                    </div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-5">AMD direct package URLs are limited. Use official auto-detect for best results.</p>
-                    <a href="https://www.amd.com/en/support/download/drivers.html" target="_blank" rel="noopener noreferrer" class="btn-brand-amd">
-                        <span class="material-icons text-lg">download</span>
-                        AMD Auto-Detect Tool
-                    </a>
-                </div>
-            </section>
-        </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6" id="trust-kpis"></div>
+    <div class="grid lg:grid-cols-2 gap-6">
+        <section class="card p-5" data-animate>
+            <h2 class="section-heading mb-3">Coverage</h2>
+            <div id="trust-coverage" class="space-y-2 text-sm text-gray-600 dark:text-gray-300"></div>
+        </section>
+        <section class="card p-5" data-animate>
+            <h2 class="section-heading mb-3">Validation</h2>
+            <div id="trust-validation" class="space-y-2 text-sm text-gray-600 dark:text-gray-300"></div>
+        </section>
     </div>
 </main>
 
@@ -323,8 +212,6 @@
     
 
     
-    <script src="../global/favorites.js"></script>
-    
     <script src="../global/search.js"></script>
     
     <script src="../global/darkMode.js"></script>
@@ -335,18 +222,47 @@
     
     <script src="../global/versionInfo.js"></script>
     
-    <script src="../global/driverLoader.js"></script>
-    
     <script src="../global/backToTop.js"></script>
     
     
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const baseUrl = 'https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/';
-    loadDrivers(baseUrl + 'nvidia-game-ready.json', 'nvidia-game-ready-drivers', { family: 'graphics', channel: 'game-ready', brand: 'nvidia', page: '/display' });
-    loadDrivers(baseUrl + 'nvidia-studio.json', 'nvidia-studio-drivers', { family: 'graphics', channel: 'studio', brand: 'nvidia', page: '/display' });
-    loadDrivers(baseUrl + 'intel-game-on.json', 'intel-game-on-drivers', { family: 'graphics', channel: 'game-on', brand: 'intel', page: '/display' });
-    loadDrivers(baseUrl + 'intel-pro.json', 'intel-pro-drivers', { family: 'graphics', channel: 'pro', brand: 'intel', page: '/display' });
+    const kpis = document.getElementById('trust-kpis');
+    const coverage = document.getElementById('trust-coverage');
+    const validation = document.getElementById('trust-validation');
+
+    function card(label, value) {
+        const node = document.createElement('div');
+        node.className = 'card p-4';
+        node.innerHTML = `<div class="text-xs uppercase tracking-wide text-gray-500">${label}</div><div class="text-2xl font-semibold text-gray-900 dark:text-white mt-1">${value}</div>`;
+        return node;
+    }
+
+    fetch('/feeds/trust-metrics.json')
+        .then((r) => r.ok ? r.json() : Promise.reject())
+        .then(function(data) {
+            kpis.appendChild(card('Entries', data.totals && data.totals.entries ? data.totals.entries : 0));
+            kpis.appendChild(card('Reachable Sources', data.totals && data.totals.reachableSources ? data.totals.reachableSources : 0));
+            kpis.appendChild(card('Checksum Coverage', `${data.coverage && data.coverage.checksumPct ? data.coverage.checksumPct : 0}%`));
+            kpis.appendChild(card('Newest Age', `${data.freshness && data.freshness.newestAgeDays !== null ? data.freshness.newestAgeDays : '-'} days`));
+
+            coverage.innerHTML = `
+                <div>Source links: <strong>${data.coverage && data.coverage.sourceLinksPct ? data.coverage.sourceLinksPct : 0}%</strong></div>
+                <div>Release notes: <strong>${data.coverage && data.coverage.releaseNotesPct ? data.coverage.releaseNotesPct : 0}%</strong></div>
+                <div>Known issues: <strong>${data.coverage && data.coverage.knownIssuesPct ? data.coverage.knownIssuesPct : 0}%</strong></div>
+                <div>Stable-tagged: <strong>${data.coverage && data.coverage.stablePct ? data.coverage.stablePct : 0}%</strong></div>
+            `;
+
+            validation.innerHTML = `
+                <div>Valid feed: <strong>${data.validation && data.validation.isValid ? 'Yes' : 'No'}</strong></div>
+                <div>Error count: <strong>${data.validation && data.validation.errorCount ? data.validation.errorCount : 0}</strong></div>
+                <div>Warning count: <strong>${data.validation && data.validation.warningCount ? data.validation.warningCount : 0}</strong></div>
+                <div class="text-xs text-gray-500 mt-3">Generated at: ${data.generatedAt || ''}</div>
+            `;
+        })
+        .catch(function() {
+            if (kpis) kpis.textContent = 'Trust metrics unavailable.';
+        });
 });
 </script>
 

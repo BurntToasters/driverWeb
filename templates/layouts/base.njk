@@ -23,9 +23,11 @@
         })();
     </script>
 
+    <meta name="theme-color" content="#0f172a">
+    <link rel="manifest" href="{{ assetPrefix | default('', true) }}manifest.webmanifest">
     <link rel="stylesheet" href="{{ assetPrefix | default('', true) }}global/tailwind.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="{{ assetPrefix | default('', true) }}global/favicon.ico">
     {% block headExtra %}{% endblock %}
 </head>
@@ -56,5 +58,6 @@
     <script src="{{ assetPrefix | default('', true) }}{{ script }}"></script>
     {% endfor %}
     {% block pageScripts %}{% endblock %}
+    <script src="{{ assetPrefix | default('', true) }}global/pwa.js"></script>
 </body>
 </html>

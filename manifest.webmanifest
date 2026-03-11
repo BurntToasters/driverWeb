@@ -1,0 +1,17 @@
+{
+  "name": "DriverHub",
+  "short_name": "DriverHub",
+  "description": "Professional Windows driver catalog",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/global/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}

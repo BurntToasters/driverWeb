@@ -8,6 +8,8 @@ const FavoritesModule = (function() {
     let isOpen = false;
     let lastTrigger = null;
     const latestByCategory = {};
+    const deltaLatestByCategory = {};
+    const deltaRecentByCategory = {};
 
     function getOverlayState() {
         if (!window.__driverhubOverlayState) {
@@ -137,6 +139,10 @@ const FavoritesModule = (function() {
                 downloadUrl: driver.downloadUrl,
                 brand: driver.brand,
                 page: driver.page || '/display',
+                id: driver.id || '',
+                channel: driver.channel || '',
+                riskLevel: driver.riskLevel || '',
+                publishedAt: driver.publishedAt || '',
                 addedAt: Date.now()
             });
             saveWatchlist(watchlist);
@@ -216,7 +222,7 @@ const FavoritesModule = (function() {
     }
 
     function getLatestVersionForCategory(category) {
-        return latestByCategory[category] || '';
+        return deltaLatestByCategory[category] || latestByCategory[category] || '';
     }
 
     function hasNewForItem(item) {
@@ -442,6 +448,13 @@ const FavoritesModule = (function() {
             metaDiv.textContent = item.type || item.category;
             infoDiv.appendChild(metaDiv);
 
+            if (hasNew && deltaRecentByCategory[item.category]) {
+                const updateDiv = document.createElement('div');
+                updateDiv.className = 'text-xs text-emerald-600 dark:text-emerald-300 mt-0.5 truncate';
+                updateDiv.textContent = `Latest: ${deltaRecentByCategory[item.category].version}`;
+                infoDiv.appendChild(updateDiv);
+            }
+
             topRow.appendChild(infoDiv);
             watchItem.appendChild(topRow);
 
@@ -544,6 +557,32 @@ const FavoritesModule = (function() {
         }
     }
 
+    function loadDeltaFeed() {
+        fetch('/feeds/drivers-delta.json')
+            .then(function(response) {
+                if (!response.ok) return null;
+                return response.json();
+            })
+            .then(function(data) {
+                if (!data || !Array.isArray(data.recent)) return;
+                data.recent.forEach(function(item) {
+                    if (!item.category) return;
+                    if (!deltaLatestByCategory[item.category]) {
+                        deltaLatestByCategory[item.category] = item.version || '';
+                    }
+                    if (!deltaRecentByCategory[item.category]) {
+                        deltaRecentByCategory[item.category] = item;
+                    }
+                });
+                updateHeaderNotification();
+                if (isOpen) {
+                    renderFavoritesPanel();
+                }
+            })
+            .catch(function() {
+            });
+    }
+
     function init() {
         const favBtn = document.getElementById('favorites-btn');
         if (favBtn) {
@@ -563,6 +602,7 @@ const FavoritesModule = (function() {
 
         updateFavoriteButtons();
         updateHeaderNotification();
+        loadDeltaFeed();
     }
 
     document.addEventListener('DOMContentLoaded', init);

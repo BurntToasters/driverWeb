@@ -33,21 +33,13 @@
         })();
     </script>
 
+    <meta name="theme-color" content="#0f172a">
+    <link rel="manifest" href="../manifest.webmanifest">
     <link rel="stylesheet" href="../global/tailwind.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="../global/favicon.ico">
     
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Laptop Graphics Drivers",
-  "description": "Download NVIDIA GeForce and Intel laptop graphics drivers for Windows.",
-  "url": "https://driverhub.win/display/laptop"
-}
-</script>
-
 </head>
 <body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-500 focus:text-white focus:rounded-lg">Skip to main content</a>
@@ -161,10 +153,10 @@
     
 
     
-<main id="main-content" class="flex-1 max-w-6xl mx-auto px-4 md:px-6 py-12 w-full">
+<main id="main-content" class="flex-1 max-w-7xl mx-auto px-4 md:px-6 py-10 w-full">
     <div class="mb-8">
         <h1 class="page-heading mb-2">Laptop GPU Drivers</h1>
-        <p class="page-subheading">Download graphics drivers for NVIDIA and Intel laptop GPUs</p>
+        <p class="page-subheading">Mobile-focused NVIDIA and Intel releases with channel, risk, and compare controls</p>
     </div>
 
     <div class="flex items-center justify-between flex-wrap gap-4 mb-8">
@@ -172,152 +164,88 @@
             <a href="/display/" class="px-4 py-2 text-sm font-medium rounded-md text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Desktop</a>
             <a href="/display/laptop" class="px-4 py-2 text-sm font-medium rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm">Laptop</a>
         </div>
-
-        <div class="flex flex-wrap items-center gap-2">
-            <span class="text-sm text-gray-500 dark:text-gray-400 mr-1">Filter:</span>
-            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-medium bg-gray-900 dark:bg-white text-white dark:text-gray-900 transition-all duration-200" data-filter="all" type="button">All</button>
-            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-medium text-gray-500 border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-200" data-filter="stable" type="button">Stable</button>
-            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-bold text-gray-500 border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-200" data-filter="grade-A+" type="button">A+</button>
-            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-bold text-gray-500 border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-200" data-filter="grade-A" type="button">A</button>
-            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-bold text-gray-500 border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-200" data-filter="grade-A-" type="button">A-</button>
+        <div class="flex items-center gap-2">
+            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-medium bg-gray-900 dark:bg-white text-white dark:text-gray-900" data-filter="all" type="button">All</button>
+            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-medium text-gray-500 border border-gray-200 dark:border-gray-700" data-filter="stable" type="button">Stable</button>
+            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-bold text-gray-500 border border-gray-200 dark:border-gray-700" data-filter="grade-A+" type="button">A+</button>
+            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-bold text-gray-500 border border-gray-200 dark:border-gray-700" data-filter="grade-A" type="button">A</button>
+            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-bold text-gray-500 border border-gray-200 dark:border-gray-700" data-filter="grade-A-" type="button">A-</button>
         </div>
     </div>
 
-    <div class="space-y-6">
-        <section class="card overflow-hidden" data-animate data-brand-section="nvidia">
-            <div class="p-6 border-l-4 border-nvidia">
-                <div class="flex items-center gap-3 mb-1">
-                    <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt="NVIDIA" class="h-9 w-9 object-contain rounded" loading="lazy">
-                    <h2 class="section-heading">NVIDIA Laptop Drivers</h2>
-                </div>
-                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Game Ready and Studio drivers for NVIDIA laptop GPUs. Downloads link directly to <a href="https://www.nvidia.com/en-us/geforce/drivers/" target="_blank" rel="noopener noreferrer" class="text-primary-500 hover:underline">NVIDIA</a>. For desktop drivers, <a href="/display" class="text-primary-500 hover:underline">click here</a>.</p>
+    <div class="grid lg:grid-cols-[280px_1fr] gap-6 items-start">
+        <aside class="card p-4 sticky top-20 space-y-3" data-animate>
+            <h2 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wide">Compatibility Assistant</h2>
+            <input id="filter-query-input" type="text" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white" placeholder="Search version or notes...">
+            <select id="filter-brand-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
+                <option value="">All vendors</option>
+                <option value="nvidia">NVIDIA</option>
+                <option value="intel">Intel</option>
+                <option value="amd">AMD</option>
+            </select>
+            <select id="filter-channel-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
+                <option value="">All channels</option>
+                <option value="game-ready">Game Ready</option>
+                <option value="studio">Studio</option>
+                <option value="game-on">Game On</option>
+            </select>
+            <select id="filter-risk-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
+                <option value="">All risk levels</option>
+                <option value="low">Low risk</option>
+                <option value="medium">Medium risk</option>
+                <option value="high">High risk</option>
+            </select>
+            <select id="filter-os-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
+                <option value="">All OS targets</option>
+                <option value="windows-11">Windows 11</option>
+                <option value="windows-10">Windows 10</option>
+            </select>
+            <select id="filter-view-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
+                <option value="comfortable">Comfortable view</option>
+                <option value="dense">Dense view</option>
+            </select>
+            <button id="filter-clear-button" type="button" class="btn-secondary w-full justify-center !px-3 !py-2 text-sm">
+                <span class="material-icons text-base">refresh</span>
+                Reset Filters
+            </button>
+        </aside>
 
-                <button data-collapsible aria-expanded="false" class="w-full px-4 py-3 rounded-lg font-medium text-left bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800/80 text-gray-900 dark:text-white flex items-center justify-between transition-colors mb-2" type="button">
-                    <span class="flex items-center gap-2">
-                        <span class="material-icons text-nvidia text-lg">folder</span>
-                        Game Ready Drivers
-                    </span>
-                    <span data-collapsible-icon class="material-icons text-gray-400 transition-transform duration-200 text-lg">expand_more</span>
-                </button>
-                <div class="hidden overflow-hidden transition-all duration-300 mb-3" style="max-height: 0; opacity: 0;">
-                    <div class="pt-2" id="nvidia-game-ready-laptop-drivers"></div>
+        <div class="space-y-6">
+            <section class="card overflow-hidden" data-animate data-brand-section="nvidia">
+                <div class="p-5 border-l-4 border-nvidia">
+                    <div class="flex items-center gap-3 mb-1">
+                        <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt="NVIDIA" class="h-9 w-9 object-contain rounded" loading="lazy">
+                        <h2 class="section-heading">NVIDIA Laptop Drivers</h2>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Game Ready and Studio channels for notebook GPUs.</p>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Game Ready</h3>
+                            <div id="nvidia-game-ready-laptop-drivers"></div>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Studio</h3>
+                            <div id="nvidia-studio-laptop-drivers"></div>
+                        </div>
+                    </div>
                 </div>
+            </section>
 
-                <button data-collapsible aria-expanded="false" class="w-full px-4 py-3 rounded-lg font-medium text-left bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800/80 text-gray-900 dark:text-white flex items-center justify-between transition-colors" type="button">
-                    <span class="flex items-center gap-2">
-                        <span class="material-icons text-nvidia text-lg">folder</span>
-                        Studio Drivers
-                    </span>
-                    <span data-collapsible-icon class="material-icons text-gray-400 transition-transform duration-200 text-lg">expand_more</span>
-                </button>
-                <div class="hidden overflow-hidden transition-all duration-300" style="max-height: 0; opacity: 0;">
-                    <div class="pt-2" id="nvidia-studio-laptop-drivers"></div>
+            <section class="card overflow-hidden" data-animate data-brand-section="amd">
+                <div class="p-5 border-l-4 border-amd">
+                    <div class="flex items-center gap-3 mb-1">
+                        <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt="AMD" class="h-9 w-9 object-contain" loading="lazy">
+                        <h2 class="section-heading">AMD Radeon Laptop Drivers</h2>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-5">Use AMD's official auto-detect tool for mobile Radeon compatibility.</p>
+                    <a href="https://www.amd.com/en/support/download/drivers.html" target="_blank" rel="noopener noreferrer" class="btn-brand-amd">
+                        <span class="material-icons text-lg">download</span>
+                        AMD Auto-Detect Tool
+                    </a>
                 </div>
-            </div>
-        </section>
-
-        <section class="card overflow-hidden" data-animate data-brand-section="amd">
-            <div class="p-6 border-l-4 border-amd">
-                <div class="flex items-center gap-3 mb-1">
-                    <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt="AMD" class="h-9 w-9 object-contain" loading="lazy">
-                    <h2 class="section-heading">AMD Radeon Laptop Drivers</h2>
-                </div>
-                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Adrenalin drivers for AMD Radeon laptop GPUs. Use AMD's auto-detect tool for the best compatibility.</p>
-
-                <a href="https://www.amd.com/en/support/download/drivers.html" target="_blank" rel="noopener noreferrer" class="btn-brand-amd">
-                    <span class="material-icons text-lg">download</span>
-                    AMD Auto-Detect Tool
-                </a>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
-
-    <template id="driver-item-template">
-    <div class="flex flex-wrap items-center gap-3 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700 transition-all duration-200"></div>
-</template>
-
-<template id="driver-item-warning-template">
-    <div class="flex flex-wrap items-center gap-3 p-4 bg-amber-50 dark:bg-amber-900/10 rounded-lg border border-amber-200 dark:border-amber-800 transition-all duration-200"></div>
-</template>
-
-<template id="driver-download-link-template">
-    <a class="px-4 py-2 text-white text-sm font-medium rounded-lg shadow-sm hover:shadow-md inline-flex items-center gap-2 transition-all duration-200" target="_blank" rel="noopener noreferrer"></a>
-</template>
-
-<template id="driver-warning-link-template">
-    <a class="px-4 py-2 bg-amd hover:bg-amd-dark text-white text-sm font-medium rounded-lg shadow-sm hover:shadow-md inline-flex items-center gap-2">
-        <span class="material-icons text-base">warning</span>
-        <span data-driver-label></span>
-    </a>
-</template>
-
-<template id="driver-disabled-link-template">
-    <span class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 text-sm font-medium rounded-lg cursor-not-allowed"></span>
-</template>
-
-<template id="driver-date-template">
-    <span class="text-sm text-gray-500 dark:text-gray-400 ml-auto"></span>
-</template>
-
-<template id="driver-icons-template">
-    <div class="flex items-center gap-2"></div>
-</template>
-
-<template id="driver-grade-template">
-    <span class="px-2 py-0.5 text-xs font-bold rounded-md text-white"></span>
-</template>
-
-<template id="driver-reddit-link-template">
-    <a target="_blank" rel="noopener noreferrer" class="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" title="See community discussion">
-        <img src="https://prod.rexxit.net/drweb/assets/Reddit_Icon_2Color.svg" alt="Reddit" class="w-5 h-5">
-    </a>
-</template>
-
-<template id="driver-copy-btn-template">
-    <button class="px-2 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-colors inline-flex items-center gap-1" title="Copy SHA256 hash">
-        <span class="material-icons text-sm">content_copy</span>
-        <span data-copy-label>SHA256</span>
-    </button>
-</template>
-
-<template id="driver-fav-btn-template">
-    <button class="p-1.5 rounded-lg transition-colors" title="Add to favorites">
-        <span class="material-icons text-lg">star_border</span>
-    </button>
-</template>
-
-<template id="driver-action-link-template">
-    <a class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-300 transition-colors" target="_blank" rel="noopener noreferrer">
-        <span class="material-icons text-[14px]" data-action-icon>open_in_new</span>
-        <span data-action-label></span>
-    </a>
-</template>
-
-<template id="driver-action-btn-template">
-    <button class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-300 transition-colors" type="button">
-        <span class="material-icons text-[14px]" data-action-icon>content_copy</span>
-        <span data-action-label></span>
-    </button>
-</template>
-
-<template id="driver-loading-template">
-    <div class="space-y-3">
-        <div class="h-14 rounded-lg bg-gray-100 dark:bg-gray-800 animate-pulse"></div>
-        <div class="h-14 rounded-lg bg-gray-100 dark:bg-gray-800 animate-pulse"></div>
-        <div class="h-14 rounded-lg bg-gray-100 dark:bg-gray-800 animate-pulse"></div>
-    </div>
-</template>
-
-<template id="driver-error-template">
-    <div class="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-red-800 dark:text-red-200">
-        <p class="font-medium mb-3">Error loading driver data.</p>
-        <button data-driver-retry type="button" class="inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium rounded-md bg-red-100 dark:bg-red-900/40 hover:bg-red-200 dark:hover:bg-red-900/60 text-red-700 dark:text-red-200 transition-colors">
-            <span class="material-icons text-base">refresh</span>
-            Retry
-        </button>
-    </div>
-</template>
-
 </main>
 
 
@@ -345,6 +273,7 @@
                     <li><a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Documentation</a></li>
                     <li><a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Release Notes</a></li>
                     <li><a href="/info/about-stabledrivers" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Stability Ratings</a></li>
+                    <li><a href="/info/trust-center" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Trust Center</a></li>
                     <li><a href="/feeds/drivers.json" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Driver Feed (JSON)</a></li>
                     <li><a href="/feeds/drivers.xml" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Driver Feed (RSS)</a></li>
                 </ul>
@@ -392,54 +321,12 @@
     
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const baseUrl = "https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/";
-    loadDrivers(baseUrl + 'nvidia-game-ready-laptop.json', 'nvidia-game-ready-laptop-drivers');
-    loadDrivers(baseUrl + 'nvidia-studio-laptop.json', 'nvidia-studio-laptop-drivers');
-
-    const activeClasses = ['bg-gray-900', 'dark:bg-white', 'text-white', 'dark:text-gray-900'];
-    const inactiveClasses = ['text-gray-500', 'border', 'border-gray-200', 'dark:border-gray-700'];
-    const params = new URLSearchParams(window.location.search);
-    const requestedFilter = params.get('filter') || 'all';
-    const requestedBrand = params.get('brand') || '';
-    const requestedQuery = params.get('q') || '';
-
-    function setActiveFilterChip(filter) {
-        document.querySelectorAll('.filter-chip').forEach(c => {
-            c.classList.remove(...activeClasses);
-            c.classList.add(...inactiveClasses);
-            if (c.dataset.filter === filter) {
-                c.classList.remove(...inactiveClasses);
-                c.classList.add(...activeClasses);
-            }
-        });
-    }
-
-    document.querySelectorAll('.filter-chip').forEach(chip => {
-        chip.addEventListener('click', function() {
-            setActiveFilterChip(this.dataset.filter);
-            if (window.DriverHubDrivers && typeof window.DriverHubDrivers.applyFilters === 'function') {
-                window.DriverHubDrivers.applyFilters(this.dataset.filter);
-            } else {
-                applyFilters(this.dataset.filter);
-            }
-        });
-    });
-
-    const initialFilterChip = document.querySelector(`.filter-chip[data-filter="${requestedFilter}"]`) ? requestedFilter : 'all';
-    setActiveFilterChip(initialFilterChip);
-    if (window.DriverHubDrivers) {
-        window.DriverHubDrivers.applyFilters(initialFilterChip, { skipUrlUpdate: true });
-        if (requestedBrand && typeof window.DriverHubDrivers.setBrand === 'function') {
-            window.DriverHubDrivers.setBrand(requestedBrand, { skipUrlUpdate: true });
-        }
-        if (requestedQuery && typeof window.DriverHubDrivers.setQuery === 'function') {
-            window.DriverHubDrivers.setQuery(requestedQuery, { skipUrlUpdate: true });
-        }
-    } else {
-        applyFilters(initialFilterChip);
-    }
+    const baseUrl = 'https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/';
+    loadDrivers(baseUrl + 'nvidia-game-ready-laptop.json', 'nvidia-game-ready-laptop-drivers', { family: 'graphics-laptop', channel: 'game-ready', brand: 'nvidia', page: '/display/laptop' });
+    loadDrivers(baseUrl + 'nvidia-studio-laptop.json', 'nvidia-studio-laptop-drivers', { family: 'graphics-laptop', channel: 'studio', brand: 'nvidia', page: '/display/laptop' });
 });
 </script>
 
+    <script src="../global/pwa.js"></script>
 </body>
 </html>
