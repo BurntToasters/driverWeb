@@ -1,0 +1,386 @@
+{% extends "layouts/base.njk" %}
+{% set assetPrefix = '' %}
+{% set title = 'DriverHub - Professional Windows Driver Catalog' %}
+{% set metaDescription = 'Professional Windows driver catalog for NVIDIA, AMD, Intel, chipset, audio, and network drivers.' %}
+{% set metaKeywords = 'driver downloads, NVIDIA drivers, AMD drivers, Intel drivers, chipset drivers, Windows drivers' %}
+{% set metaAuthor = 'DriverHub' %}
+{% set metaRobots = 'index, follow' %}
+{% set canonical = 'https://driverhub.win/' %}
+{% set showSkipLink = true %}
+{% set headerVariant = 'main' %}
+{% set navActive = 'home' %}
+{% set showSearchButton = true %}
+{% set showFavoritesButton = true %}
+{% set showDarkModeButton = true %}
+{% set showSettings = true %}
+{% set footerVariant = 'full' %}
+{% set scripts = ['global/favorites.js', 'global/search.js', 'global/darkMode.js', 'global/regionSwitcher.js', 'global/modern.js', 'global/versionInfo.js', 'global/backToTop.js'] %}
+
+{% block metaExtra %}
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://driverhub.win/">
+<meta property="og:title" content="DriverHub - Professional Windows Driver Catalog">
+<meta property="og:description" content="Trust-first driver catalog with compare mode, risk labels, and compatibility filters.">
+<meta property="og:image" content="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp">
+{% endblock %}
+
+{% block content %}
+<main id="main-content" class="flex-1 max-w-7xl mx-auto px-4 md:px-6 w-full">
+    <section class="pt-16 pb-12 text-center" data-animate>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight mb-4">Professional Driver Catalog for Windows</h1>
+        <p class="page-subheading max-w-2xl mx-auto mb-8">Official vendor links, risk-aware labels, deep-linkable filters, and compare-ready metadata for faster driver decisions.</p>
+        <form id="hero-command-form" class="hero-command" role="search" aria-label="Command search">
+            <span class="material-icons text-primary-500">terminal</span>
+            <input id="hero-command-input" type="text" class="hero-command-input" placeholder="Search: 581.94, game-ready, low risk, Intel Pro..." autocomplete="off">
+            <kbd class="hero-command-chip">Ctrl+K</kbd>
+            <button type="submit" class="btn-primary !px-4 !py-2">
+                <span class="material-icons text-lg">search</span>
+                Search
+            </button>
+        </form>
+        <div class="mobile-hero-actions">
+            <a href="/display" class="btn-primary">
+                <span class="material-icons text-lg">download</span>
+                Browse Graphics
+            </a>
+            <button id="hero-search-btn" class="btn-secondary" type="button">
+                <span class="material-icons text-lg">search</span>
+                Search Catalog
+            </button>
+        </div>
+    </section>
+
+    <section class="card p-6 mb-8" data-animate>
+        <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+            <div>
+                <h2 class="section-heading">Recommendation Wizard</h2>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Generate a deep link with vendor, channel, risk, and OS filters.</p>
+            </div>
+            <a id="wizard-link-preview" href="/display" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">Preview link</a>
+        </div>
+        <div class="grid md:grid-cols-5 gap-3">
+            <select id="rec-brand" class="px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-gray-900 dark:text-white">
+                <option value="nvidia">NVIDIA</option>
+                <option value="intel">Intel</option>
+                <option value="amd">AMD</option>
+            </select>
+            <select id="rec-channel" class="px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-gray-900 dark:text-white">
+                <option value="">Any channel</option>
+                <option value="game-ready">Game Ready</option>
+                <option value="studio">Studio</option>
+            </select>
+            <select id="rec-risk" class="px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-gray-900 dark:text-white">
+                <option value="">Any risk</option>
+                <option value="low">Low risk</option>
+                <option value="medium">Medium risk</option>
+                <option value="high">High risk</option>
+            </select>
+            <select id="rec-os" class="px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-gray-900 dark:text-white">
+                <option value="">Any OS</option>
+                <option value="windows-11">Windows 11</option>
+                <option value="windows-10">Windows 10</option>
+            </select>
+            <button id="rec-go" type="button" class="btn-primary justify-center">
+                <span class="material-icons text-lg">arrow_forward</span>
+                Open
+            </button>
+        </div>
+    </section>
+
+    <section class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8" data-animate>
+        <a href="/display" class="card-hover p-5">
+            <div class="flex items-center gap-2 mb-1">
+                <span class="material-icons text-primary-500 text-[20px]" aria-hidden="true">videocam</span>
+                <h3 class="font-semibold text-gray-900 dark:text-white">Graphics</h3>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Desktop and laptop GPU channels.</p>
+        </a>
+        <a href="/chipset" class="card-hover p-5">
+            <div class="flex items-center gap-2 mb-1">
+                <span class="material-icons text-primary-500 text-[20px]" aria-hidden="true">memory</span>
+                <h3 class="font-semibold text-gray-900 dark:text-white">Chipset</h3>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400">AMD and Intel chipset utilities.</p>
+        </a>
+        <a href="/audio" class="card-hover p-5">
+            <div class="flex items-center gap-2 mb-1">
+                <span class="material-icons text-primary-500 text-[20px]" aria-hidden="true">headphones</span>
+                <h3 class="font-semibold text-gray-900 dark:text-white">Audio</h3>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Production audio listings.</p>
+        </a>
+        <a href="/network" class="card-hover p-5">
+            <div class="flex items-center gap-2 mb-1">
+                <span class="material-icons text-primary-500 text-[20px]" aria-hidden="true">wifi</span>
+                <h3 class="font-semibold text-gray-900 dark:text-white">Network</h3>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Wi-Fi and ethernet listings.</p>
+        </a>
+    </section>
+
+    <section class="grid lg:grid-cols-2 items-start gap-6 mb-16" data-animate>
+        <div class="card p-6">
+            <button type="button" class="w-full flex items-center justify-between gap-3 text-left" data-home-panel-toggle="best-picks-panel" aria-expanded="true" aria-controls="best-picks-panel">
+                <span class="flex items-center gap-2">
+                    <span class="material-icons text-primary-500">verified</span>
+                    <h2 class="section-heading">Current Best Picks</h2>
+                </span>
+                <span class="material-icons text-gray-500 dark:text-gray-400" data-home-panel-icon>expand_less</span>
+            </button>
+            <div id="best-picks-panel" class="mt-3">
+                <div id="best-picks" class="space-y-3 text-sm text-gray-600 dark:text-gray-300"></div>
+            </div>
+        </div>
+        <div class="card p-6">
+            <button type="button" class="w-full flex items-center justify-between gap-3 text-left" data-home-panel-toggle="recent-timeline-panel" aria-expanded="true" aria-controls="recent-timeline-panel">
+                <span class="flex items-center gap-2">
+                    <span class="material-icons text-primary-500">timeline</span>
+                    <h2 class="section-heading">Recent Update Timeline</h2>
+                </span>
+                <span class="material-icons text-gray-500 dark:text-gray-400" data-home-panel-icon>expand_less</span>
+            </button>
+            <div id="recent-timeline-panel" class="mt-3">
+                <div id="recent-timeline" class="space-y-3 text-sm text-gray-600 dark:text-gray-300"></div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-home-panel-toggle]').forEach(function(button) {
+        button.addEventListener('click', function() {
+            const panelId = button.getAttribute('data-home-panel-toggle');
+            const panel = panelId ? document.getElementById(panelId) : null;
+            if (!panel) return;
+            const expanded = button.getAttribute('aria-expanded') !== 'false';
+            button.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            panel.classList.toggle('hidden', expanded);
+            const icon = button.querySelector('[data-home-panel-icon]');
+            if (icon) icon.textContent = expanded ? 'expand_more' : 'expand_less';
+        });
+    });
+
+    const heroSearchBtn = document.getElementById('hero-search-btn');
+    if (heroSearchBtn && typeof SearchModule !== 'undefined') {
+        heroSearchBtn.addEventListener('click', () => SearchModule.open());
+    }
+
+    const heroCommandForm = document.getElementById('hero-command-form');
+    const heroCommandInput = document.getElementById('hero-command-input');
+    if (heroCommandForm && heroCommandInput) {
+        heroCommandForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const query = heroCommandInput.value.trim();
+            if (!query) return;
+            if (typeof SearchModule !== 'undefined' && typeof SearchModule.openWithQuery === 'function') {
+                SearchModule.openWithQuery(query);
+            } else {
+                window.location.href = `/display?q=${encodeURIComponent(query)}`;
+            }
+        });
+    }
+
+    const recBrand = document.getElementById('rec-brand');
+    const recChannel = document.getElementById('rec-channel');
+    const recRisk = document.getElementById('rec-risk');
+    const recOs = document.getElementById('rec-os');
+    const recGo = document.getElementById('rec-go');
+    const previewLink = document.getElementById('wizard-link-preview');
+    const amdSupportUrl = 'https://www.amd.com/en/support/download/drivers.html';
+
+    const channelOptionsByBrand = {
+        nvidia: [
+            { value: '', label: 'Any channel' },
+            { value: 'game-ready', label: 'Game Ready' },
+            { value: 'studio', label: 'Studio' }
+        ],
+        intel: [
+            { value: '', label: 'Any channel' },
+            { value: 'game-on', label: 'Game On' },
+            { value: 'pro', label: 'Pro' },
+            { value: 'chipset', label: 'Chipset' }
+        ],
+        amd: [
+            { value: 'graphics', label: 'Graphics' },
+            { value: 'chipset', label: 'Chipset' }
+        ]
+    };
+
+    function setControlDisabled(node, disabled) {
+        if (!node) return;
+        node.disabled = disabled;
+        node.classList.toggle('opacity-60', disabled);
+        node.classList.toggle('cursor-not-allowed', disabled);
+    }
+
+    function syncChannelOptions() {
+        if (!recBrand || !recChannel) return;
+        const brand = recBrand.value || 'nvidia';
+        const options = channelOptionsByBrand[brand] || channelOptionsByBrand.nvidia;
+        const previousValue = recChannel.value;
+
+        recChannel.textContent = '';
+        options.forEach(function(optionDef) {
+            const option = document.createElement('option');
+            option.value = optionDef.value;
+            option.textContent = optionDef.label;
+            recChannel.appendChild(option);
+        });
+
+        const hasPrevious = options.some((optionDef) => optionDef.value === previousValue);
+        recChannel.value = hasPrevious ? previousValue : options[0].value;
+    }
+
+    function buildWizardTarget() {
+        const brand = recBrand ? recBrand.value : '';
+        const channel = recChannel ? recChannel.value : '';
+
+        if (brand === 'amd') {
+            return {
+                href: amdSupportUrl,
+                external: true,
+                usesDisplayFilters: false
+            };
+        }
+
+        if (brand === 'intel' && channel === 'chipset') {
+            return {
+                href: '/chipset',
+                external: false,
+                usesDisplayFilters: false
+            };
+        }
+
+        const params = new URLSearchParams();
+        if (brand) params.set('brand', brand);
+        if (channel) params.set('channel', channel);
+        if (recRisk && recRisk.value) params.set('risk', recRisk.value);
+        if (recOs && recOs.value) params.set('os', recOs.value);
+
+        return {
+            href: `/display${params.toString() ? `?${params.toString()}` : ''}`,
+            external: false,
+            usesDisplayFilters: true
+        };
+    }
+
+    function syncWizardUi() {
+        const target = buildWizardTarget();
+        setControlDisabled(recRisk, !target.usesDisplayFilters);
+        setControlDisabled(recOs, !target.usesDisplayFilters);
+        if (!target.usesDisplayFilters) {
+            if (recRisk) recRisk.value = '';
+            if (recOs) recOs.value = '';
+        }
+        if (previewLink) {
+            previewLink.href = target.href;
+            if (target.external) {
+                previewLink.target = '_blank';
+                previewLink.rel = 'noopener noreferrer';
+            } else {
+                previewLink.removeAttribute('target');
+                previewLink.removeAttribute('rel');
+            }
+        }
+    }
+
+    function escapeHtml(value) {
+        return String(value == null ? '' : value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function safeInternalPath(pathValue) {
+        const value = String(pathValue || '').trim();
+        if (value.startsWith('/') && !value.startsWith('//')) return value;
+        return '/display';
+    }
+
+    if (recBrand) {
+        recBrand.addEventListener('change', function() {
+            syncChannelOptions();
+            syncWizardUi();
+        });
+    }
+    [recChannel, recRisk, recOs].forEach(function(node) {
+        if (!node) return;
+        node.addEventListener('change', syncWizardUi);
+    });
+
+    syncChannelOptions();
+    syncWizardUi();
+
+    if (recGo) {
+        recGo.addEventListener('click', function() {
+            const target = buildWizardTarget();
+            if (target.external) {
+                window.open(target.href, '_blank', 'noopener,noreferrer');
+            } else {
+                window.location.href = target.href;
+            }
+        });
+    }
+
+    function renderBestPicks(entries) {
+        const target = document.getElementById('best-picks');
+        if (!target) return;
+        target.textContent = '';
+        const groups = { nvidia: null, intel: null, amd: null };
+        entries.forEach(function(entry) {
+            if (!groups[entry.brand] && (entry.riskLevel === 'low' || entry.isStable)) groups[entry.brand] = entry;
+        });
+        Object.keys(groups).forEach(function(brand) {
+            const item = groups[brand];
+            const row = document.createElement('div');
+            row.className = 'p-3 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700';
+            if (!item) {
+                row.textContent = `${brand.toUpperCase()}: No low-risk pick found`;
+            } else {
+                const pagePath = safeInternalPath(item.page || '/display');
+                const href = `${pagePath}?q=${encodeURIComponent(item.version || '')}&brand=${encodeURIComponent(item.brand || '')}`;
+                const label = `${brand.toUpperCase()} ${item.version || ''}`;
+                const meta = `${item.type || item.channel || 'General'} · ${item.releaseDate || 'Unknown date'} · ${item.riskLevel || 'medium'} risk`;
+                row.innerHTML = `<a href="${escapeHtml(href)}" class="font-medium text-primary-600 dark:text-primary-400 hover:underline">${escapeHtml(label)}</a><div class="text-xs text-gray-500 mt-1">${escapeHtml(meta)}</div>`;
+            }
+            target.appendChild(row);
+        });
+    }
+
+    function renderTimeline(delta) {
+        const target = document.getElementById('recent-timeline');
+        if (!target) return;
+        target.textContent = '';
+        const rows = (delta.recent || []).slice(0, 8);
+        if (!rows.length) {
+            target.textContent = 'No recent timeline entries.';
+            return;
+        }
+        rows.forEach(function(item) {
+            const row = document.createElement('div');
+            row.className = 'p-3 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700';
+            const title = `${item.vendor ? String(item.vendor).toUpperCase() : 'Driver'} ${item.version || ''}`;
+            const meta = `${item.category || 'Update'} · ${item.type || 'changed'} · ${item.publishedAt || ''}`;
+            row.innerHTML = `<div class="font-medium text-gray-900 dark:text-white">${escapeHtml(title)}</div><div class="text-xs text-gray-500 mt-1">${escapeHtml(meta)}</div>`;
+            target.appendChild(row);
+        });
+    }
+
+    Promise.all([
+        fetch('/feeds/drivers.json').then((r) => r.ok ? r.json() : Promise.reject()),
+        fetch('/feeds/drivers-delta.json').then((r) => r.ok ? r.json() : Promise.reject())
+    ]).then(function([feed, delta]) {
+        renderBestPicks(Array.isArray(feed.entries) ? feed.entries : []);
+        renderTimeline(delta || {});
+    }).catch(function() {
+        renderBestPicks([]);
+        renderTimeline({ recent: [] });
+    });
+});
+</script>
+{% endblock %}

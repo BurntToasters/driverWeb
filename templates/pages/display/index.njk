@@ -1,0 +1,158 @@
+{% extends "layouts/base.njk" %}
+{% set assetPrefix = '../' %}
+{% set title = 'Graphics Drivers - NVIDIA, AMD & Intel | DriverHub' %}
+{% set metaDescription = 'Download the latest NVIDIA GeForce, AMD Radeon, and Intel Arc graphics drivers for Windows 10 and 11.' %}
+{% set metaKeywords = 'NVIDIA drivers, AMD drivers, Intel graphics drivers, GeForce drivers, Radeon drivers, Arc drivers, Game Ready drivers' %}
+{% set metaRobots = 'index, follow' %}
+{% set canonical = 'https://driverhub.win/display' %}
+{% set showSkipLink = true %}
+{% set headerVariant = 'main' %}
+{% set navActive = 'graphics' %}
+{% set showSearchButton = true %}
+{% set showFavoritesButton = true %}
+{% set showDarkModeButton = true %}
+{% set showSettings = true %}
+{% set footerVariant = 'full' %}
+{% set scripts = ['global/favorites.js', 'global/search.js', 'global/darkMode.js', 'global/regionSwitcher.js', 'global/modern.js', 'global/versionInfo.js', 'global/driverLoader.js', 'global/backToTop.js'] %}
+
+{% block metaExtra %}
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://driverhub.win/display">
+<meta property="og:title" content="Graphics Drivers - NVIDIA, AMD & Intel | DriverHub">
+<meta property="og:description" content="Download the latest NVIDIA GeForce, AMD Radeon, and Intel Arc graphics drivers for Windows.">
+<meta property="og:image" content="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://driverhub.win/display">
+<meta property="twitter:title" content="Graphics Drivers - NVIDIA, AMD & Intel | DriverHub">
+{% endblock %}
+
+{% block content %}
+<main id="main-content" class="flex-1 max-w-7xl mx-auto px-4 md:px-6 py-10 w-full">
+    <div class="mb-8">
+        <h1 class="page-heading mb-2">Desktop GPU Drivers</h1>
+        <p class="page-subheading">Professional driver catalog with risk labels, compare mode, and compatibility filtering</p>
+    </div>
+
+    <div class="flex items-center justify-between flex-wrap gap-4 mb-8">
+        <div class="inline-flex rounded-lg bg-gray-100 dark:bg-gray-800 p-1">
+            <a href="/display/" class="px-4 py-2 text-sm font-medium rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm">Desktop</a>
+            <a href="/display/laptop" class="px-4 py-2 text-sm font-medium rounded-md text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Laptop</a>
+        </div>
+        <div class="flex items-center gap-2">
+            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-medium bg-gray-900 dark:bg-white text-white dark:text-gray-900" data-filter="all" type="button">All</button>
+            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-medium text-gray-500 border border-gray-200 dark:border-gray-700" data-filter="stable" type="button">Stable</button>
+            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-bold text-gray-500 border border-gray-200 dark:border-gray-700" data-filter="grade-A+" type="button">A+</button>
+            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-bold text-gray-500 border border-gray-200 dark:border-gray-700" data-filter="grade-A" type="button">A</button>
+            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-bold text-gray-500 border border-gray-200 dark:border-gray-700" data-filter="grade-A-" type="button">A-</button>
+        </div>
+    </div>
+
+    <div class="grid lg:grid-cols-[280px_1fr] gap-6 items-start">
+        <aside class="card p-4 sticky top-20 space-y-3" data-animate>
+            <h2 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wide">Compatibility Assistant</h2>
+            <input id="filter-query-input" type="text" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white" placeholder="Search version or notes...">
+            <select id="filter-brand-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
+                <option value="">All vendors</option>
+                <option value="nvidia">NVIDIA</option>
+                <option value="intel">Intel</option>
+                <option value="amd">AMD</option>
+            </select>
+            <select id="filter-channel-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
+                <option value="">All channels</option>
+                <option value="game-ready">Game Ready</option>
+                <option value="studio">Studio</option>
+                <option value="game-on">Game On</option>
+                <option value="pro">Pro</option>
+            </select>
+            <select id="filter-risk-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
+                <option value="">All risk levels</option>
+                <option value="low">Low risk</option>
+                <option value="medium">Medium risk</option>
+                <option value="high">High risk</option>
+            </select>
+            <select id="filter-os-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
+                <option value="">All OS targets</option>
+                <option value="windows-11">Windows 11</option>
+                <option value="windows-10">Windows 10</option>
+            </select>
+            <select id="filter-view-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
+                <option value="comfortable">Comfortable view</option>
+                <option value="dense">Dense view</option>
+            </select>
+            <button id="filter-clear-button" type="button" class="btn-secondary w-full justify-center !px-3 !py-2 text-sm">
+                <span class="material-icons text-base">refresh</span>
+                Reset Filters
+            </button>
+        </aside>
+
+        <div class="space-y-6">
+            <section class="card overflow-hidden" data-animate data-brand-section="nvidia">
+                <div class="p-5 border-l-4 border-nvidia">
+                    <div class="flex items-center gap-3 mb-1">
+                        <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt="NVIDIA" class="h-9 w-9 object-contain rounded" loading="lazy">
+                        <h2 class="section-heading">NVIDIA Desktop Drivers</h2>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Game Ready and Studio channels with compare and risk-aware filtering.</p>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Game Ready</h3>
+                            <div id="nvidia-game-ready-drivers"></div>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Studio</h3>
+                            <div id="nvidia-studio-drivers"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card overflow-hidden" data-animate data-brand-section="intel">
+                <div class="p-5 border-l-4 border-intel">
+                    <div class="flex items-center gap-3 mb-1">
+                        <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt="Intel" class="h-9 w-9 object-contain" loading="lazy">
+                        <h2 class="section-heading">Intel Arc Drivers</h2>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Game On and Professional channels with stability-focused controls.</p>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Game On</h3>
+                            <div id="intel-game-on-drivers"></div>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Pro</h3>
+                            <div id="intel-pro-drivers"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card overflow-hidden" data-animate data-brand-section="amd">
+                <div class="p-5 border-l-4 border-amd">
+                    <div class="flex items-center gap-3 mb-1">
+                        <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt="AMD" class="h-9 w-9 object-contain" loading="lazy">
+                        <h2 class="section-heading">AMD Radeon Drivers</h2>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-5">AMD direct package URLs are limited. Use official auto-detect for best results.</p>
+                    <a href="https://www.amd.com/en/support/download/drivers.html" target="_blank" rel="noopener noreferrer" class="btn-brand-amd">
+                        <span class="material-icons text-lg">download</span>
+                        AMD Auto-Detect Tool
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const baseUrl = 'https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/';
+    loadDrivers(baseUrl + 'nvidia-game-ready.json', 'nvidia-game-ready-drivers', { family: 'graphics', channel: 'game-ready', brand: 'nvidia', page: '/display' });
+    loadDrivers(baseUrl + 'nvidia-studio.json', 'nvidia-studio-drivers', { family: 'graphics', channel: 'studio', brand: 'nvidia', page: '/display' });
+    loadDrivers(baseUrl + 'intel-game-on.json', 'intel-game-on-drivers', { family: 'graphics', channel: 'game-on', brand: 'intel', page: '/display' });
+    loadDrivers(baseUrl + 'intel-pro.json', 'intel-pro-drivers', { family: 'graphics', channel: 'pro', brand: 'intel', page: '/display' });
+});
+</script>
+{% endblock %}

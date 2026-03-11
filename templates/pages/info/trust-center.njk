@@ -1,0 +1,79 @@
+{% extends "layouts/base.njk" %}
+{% set assetPrefix = '../' %}
+{% set title = 'Trust Center | DriverHub' %}
+{% set metaDescription = 'Data freshness, coverage, and validation health for DriverHub feeds.' %}
+{% set metaRobots = 'index, follow' %}
+{% set canonical = 'https://driverhub.win/info/trust-center' %}
+{% set showSkipLink = true %}
+{% set headerVariant = 'main' %}
+{% set navActive = '' %}
+{% set showSearchButton = true %}
+{% set showFavoritesButton = false %}
+{% set showDarkModeButton = true %}
+{% set showSettings = true %}
+{% set footerVariant = 'full' %}
+{% set scripts = ['global/search.js', 'global/darkMode.js', 'global/regionSwitcher.js', 'global/modern.js', 'global/versionInfo.js', 'global/backToTop.js'] %}
+
+{% block content %}
+<main id="main-content" class="flex-1 max-w-6xl mx-auto px-4 md:px-6 py-10 w-full">
+    <div class="mb-8">
+        <h1 class="page-heading mb-2">Trust Center</h1>
+        <p class="page-subheading">Live feed validation status, coverage, and freshness metrics.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6" id="trust-kpis"></div>
+    <div class="grid lg:grid-cols-2 gap-6">
+        <section class="card p-5" data-animate>
+            <h2 class="section-heading mb-3">Coverage</h2>
+            <div id="trust-coverage" class="space-y-2 text-sm text-gray-600 dark:text-gray-300"></div>
+        </section>
+        <section class="card p-5" data-animate>
+            <h2 class="section-heading mb-3">Validation</h2>
+            <div id="trust-validation" class="space-y-2 text-sm text-gray-600 dark:text-gray-300"></div>
+        </section>
+    </div>
+</main>
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const kpis = document.getElementById('trust-kpis');
+    const coverage = document.getElementById('trust-coverage');
+    const validation = document.getElementById('trust-validation');
+
+    function card(label, value) {
+        const node = document.createElement('div');
+        node.className = 'card p-4';
+        node.innerHTML = `<div class="text-xs uppercase tracking-wide text-gray-500">${label}</div><div class="text-2xl font-semibold text-gray-900 dark:text-white mt-1">${value}</div>`;
+        return node;
+    }
+
+    fetch('/feeds/trust-metrics.json')
+        .then((r) => r.ok ? r.json() : Promise.reject())
+        .then(function(data) {
+            kpis.appendChild(card('Entries', data.totals && data.totals.entries ? data.totals.entries : 0));
+            kpis.appendChild(card('Reachable Sources', data.totals && data.totals.reachableSources ? data.totals.reachableSources : 0));
+            kpis.appendChild(card('Checksum Coverage', `${data.coverage && data.coverage.checksumPct ? data.coverage.checksumPct : 0}%`));
+            kpis.appendChild(card('Newest Age', `${data.freshness && data.freshness.newestAgeDays !== null ? data.freshness.newestAgeDays : '-'} days`));
+
+            coverage.innerHTML = `
+                <div>Source links: <strong>${data.coverage && data.coverage.sourceLinksPct ? data.coverage.sourceLinksPct : 0}%</strong></div>
+                <div>Release notes: <strong>${data.coverage && data.coverage.releaseNotesPct ? data.coverage.releaseNotesPct : 0}%</strong></div>
+                <div>Known issues: <strong>${data.coverage && data.coverage.knownIssuesPct ? data.coverage.knownIssuesPct : 0}%</strong></div>
+                <div>Stable-tagged: <strong>${data.coverage && data.coverage.stablePct ? data.coverage.stablePct : 0}%</strong></div>
+            `;
+
+            validation.innerHTML = `
+                <div>Valid feed: <strong>${data.validation && data.validation.isValid ? 'Yes' : 'No'}</strong></div>
+                <div>Error count: <strong>${data.validation && data.validation.errorCount ? data.validation.errorCount : 0}</strong></div>
+                <div>Warning count: <strong>${data.validation && data.validation.warningCount ? data.validation.warningCount : 0}</strong></div>
+                <div class="text-xs text-gray-500 mt-3">Generated at: ${data.generatedAt || ''}</div>
+            `;
+        })
+        .catch(function() {
+            if (kpis) kpis.textContent = 'Trust metrics unavailable.';
+        });
+});
+</script>
+{% endblock %}

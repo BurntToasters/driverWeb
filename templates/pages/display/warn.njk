@@ -1,0 +1,168 @@
+{% extends "layouts/base.njk" %}
+{% set assetPrefix = '../' %}
+{% set title = 'Driver Warning | DriverHub' %}
+{% set metaDescription = 'Driver warning information - known stability issues.' %}
+{% set metaRobots = 'noindex, follow' %}
+{% set canonical = 'https://driverhub.win/display/warn' %}
+{% set includeCsp = false %}
+{% set headerVariant = 'simple' %}
+{% set showSearchButton = false %}
+{% set showFavoritesButton = false %}
+{% set showDarkModeButton = true %}
+{% set showSettings = true %}
+{% set footerVariant = 'compact' %}
+{% set compactFooterMarginTop = true %}
+{% set showUpdateDate = true %}
+{% set scripts = ['global/darkMode.js', 'global/regionSwitcher.js', 'global/modern.js', 'global/versionInfo.js'] %}
+
+{% block content %}
+<main class="flex-1 max-w-4xl mx-auto px-4 md:px-6 py-12 w-full">
+    <div class="text-center mb-8">
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-amber-100 dark:bg-amber-900/30 mb-4">
+            <span class="material-icons text-5xl text-amber-500">warning</span>
+        </div>
+        <h1 class="page-heading mb-2">Driver Warning</h1>
+        <p class="page-subheading">This driver version has known stability issues</p>
+    </div>
+
+    <section class="card border-amber-200 dark:border-amber-800 overflow-hidden">
+        <div class="p-6 md:p-8 border-l-4 border-amber-500">
+            <div class="flex items-start gap-4 mb-6">
+                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
+                    <span class="material-icons text-2xl text-red-500">error</span>
+                </div>
+                <div>
+                    <h2 class="section-heading mb-2">Stability Warning</h2>
+                    <p id="warning-message" class="text-gray-600 dark:text-gray-400 mb-2">This driver version may cause stability issues including black screens and crashes.</p>
+                    <p class="text-gray-600 dark:text-gray-400">It is recommended to use a more stable driver version if possible.</p>
+                </div>
+            </div>
+
+            <div id="video-container" class="hidden mb-6">
+                <div class="aspect-video rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
+                    <iframe id="warning-video" src="" title="Warning video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <a href="/display" id="back-button" class="btn-secondary">
+                    <span class="material-icons text-lg">arrow_back</span>
+                    Go Back
+                </a>
+                <a href="#" id="continue-download" class="inline-flex items-center gap-2 px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-lg shadow-sm hover:shadow-md transition-all duration-200">
+                    <span class="material-icons text-lg">download</span>
+                    Download Anyway
+                </a>
+                <a href="#" id="hotfix-download" class="hidden btn-brand-nvidia">
+                    <span class="material-icons text-lg">security</span>
+                    Download Hotfix
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let driverType = "";
+    let driverVersion = "";
+    let backUrl = "/display";
+
+    if (urlParams.has('nvgrd')) {
+        driverType = "nvgrd";
+        driverVersion = urlParams.get('nvgrd');
+        document.title = `NVIDIA Game Ready ${driverVersion} Warning - DriverHub`;
+    } else if (urlParams.has('nvgrl')) {
+        driverType = "nvgrl";
+        driverVersion = urlParams.get('nvgrl');
+        document.title = `NVIDIA Game Ready Laptop ${driverVersion} Warning - DriverHub`;
+        backUrl = "/display/laptop";
+    } else if (urlParams.has('nvsd')) {
+        driverType = "nvsd";
+        driverVersion = urlParams.get('nvsd');
+        document.title = `NVIDIA Studio ${driverVersion} Warning - DriverHub`;
+    } else if (urlParams.has('nvsl')) {
+        driverType = "nvsl";
+        driverVersion = urlParams.get('nvsl');
+        document.title = `NVIDIA Studio Laptop ${driverVersion} Warning - DriverHub`;
+        backUrl = "/display/laptop";
+    } else {
+        window.location.href = "/display";
+        return;
+    }
+
+    const backButton = document.getElementById('back-button');
+    if (backButton) backButton.href = backUrl;
+
+    const warningMessage = document.getElementById('warning-message');
+    if (warningMessage) {
+        let messageText = `NVIDIA driver version ${driverVersion} has known stability issues including black screens, crashes, and performance problems.`;
+
+        if (driverVersion.startsWith('576.02')) {
+            messageText = `NVIDIA driver version ${driverVersion} has widespread stability issues affecting many systems. See the video below for details.`;
+            const videoContainer = document.getElementById('video-container');
+            const warningVideo = document.getElementById('warning-video');
+            if (videoContainer && warningVideo) {
+                videoContainer.classList.remove('hidden');
+                warningVideo.src = "https://www.youtube-nocookie.com/embed/KrCEPX47vtw";
+            }
+            const hotfixButton = document.getElementById('hotfix-download');
+            if (hotfixButton) {
+                hotfixButton.classList.remove('hidden');
+                hotfixButton.classList.add('inline-flex');
+            }
+        } else if (driverVersion.startsWith('572.')) {
+            messageText = `NVIDIA driver version ${driverVersion} is based on the 572.xx series which has widespread stability issues. See the video below for details.`;
+            const videoContainer = document.getElementById('video-container');
+            const warningVideo = document.getElementById('warning-video');
+            if (videoContainer && warningVideo) {
+                videoContainer.classList.remove('hidden');
+                warningVideo.src = "https://www.youtube-nocookie.com/embed/NTXoUsdSAnA";
+            }
+        }
+        warningMessage.textContent = messageText;
+    }
+
+    function getDownloadUrl(version, type, isHotfix) {
+        const region = localStorage.getItem("userRegion") || "USA";
+        const domain = region === "EU" ? "uk.download.nvidia.com" : "us.download.nvidia.com";
+
+        if (isHotfix) {
+            return `https://international.download.nvidia.com/Windows/${version}/${version}-desktop-win10-win11-64bit-international-dch-hf.exe`;
+        }
+
+        switch(type) {
+            case "nvgrd":
+                return `https://${domain}/Windows/${version}/${version}-desktop-win10-win11-64bit-international-dch-whql.exe`;
+            case "nvgrl":
+                return `https://${domain}/Windows/${version}/${version}-notebook-win10-win11-64bit-international-dch-whql.exe`;
+            case "nvsd":
+                return `https://${domain}/Windows/${version}/${version}-desktop-win10-win11-64bit-international-nsd-dch-whql.exe`;
+            case "nvsl":
+                return `https://${domain}/Windows/${version}/${version}-notebook-win10-win11-64bit-international-nsd-dch-whql.exe`;
+            default:
+                return "/display";
+        }
+    }
+
+    function updateDownloadLinks() {
+        const continueBtn = document.getElementById('continue-download');
+        if (continueBtn) continueBtn.href = getDownloadUrl(driverVersion, driverType, false);
+
+        const hotfixBtn = document.getElementById('hotfix-download');
+        if (hotfixBtn && !hotfixBtn.classList.contains('hidden')) {
+            hotfixBtn.href = getDownloadUrl("576.15hf", driverType, true);
+        }
+    }
+
+    updateDownloadLinks();
+
+    document.addEventListener('driverhub:region-changed', function() {
+        updateDownloadLinks();
+    });
+});
+</script>
+{% endblock %}

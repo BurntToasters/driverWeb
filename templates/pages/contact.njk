@@ -1,0 +1,103 @@
+{% extends "layouts/base.njk" %}
+{% set assetPrefix = '' %}
+{% set title = 'Contact | DriverHub' %}
+{% set metaDescription = 'Contact DriverHub for questions, feedback, or driver download assistance.' %}
+{% set metaKeywords = 'contact DriverHub, driver support, driver help' %}
+{% set metaRobots = 'index, follow' %}
+{% set canonical = 'https://driverhub.win/contact' %}
+{% set csp = "default-src 'self'; script-src 'self' 'unsafe-inline' https://raw.githubusercontent.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://prod.rexxit.net https://web-platforms.sfo2.cdn.digitaloceanspaces.com data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://raw.githubusercontent.com; frame-src https://docs.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';" %}
+{% set showSkipLink = true %}
+{% set headerVariant = 'main' %}
+{% set navActive = 'contact' %}
+{% set showSearchButton = true %}
+{% set showFavoritesButton = false %}
+{% set showDarkModeButton = true %}
+{% set showSettings = true %}
+{% set footerVariant = 'full' %}
+{% set scripts = ['global/darkMode.js', 'global/search.js', 'global/regionSwitcher.js', 'global/modern.js', 'global/versionInfo.js', 'global/backToTop.js'] %}
+
+{% block metaExtra %}
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://driverhub.win/contact">
+<meta property="og:title" content="Contact | DriverHub">
+<meta property="og:description" content="Get in touch with DriverHub for questions or feedback.">
+<meta property="og:image" content="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp">
+{% endblock %}
+
+{% block content %}
+<main id="main-content" class="flex-1 max-w-6xl mx-auto px-4 md:px-6 py-12 w-full">
+    <div class="mb-8">
+        <h1 class="page-heading mb-2">Contact</h1>
+        <p class="page-subheading">Have a question, found a bug, or want to suggest a feature? Reach out below.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+        <div class="md:col-span-2">
+            <div class="card overflow-hidden">
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc4A8RLL0Ui9Qmx-7b3XaU6Bq7hT3r02lQ7giR5hHAUKODwNg/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" loading="lazy" class="w-full">Loading...</iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <div class="card p-5">
+                <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-3">Other ways to reach us</h3>
+                <a href="mailto:contact@driverhub.win" id="email-link" class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                    <span class="material-icons text-lg">email</span>
+                    <span id="email-link-text">contact@driverhub.win</span>
+                </a>
+                <p id="contact-prefill-hint" class="hidden mt-3 text-xs text-gray-500 dark:text-gray-400"></p>
+            </div>
+            <div class="card p-5">
+                <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-3">Helpful links</h3>
+                <div class="space-y-2.5">
+                    <a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                        <span class="material-icons text-lg">description</span>
+                        Documentation
+                    </a>
+                    <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                        <span class="material-icons text-lg">history</span>
+                        Release Notes
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const emailLink = document.getElementById('email-link');
+    const emailText = document.getElementById('email-link-text');
+    const prefillHint = document.getElementById('contact-prefill-hint');
+    const email = 'contact' + '@' + 'driverhub' + '.' + 'win';
+    const params = new URLSearchParams(window.location.search);
+    const topic = params.get('topic') || '';
+    const senderEmail = params.get('email') || '';
+    const topicLabel = topic ? topic.replace(/-/g, ' ') : '';
+
+    if (emailLink) {
+        const mailtoParams = new URLSearchParams();
+        if (topicLabel) {
+            mailtoParams.set('subject', `DriverHub ${topicLabel} request`);
+        }
+        if (senderEmail) {
+            mailtoParams.set('body', `Hi DriverHub,\n\nPlease notify me about ${topicLabel || 'upcoming updates'}.\n\nMy email: ${senderEmail}`);
+        }
+        emailLink.href = 'mailto:' + email + (mailtoParams.toString() ? '?' + mailtoParams.toString() : '');
+    }
+
+    if (emailText) {
+        emailText.textContent = email;
+    }
+
+    if (prefillHint && (topicLabel || senderEmail)) {
+        prefillHint.classList.remove('hidden');
+        prefillHint.textContent = `Prepared contact context: ${topicLabel || 'general update'}${senderEmail ? ` (${senderEmail})` : ''}`;
+    }
+});
+</script>
+{% endblock %}

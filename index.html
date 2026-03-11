@@ -1,251 +1,580 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Download the latest NVIDIA, AMD, and Intel graphics drivers, chipset drivers, and more. Free driver downloads for Windows 10 and Windows 11.">
-    <meta name="keywords" content="driver downloads, NVIDIA drivers, AMD drivers, Intel drivers, chipset drivers, graphics drivers, Windows drivers, GPU drivers">
+    <meta name="description" content="Professional Windows driver catalog for NVIDIA, AMD, Intel, chipset, audio, and network drivers.">
+    <meta name="keywords" content="driver downloads, NVIDIA drivers, AMD drivers, Intel drivers, chipset drivers, Windows drivers">
     <meta name="author" content="DriverHub">
     <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://raw.githubusercontent.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://prod.rexxit.net https://web-platforms.sfo2.cdn.digitaloceanspaces.com data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://raw.githubusercontent.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
     <link rel="canonical" href="https://driverhub.win/">
     
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://driverhub.win/">
-    <meta property="og:title" content="DriverHub.win - Free Driver Downloads for Windows">
-    <meta property="og:description" content="Download the latest NVIDIA, AMD, and Intel graphics drivers, chipset drivers, and more. Free driver downloads for Windows 10 and Windows 11.">
-    <meta property="og:image" content="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp">
-    
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://driverhub.win/">
-    <meta property="twitter:title" content="DriverHub.win - Free Driver Downloads for Windows">
-    <meta property="twitter:description" content="Download the latest NVIDIA, AMD, and Intel graphics drivers, chipset drivers, and more.">
-    <meta property="twitter:image" content="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp">
-    
-    <title>DriverHub.win - Free Driver Downloads for Windows 10 & 11 | NVIDIA, AMD, Intel</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://driverhub.win/">
+<meta property="og:title" content="DriverHub - Professional Windows Driver Catalog">
+<meta property="og:description" content="Trust-first driver catalog with compare mode, risk labels, and compatibility filters.">
+<meta property="og:image" content="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp">
+
+    <title>DriverHub - Professional Windows Driver Catalog</title>
 
     <script>
         (function() {
             const userPreference = localStorage.getItem('darkMode');
             const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            const shouldUseDarkMode = userPreference === 'dark' || (userPreference === null && prefersDarkScheme);
-            
-            if (shouldUseDarkMode) {
-                document.documentElement.classList.add('dark-mode');
+            if (userPreference === 'dark' || (userPreference === null && prefersDarkScheme)) {
+                document.documentElement.classList.add('dark');
             }
         })();
     </script>
-    
-    <link rel="stylesheet" href="../global/v4.css">
+
+    <meta name="theme-color" content="#0f172a">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="global/tailwind.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="../global/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="global/favicon.ico">
     
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "DriverHub.win",
-      "url": "https://driverhub.win",
-      "description": "Free driver downloads for Windows including NVIDIA, AMD, and Intel graphics drivers, chipset drivers, and more.",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://driverhub.win/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
 </head>
-<body>
-    <div id="status-banner" class="status-banner" style="display: none;">
-        <span id="status-text">Site status update goes here.</span>
-        <button id="dismiss-banner" class="dismiss-banner" aria-label="Dismiss status banner">&times;</button>
-    </div>
-    <header>
-        <div class="logo-container">
-            <a href="/">
-                <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub Logo">
-            </a>
-        </div>
-        <h1>DriverHub.win: A personal project for common driver downloads and more!</h1>
-        <p>This is a list of common drivers for Windows (10-11). All the download links go to the respective company's download URL and are not stored by me.</p>
-        
-        <nav class="nav-container">
-            <a href="/" class="download-button-h"><span class="material-icons">home</span> Home</a> 
-            <a href="/display" class="nvidia-button"><span class="material-icons">videocam</span> Video Drivers</a>  
-            <a href="/chipset" class="chipset-button"><span class="material-icons">memory</span> Chipset Drivers</a> 
-            <a href="#" class="g-button"><span class="material-icons">wifi</span> <s>Network Drivers</s></a>  
-            <a href="#" class="g-button"><span class="material-icons">headphones</span> <s>Audio Drivers</s></a> 
-            <a href="/contact" class="g-button"><span class="material-icons">email</span> Contact</a> 
-            <a href="https://docs.rexxit.net/drivers-website/" target="_blank" class="download-button">
-                <span class="material-icons">description</span> Docs
-                <svg width="14px" height="14px" viewBox="0 0 24 24">
-                    <g stroke-width="2.1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
-                        <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
-                    </g>
-                </svg>
-            </a>
-        </nav>
-        
-        <button class="settings-button">
-            <span class="material-icons">settings</span>
-        </button>
-    </header>
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-500 focus:text-white focus:rounded-lg">Skip to main content</a>
 
-    <div id="settings-overlay" class="settings-overlay">
-        <div class="settings-content">
-            <span class="close-settings">&times;</span>
-            <h2>Settings</h2>
+    
+
+    
+        <header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+        <div class="flex items-center justify-between h-14">
+            <a href="/" class="flex items-center gap-2.5">
+                <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-8 w-8">
+                <span class="text-lg font-bold text-gray-900 dark:text-white">DriverHub</span>
+            </a>
+            <div class="flex items-center gap-1.5">
+                
+                <button id="global-search-btn" type="button" aria-haspopup="dialog" aria-controls="search-overlay" aria-expanded="false" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Search (Ctrl+K)">
+                    <span class="material-icons text-[20px]">search</span>
+                </button>
+                
+                
+                <button id="favorites-btn" type="button" aria-haspopup="dialog" aria-controls="favorites-panel" aria-expanded="false" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Watchlist">
+                    <span class="material-icons text-[20px]">star_outline</span>
+                </button>
+                
+                
+                <button id="darkModeToggle" type="button" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Toggle dark mode">
+                    <span class="material-icons text-[20px]">dark_mode</span>
+                </button>
+                
+                
+                <button class="settings-button p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" type="button" aria-label="Settings" aria-haspopup="dialog" aria-controls="settings-overlay" aria-expanded="false" title="Settings">
+                    <span class="material-icons text-[20px]">tune</span>
+                </button>
+                
+            </div>
+        </div>
+        <nav class="flex items-center gap-0.5 -mb-px overflow-x-auto scrollbar-hide" role="navigation" aria-label="Main navigation">
+            <a href="/" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400 whitespace-nowrap transition-colors">
+                <span class="material-icons text-[18px]">home</span>Home
+            </a>
+            <a href="/display" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                <span class="material-icons text-[18px]">videocam</span>Graphics
+            </a>
+            <a href="/chipset" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                <span class="material-icons text-[18px]">memory</span>Chipset
+            </a>
             
-            <!-- Dark Mode Toggle -->
-            <label class="switch">
-                <input type="checkbox" id="darkModeToggle">
-                <span class="slider round"></span>
-            </label>
-            <span>Dark Mode</span>
-            <hr>
-      
-            <!-- Region Selection -->
-            <label for="regionSelect">Select Region:</label>
-            <select id="regionSelect" class="region-dropdown">
-                <option value="USA">🇺🇸 USA</option>
-                <option value="EU">🇪🇺 EU</option>
-            </select>
-            <a href="https://docs.rexxit.net/drivers-website/articles/region-selection" style="color: var(--primary-color);">Learn more about region selection</a>
+            <a href="/network" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                <span class="material-icons text-[18px]">wifi</span>Network
+                <span class="px-1.5 py-0.5 text-[10px] font-semibold tracking-wide uppercase rounded bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-300">Preview</span>
+            </a>
+            <a href="/audio" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                <span class="material-icons text-[18px]">headphones</span>Audio
+                <span class="px-1.5 py-0.5 text-[10px] font-semibold tracking-wide uppercase rounded bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-300">Preview</span>
+            </a>
+            
+            <div class="w-px h-5 bg-gray-200 dark:bg-gray-700 mx-1.5"></div>
+            <a href="/contact" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                <span class="material-icons text-[18px]">mail_outline</span>Contact
+            </a>
+            
+            <a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                <span class="material-icons text-[18px]">description</span>Docs
+                <svg class="w-3 h-3 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+    
+
+    
+        <div id="settings-overlay" class="settings-overlay hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="settings-title" aria-hidden="true" tabindex="-1">
+    <div id="settings-dialog" class="w-full max-w-md mx-4 bg-white dark:bg-gray-900 rounded-xl shadow-2xl overflow-hidden transform transition-all" tabindex="-1">
+        <div class="bg-gray-900 dark:bg-gray-800 px-6 py-4">
+            <div class="flex items-center justify-between">
+                <h2 id="settings-title" class="text-lg font-semibold text-white">Settings</h2>
+                <button class="close-settings p-1.5 rounded-lg hover:bg-white/10 text-white/70 hover:text-white transition-colors" type="button" aria-label="Close settings">
+                    <span class="material-icons text-[20px]">close</span>
+                </button>
+            </div>
+        </div>
+        <div class="p-6 space-y-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="material-icons text-gray-400">dark_mode</span>
+                    <span class="font-medium text-gray-900 dark:text-white">Dark Mode</span>
+                </div>
+                <button id="settingsDarkToggle" class="relative w-14 h-8 bg-gray-200 dark:bg-primary-500 rounded-full transition-colors" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+                    <span class="absolute left-1 dark:left-7 top-1 w-6 h-6 bg-white rounded-full shadow-md transition-all duration-200"></span>
+                </button>
+            </div>
+            <hr class="border-gray-200 dark:border-gray-700">
+            <div class="space-y-3">
+                <label for="regionSelect" class="flex items-center gap-3">
+                    <span class="material-icons text-gray-400">public</span>
+                    <span class="font-medium text-gray-900 dark:text-white">Download Region</span>
+                </label>
+                <select id="regionSelect" class="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none transition-colors text-gray-900 dark:text-white">
+                    <option value="USA">USA</option>
+                    <option value="EU">EU</option>
+                </select>
+                <p class="text-sm text-gray-500"><a href="https://docs.rexxit.net/drivers-website/articles/region-selection" target="_blank" rel="noopener noreferrer" class="text-primary-500 hover:text-primary-600 hover:underline">Learn more about regions</a></p>
+            </div>
         </div>
     </div>
+</div>
 
-    <main>
-        <section class="driver-section">
-            <div class="container">
-                <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt='NVIDIA' class="platform">
-                <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt='AMD' class="platform"> 
-                <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt='Intel' class="platform">
-                <h2>Graphics Drivers</h2>
-            </div>
-            <h3>Download NVIDIA, AMD, or INTEL Graphics Drivers:</h3>
-            <a href="/display" class="download-button">
-                <span class="material-icons">download</span> Download Graphics Drivers
-            </a>
-        </section>
-        
-        <section class="driver-section">
-            <div class="container">
-                <img src="https://prod.rexxit.net/drweb/assets/intel.png" alt='Intel' class="platform">
-                <img src="https://prod.rexxit.net/drweb/assets/amdryzen.png" alt='AMD Ryzen' class="platform">
-                <h2>Chipset Drivers</h2>
-            </div>
-            <h3>Download INTEL/AMD Chipset Drivers:</h3>
-            <a href="/chipset" class="download-button">
-                <span class="material-icons">download</span> Download Chipset Drivers
-            </a>
-        </section>
+    
 
-        <section class="driver-section">
-            <div class="container">
-                <img src="https://prod.rexxit.net/drweb/assets/realtek.png" alt='Realtek' class="platform">
-                <h2>Audio Drivers</h2>
-            </div>
-            <h3>Get the latest audio drivers:</h3>
-            <a href="#" class="download-button">
-                <span class="material-icons">pending</span> Coming Soon!
+    
+<main id="main-content" class="flex-1 max-w-7xl mx-auto px-4 md:px-6 w-full">
+    <section class="pt-16 pb-12 text-center" data-animate>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight mb-4">Professional Driver Catalog for Windows</h1>
+        <p class="page-subheading max-w-2xl mx-auto mb-8">Official vendor links, risk-aware labels, deep-linkable filters, and compare-ready metadata for faster driver decisions.</p>
+        <form id="hero-command-form" class="hero-command" role="search" aria-label="Command search">
+            <span class="material-icons text-primary-500">terminal</span>
+            <input id="hero-command-input" type="text" class="hero-command-input" placeholder="Search: 581.94, game-ready, low risk, Intel Pro..." autocomplete="off">
+            <kbd class="hero-command-chip">Ctrl+K</kbd>
+            <button type="submit" class="btn-primary !px-4 !py-2">
+                <span class="material-icons text-lg">search</span>
+                Search
+            </button>
+        </form>
+        <div class="mobile-hero-actions">
+            <a href="/display" class="btn-primary">
+                <span class="material-icons text-lg">download</span>
+                Browse Graphics
             </a>
-        </section>
+            <button id="hero-search-btn" class="btn-secondary" type="button">
+                <span class="material-icons text-lg">search</span>
+                Search Catalog
+            </button>
+        </div>
+    </section>
 
-        <section class="driver-section">
-            <div class="container">
-                <span class="material-icons" style="font-size: 40px; color: var(--primary-color);">wifi</span>
-                <h2>Network Drivers</h2>
+    <section class="card p-6 mb-8" data-animate>
+        <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+            <div>
+                <h2 class="section-heading">Recommendation Wizard</h2>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Generate a deep link with vendor, channel, risk, and OS filters.</p>
             </div>
-            <h3>Stay connected with the latest network drivers:</h3>
-            <a href="#" class="download-button">
-                <span class="material-icons">pending</span> Coming Soon!
-            </a>
-        </section>
+            <a id="wizard-link-preview" href="/display" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">Preview link</a>
+        </div>
+        <div class="grid md:grid-cols-5 gap-3">
+            <select id="rec-brand" class="px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-gray-900 dark:text-white">
+                <option value="nvidia">NVIDIA</option>
+                <option value="intel">Intel</option>
+                <option value="amd">AMD</option>
+            </select>
+            <select id="rec-channel" class="px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-gray-900 dark:text-white">
+                <option value="">Any channel</option>
+                <option value="game-ready">Game Ready</option>
+                <option value="studio">Studio</option>
+            </select>
+            <select id="rec-risk" class="px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-gray-900 dark:text-white">
+                <option value="">Any risk</option>
+                <option value="low">Low risk</option>
+                <option value="medium">Medium risk</option>
+                <option value="high">High risk</option>
+            </select>
+            <select id="rec-os" class="px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-gray-900 dark:text-white">
+                <option value="">Any OS</option>
+                <option value="windows-11">Windows 11</option>
+                <option value="windows-10">Windows 10</option>
+            </select>
+            <button id="rec-go" type="button" class="btn-primary justify-center">
+                <span class="material-icons text-lg">arrow_forward</span>
+                Open
+            </button>
+        </div>
+    </section>
 
-        <section class="driver-section">
-            <div class="container">
-                <img src="https://prod.rexxit.net/drweb/assets/mail.png" alt='Contact' class="platform">
-                <h2>Contact</h2>
+    <section class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8" data-animate>
+        <a href="/display" class="card-hover p-5">
+            <div class="flex items-center gap-2 mb-1">
+                <span class="material-icons text-primary-500 text-[20px]" aria-hidden="true">videocam</span>
+                <h3 class="font-semibold text-gray-900 dark:text-white">Graphics</h3>
             </div>
-            <h3>Questions? Comments? or Something Else?</h3>
-            <a href="/contact" class="download-button">
-                <span class="material-icons">email</span> Contact me!
-            </a>
-        </section>
-    </main>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Desktop and laptop GPU channels.</p>
+        </a>
+        <a href="/chipset" class="card-hover p-5">
+            <div class="flex items-center gap-2 mb-1">
+                <span class="material-icons text-primary-500 text-[20px]" aria-hidden="true">memory</span>
+                <h3 class="font-semibold text-gray-900 dark:text-white">Chipset</h3>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400">AMD and Intel chipset utilities.</p>
+        </a>
+        <a href="/audio" class="card-hover p-5">
+            <div class="flex items-center gap-2 mb-1">
+                <span class="material-icons text-primary-500 text-[20px]" aria-hidden="true">headphones</span>
+                <h3 class="font-semibold text-gray-900 dark:text-white">Audio</h3>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Production audio listings.</p>
+        </a>
+        <a href="/network" class="card-hover p-5">
+            <div class="flex items-center gap-2 mb-1">
+                <span class="material-icons text-primary-500 text-[20px]" aria-hidden="true">wifi</span>
+                <h3 class="font-semibold text-gray-900 dark:text-white">Network</h3>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Wi-Fi and ethernet listings.</p>
+        </a>
+    </section>
 
-<footer>
-    <p><span id="site-version"></span>(<a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank">Release notes</a>)
-        <svg width="14px" height="14px" viewBox="0 0 24 24" style="cursor:pointer">
-            <g stroke-width="2.1" stroke="#595959" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
-                <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
-            </g>
-        </svg>
-    </p>
-    <p id="update-date"></p>
-    <p><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank">❤️ Support me :)</a> | <a href="/sitemap.xml">Sitemap</a></p>
-    <br>
-    <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
-        <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" style="max-width: 120px;" alt="DigitalOcean Referral Badge" />
-    </a>
+    <section class="grid lg:grid-cols-2 items-start gap-6 mb-16" data-animate>
+        <div class="card p-6">
+            <button type="button" class="w-full flex items-center justify-between gap-3 text-left" data-home-panel-toggle="best-picks-panel" aria-expanded="true" aria-controls="best-picks-panel">
+                <span class="flex items-center gap-2">
+                    <span class="material-icons text-primary-500">verified</span>
+                    <h2 class="section-heading">Current Best Picks</h2>
+                </span>
+                <span class="material-icons text-gray-500 dark:text-gray-400" data-home-panel-icon>expand_less</span>
+            </button>
+            <div id="best-picks-panel" class="mt-3">
+                <div id="best-picks" class="space-y-3 text-sm text-gray-600 dark:text-gray-300"></div>
+            </div>
+        </div>
+        <div class="card p-6">
+            <button type="button" class="w-full flex items-center justify-between gap-3 text-left" data-home-panel-toggle="recent-timeline-panel" aria-expanded="true" aria-controls="recent-timeline-panel">
+                <span class="flex items-center gap-2">
+                    <span class="material-icons text-primary-500">timeline</span>
+                    <h2 class="section-heading">Recent Update Timeline</h2>
+                </span>
+                <span class="material-icons text-gray-500 dark:text-gray-400" data-home-panel-icon>expand_less</span>
+            </button>
+            <div id="recent-timeline-panel" class="mt-3">
+                <div id="recent-timeline" class="space-y-3 text-sm text-gray-600 dark:text-gray-300"></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+    
+        <footer class="border-t border-gray-200 dark:border-gray-800 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 py-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+            <div class="col-span-2 md:col-span-1">
+                <a href="/" class="flex items-center gap-2 mb-3">
+                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-7 w-7">
+                    <span class="font-semibold text-gray-900 dark:text-white">DriverHub</span>
+                </a>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Free Windows driver downloads from official sources.</p>
+            </div>
+            <div>
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">Drivers</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="/display" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Graphics</a></li>
+                    <li><a href="/chipset" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Chipset</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">Resources</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Documentation</a></li>
+                    <li><a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Release Notes</a></li>
+                    <li><a href="/info/about-stabledrivers" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Stability Ratings</a></li>
+                    <li><a href="/info/trust-center" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Trust Center</a></li>
+                    <li><a href="/feeds/drivers.json" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Driver Feed (JSON)</a></li>
+                    <li><a href="/feeds/drivers.xml" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Driver Feed (RSS)</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">About</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="/contact" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a></li>
+                    <li><a href="/sitemap.xml" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Sitemap</a></li>
+                    <li><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Support Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="pt-6 border-t border-gray-200 dark:border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-400 dark:text-gray-500">
+            <div class="flex items-center gap-3">
+                <span id="site-version"></span>
+                <span id="update-date"></span>
+            </div>
+            <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" target="_blank" rel="noopener noreferrer" class="opacity-50 hover:opacity-80 transition-opacity">
+                <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" class="h-6" alt="DigitalOcean" loading="lazy">
+            </a>
+        </div>
+    </div>
 </footer>
-    <script src="../global/darkMode.js"></script>
-    <script src="../global/regionSwitcher.js"></script>
-    <script src="../global/modern.js"></script>
-    <script src="../global/versionInfo.js"></script>
-    <script>
-    const STATUS_BANNER_ENABLED = true; // Banner toggle
-    const STATUS_BANNER_TEXT = "📣 DriverHub v5 is coming soon! If you would like to view the beta, please go to: <a href='https://beta.driverhub.win'>https://beta.driverhub.win</a>!";
 
-    const STATUS_BANNER_KEY = "statusBannerDismissed_" + STATUS_BANNER_TEXT;
+    
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const banner = document.getElementById('status-banner');
-        const text = document.getElementById('status-text');
-        const dismissBtn = document.getElementById('dismiss-banner');
-        const dismissed = localStorage.getItem(STATUS_BANNER_KEY);
-        if (STATUS_BANNER_ENABLED && !dismissed) {
-            banner.style.display = 'flex';
-            text.innerHTML = STATUS_BANNER_TEXT;
-        }
-        dismissBtn.addEventListener('click', function() {
-            banner.style.display = 'none';
-            localStorage.setItem(STATUS_BANNER_KEY, '1');
+    
+    <script src="global/favorites.js"></script>
+    
+    <script src="global/search.js"></script>
+    
+    <script src="global/darkMode.js"></script>
+    
+    <script src="global/regionSwitcher.js"></script>
+    
+    <script src="global/modern.js"></script>
+    
+    <script src="global/versionInfo.js"></script>
+    
+    <script src="global/backToTop.js"></script>
+    
+    
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-home-panel-toggle]').forEach(function(button) {
+        button.addEventListener('click', function() {
+            const panelId = button.getAttribute('data-home-panel-toggle');
+            const panel = panelId ? document.getElementById(panelId) : null;
+            if (!panel) return;
+            const expanded = button.getAttribute('aria-expanded') !== 'false';
+            button.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            panel.classList.toggle('hidden', expanded);
+            const icon = button.querySelector('[data-home-panel-icon]');
+            if (icon) icon.textContent = expanded ? 'expand_more' : 'expand_less';
         });
     });
-    </script>
-    <style>
-    .status-banner {
-        width: 100%;
-        background: linear-gradient(90deg, #ff9800 0%, #ff5722 100%);
-        color: #fff;
-        font-weight: 500;
-        padding: 0.75em 1.5em;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        font-size: 1.05em;
-        letter-spacing: 0.01em;
+
+    const heroSearchBtn = document.getElementById('hero-search-btn');
+    if (heroSearchBtn && typeof SearchModule !== 'undefined') {
+        heroSearchBtn.addEventListener('click', () => SearchModule.open());
     }
-    .dismiss-banner {
-        background: none;
-        border: none;
-        color: #fff;
-        font-size: 1.5em;
-        cursor: pointer;
-        margin-left: 1em;
-        line-height: 1;
-        padding: 0 0.5em;
-        transition: color 0.2s;
+
+    const heroCommandForm = document.getElementById('hero-command-form');
+    const heroCommandInput = document.getElementById('hero-command-input');
+    if (heroCommandForm && heroCommandInput) {
+        heroCommandForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const query = heroCommandInput.value.trim();
+            if (!query) return;
+            if (typeof SearchModule !== 'undefined' && typeof SearchModule.openWithQuery === 'function') {
+                SearchModule.openWithQuery(query);
+            } else {
+                window.location.href = `/display?q=${encodeURIComponent(query)}`;
+            }
+        });
     }
-    .dismiss-banner:hover {
-        color: #ffd180;
+
+    const recBrand = document.getElementById('rec-brand');
+    const recChannel = document.getElementById('rec-channel');
+    const recRisk = document.getElementById('rec-risk');
+    const recOs = document.getElementById('rec-os');
+    const recGo = document.getElementById('rec-go');
+    const previewLink = document.getElementById('wizard-link-preview');
+    const amdSupportUrl = 'https://www.amd.com/en/support/download/drivers.html';
+
+    const channelOptionsByBrand = {
+        nvidia: [
+            { value: '', label: 'Any channel' },
+            { value: 'game-ready', label: 'Game Ready' },
+            { value: 'studio', label: 'Studio' }
+        ],
+        intel: [
+            { value: '', label: 'Any channel' },
+            { value: 'game-on', label: 'Game On' },
+            { value: 'pro', label: 'Pro' },
+            { value: 'chipset', label: 'Chipset' }
+        ],
+        amd: [
+            { value: 'graphics', label: 'Graphics' },
+            { value: 'chipset', label: 'Chipset' }
+        ]
+    };
+
+    function setControlDisabled(node, disabled) {
+        if (!node) return;
+        node.disabled = disabled;
+        node.classList.toggle('opacity-60', disabled);
+        node.classList.toggle('cursor-not-allowed', disabled);
     }
-    </style>
+
+    function syncChannelOptions() {
+        if (!recBrand || !recChannel) return;
+        const brand = recBrand.value || 'nvidia';
+        const options = channelOptionsByBrand[brand] || channelOptionsByBrand.nvidia;
+        const previousValue = recChannel.value;
+
+        recChannel.textContent = '';
+        options.forEach(function(optionDef) {
+            const option = document.createElement('option');
+            option.value = optionDef.value;
+            option.textContent = optionDef.label;
+            recChannel.appendChild(option);
+        });
+
+        const hasPrevious = options.some((optionDef) => optionDef.value === previousValue);
+        recChannel.value = hasPrevious ? previousValue : options[0].value;
+    }
+
+    function buildWizardTarget() {
+        const brand = recBrand ? recBrand.value : '';
+        const channel = recChannel ? recChannel.value : '';
+
+        if (brand === 'amd') {
+            return {
+                href: amdSupportUrl,
+                external: true,
+                usesDisplayFilters: false
+            };
+        }
+
+        if (brand === 'intel' && channel === 'chipset') {
+            return {
+                href: '/chipset',
+                external: false,
+                usesDisplayFilters: false
+            };
+        }
+
+        const params = new URLSearchParams();
+        if (brand) params.set('brand', brand);
+        if (channel) params.set('channel', channel);
+        if (recRisk && recRisk.value) params.set('risk', recRisk.value);
+        if (recOs && recOs.value) params.set('os', recOs.value);
+
+        return {
+            href: `/display${params.toString() ? `?${params.toString()}` : ''}`,
+            external: false,
+            usesDisplayFilters: true
+        };
+    }
+
+    function syncWizardUi() {
+        const target = buildWizardTarget();
+        setControlDisabled(recRisk, !target.usesDisplayFilters);
+        setControlDisabled(recOs, !target.usesDisplayFilters);
+        if (!target.usesDisplayFilters) {
+            if (recRisk) recRisk.value = '';
+            if (recOs) recOs.value = '';
+        }
+        if (previewLink) {
+            previewLink.href = target.href;
+            if (target.external) {
+                previewLink.target = '_blank';
+                previewLink.rel = 'noopener noreferrer';
+            } else {
+                previewLink.removeAttribute('target');
+                previewLink.removeAttribute('rel');
+            }
+        }
+    }
+
+    function escapeHtml(value) {
+        return String(value == null ? '' : value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function safeInternalPath(pathValue) {
+        const value = String(pathValue || '').trim();
+        if (value.startsWith('/') && !value.startsWith('//')) return value;
+        return '/display';
+    }
+
+    if (recBrand) {
+        recBrand.addEventListener('change', function() {
+            syncChannelOptions();
+            syncWizardUi();
+        });
+    }
+    [recChannel, recRisk, recOs].forEach(function(node) {
+        if (!node) return;
+        node.addEventListener('change', syncWizardUi);
+    });
+
+    syncChannelOptions();
+    syncWizardUi();
+
+    if (recGo) {
+        recGo.addEventListener('click', function() {
+            const target = buildWizardTarget();
+            if (target.external) {
+                window.open(target.href, '_blank', 'noopener,noreferrer');
+            } else {
+                window.location.href = target.href;
+            }
+        });
+    }
+
+    function renderBestPicks(entries) {
+        const target = document.getElementById('best-picks');
+        if (!target) return;
+        target.textContent = '';
+        const groups = { nvidia: null, intel: null, amd: null };
+        entries.forEach(function(entry) {
+            if (!groups[entry.brand] && (entry.riskLevel === 'low' || entry.isStable)) groups[entry.brand] = entry;
+        });
+        Object.keys(groups).forEach(function(brand) {
+            const item = groups[brand];
+            const row = document.createElement('div');
+            row.className = 'p-3 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700';
+            if (!item) {
+                row.textContent = `${brand.toUpperCase()}: No low-risk pick found`;
+            } else {
+                const pagePath = safeInternalPath(item.page || '/display');
+                const href = `${pagePath}?q=${encodeURIComponent(item.version || '')}&brand=${encodeURIComponent(item.brand || '')}`;
+                const label = `${brand.toUpperCase()} ${item.version || ''}`;
+                const meta = `${item.type || item.channel || 'General'} · ${item.releaseDate || 'Unknown date'} · ${item.riskLevel || 'medium'} risk`;
+                row.innerHTML = `<a href="${escapeHtml(href)}" class="font-medium text-primary-600 dark:text-primary-400 hover:underline">${escapeHtml(label)}</a><div class="text-xs text-gray-500 mt-1">${escapeHtml(meta)}</div>`;
+            }
+            target.appendChild(row);
+        });
+    }
+
+    function renderTimeline(delta) {
+        const target = document.getElementById('recent-timeline');
+        if (!target) return;
+        target.textContent = '';
+        const rows = (delta.recent || []).slice(0, 8);
+        if (!rows.length) {
+            target.textContent = 'No recent timeline entries.';
+            return;
+        }
+        rows.forEach(function(item) {
+            const row = document.createElement('div');
+            row.className = 'p-3 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700';
+            const title = `${item.vendor ? String(item.vendor).toUpperCase() : 'Driver'} ${item.version || ''}`;
+            const meta = `${item.category || 'Update'} · ${item.type || 'changed'} · ${item.publishedAt || ''}`;
+            row.innerHTML = `<div class="font-medium text-gray-900 dark:text-white">${escapeHtml(title)}</div><div class="text-xs text-gray-500 mt-1">${escapeHtml(meta)}</div>`;
+            target.appendChild(row);
+        });
+    }
+
+    Promise.all([
+        fetch('/feeds/drivers.json').then((r) => r.ok ? r.json() : Promise.reject()),
+        fetch('/feeds/drivers-delta.json').then((r) => r.ok ? r.json() : Promise.reject())
+    ]).then(function([feed, delta]) {
+        renderBestPicks(Array.isArray(feed.entries) ? feed.entries : []);
+        renderTimeline(delta || {});
+    }).catch(function() {
+        renderBestPicks([]);
+        renderTimeline({ recent: [] });
+    });
+});
+</script>
+
+    <script src="global/pwa.js"></script>
 </body>
 </html>

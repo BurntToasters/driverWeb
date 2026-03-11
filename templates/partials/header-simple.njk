@@ -1,0 +1,32 @@
+<header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+        <div class="flex items-center justify-between h-14">
+            <a href="/" class="flex items-center gap-2.5">
+                <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-8 w-8">
+                <span class="text-lg font-bold text-gray-900 dark:text-white">DriverHub</span>
+            </a>
+            <div class="flex items-center gap-1.5">
+                {% if showSearchButton | default(false, true) %}
+                <button id="global-search-btn" type="button" aria-haspopup="dialog" aria-controls="search-overlay" aria-expanded="false" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Search (Ctrl+K)">
+                    <span class="material-icons text-[20px]">search</span>
+                </button>
+                {% endif %}
+                {% if showFavoritesButton | default(false, true) %}
+                <button id="favorites-btn" type="button" aria-haspopup="dialog" aria-controls="favorites-panel" aria-expanded="false" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Watchlist">
+                    <span class="material-icons text-[20px]">star_outline</span>
+                </button>
+                {% endif %}
+                {% if showDarkModeButton | default(true, true) %}
+                <button id="darkModeToggle" type="button" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Toggle dark mode">
+                    <span class="material-icons text-[20px]">dark_mode</span>
+                </button>
+                {% endif %}
+                {% if showSettings %}
+                <button class="settings-button p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" type="button" aria-label="Settings" aria-haspopup="dialog" aria-controls="settings-overlay" aria-expanded="false" title="Settings">
+                    <span class="material-icons text-[20px]">tune</span>
+                </button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</header>

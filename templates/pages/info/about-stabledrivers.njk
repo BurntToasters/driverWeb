@@ -1,0 +1,86 @@
+{% extends "layouts/base.njk" %}
+{% set assetPrefix = '../' %}
+{% set title = 'About Stable Drivers | DriverHub' %}
+{% set metaDescription = 'Learn about driver stability ratings and how to choose the best driver for your system.' %}
+{% set metaRobots = 'index, follow' %}
+{% set canonical = 'https://driverhub.win/info/about-stabledrivers' %}
+{% set headerVariant = 'simple' %}
+{% set showDarkModeButton = true %}
+{% set showSettings = false %}
+{% set footerVariant = 'compact' %}
+{% set compactFooterMarginTop = true %}
+{% set showUpdateDate = true %}
+{% set scripts = ['global/darkMode.js', 'global/versionInfo.js'] %}
+
+{% block headExtra %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "About Stable Drivers",
+  "description": "Understanding driver stability ratings and choosing the right driver.",
+  "url": "https://driverhub.win/info/about-stabledrivers"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<main class="flex-1 max-w-4xl mx-auto px-4 md:px-6 py-12 w-full">
+    <div class="mb-8">
+        <h1 class="page-heading mb-2">About Stable Drivers</h1>
+        <p class="page-subheading">Understanding driver grading and stability ratings</p>
+    </div>
+
+    <article class="card overflow-hidden mb-8">
+        <div class="p-6 md:p-8">
+            <section class="mb-10">
+                <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
+                    <span class="material-icons text-primary-500">grade</span>
+                    Driver Rankings
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">Driver rankings are based on personal experience with "Considered a stable driver" NVIDIA drivers.</p>
+
+                <div class="space-y-3">
+                    <div class="flex items-center gap-4 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border border-emerald-200 dark:border-emerald-800">
+                        <span class="flex-shrink-0 px-3 py-1.5 bg-emerald-500 text-white font-bold rounded-md text-sm">A- to A+</span>
+                        <span class="text-gray-700 dark:text-gray-300">Best overall experience with drivers</span>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 bg-lime-50 dark:bg-lime-900/20 rounded-lg border border-lime-200 dark:border-lime-800">
+                        <span class="flex-shrink-0 px-3 py-1.5 bg-lime-500 text-white font-bold rounded-md text-sm">B to B+</span>
+                        <span class="text-gray-700 dark:text-gray-300">Very good experience. Some minor bugs but solid choice.</span>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-200 dark:border-amber-800">
+                        <span class="flex-shrink-0 px-3 py-1.5 bg-amber-500 text-white font-bold rounded-md text-sm">C+ to B-</span>
+                        <span class="text-gray-700 dark:text-gray-300">Okay experience. Too many stutters and bugs. Would recommend a higher rated driver unless needed for compatibility.</span>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800">
+                        <span class="flex-shrink-0 px-3 py-1.5 bg-red-500 text-white font-bold rounded-md text-sm">C and below</span>
+                        <span class="text-gray-700 dark:text-gray-300">Not recommended. High GPU latency, frequent stutters and bugs.</span>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+                        <span class="flex-shrink-0 px-3 py-1.5 bg-gray-400 text-white font-bold rounded-md text-sm">/</span>
+                        <span class="text-gray-700 dark:text-gray-300">Driver is pending a grade. Check back later!</span>
+                    </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-primary-50 dark:bg-primary-900/20 rounded-lg border border-primary-200 dark:border-primary-800 flex items-start gap-3">
+                    <span class="material-icons text-primary-500 flex-shrink-0 mt-0.5">computer</span>
+                    <p class="text-gray-700 dark:text-gray-300"><strong>Reference setup:</strong> Ryzen 9 7900X, RTX 4080 SUPER, 64GB DDR5 6000MHz, Win 11 24H2</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
+                    <span class="material-icons text-primary-500">verified</span>
+                    What does "Considered a stable driver" mean?
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">The stable driver tag refers to community feedback and response to newly released drivers. This is determined by reviewing Reddit threads about new driver releases. If the general outlook indicates the driver works well and is worth updating to, that tag is added along with a link to the reference thread. Personal experience is also taken into consideration.</p>
+            </section>
+        </div>
+    </article>
+</main>
+{% endblock %}

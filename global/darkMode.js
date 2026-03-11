@@ -1,55 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const userPreference = localStorage.getItem('darkMode');
     const darkModeToggle = document.getElementById('darkModeToggle');
-    const settingsOverlay = document.getElementById('settings-overlay');
-    const closeSettings = document.querySelector('.close-settings');
 
-    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    function getStoredDarkMode() {
+        try {
+            return localStorage.getItem('darkMode');
+        } catch (e) {
+            return null;
+        }
+    }
+
+    function setStoredDarkMode(value) {
+        try {
+            localStorage.setItem('darkMode', value);
+        } catch (e) {
+        }
+    }
+
+    function updateToggleIcon(isDark) {
+        if (!darkModeToggle) return;
+        const icon = darkModeToggle.querySelector('.material-icons');
+        if (!icon) return;
+        icon.textContent = isDark ? 'light_mode' : 'dark_mode';
+    }
+
+    function notifyModeChange(isDark) {
+        document.dispatchEvent(new CustomEvent('driverhub:dark-mode-changed', {
+            detail: { isDark }
+        }));
+    }
 
     function applyDarkMode(isDark) {
         if (isDark) {
-            document.documentElement.classList.add('dark-mode');
+            document.documentElement.classList.add('dark');
         } else {
-            document.documentElement.classList.remove('dark-mode');
+            document.documentElement.classList.remove('dark');
         }
+        updateToggleIcon(isDark);
+        notifyModeChange(isDark);
     }
+
+    const userPreference = getStoredDarkMode();
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDarkMode = userPreference === 'dark' || (userPreference === null && prefersDarkScheme);
+
+    applyDarkMode(isDarkMode);
 
     if (darkModeToggle) {
-        if (userPreference === null) {
-            applyDarkMode(prefersDarkScheme);
-            darkModeToggle.checked = prefersDarkScheme;
-        } else {
-            applyDarkMode(userPreference === 'dark');
-            darkModeToggle.checked = userPreference === 'dark';
-        }
-
-        darkModeToggle.addEventListener('change', () => {
-            if (darkModeToggle.checked) {
-                applyDarkMode(true);
-                localStorage.setItem('darkMode', 'dark');
-            } else {
-                applyDarkMode(false);
-                localStorage.setItem('darkMode', 'light');
-            }
-        });
-    }
-
-    const settingsButton = document.querySelector('.settings-button');
-    if (settingsButton && settingsOverlay) {
-        settingsButton.addEventListener('click', () => {
-            settingsOverlay.style.display = 'block';
-        });
-    }
-
-    if (closeSettings && settingsOverlay) {
-        closeSettings.addEventListener('click', () => {
-            settingsOverlay.style.display = 'none';
-        });
-
-        window.addEventListener('click', (e) => {
-            if (e.target === settingsOverlay) {
-                settingsOverlay.style.display = 'none';
-            }
+        darkModeToggle.addEventListener('click', () => {
+            const currentlyDark = document.documentElement.classList.contains('dark');
+            const nextDark = !currentlyDark;
+            applyDarkMode(nextDark);
+            setStoredDarkMode(nextDark ? 'dark' : 'light');
         });
     }
 });

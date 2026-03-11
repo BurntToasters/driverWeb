@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  code,
+  kbd,
+  pre,
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer components {
+  .hero-command {
+    @apply hidden md:flex items-center gap-2 w-full max-w-3xl mx-auto rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur px-3 py-2 shadow-lg;
+  }
+
+  .hero-command-input {
+    @apply flex-1 bg-transparent text-base text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 outline-none;
+  }
+
+  .hero-command-chip {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300;
+  }
+
+  .trust-chip {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300;
+  }
+
+  .mobile-hero-actions {
+    @apply md:hidden flex items-center justify-center gap-3 flex-wrap;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-primary-700 hover:bg-primary-800 text-white font-medium rounded-lg shadow-sm hover:shadow-md transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors;
+  }
+
+  .btn-brand-nvidia {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-nvidia hover:bg-nvidia-dark text-white font-medium rounded-lg shadow-sm hover:shadow-md transition-all duration-200;
+  }
+
+  .btn-brand-intel {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-intel hover:bg-intel-dark text-white font-medium rounded-lg shadow-sm hover:shadow-md transition-all duration-200;
+  }
+
+  .btn-brand-amd {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-amd hover:bg-amd-dark text-white font-medium rounded-lg shadow-sm hover:shadow-md transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm;
+  }
+
+  .card-hover {
+    @apply bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-200;
+  }
+
+  .page-heading {
+    @apply text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight;
+  }
+
+  .page-subheading {
+    @apply text-base md:text-lg text-gray-500 dark:text-gray-400;
+  }
+
+  .section-heading {
+    @apply text-xl font-semibold text-gray-900 dark:text-white;
+  }
+
+  body.driver-list-dense .driver-card {
+    @apply p-3 gap-2;
+  }
+
+  body.driver-list-dense .driver-card h3 {
+    @apply text-sm;
+  }
+
+  body.driver-list-dense .driver-card .btn-primary,
+  body.driver-list-dense .driver-card .btn-secondary {
+    @apply px-2.5 py-1.5 text-xs;
+  }
+}

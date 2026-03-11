@@ -1,294 +1,288 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Important driver information and warnings. Learn about stable vs beta drivers and make informed choices.">
+    <meta name="description" content="Driver warning information - known stability issues.">
+    
+    
     <meta name="robots" content="noindex, follow">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://raw.githubusercontent.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://prod.rexxit.net https://web-platforms.sfo2.cdn.digitaloceanspaces.com data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://raw.githubusercontent.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
     <link rel="canonical" href="https://driverhub.win/display/warn">
     
-    <title>Driver Warning Information | DriverHub.win</title>
+    <title>Driver Warning | DriverHub</title>
 
     <script>
         (function() {
             const userPreference = localStorage.getItem('darkMode');
             const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            const shouldUseDarkMode = userPreference === 'dark' || (userPreference === null && prefersDarkScheme);
-            
-            if (shouldUseDarkMode) {
-                document.documentElement.classList.add('dark-mode');
+            if (userPreference === 'dark' || (userPreference === null && prefersDarkScheme)) {
+                document.documentElement.classList.add('dark');
             }
         })();
     </script>
-    
-    <link rel="stylesheet" href="../global/v4.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="../global/favicon.ico">
-</head>
-<body>
-    <header>
-        <div class="logo-container">
-            <a href="/">
-                <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub Logo">
-            </a>
-        </div>
-        <h1>Driver Warning</h1>
-        <p>This driver version has known issues that may affect your system stability.</p>
-        
-        <nav class="nav-container">
-            <a href="/" class="download-button"><span class="material-icons">home</span> Home</a> 
-            <a href="/display" class="nvidia-button"><u><span class="material-icons">videocam</span> Video Drivers</u></a>  
-            <a href="/chipset" class="chipset-button"><span class="material-icons">memory</span> Chipset Drivers</a>
-            <a href="/network" class="g-button"><span class="material-icons">wifi</span> Network Drivers</a>  
-            <a href="/audio" class="g-button"><span class="material-icons">headphones</span> Audio Drivers</a>
-            <a href="/contact" class="g-button"><span class="material-icons">email</span> Contact</a>
-        </nav>
-        
-        <button class="settings-button">
-            <span class="material-icons">settings</span>
-        </button>
-    </header>
 
-    <div id="settings-overlay" class="settings-overlay">
-        <div class="settings-content">
-            <span class="close-settings">&times;</span>
-            <h2>Settings</h2>
-            
-            <!-- Dark Mode Toggle -->
-            <label class="switch">
-                <input type="checkbox" id="darkModeToggle">
-                <span class="slider round"></span>
-            </label>
-            <span>Dark Mode</span>
-            <hr>
-      
-            <!-- Region Selection -->
-            <label for="regionSelect">Select Region:</label>
-            <select id="regionSelect" class="region-dropdown">
-                <option value="USA">🇺🇸 USA</option>
-                <option value="EU">🇪🇺 EU</option>
-            </select>
-            <a href="https://docs.rexxit.net/drivers-website/articles/region-selection">Learn more about region selection</a>
+    <meta name="theme-color" content="#0f172a">
+    <link rel="manifest" href="../manifest.webmanifest">
+    <link rel="stylesheet" href="../global/tailwind.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="../global/favicon.ico">
+    
+</head>
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
+    
+
+    
+
+    
+        <header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+        <div class="flex items-center justify-between h-14">
+            <a href="/" class="flex items-center gap-2.5">
+                <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-8 w-8">
+                <span class="text-lg font-bold text-gray-900 dark:text-white">DriverHub</span>
+            </a>
+            <div class="flex items-center gap-1.5">
+                
+                
+                
+                <button id="darkModeToggle" type="button" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Toggle dark mode">
+                    <span class="material-icons text-[20px]">dark_mode</span>
+                </button>
+                
+                
+                <button class="settings-button p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" type="button" aria-label="Settings" aria-haspopup="dialog" aria-controls="settings-overlay" aria-expanded="false" title="Settings">
+                    <span class="material-icons text-[20px]">tune</span>
+                </button>
+                
+            </div>
         </div>
     </div>
+</header>
 
-    <main>
-        <div id="region-indicator" class="region-indicator" title="Click to change region">Region: </div>
-        
-        <section class="driver-section warning-section">
-            <div class="container">
-                <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt="NVIDIA" class="platform">
-                <h2>Driver Warning</h2>
+    
+
+    
+        <div id="settings-overlay" class="settings-overlay hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="settings-title" aria-hidden="true" tabindex="-1">
+    <div id="settings-dialog" class="w-full max-w-md mx-4 bg-white dark:bg-gray-900 rounded-xl shadow-2xl overflow-hidden transform transition-all" tabindex="-1">
+        <div class="bg-gray-900 dark:bg-gray-800 px-6 py-4">
+            <div class="flex items-center justify-between">
+                <h2 id="settings-title" class="text-lg font-semibold text-white">Settings</h2>
+                <button class="close-settings p-1.5 rounded-lg hover:bg-white/10 text-white/70 hover:text-white transition-colors" type="button" aria-label="Close settings">
+                    <span class="material-icons text-[20px]">close</span>
+                </button>
             </div>
-            
-            <div class="warning-alert">
-                <h3><span class="material-icons warning-icon">warning</span> Stability Warning</h3>
-                <p id="warning-message">This driver version may have stability issues including black screens and crashes.</p>
-                <p>It is recommended to use a more stable driver version if possible.</p>
-                
-                <div class="video-container" id="video-container" style="display: none;">
-                    <iframe width="560" height="315" id="warning-video" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="p-6 space-y-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="material-icons text-gray-400">dark_mode</span>
+                    <span class="font-medium text-gray-900 dark:text-white">Dark Mode</span>
                 </div>
-                
-                <div class="button-container">
-                    <a href="/display" class="download-button"><span class="material-icons">arrow_back</span> Go Back</a>
-                    <a href="#" id="continue-download" class="nvidia-button"><span class="material-icons">download</span> Continue to Download (Not Recommended)</a>
-                    <a href="#" id="hotfix-download" class="intel-button" style="display: none;"><span class="material-icons">security</span> Download Hotfix Driver Instead</a>
+                <button id="settingsDarkToggle" class="relative w-14 h-8 bg-gray-200 dark:bg-primary-500 rounded-full transition-colors" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+                    <span class="absolute left-1 dark:left-7 top-1 w-6 h-6 bg-white rounded-full shadow-md transition-all duration-200"></span>
+                </button>
+            </div>
+            <hr class="border-gray-200 dark:border-gray-700">
+            <div class="space-y-3">
+                <label for="regionSelect" class="flex items-center gap-3">
+                    <span class="material-icons text-gray-400">public</span>
+                    <span class="font-medium text-gray-900 dark:text-white">Download Region</span>
+                </label>
+                <select id="regionSelect" class="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none transition-colors text-gray-900 dark:text-white">
+                    <option value="USA">USA</option>
+                    <option value="EU">EU</option>
+                </select>
+                <p class="text-sm text-gray-500"><a href="https://docs.rexxit.net/drivers-website/articles/region-selection" target="_blank" rel="noopener noreferrer" class="text-primary-500 hover:text-primary-600 hover:underline">Learn more about regions</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    
+<main class="flex-1 max-w-4xl mx-auto px-4 md:px-6 py-12 w-full">
+    <div class="text-center mb-8">
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-amber-100 dark:bg-amber-900/30 mb-4">
+            <span class="material-icons text-5xl text-amber-500">warning</span>
+        </div>
+        <h1 class="page-heading mb-2">Driver Warning</h1>
+        <p class="page-subheading">This driver version has known stability issues</p>
+    </div>
+
+    <section class="card border-amber-200 dark:border-amber-800 overflow-hidden">
+        <div class="p-6 md:p-8 border-l-4 border-amber-500">
+            <div class="flex items-start gap-4 mb-6">
+                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
+                    <span class="material-icons text-2xl text-red-500">error</span>
+                </div>
+                <div>
+                    <h2 class="section-heading mb-2">Stability Warning</h2>
+                    <p id="warning-message" class="text-gray-600 dark:text-gray-400 mb-2">This driver version may cause stability issues including black screens and crashes.</p>
+                    <p class="text-gray-600 dark:text-gray-400">It is recommended to use a more stable driver version if possible.</p>
                 </div>
             </div>
-        </section>
-    </main>
 
-    <footer>
-        <p><span id="site-version"></span>(<a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank">Release notes</a>)</p>
-        <p id="update-date"></p>
-        <p><a href="https://www.buymeacoffee.com/burnttoasters" target="_blank">❤️ Support me :)</a> | <a href="/sitemap.xml">Sitemap</a></p>
-    </footer>
+            <div id="video-container" class="hidden mb-6">
+                <div class="aspect-video rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
+                    <iframe id="warning-video" src="" title="Warning video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
 
+            <div class="flex flex-wrap items-center gap-3 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <a href="/display" id="back-button" class="btn-secondary">
+                    <span class="material-icons text-lg">arrow_back</span>
+                    Go Back
+                </a>
+                <a href="#" id="continue-download" class="inline-flex items-center gap-2 px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-lg shadow-sm hover:shadow-md transition-all duration-200">
+                    <span class="material-icons text-lg">download</span>
+                    Download Anyway
+                </a>
+                <a href="#" id="hotfix-download" class="hidden btn-brand-nvidia">
+                    <span class="material-icons text-lg">security</span>
+                    Download Hotfix
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+    
+        <footer class="border-t border-gray-200 dark:border-gray-800 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 py-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-400 dark:text-gray-500">
+            <div class="flex items-center gap-3">
+                <span id="site-version"></span>
+                <span id="update-date"></span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-white transition-colors">Release Notes</a>
+                <a href="/feeds/drivers.json" class="hover:text-gray-900 dark:hover:text-white transition-colors">Driver Feed</a>
+                <a href="/sitemap.xml" class="hover:text-gray-900 dark:hover:text-white transition-colors">Sitemap</a>
+                <a href="https://www.buymeacoffee.com/burnttoasters" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-white transition-colors">Support Us</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+
+    
     <script src="../global/darkMode.js"></script>
+    
     <script src="../global/regionSwitcher.js"></script>
+    
+    <script src="../global/modern.js"></script>
+    
     <script src="../global/versionInfo.js"></script>
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-    try {
-        const urlParams = new URLSearchParams(window.location.search);
-        let driverType = "";
-        let driverVersion = "";
-        let backUrl = "/display"; 
-        
-        if (urlParams.has('nvgrd')) {
-            driverType = "nvgrd";
-            driverVersion = urlParams.get('nvgrd');
-            document.title = `NVIDIA Game Ready ${driverVersion} Warning - DriverHub`;
-            
-        } else if (urlParams.has('nvgrl')) {
-            driverType = "nvgrl";
-            driverVersion = urlParams.get('nvgrl');
-            document.title = `NVIDIA Game Ready Laptop ${driverVersion} Warning - DriverHub`;
-            backUrl = "/display/laptop"; 
-        } else if (urlParams.has('nvsd')) {
-            driverType = "nvsd";
-            driverVersion = urlParams.get('nvsd');
-            document.title = `NVIDIA Studio ${driverVersion} Warning - DriverHub`;
-            
-        } else if (urlParams.has('nvsl')) {
-            driverType = "nvsl";
-            driverVersion = urlParams.get('nvsl');
-            document.title = `NVIDIA Studio Laptop ${driverVersion} Warning - DriverHub`;
-            backUrl = "/display/laptop";
-        } else {
-            window.location.href = "/display";
-            return;
-        }
-        
-        // Update the back button URL
-        const backButton = document.querySelector('.button-container .download-button');
-        if (backButton) {
-            backButton.href = backUrl;
-        }
-        
-        //warning messageversion
-        const warningMessage = document.getElementById('warning-message');
-        if (warningMessage) {
-            let messageText = `NVIDIA driver version ${driverVersion} has known stability issues including black screens, crashes, and performance problems.`;
-            
-            // Special handling for specific driver versions or series
-            if (driverVersion.startsWith('576.02')) {
-                messageText = `NVIDIA driver version ${driverVersion} has widespread stability issues affecting many systems. See the video below for details.`;
-                
-                //576.02
-                const videoContainer = document.getElementById('video-container');
-                const warningVideo = document.getElementById('warning-video');
-                if (videoContainer && warningVideo) {
-                    videoContainer.style.display = 'block';
-                    warningVideo.src = "https://www.youtube-nocookie.com/embed/KrCEPX47vtw";
-                }
-                
-                //576.02
-                const hotfixButton = document.getElementById('hotfix-download');
-                if (hotfixButton) {
-                    hotfixButton.style.display = 'inline-flex';
-                    hotfixButton.href = getDownloadUrl("576.15hf", driverType, true); 
-                }
-            } else if (driverVersion.startsWith('572.')) {
-                messageText = `NVIDIA driver version ${driverVersion} is based on the 572.xx series which has widespread stability issues. See the video below for details.`;
-                
-                //572.xx series
-                const videoContainer = document.getElementById('video-container');
-                const warningVideo = document.getElementById('warning-video');
-                if (videoContainer && warningVideo) {
-                    videoContainer.style.display = 'block';
-                    warningVideo.src = "https://www.youtube-nocookie.com/embed/NTXoUsdSAnA";
-                }
-            }
-            
-            warningMessage.textContent = messageText;
-        }
-        
-        // Set up continue button
-        const continueButton = document.getElementById('continue-download');
-        if (continueButton) {
-            continueButton.href = getDownloadUrl(driverVersion, driverType);
-        }
-        
-        function getDownloadUrl(version, type, isHotfix = false) {
-            // Get current region
-            const region = localStorage.getItem("userRegion") || "USA";
-            const domain = region === "EU" ? "uk.download.nvidia.com" : "us.download.nvidia.com";
-            
-            // For hotfix drivers, the format is different
-            if (isHotfix) {
-                return `https://international.download.nvidia.com/Windows/${version}/${version}-desktop-win10-win11-64bit-international-dch-hf.exe`;
-            }
-            
-            // Build URL based on driver type
-            switch(type) {
-                case "nvgrd": // NVIDIA Game Ready Desktop
-                    return `https://${domain}/Windows/${version}/${version}-desktop-win10-win11-64bit-international-dch-whql.exe`;
-                case "nvgrl": // NVIDIA Game Ready Laptop
-                    return `https://${domain}/Windows/${version}/${version}-notebook-win10-win11-64bit-international-dch-whql.exe`;
-                case "nvsd": // NVIDIA Studio Desktop
-                    return `https://${domain}/Windows/${version}/${version}-desktop-win10-win11-64bit-international-nsd-dch-whql.exe`;
-                case "nvsl": // NVIDIA Studio Laptop
-                    return `https://${domain}/Windows/${version}/${version}-notebook-win10-win11-64bit-international-nsd-dch-whql.exe`;
-                default:
-                    return "/display";
-            }
-        }
-        
-        
-        const regionSelect = document.getElementById('regionSelect');
-        if (regionSelect) {
-            regionSelect.addEventListener('change', function() {
-                const continueButton = document.getElementById('continue-download');
-                if (continueButton) {
-                    continueButton.href = getDownloadUrl(driverVersion, driverType);
-                }
-                
-                const hotfixButton = document.getElementById('hotfix-download');
-                if (hotfixButton && hotfixButton.style.display !== 'none') {
-                    hotfixButton.href = getDownloadUrl("576.15hf", driverType, true);
-                }
-            });
-        }
-        
-    } catch (error) {
-        console.error("Error in warn.html script:", error);
-       
-    }
-});
-</script>
+    
+    
 <script>
-// This is super messy but it works
-window.addEventListener('load', function() {
-    console.log("Window fully loaded");
-    
-    
-    const settingsButton = document.querySelector('.settings-button');
-    const settingsOverlay = document.getElementById('settings-overlay');
-    const closeSettings = document.querySelector('.close-settings');
-    
-    console.log("Settings button exists:", !!settingsButton);
-    console.log("Settings overlay exists:", !!settingsOverlay);
-    
-    
-    if (settingsButton && settingsOverlay) {
-        console.log("Adding click handler to settings button");
-        
-        
-        const newButton = settingsButton.cloneNode(true);
-        settingsButton.parentNode.replaceChild(newButton, settingsButton);
-        
-        
-        newButton.addEventListener('click', function(e) {
-            console.log("Settings button clicked!");
-            e.preventDefault();
-            
-            
-            settingsOverlay.style.cssText = `
-                display: block !important;
-                opacity: 1 !important;
-                visibility: visible !important;
-                z-index: 3000 !important;
-            `;
-            
-            
-            settingsOverlay.classList.add('active');
-            
-            
-            void settingsOverlay.offsetWidth;
-        });
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let driverType = "";
+    let driverVersion = "";
+    let backUrl = "/display";
+
+    if (urlParams.has('nvgrd')) {
+        driverType = "nvgrd";
+        driverVersion = urlParams.get('nvgrd');
+        document.title = `NVIDIA Game Ready ${driverVersion} Warning - DriverHub`;
+    } else if (urlParams.has('nvgrl')) {
+        driverType = "nvgrl";
+        driverVersion = urlParams.get('nvgrl');
+        document.title = `NVIDIA Game Ready Laptop ${driverVersion} Warning - DriverHub`;
+        backUrl = "/display/laptop";
+    } else if (urlParams.has('nvsd')) {
+        driverType = "nvsd";
+        driverVersion = urlParams.get('nvsd');
+        document.title = `NVIDIA Studio ${driverVersion} Warning - DriverHub`;
+    } else if (urlParams.has('nvsl')) {
+        driverType = "nvsl";
+        driverVersion = urlParams.get('nvsl');
+        document.title = `NVIDIA Studio Laptop ${driverVersion} Warning - DriverHub`;
+        backUrl = "/display/laptop";
+    } else {
+        window.location.href = "/display";
+        return;
     }
-    
-    
-    if (closeSettings) {
-        closeSettings.addEventListener('click', function() {
-            console.log("Close settings clicked!");
-            settingsOverlay.style.display = 'none';
-            settingsOverlay.classList.remove('active');
-        });
+
+    const backButton = document.getElementById('back-button');
+    if (backButton) backButton.href = backUrl;
+
+    const warningMessage = document.getElementById('warning-message');
+    if (warningMessage) {
+        let messageText = `NVIDIA driver version ${driverVersion} has known stability issues including black screens, crashes, and performance problems.`;
+
+        if (driverVersion.startsWith('576.02')) {
+            messageText = `NVIDIA driver version ${driverVersion} has widespread stability issues affecting many systems. See the video below for details.`;
+            const videoContainer = document.getElementById('video-container');
+            const warningVideo = document.getElementById('warning-video');
+            if (videoContainer && warningVideo) {
+                videoContainer.classList.remove('hidden');
+                warningVideo.src = "https://www.youtube-nocookie.com/embed/KrCEPX47vtw";
+            }
+            const hotfixButton = document.getElementById('hotfix-download');
+            if (hotfixButton) {
+                hotfixButton.classList.remove('hidden');
+                hotfixButton.classList.add('inline-flex');
+            }
+        } else if (driverVersion.startsWith('572.')) {
+            messageText = `NVIDIA driver version ${driverVersion} is based on the 572.xx series which has widespread stability issues. See the video below for details.`;
+            const videoContainer = document.getElementById('video-container');
+            const warningVideo = document.getElementById('warning-video');
+            if (videoContainer && warningVideo) {
+                videoContainer.classList.remove('hidden');
+                warningVideo.src = "https://www.youtube-nocookie.com/embed/NTXoUsdSAnA";
+            }
+        }
+        warningMessage.textContent = messageText;
     }
+
+    function getDownloadUrl(version, type, isHotfix) {
+        const region = localStorage.getItem("userRegion") || "USA";
+        const domain = region === "EU" ? "uk.download.nvidia.com" : "us.download.nvidia.com";
+
+        if (isHotfix) {
+            return `https://international.download.nvidia.com/Windows/${version}/${version}-desktop-win10-win11-64bit-international-dch-hf.exe`;
+        }
+
+        switch(type) {
+            case "nvgrd":
+                return `https://${domain}/Windows/${version}/${version}-desktop-win10-win11-64bit-international-dch-whql.exe`;
+            case "nvgrl":
+                return `https://${domain}/Windows/${version}/${version}-notebook-win10-win11-64bit-international-dch-whql.exe`;
+            case "nvsd":
+                return `https://${domain}/Windows/${version}/${version}-desktop-win10-win11-64bit-international-nsd-dch-whql.exe`;
+            case "nvsl":
+                return `https://${domain}/Windows/${version}/${version}-notebook-win10-win11-64bit-international-nsd-dch-whql.exe`;
+            default:
+                return "/display";
+        }
+    }
+
+    function updateDownloadLinks() {
+        const continueBtn = document.getElementById('continue-download');
+        if (continueBtn) continueBtn.href = getDownloadUrl(driverVersion, driverType, false);
+
+        const hotfixBtn = document.getElementById('hotfix-download');
+        if (hotfixBtn && !hotfixBtn.classList.contains('hidden')) {
+            hotfixBtn.href = getDownloadUrl("576.15hf", driverType, true);
+        }
+    }
+
+    updateDownloadLinks();
+
+    document.addEventListener('driverhub:region-changed', function() {
+        updateDownloadLinks();
+    });
 });
 </script>
+
+    <script src="../global/pwa.js"></script>
 </body>
 </html>

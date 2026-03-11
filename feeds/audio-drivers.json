@@ -1,0 +1,96 @@
+{
+  "generatedAt": "2026-03-11T23:11:43.525Z",
+  "family": "audio",
+  "count": 2,
+  "drivers": [
+    {
+      "id": "audio|realtek|uhd-6.0.9800.1",
+      "vendor": "realtek",
+      "family": "audio",
+      "channel": "audio",
+      "category": "Audio Drivers",
+      "brand": "audio",
+      "version": "UAD 6.0.9800.1",
+      "type": "Realtek HD Audio",
+      "releaseDate": "2025-10-01",
+      "releaseDateIso": "2025-10-01",
+      "publishedAt": "2025-10-01T00:00:00.000Z",
+      "page": "/audio",
+      "downloadUrl": "https://www.catalog.update.microsoft.com/Search.aspx?q=realtek%20audio",
+      "releaseNotesUrl": "",
+      "knownIssuesUrl": "",
+      "previousVersion": "",
+      "warningUrl": "",
+      "redditUrl": "",
+      "hasWarning": false,
+      "isStable": true,
+      "stabilityGrade": "A",
+      "riskLevel": "low",
+      "checksum": null,
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://www.catalog.update.microsoft.com/Search.aspx?q=realtek%20audio"
+        }
+      ],
+      "highlights": [
+        "Universal Audio Driver branch",
+        "Designed for Windows 10 and 11"
+      ],
+      "issueTags": [],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ]
+    },
+    {
+      "id": "audio|intel|smart-sound-10.29.0.1090",
+      "vendor": "intel",
+      "family": "audio",
+      "channel": "audio",
+      "category": "Audio Drivers",
+      "brand": "audio",
+      "version": "10.29.0.1090",
+      "type": "Intel Smart Sound Technology",
+      "releaseDate": "2025-08-12",
+      "releaseDateIso": "2025-08-12",
+      "publishedAt": "2025-08-12T00:00:00.000Z",
+      "page": "/audio",
+      "downloadUrl": "https://www.intel.com/content/www/us/en/search.html?ws=text#q=smart%20sound%20technology%20driver",
+      "releaseNotesUrl": "",
+      "knownIssuesUrl": "",
+      "previousVersion": "",
+      "warningUrl": "",
+      "redditUrl": "",
+      "hasWarning": false,
+      "isStable": true,
+      "stabilityGrade": "A-",
+      "riskLevel": "low",
+      "checksum": null,
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://www.intel.com/content/www/us/en/search.html?ws=text#q=smart%20sound%20technology%20driver"
+        }
+      ],
+      "highlights": [
+        "Laptop-focused audio DSP stack"
+      ],
+      "issueTags": [],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ]
+    }
+  ]
+}
