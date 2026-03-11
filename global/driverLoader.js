@@ -1,5 +1,7 @@
 const LOAD_TIMEOUT_MS = 15000;
 const COMPARE_MAX = 3;
+const COPY_HASH_RESTORE_MS = 4200;
+const COPY_HASH_MAX_WIDTH = '20rem';
 
 const loadRegistry = {};
 const driverStore = new Map();
@@ -592,7 +594,12 @@ function createDriverRow(driver) {
     const safeKnownIssuesHref = driver.knownIssuesUrl ? escapeHtml(driver.knownIssuesUrl) : '';
     const safeRedditHref = driver.redditUrl ? escapeHtml(driver.redditUrl) : '';
     const safeCategory = escapeHtml(driver.category || '');
-    card.innerHTML = `<div class="flex flex-wrap items-start justify-between gap-3"><div class="min-w-0 flex-1"><h3 class="text-base font-semibold text-gray-900 dark:text-white">${safeVersion}</h3><p class="text-sm text-gray-500 dark:text-gray-400">${safeTypeLabel}</p></div><span class="text-xs font-medium text-gray-500 dark:text-gray-400">${safeReleaseLabel}</span></div><div class="flex flex-wrap gap-2"><span class="px-2 py-1 rounded-md text-xs font-semibold ${riskClass(driver.riskLevel)}">${safeRiskLevel} risk</span><span class="px-2 py-1 rounded-md text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">${safeChannelLabel}</span>${driver.isStable && driver.stabilityGrade ? `<span class="px-2 py-1 rounded-md text-xs font-semibold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">Stable ${safeStableGrade}</span>` : ''}</div><div class="text-sm text-gray-600 dark:text-gray-300">${safeHighlights}</div><div class="flex flex-wrap items-center gap-2"><a href="${safeActionHref}" ${actionAttrs} class="${actionClass}"><span class="material-icons text-base">${safeActionIcon}</span>${safeActionLabel}</a>${safeReleaseNotesHref ? `<a href="${safeReleaseNotesHref}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm"><span class="material-icons text-base">notes</span>Notes</a>` : ''}${safeKnownIssuesHref ? `<a href="${safeKnownIssuesHref}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm"><span class="material-icons text-base">warning</span>Issues</a>` : ''}${safeRedditHref ? `<a href="${safeRedditHref}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm"><span class="material-icons text-base">forum</span>Community</a>` : ''}<button type="button" data-driver-compare-id="${safeId}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300"><span class="material-icons text-[14px]">compare_arrows</span><span data-compare-label>Compare</span></button><button type="button" data-driver-favorite-id="${safeId}" data-version="${safeVersion}" data-category="${safeCategory}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300"><span class="material-icons text-[14px]">star_border</span>Watch</button><button type="button" data-driver-detail-id="${safeId}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300"><span class="material-icons text-[14px]">info</span>Details</button>${driver.checksum && driver.checksum.value ? `<button type="button" data-driver-copy-hash="${safeId}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300"><span class="material-icons text-[14px]">content_copy</span>SHA256</button>` : ''}</div>`;
+    const checksumValue = driver.checksum && driver.checksum.value ? String(driver.checksum.value).toUpperCase() : '';
+    const safeChecksumValue = escapeHtml(checksumValue);
+    const checksumButtonHtml = checksumValue
+        ? `<button type="button" data-driver-copy-hash="${safeId}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors duration-200"><span class="material-icons text-[14px]">content_copy</span><span data-copy-label>SHA256</span><span data-copy-hash-value class="font-mono text-[10px] tracking-wide overflow-hidden whitespace-nowrap opacity-0 transition-all duration-200" style="max-width: 0;" title="${safeChecksumValue}">${safeChecksumValue}</span></button>`
+        : '';
+    card.innerHTML = `<div class="flex flex-wrap items-start justify-between gap-3"><div class="min-w-0 flex-1"><h3 class="text-base font-semibold text-gray-900 dark:text-white">${safeVersion}</h3><p class="text-sm text-gray-500 dark:text-gray-400">${safeTypeLabel}</p></div><span class="text-xs font-medium text-gray-500 dark:text-gray-400">${safeReleaseLabel}</span></div><div class="flex flex-wrap gap-2"><span class="px-2 py-1 rounded-md text-xs font-semibold ${riskClass(driver.riskLevel)}">${safeRiskLevel} risk</span><span class="px-2 py-1 rounded-md text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">${safeChannelLabel}</span>${driver.isStable && driver.stabilityGrade ? `<span class="px-2 py-1 rounded-md text-xs font-semibold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">Stable ${safeStableGrade}</span>` : ''}</div><div class="text-sm text-gray-600 dark:text-gray-300">${safeHighlights}</div><div class="flex flex-wrap items-center gap-2"><a href="${safeActionHref}" ${actionAttrs} class="${actionClass}"><span class="material-icons text-base">${safeActionIcon}</span>${safeActionLabel}</a>${safeReleaseNotesHref ? `<a href="${safeReleaseNotesHref}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm"><span class="material-icons text-base">notes</span>Notes</a>` : ''}${safeKnownIssuesHref ? `<a href="${safeKnownIssuesHref}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm"><span class="material-icons text-base">warning</span>Issues</a>` : ''}${safeRedditHref ? `<a href="${safeRedditHref}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm"><span class="material-icons text-base">forum</span>Community</a>` : ''}<button type="button" data-driver-compare-id="${safeId}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300"><span class="material-icons text-[14px]">compare_arrows</span><span data-compare-label>Compare</span></button><button type="button" data-driver-favorite-id="${safeId}" data-version="${safeVersion}" data-category="${safeCategory}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300"><span class="material-icons text-[14px]">star_border</span>Watch</button><button type="button" data-driver-detail-id="${safeId}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300"><span class="material-icons text-[14px]">info</span>Details</button>${checksumButtonHtml}</div>`;
     const detailBtn = card.querySelector('[data-driver-detail-id]');
     if (detailBtn) {
         detailBtn.addEventListener('click', function(event) {
@@ -638,13 +645,40 @@ function createDriverRow(driver) {
             refreshFavoriteState();
         });
     }
-    if (driver.checksum && driver.checksum.value) {
+    if (checksumValue) {
         const copyBtn = card.querySelector('[data-driver-copy-hash]');
         if (copyBtn) {
+            const copyLabel = copyBtn.querySelector('[data-copy-label]');
+            const copyHashValue = copyBtn.querySelector('[data-copy-hash-value]');
+            let restoreTimer = null;
+            function expandHashPreview() {
+                copyBtn.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'text-gray-600', 'dark:text-gray-300');
+                copyBtn.classList.add('bg-primary-100', 'dark:bg-primary-900/30', 'text-primary-700', 'dark:text-primary-200');
+                if (copyHashValue) {
+                    copyHashValue.style.maxWidth = COPY_HASH_MAX_WIDTH;
+                    copyHashValue.classList.remove('opacity-0');
+                    copyHashValue.classList.add('opacity-100');
+                }
+            }
+            function collapseHashPreview() {
+                if (copyLabel) copyLabel.textContent = 'SHA256';
+                copyBtn.classList.remove('bg-primary-100', 'dark:bg-primary-900/30', 'text-primary-700', 'dark:text-primary-200');
+                copyBtn.classList.add('bg-gray-200', 'dark:bg-gray-700', 'text-gray-600', 'dark:text-gray-300');
+                if (copyHashValue) {
+                    copyHashValue.style.maxWidth = '0';
+                    copyHashValue.classList.remove('opacity-100');
+                    copyHashValue.classList.add('opacity-0');
+                }
+            }
             copyBtn.addEventListener('click', function(event) {
                 event.preventDefault();
                 event.stopPropagation();
-                copyToClipboard(driver.checksum.value);
+                expandHashPreview();
+                copyToClipboard(checksumValue, function() {
+                    if (copyLabel) copyLabel.textContent = 'Copied';
+                });
+                if (restoreTimer) clearTimeout(restoreTimer);
+                restoreTimer = setTimeout(collapseHashPreview, COPY_HASH_RESTORE_MS);
             });
         }
     }
