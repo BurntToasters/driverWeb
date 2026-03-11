@@ -562,7 +562,7 @@ async function collectDriverInput(rl, source, existing, isEditMode) {
   const effectiveVendor = String(base.vendor || source.vendor || '').toLowerCase();
   const defaultType = base.type || (effectiveVendor === 'nvidia' ? 'WHQL' : '');
   const riskOptions = ['auto', ...Array.from(allowedRisk)];
-  const defaultRisk = base.riskLevel && allowedRisk.has(String(base.riskLevel).toLowerCase()) ? String(base.riskLevel).toLowerCase() : 'auto';
+  const defaultRisk = base.riskLevel && allowedRisk.has(String(base.riskLevel).toLowerCase()) ? String(base.riskLevel).toLowerCase() : 'low';
 
   const draft = {
     regenerateId: true,

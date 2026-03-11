@@ -218,13 +218,29 @@
                     </div>
                     <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Game Ready and Studio channels for notebook GPUs.</p>
                     <div class="space-y-4">
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Game Ready</h3>
-                            <div id="nvidia-game-ready-laptop-drivers"></div>
+                        <button data-collapsible aria-expanded="false" class="w-full px-4 py-3 rounded-lg font-medium text-left bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-white flex items-center justify-between transition-colors mb-2" type="button">
+                            <span class="flex items-center gap-2">
+                                <span class="material-icons text-primary-500 text-lg">videocam</span>
+                                Game Ready
+                            </span>
+                            <span data-collapsible-icon class="material-icons text-gray-400 transition-transform duration-200 text-lg">expand_more</span>
+                        </button>
+                        <div class="hidden overflow-hidden transition-all duration-300 mb-3" style="max-height: 0; opacity: 0;">
+                            <div class="pt-2 pb-1">
+                                <div id="nvidia-game-ready-laptop-drivers"></div>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Studio</h3>
-                            <div id="nvidia-studio-laptop-drivers"></div>
+                        <button data-collapsible aria-expanded="false" class="w-full px-4 py-3 rounded-lg font-medium text-left bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-white flex items-center justify-between transition-colors mb-2" type="button">
+                            <span class="flex items-center gap-2">
+                                <span class="material-icons text-primary-500 text-lg">movie_filter</span>
+                                Studio
+                            </span>
+                            <span data-collapsible-icon class="material-icons text-gray-400 transition-transform duration-200 text-lg">expand_more</span>
+                        </button>
+                        <div class="hidden overflow-hidden transition-all duration-300 mb-3" style="max-height: 0; opacity: 0;">
+                            <div class="pt-2 pb-1">
+                                <div id="nvidia-studio-laptop-drivers"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
