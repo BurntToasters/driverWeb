@@ -1,14 +1,1546 @@
 {
-  "generatedAt": "2026-03-11T23:11:43.525Z",
+  "generatedAt": "2026-03-12T00:08:57.142Z",
   "site": "https://driverhub.win",
   "sourceCount": 8,
-  "entryCount": 162,
+  "entryCount": 185,
   "validation": {
     "isValid": true,
     "errors": [],
     "warnings": []
   },
   "entries": [
+    {
+      "id": "nvidia|graphics|game-ready|595-79|whql|20260310",
+      "vendor": "nvidia",
+      "family": "graphics",
+      "channel": "game-ready",
+      "version": "595.79",
+      "type": "WHQL",
+      "releaseDate": "Mar 10, 2026",
+      "releaseDateIso": "2026-03-10",
+      "publishedAt": "2026-03-10T07:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/595.79/595.79-desktop-win10-win11-64bit-international-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/595.79/595.79-win11-win10-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/595.79/595.79-win11-win10-release-notes.pdf",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1rq06sx",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "EEEF0A62BED0AFAA5C08B31DCFD666166986BAFE7AA27A89F2CECF113363602A",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "EEEF0A62BED0AFAA5C08B31DCFD666166986BAFE7AA27A89F2CECF113363602A"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/595.79/595.79-desktop-win10-win11-64bit-international-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/595.79/595.79-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/595.79/595.79-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1rq06sx"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Optimized for latest game releases"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Game Ready",
+      "brand": "nvidia",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "EEEF0A62BED0AFAA5C08B31DCFD666166986BAFE7AA27A89F2CECF113363602A",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "nvidia|graphics|studio|595-79|whql|20260310",
+      "vendor": "nvidia",
+      "family": "graphics",
+      "channel": "studio",
+      "version": "595.79",
+      "type": "WHQL",
+      "releaseDate": "Mar 10, 2026",
+      "releaseDateIso": "2026-03-10",
+      "publishedAt": "2026-03-10T07:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/595.79/595.79-desktop-win10-win11-64bit-international-nsd-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/595.79/595.79-win10-win11-nsd-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/595.79/595.79-win10-win11-nsd-release-notes.pdf",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1rq06sx",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "65E47A5014CDE788A5251BB277B0E83E39D3AE6079F4080C1A351208145008D1",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "65E47A5014CDE788A5251BB277B0E83E39D3AE6079F4080C1A351208145008D1"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/595.79/595.79-desktop-win10-win11-64bit-international-nsd-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/595.79/595.79-win10-win11-nsd-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/595.79/595.79-win10-win11-nsd-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1rq06sx"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Tuned for creator workloads"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Studio",
+      "brand": "nvidia",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "65E47A5014CDE788A5251BB277B0E83E39D3AE6079F4080C1A351208145008D1",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "nvidia|graphics-laptop|game-ready|595-79|whql|20260310",
+      "vendor": "nvidia",
+      "family": "graphics-laptop",
+      "channel": "game-ready",
+      "version": "595.79",
+      "type": "WHQL",
+      "releaseDate": "Mar 10, 2026",
+      "releaseDateIso": "2026-03-10",
+      "publishedAt": "2026-03-10T07:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/595.79/595.79-notebook-win10-win11-64bit-international-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/595.79/595.79-win11-win10-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/595.79/595.79-win11-win10-release-notes.pdf",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1rq06sx",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "EEEF0A62BED0AFAA5C08B31DCFD666166986BAFE7AA27A89F2CECF113363602A",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "EEEF0A62BED0AFAA5C08B31DCFD666166986BAFE7AA27A89F2CECF113363602A"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/595.79/595.79-notebook-win10-win11-64bit-international-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/595.79/595.79-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/595.79/595.79-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1rq06sx"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Optimized for latest game releases"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Laptop Game Ready",
+      "brand": "nvidia",
+      "page": "/display/laptop",
+      "legacy": {
+        "sha256sum": "EEEF0A62BED0AFAA5C08B31DCFD666166986BAFE7AA27A89F2CECF113363602A",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "nvidia|graphics-laptop|studio|595-79|whql|20260310",
+      "vendor": "nvidia",
+      "family": "graphics-laptop",
+      "channel": "studio",
+      "version": "595.79",
+      "type": "WHQL",
+      "releaseDate": "Mar 10, 2026",
+      "releaseDateIso": "2026-03-10",
+      "publishedAt": "2026-03-10T07:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/595.79/595.79-notebook-win10-win11-64bit-international-nsd-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/595.79/595.79-win10-win11-nsd-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/595.79/595.79-win10-win11-nsd-release-notes.pdf",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1rq06sx",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "65E47A5014CDE788A5251BB277B0E83E39D3AE6079F4080C1A351208145008D1",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "65E47A5014CDE788A5251BB277B0E83E39D3AE6079F4080C1A351208145008D1"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/595.79/595.79-notebook-win10-win11-64bit-international-nsd-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/595.79/595.79-win10-win11-nsd-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/595.79/595.79-win10-win11-nsd-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1rq06sx"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Tuned for creator workloads"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Laptop Studio",
+      "brand": "nvidia",
+      "page": "/display/laptop",
+      "legacy": {
+        "sha256sum": "65E47A5014CDE788A5251BB277B0E83E39D3AE6079F4080C1A351208145008D1",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "nvidia|graphics|game-ready|595-71|whql|20260302",
+      "vendor": "nvidia",
+      "family": "graphics",
+      "channel": "game-ready",
+      "version": "595.71",
+      "type": "WHQL",
+      "releaseDate": "Mar 02, 2026",
+      "releaseDateIso": "2026-03-02",
+      "publishedAt": "2026-03-02T08:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/595.71/595.71-desktop-win10-win11-64bit-international-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/595.71/595.71-win11-win10-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/595.71/595.71-win11-win10-release-notes.pdf",
+      "warningUrl": "/display/warn?nvgrd=595.71",
+      "redditUrl": "https://redd.it/1ritsbd",
+      "hasWarning": true,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "high",
+      "sha256sum": "4AB235C4E01EA13CEDC59AC339DB0BE1B5BA7C89E00E6253AB89F354F7711982",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "4AB235C4E01EA13CEDC59AC339DB0BE1B5BA7C89E00E6253AB89F354F7711982"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/595.71/595.71-desktop-win10-win11-64bit-international-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/595.71/595.71-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/595.71/595.71-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1ritsbd"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Optimized for latest game releases"
+      ],
+      "issueTags": [
+        "known-instability",
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Game Ready",
+      "brand": "nvidia",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "4AB235C4E01EA13CEDC59AC339DB0BE1B5BA7C89E00E6253AB89F354F7711982",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "nvidia|graphics-laptop|game-ready|595-71|whql|20260302",
+      "vendor": "nvidia",
+      "family": "graphics-laptop",
+      "channel": "game-ready",
+      "version": "595.71",
+      "type": "WHQL",
+      "releaseDate": "Mar 02, 2026",
+      "releaseDateIso": "2026-03-02",
+      "publishedAt": "2026-03-02T08:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/595.71/595.71-notebook-win10-win11-64bit-international-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/595.71/595.71-win11-win10-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/595.71/595.71-win11-win10-release-notes.pdf",
+      "warningUrl": "/display/warn?nvgrl=595.71",
+      "redditUrl": "https://redd.it/1ritsbd",
+      "hasWarning": true,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "high",
+      "sha256sum": "4AB235C4E01EA13CEDC59AC339DB0BE1B5BA7C89E00E6253AB89F354F7711982",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "4AB235C4E01EA13CEDC59AC339DB0BE1B5BA7C89E00E6253AB89F354F7711982"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/595.71/595.71-notebook-win10-win11-64bit-international-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/595.71/595.71-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/595.71/595.71-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1ritsbd"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Optimized for latest game releases"
+      ],
+      "issueTags": [
+        "known-instability",
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Laptop Game Ready",
+      "brand": "nvidia",
+      "page": "/display/laptop",
+      "legacy": {
+        "sha256sum": "4AB235C4E01EA13CEDC59AC339DB0BE1B5BA7C89E00E6253AB89F354F7711982",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "intel|graphics|game-on|32-0-101-8531|20260225",
+      "vendor": "intel",
+      "family": "graphics",
+      "channel": "game-on",
+      "version": "32.0.101.8531",
+      "type": "",
+      "releaseDate": "Feb 25, 2026",
+      "releaseDateIso": "2026-02-25",
+      "publishedAt": "2026-02-25T08:00:00.000Z",
+      "downloadUrl": "https://downloadmirror.intel.com/874366/gfx_win_101.8531.exe",
+      "releaseNotesUrl": "https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html",
+      "knownIssuesUrl": "https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1rewkkh",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "D902CA73F470E88AF606F96B125E62079264FA7D9D41B352C895CAC4C3655C94",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "D902CA73F470E88AF606F96B125E62079264FA7D9D41B352C895CAC4C3655C94"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://downloadmirror.intel.com/874366/gfx_win_101.8531.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1rewkkh"
+        }
+      ],
+      "highlights": [],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "Intel Game On",
+      "brand": "intel",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "D902CA73F470E88AF606F96B125E62079264FA7D9D41B352C895CAC4C3655C94",
+        "warningMessage": ""
+      }
+    },
+    {
+      "id": "intel|graphics|game-on|32-0-101-8509|whql|20260213",
+      "vendor": "intel",
+      "family": "graphics",
+      "channel": "game-on",
+      "version": "32.0.101.8509",
+      "type": "WHQL",
+      "releaseDate": "Feb 13, 2026",
+      "releaseDateIso": "2026-02-13",
+      "publishedAt": "2026-02-13T08:00:00.000Z",
+      "downloadUrl": "https://downloadmirror.intel.com/874365/gfx_win_101.8509.exe",
+      "releaseNotesUrl": "https://www.intel.com/content/www/us/en/download/785597/874365/intel-arc-graphics-windows.html",
+      "knownIssuesUrl": "https://www.intel.com/content/www/us/en/download/785597/874365/intel-arc-graphics-windows.html",
+      "warningUrl": "",
+      "redditUrl": "",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "EC3123DEE34B8B1FF5E73D83D370B36914CFC3D0D19C5B7923B7DE5250B9F5CA",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "EC3123DEE34B8B1FF5E73D83D370B36914CFC3D0D19C5B7923B7DE5250B9F5CA"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://downloadmirror.intel.com/874365/gfx_win_101.8509.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://www.intel.com/content/www/us/en/download/785597/874365/intel-arc-graphics-windows.html"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://www.intel.com/content/www/us/en/download/785597/874365/intel-arc-graphics-windows.html"
+        }
+      ],
+      "highlights": [
+        "WHQL"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "Intel Game On",
+      "brand": "intel",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "EC3123DEE34B8B1FF5E73D83D370B36914CFC3D0D19C5B7923B7DE5250B9F5CA",
+        "warningMessage": ""
+      }
+    },
+    {
+      "id": "intel|graphics|pro|32-0-101-8314|20260211",
+      "vendor": "intel",
+      "family": "graphics",
+      "channel": "pro",
+      "version": "32.0.101.8314",
+      "type": "",
+      "releaseDate": "Feb 11, 2026",
+      "releaseDateIso": "2026-02-11",
+      "publishedAt": "2026-02-11T08:00:00.000Z",
+      "downloadUrl": "https://downloadmirror.intel.com/874367/gfx_win_101.8314.exe",
+      "releaseNotesUrl": "https://www.intel.com/content/www/us/en/download/741626/intel-arc-pro-graphics-windows.html",
+      "knownIssuesUrl": "https://www.intel.com/content/www/us/en/download/741626/intel-arc-pro-graphics-windows.html",
+      "warningUrl": "",
+      "redditUrl": "",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "EA438576B6058F1DC062F5DD20CD7F14EBD9365F14B9FF5FEAB15FD5246DF70E",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "EA438576B6058F1DC062F5DD20CD7F14EBD9365F14B9FF5FEAB15FD5246DF70E"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://downloadmirror.intel.com/874367/gfx_win_101.8314.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://www.intel.com/content/www/us/en/download/741626/intel-arc-pro-graphics-windows.html"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://www.intel.com/content/www/us/en/download/741626/intel-arc-pro-graphics-windows.html"
+        }
+      ],
+      "highlights": [
+        "Professional certified branch"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "Intel Pro",
+      "brand": "intel",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "EA438576B6058F1DC062F5DD20CD7F14EBD9365F14B9FF5FEAB15FD5246DF70E",
+        "warningMessage": "Note: Currently with the Arc Pro drivers, I am unable to find community threads on these versions, hence why there is no reddit/external community link on these."
+      }
+    },
+    {
+      "id": "nvidia|graphics|game-ready|591-86|whql|20260127",
+      "vendor": "nvidia",
+      "family": "graphics",
+      "channel": "game-ready",
+      "version": "591.86",
+      "type": "WHQL",
+      "releaseDate": "Jan 27, 2026",
+      "releaseDateIso": "2026-01-27",
+      "publishedAt": "2026-01-27T08:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/591.86/591.86-desktop-win10-win11-64bit-international-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/591.86/591.86-win11-win10-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/591.86/591.86-win11-win10-release-notes.pdf",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1qoemdy",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "A50C89C9D254F33CC8A8E638F7CC1981A76263005FCEC102AD8C8B45626D53E0",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "A50C89C9D254F33CC8A8E638F7CC1981A76263005FCEC102AD8C8B45626D53E0"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/591.86/591.86-desktop-win10-win11-64bit-international-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/591.86/591.86-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/591.86/591.86-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1qoemdy"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Optimized for latest game releases"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Game Ready",
+      "brand": "nvidia",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "A50C89C9D254F33CC8A8E638F7CC1981A76263005FCEC102AD8C8B45626D53E0",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "nvidia|graphics-laptop|game-ready|591-86|whql|20260127",
+      "vendor": "nvidia",
+      "family": "graphics-laptop",
+      "channel": "game-ready",
+      "version": "591.86",
+      "type": "WHQL",
+      "releaseDate": "Jan 27, 2026",
+      "releaseDateIso": "2026-01-27",
+      "publishedAt": "2026-01-27T08:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/591.86/591.86-notebook-win10-win11-64bit-international-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/591.86/591.86-win11-win10-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/591.86/591.86-win11-win10-release-notes.pdf",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1qoemdy",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "A50C89C9D254F33CC8A8E638F7CC1981A76263005FCEC102AD8C8B45626D53E0",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "A50C89C9D254F33CC8A8E638F7CC1981A76263005FCEC102AD8C8B45626D53E0"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/591.86/591.86-notebook-win10-win11-64bit-international-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/591.86/591.86-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/591.86/591.86-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1qoemdy"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Optimized for latest game releases"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Laptop Game Ready",
+      "brand": "nvidia",
+      "page": "/display/laptop",
+      "legacy": {
+        "sha256sum": "A50C89C9D254F33CC8A8E638F7CC1981A76263005FCEC102AD8C8B45626D53E0",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "nvidia|graphics|game-ready|591-74|whql|20260105",
+      "vendor": "nvidia",
+      "family": "graphics",
+      "channel": "game-ready",
+      "version": "591.74",
+      "type": "WHQL",
+      "releaseDate": "Jan 05, 2026",
+      "releaseDateIso": "2026-01-05",
+      "publishedAt": "2026-01-05T08:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/591.74/591.74-desktop-win10-win11-64bit-international-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/591.74/591.74-win11-win10-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/591.74/591.74-win11-win10-release-notes.pdf",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1q5a3zx",
+      "hasWarning": false,
+      "isStable": true,
+      "stabilityGrade": "A",
+      "riskLevel": "low",
+      "sha256sum": "FDD72E867B193A35BD35A317ABD9F3C29CCA7469824BE857942BDCE709F66583",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "FDD72E867B193A35BD35A317ABD9F3C29CCA7469824BE857942BDCE709F66583"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/591.74/591.74-desktop-win10-win11-64bit-international-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/591.74/591.74-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/591.74/591.74-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1q5a3zx"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Optimized for latest game releases"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Game Ready",
+      "brand": "nvidia",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "FDD72E867B193A35BD35A317ABD9F3C29CCA7469824BE857942BDCE709F66583",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "nvidia|graphics|studio|591-74|whql|20260105",
+      "vendor": "nvidia",
+      "family": "graphics",
+      "channel": "studio",
+      "version": "591.74",
+      "type": "WHQL",
+      "releaseDate": "Jan 05, 2026",
+      "releaseDateIso": "2026-01-05",
+      "publishedAt": "2026-01-05T08:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/591.74/591.74-desktop-win10-win11-64bit-international-nsd-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/591.74/591.74-win10-win11-nsd-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/591.74/591.74-win10-win11-nsd-release-notes.pdf",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1q5a3zx",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "7CD7C3AD1CFA462307D4F7DF13251D311AABB51845E63C0996FD6721354B0EBA",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "7CD7C3AD1CFA462307D4F7DF13251D311AABB51845E63C0996FD6721354B0EBA"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/591.74/591.74-desktop-win10-win11-64bit-international-nsd-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/591.74/591.74-win10-win11-nsd-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/591.74/591.74-win10-win11-nsd-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1q5a3zx"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Tuned for creator workloads"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Studio",
+      "brand": "nvidia",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "7CD7C3AD1CFA462307D4F7DF13251D311AABB51845E63C0996FD6721354B0EBA",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "nvidia|graphics-laptop|game-ready|591-74|whql|20260105",
+      "vendor": "nvidia",
+      "family": "graphics-laptop",
+      "channel": "game-ready",
+      "version": "591.74",
+      "type": "WHQL",
+      "releaseDate": "Jan 05, 2026",
+      "releaseDateIso": "2026-01-05",
+      "publishedAt": "2026-01-05T08:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/591.74/591.74-notebook-win10-win11-64bit-international-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/591.74/591.74-win11-win10-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/591.74/591.74-win11-win10-release-notes.pdf",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1q5a3zx",
+      "hasWarning": false,
+      "isStable": true,
+      "stabilityGrade": "A",
+      "riskLevel": "low",
+      "sha256sum": "FDD72E867B193A35BD35A317ABD9F3C29CCA7469824BE857942BDCE709F66583",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "FDD72E867B193A35BD35A317ABD9F3C29CCA7469824BE857942BDCE709F66583"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/591.74/591.74-desktop-win10-win11-64bit-international-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/591.74/591.74-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/591.74/591.74-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1q5a3zx"
+        },
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/591.74/591.74-notebook-win10-win11-64bit-international-dch-whql.exe"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Optimized for latest game releases"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Laptop Game Ready",
+      "brand": "nvidia",
+      "page": "/display/laptop",
+      "legacy": {
+        "sha256sum": "FDD72E867B193A35BD35A317ABD9F3C29CCA7469824BE857942BDCE709F66583",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "nvidia|graphics-laptop|studio|591-74|whql|20260105",
+      "vendor": "nvidia",
+      "family": "graphics-laptop",
+      "channel": "studio",
+      "version": "591.74",
+      "type": "WHQL",
+      "releaseDate": "Jan 05, 2026",
+      "releaseDateIso": "2026-01-05",
+      "publishedAt": "2026-01-05T08:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/591.74/591.74-notebook-win10-win11-64bit-international-nsd-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/591.74/591.74-win10-win11-nsd-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/591.74/591.74-win10-win11-nsd-release-notes.pdf",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1q5a3zx",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "7CD7C3AD1CFA462307D4F7DF13251D311AABB51845E63C0996FD6721354B0EBA",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "7CD7C3AD1CFA462307D4F7DF13251D311AABB51845E63C0996FD6721354B0EBA"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/591.74/591.74-notebook-win10-win11-64bit-international-nsd-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/591.74/591.74-win10-win11-nsd-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/591.74/591.74-win10-win11-nsd-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1q5a3zx"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Tuned for creator workloads"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Laptop Studio",
+      "brand": "nvidia",
+      "page": "/display/laptop",
+      "legacy": {
+        "sha256sum": "7CD7C3AD1CFA462307D4F7DF13251D311AABB51845E63C0996FD6721354B0EBA",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "intel|graphics|game-on|32-0-101-8425-32-0-101-8362|whql|20260101",
+      "vendor": "intel",
+      "family": "graphics",
+      "channel": "game-on",
+      "version": "32.0.101.8425/32.0.101.8362",
+      "type": "WHQL",
+      "releaseDate": "Jan 1, 2026",
+      "releaseDateIso": "2026-01-01",
+      "publishedAt": "2026-01-01T08:00:00.000Z",
+      "downloadUrl": "https://downloadmirror.intel.com/873358/gfx_win_101.8425_101.8362.exe",
+      "releaseNotesUrl": "https://www.intel.com/content/www/us/en/download/785597/873358/intel-arc-graphics-windows.html",
+      "knownIssuesUrl": "https://www.intel.com/content/www/us/en/download/785597/873358/intel-arc-graphics-windows.html",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1qnz8va",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "2E6C6A7D9734D18FC890811A781EE14B4403C2CB33926E3DC6F274D93337BEDF",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "2E6C6A7D9734D18FC890811A781EE14B4403C2CB33926E3DC6F274D93337BEDF"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://downloadmirror.intel.com/873358/gfx_win_101.8425_101.8362.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://www.intel.com/content/www/us/en/download/785597/873358/intel-arc-graphics-windows.html"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://www.intel.com/content/www/us/en/download/785597/873358/intel-arc-graphics-windows.html"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1qnz8va"
+        }
+      ],
+      "highlights": [
+        "WHQL"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "Intel Game On",
+      "brand": "intel",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "2E6C6A7D9734D18FC890811A781EE14B4403C2CB33926E3DC6F274D93337BEDF",
+        "warningMessage": ""
+      }
+    },
+    {
+      "id": "nvidia|graphics|game-ready|591-59|whql|20251218",
+      "vendor": "nvidia",
+      "family": "graphics",
+      "channel": "game-ready",
+      "version": "591.59",
+      "type": "WHQL",
+      "releaseDate": "Dec 18, 2025",
+      "releaseDateIso": "2025-12-18",
+      "publishedAt": "2025-12-18T08:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/591.59/591.59-desktop-win10-win11-64bit-international-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/591.59/591.59-win11-win10-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/591.59/591.59-win11-win10-release-notes.pdf",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1ppte14",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "6DF5A901485F0D13234416346D1607CF6F13BC5E89026C7643F9DAD90238A895",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "6DF5A901485F0D13234416346D1607CF6F13BC5E89026C7643F9DAD90238A895"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/591.59/591.59-desktop-win10-win11-64bit-international-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/591.59/591.59-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/591.59/591.59-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1ppte14"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Optimized for latest game releases"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Game Ready",
+      "brand": "nvidia",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "6DF5A901485F0D13234416346D1607CF6F13BC5E89026C7643F9DAD90238A895",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "nvidia|graphics-laptop|game-ready|591-59|whql|20251218",
+      "vendor": "nvidia",
+      "family": "graphics-laptop",
+      "channel": "game-ready",
+      "version": "591.59",
+      "type": "WHQL",
+      "releaseDate": "Dec 18, 2025",
+      "releaseDateIso": "2025-12-18",
+      "publishedAt": "2025-12-18T08:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/591.59/591.59-notebook-win10-win11-64bit-international-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/591.59/591.59-win11-win10-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/591.59/591.59-win11-win10-release-notes.pdf",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1ppte14",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "6DF5A901485F0D13234416346D1607CF6F13BC5E89026C7643F9DAD90238A895",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "6DF5A901485F0D13234416346D1607CF6F13BC5E89026C7643F9DAD90238A895"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/591.59/591.59-notebook-win10-win11-64bit-international-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/591.59/591.59-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/591.59/591.59-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1ppte14"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Optimized for latest game releases"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Laptop Game Ready",
+      "brand": "nvidia",
+      "page": "/display/laptop",
+      "legacy": {
+        "sha256sum": "6DF5A901485F0D13234416346D1607CF6F13BC5E89026C7643F9DAD90238A895",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "nvidia|graphics|game-ready|591-44|whql|20251204",
+      "vendor": "nvidia",
+      "family": "graphics",
+      "channel": "game-ready",
+      "version": "591.44",
+      "type": "WHQL",
+      "releaseDate": "Dec 04, 2025",
+      "releaseDateIso": "2025-12-04",
+      "publishedAt": "2025-12-04T08:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/591.44/591.44-desktop-win10-win11-64bit-international-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/591.44/591.44-win11-win10-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/591.44/591.44-win11-win10-release-notes.pdf",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1pe3ids",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "3F103B9673A75B502FA9AD9968531E3962AF7A8EFAB9D887D11EA9AD0C4E14A8",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "3F103B9673A75B502FA9AD9968531E3962AF7A8EFAB9D887D11EA9AD0C4E14A8"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/591.44/591.44-desktop-win10-win11-64bit-international-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/591.44/591.44-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/591.44/591.44-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1pe3ids"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Optimized for latest game releases"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Game Ready",
+      "brand": "nvidia",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "3F103B9673A75B502FA9AD9968531E3962AF7A8EFAB9D887D11EA9AD0C4E14A8",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "nvidia|graphics|studio|591-44|whql|20251204",
+      "vendor": "nvidia",
+      "family": "graphics",
+      "channel": "studio",
+      "version": "591.44",
+      "type": "WHQL",
+      "releaseDate": "Dec 04, 2025",
+      "releaseDateIso": "2025-12-04",
+      "publishedAt": "2025-12-04T08:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/591.44/591.44-desktop-win10-win11-64bit-international-nsd-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/591.44/591.44-win10-win11-nsd-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/591.44/591.44-win10-win11-nsd-release-notes.pdf",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1pe3ids",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "4783C070E2B05BE6FB6AAA8BF02F8A8A16760ACDDB6A80E63D2A6F7010095D1E",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "4783C070E2B05BE6FB6AAA8BF02F8A8A16760ACDDB6A80E63D2A6F7010095D1E"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/591.44/591.44-desktop-win10-win11-64bit-international-nsd-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/591.44/591.44-win10-win11-nsd-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/591.44/591.44-win10-win11-nsd-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1pe3ids"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Tuned for creator workloads"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Studio",
+      "brand": "nvidia",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "4783C070E2B05BE6FB6AAA8BF02F8A8A16760ACDDB6A80E63D2A6F7010095D1E",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "nvidia|graphics-laptop|game-ready|591-44|whql|20251204",
+      "vendor": "nvidia",
+      "family": "graphics-laptop",
+      "channel": "game-ready",
+      "version": "591.44",
+      "type": "WHQL",
+      "releaseDate": "Dec 04, 2025",
+      "releaseDateIso": "2025-12-04",
+      "publishedAt": "2025-12-04T08:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/591.44/591.44-notebook-win10-win11-64bit-international-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/591.44/591.44-win11-win10-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/591.44/591.44-win11-win10-release-notes.pdf",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1pe3ids",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "3F103B9673A75B502FA9AD9968531E3962AF7A8EFAB9D887D11EA9AD0C4E14A8",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "3F103B9673A75B502FA9AD9968531E3962AF7A8EFAB9D887D11EA9AD0C4E14A8"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/591.44/591.44-notebook-win10-win11-64bit-international-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/591.44/591.44-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/591.44/591.44-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1pe3ids"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Optimized for latest game releases"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Laptop Game Ready",
+      "brand": "nvidia",
+      "page": "/display/laptop",
+      "legacy": {
+        "sha256sum": "3F103B9673A75B502FA9AD9968531E3962AF7A8EFAB9D887D11EA9AD0C4E14A8",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "nvidia|graphics-laptop|studio|591-44|whql|20251204",
+      "vendor": "nvidia",
+      "family": "graphics-laptop",
+      "channel": "studio",
+      "version": "591.44",
+      "type": "WHQL",
+      "releaseDate": "Dec 04, 2025",
+      "releaseDateIso": "2025-12-04",
+      "publishedAt": "2025-12-04T08:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/591.44/591.44-notebook-win10-win11-64bit-international-nsd-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/591.44/591.44-win10-win11-nsd-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/591.44/591.44-win10-win11-nsd-release-notes.pdf",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1pe3ids",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "4783C070E2B05BE6FB6AAA8BF02F8A8A16760ACDDB6A80E63D2A6F7010095D1E",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "4783C070E2B05BE6FB6AAA8BF02F8A8A16760ACDDB6A80E63D2A6F7010095D1E"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/591.44/591.44-notebook-win10-win11-64bit-international-nsd-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/591.44/591.44-win10-win11-nsd-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/591.44/591.44-win10-win11-nsd-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1pe3ids"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Tuned for creator workloads"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Laptop Studio",
+      "brand": "nvidia",
+      "page": "/display/laptop",
+      "legacy": {
+        "sha256sum": "4783C070E2B05BE6FB6AAA8BF02F8A8A16760ACDDB6A80E63D2A6F7010095D1E",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "intel|graphics|game-on|32-0-101-8331|whql|20251203",
+      "vendor": "intel",
+      "family": "graphics",
+      "channel": "game-on",
+      "version": "32.0.101.8331",
+      "type": "WHQL",
+      "releaseDate": "Dec 3, 2025",
+      "releaseDateIso": "2025-12-03",
+      "publishedAt": "2025-12-03T08:00:00.000Z",
+      "downloadUrl": "https://downloadmirror.intel.com/870567/gfx_win_101.8331.exe",
+      "releaseNotesUrl": "https://www.intel.com/content/www/us/en/download/785597/870567/intel-arc-graphics-windows.html",
+      "knownIssuesUrl": "https://www.intel.com/content/www/us/en/download/785597/870567/intel-arc-graphics-windows.html",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1pdnmt4",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "3A66307EEBBDE7FDA8BAA05AD4AE4A78BF6D0587C48B78C8353D0701CB510950",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "3A66307EEBBDE7FDA8BAA05AD4AE4A78BF6D0587C48B78C8353D0701CB510950"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://downloadmirror.intel.com/870567/gfx_win_101.8331.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://www.intel.com/content/www/us/en/download/785597/870567/intel-arc-graphics-windows.html"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://www.intel.com/content/www/us/en/download/785597/870567/intel-arc-graphics-windows.html"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1pdnmt4"
+        }
+      ],
+      "highlights": [
+        "WHQL"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "Intel Game On",
+      "brand": "intel",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "3A66307EEBBDE7FDA8BAA05AD4AE4A78BF6D0587C48B78C8353D0701CB510950",
+        "warningMessage": ""
+      }
+    },
     {
       "id": "nvidia|graphics|game-ready|581-94|hotfix|20251119",
       "vendor": "nvidia",
@@ -27,7 +1559,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "B596920F9C8FA4BE09D122EB39506282A46C4113E90DA6F48C0E00D26686F7E6",
       "checksum": {
         "algorithm": "sha256",
@@ -84,7 +1616,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "B596920F9C8FA4BE09D122EB39506282A46C4113E90DA6F48C0E00D26686F7E6",
       "checksum": {
         "algorithm": "sha256",
@@ -141,7 +1673,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "732F38139AF5033FCF387F8C7182FBE996B61B95B5D9E001CB123E76A0CD79ED",
       "checksum": {
         "algorithm": "sha256",
@@ -195,7 +1727,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "0A08462764F4D36EEECB8DA6ABFC01A6E32C94359B9E1E3287399F057C1D2839",
       "checksum": {
         "algorithm": "sha256",
@@ -252,7 +1784,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "0A08462764F4D36EEECB8DA6ABFC01A6E32C94359B9E1E3287399F057C1D2839",
       "checksum": {
         "algorithm": "sha256",
@@ -309,7 +1841,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "31AE6BF91D2A80164CA09A33222E6B38AEDE0A16F2728C791B7515AF7DDBD7A1",
       "checksum": {
         "algorithm": "sha256",
@@ -365,7 +1897,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "AB9C399742435ACA0B0A0EE05FEB9260B4C9271F36891ED420F0B2723B9E48BA",
       "checksum": {
         "algorithm": "sha256",
@@ -419,7 +1951,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "C18887EE37A5D3AEC58DB83C2057C199E81143FEF0FA99121528E4D319339D7E",
       "checksum": {
         "algorithm": "sha256",
@@ -476,7 +2008,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "D0934BE8E381BA29913C8D718F108232B2AC685F314CB02510672DEE3E746904",
       "checksum": {
         "algorithm": "sha256",
@@ -533,7 +2065,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "C18887EE37A5D3AEC58DB83C2057C199E81143FEF0FA99121528E4D319339D7E",
       "checksum": {
         "algorithm": "sha256",
@@ -590,7 +2122,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "D0934BE8E381BA29913C8D718F108232B2AC685F314CB02510672DEE3E746904",
       "checksum": {
         "algorithm": "sha256",
@@ -647,7 +2179,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "47F67C0F88B46C5EE80816804DA1EB651069AD17B7A664CD152294F0BAC34155",
       "checksum": {
         "algorithm": "sha256",
@@ -701,7 +2233,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "50C74D1FB8B31FA84D32A4912198CDAEA08A33EFF8A4E745C0C125247A2F5BF9",
       "checksum": {
         "algorithm": "sha256",
@@ -755,7 +2287,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "E8CEB70A8AF8BAC5F6C0CABF0501147B85B69D54B97C0CF9A3C9B1EF2ED8BCA1",
       "checksum": {
         "algorithm": "sha256",
@@ -812,7 +2344,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "E8CEB70A8AF8BAC5F6C0CABF0501147B85B69D54B97C0CF9A3C9B1EF2ED8BCA1",
       "checksum": {
         "algorithm": "sha256",
@@ -869,7 +2401,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "4D1FBBFB0ABD720393700C39A665F2458A2BA62A3E7796E5206DCC6DC364700B",
       "checksum": {
         "algorithm": "sha256",
@@ -925,7 +2457,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "A7A96C0FB957F013FCD33F8772AA68AD8C55013A6D3673639BB7E1473057258B",
       "checksum": {
         "algorithm": "sha256",
@@ -982,7 +2514,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "002E46DAFFED8C89F09325397839739D49F12594260A0990BC601FBEB3155CB4",
       "checksum": {
         "algorithm": "sha256",
@@ -1039,7 +2571,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "35FD1792A66B5F28EDB207E16D28449844A9995A791BC84E034FBAF1E91336E2",
       "checksum": {
         "algorithm": "sha256",
@@ -1093,7 +2625,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "A7A96C0FB957F013FCD33F8772AA68AD8C55013A6D3673639BB7E1473057258B",
       "checksum": {
         "algorithm": "sha256",
@@ -1150,7 +2682,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "002E46DAFFED8C89F09325397839739D49F12594260A0990BC601FBEB3155CB4",
       "checksum": {
         "algorithm": "sha256",
@@ -1207,7 +2739,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "60B5E79C7372394E72714DE1F20CC234E42045EA9CECB16746914BBD1A9E8CE9",
       "checksum": {
         "algorithm": "sha256",
@@ -1259,7 +2791,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "5D06D281538C9C98C3999E0B3C3DD5A674D592C44770475474B6232F72A0BBBD",
       "checksum": {
         "algorithm": "sha256",
@@ -1316,7 +2848,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "5D06D281538C9C98C3999E0B3C3DD5A674D592C44770475474B6232F72A0BBBD",
       "checksum": {
         "algorithm": "sha256",
@@ -1373,7 +2905,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "C615CDA00D5437D297C3F51922587D0CFFD302918F612C4A08578F1922265403",
       "checksum": {
         "algorithm": "sha256",
@@ -1427,7 +2959,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "68986D0F954E727C4080DD81A98C57ED0DB00947E26EF28A8A1D3480132A12D1",
       "checksum": {
         "algorithm": "sha256",
@@ -1483,7 +3015,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "99354507EA54E8EB032B08EC1774B609F0A29AF38D7A03B76E3E57FA94622B42",
       "checksum": {
         "algorithm": "sha256",
@@ -1540,7 +3072,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "99354507EA54E8EB032B08EC1774B609F0A29AF38D7A03B76E3E57FA94622B42",
       "checksum": {
         "algorithm": "sha256",
@@ -1597,7 +3129,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "081878A323FC24B8EC4F7C9B0E72E22AD6F9AE73219A6FAC324B59CD6258D076",
       "checksum": {
         "algorithm": "sha256",
@@ -1654,7 +3186,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "C76135FAB7562A7AEA589586A09C3A8C4776C09370CAEB59615BCCC029166FC0",
       "checksum": {
         "algorithm": "sha256",
@@ -1711,7 +3243,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "081878A323FC24B8EC4F7C9B0E72E22AD6F9AE73219A6FAC324B59CD6258D076",
       "checksum": {
         "algorithm": "sha256",
@@ -1768,7 +3300,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "C76135FAB7562A7AEA589586A09C3A8C4776C09370CAEB59615BCCC029166FC0",
       "checksum": {
         "algorithm": "sha256",
@@ -1825,7 +3357,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "C83CEA596B7C244D816D85A03E55393B66A9C22104BB5A58A6E3AA4684EF08C0",
       "checksum": {
         "algorithm": "sha256",
@@ -1879,7 +3411,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "4AAC97480BD07D3B35A99076344959A850651921B628D1D6046B51FCD6AEEBFD",
       "checksum": {
         "algorithm": "sha256",
@@ -1935,7 +3467,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "90C49F925B41EE062E02CC8094A16B6D057ABFDE4E85235A76D63FFE267F63A9",
       "checksum": {
         "algorithm": "sha256",
@@ -1992,7 +3524,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "90C49F925B41EE062E02CC8094A16B6D057ABFDE4E85235A76D63FFE267F63A9",
       "checksum": {
         "algorithm": "sha256",
@@ -2049,7 +3581,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "A66442AF77CDB57E24BF80BAA46CE88B8AA5D9CC61E71AC0BD5FE5068E065BF5",
       "checksum": {
         "algorithm": "sha256",
@@ -2106,7 +3638,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "DF1DAB1D45BF80ABB6CB3509572E8B8F9930F4725399B058141A88BFA25D69F9",
       "checksum": {
         "algorithm": "sha256",
@@ -2163,7 +3695,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -2214,7 +3746,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "A66442AF77CDB57E24BF80BAA46CE88B8AA5D9CC61E71AC0BD5FE5068E065BF5",
       "checksum": {
         "algorithm": "sha256",
@@ -2271,7 +3803,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "DF1DAB1D45BF80ABB6CB3509572E8B8F9930F4725399B058141A88BFA25D69F9",
       "checksum": {
         "algorithm": "sha256",
@@ -2328,7 +3860,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -2377,7 +3909,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -2431,7 +3963,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -2485,7 +4017,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -2538,7 +4070,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -2592,7 +4124,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -2646,7 +4178,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -2700,7 +4232,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -2754,7 +4286,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -2807,7 +4339,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -2858,7 +4390,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -2909,7 +4441,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -2962,7 +4494,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -3009,7 +4541,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -3063,7 +4595,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -3117,7 +4649,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -3171,7 +4703,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -3225,7 +4757,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -3279,7 +4811,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -3333,7 +4865,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -3384,7 +4916,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -3437,7 +4969,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -3491,7 +5023,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -3545,7 +5077,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -3596,7 +5128,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -3857,7 +5389,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -3910,7 +5442,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -4791,7 +6323,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -4988,7 +6520,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -5299,7 +6831,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -5353,7 +6885,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -5407,7 +6939,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -5461,7 +6993,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -5515,7 +7047,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -5569,7 +7101,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -5623,7 +7155,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -5677,7 +7209,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -5731,7 +7263,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -5785,7 +7317,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -5839,7 +7371,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -5888,7 +7420,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -5942,7 +7474,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -5996,7 +7528,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -6050,7 +7582,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -6104,7 +7636,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -6158,7 +7690,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -6212,7 +7744,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -6266,7 +7798,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -6320,7 +7852,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -6374,7 +7906,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -6428,7 +7960,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -6482,7 +8014,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -6536,7 +8068,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -6695,7 +8227,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -6749,7 +8281,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -6803,7 +8335,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -6857,7 +8389,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -6911,7 +8443,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -6965,7 +8497,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -7019,7 +8551,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -7073,7 +8605,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -7127,7 +8659,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -7340,7 +8872,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -7389,7 +8921,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -7443,7 +8975,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -7497,7 +9029,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -7551,7 +9083,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "C+",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -7605,7 +9137,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -7659,7 +9191,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -7713,7 +9245,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -7767,7 +9299,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -7816,7 +9348,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -7870,7 +9402,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -7924,7 +9456,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -7978,7 +9510,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -8032,7 +9564,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -8086,7 +9618,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -8140,7 +9672,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -8194,7 +9726,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -8412,7 +9944,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -8462,7 +9994,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -8512,7 +10044,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -8562,7 +10094,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -8612,7 +10144,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
@@ -8662,7 +10194,7 @@
       "hasWarning": false,
       "isStable": false,
       "stabilityGrade": "",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "sha256sum": "",
       "checksum": null,
       "sources": [
