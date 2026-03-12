@@ -296,6 +296,62 @@ document.addEventListener('DOMContentLoaded', function() {
             .replace(/'/g, '&#39;');
     }
 
+    function parseDateValue(value) {
+        if (!value) return null;
+        const parsed = new Date(value);
+        return Number.isNaN(parsed.getTime()) ? null : parsed;
+    }
+
+    const timelineDateFormatter = new Intl.DateTimeFormat(undefined, {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        timeZoneName: 'short'
+    });
+    const timelineRelativeFormatter = new Intl.RelativeTimeFormat(undefined, { numeric: 'auto' });
+
+    function formatRelativeTime(dateValue) {
+        if (!dateValue) return '';
+        const diffMs = dateValue.getTime() - Date.now();
+        const minuteMs = 60 * 1000;
+        const hourMs = 60 * minuteMs;
+        const dayMs = 24 * hourMs;
+        const weekMs = 7 * dayMs;
+        const monthMs = 30 * dayMs;
+        const yearMs = 365 * dayMs;
+
+        let unit = 'minute';
+        let value = Math.round(diffMs / minuteMs);
+        if (Math.abs(diffMs) >= yearMs) {
+            unit = 'year';
+            value = Math.round(diffMs / yearMs);
+        } else if (Math.abs(diffMs) >= monthMs) {
+            unit = 'month';
+            value = Math.round(diffMs / monthMs);
+        } else if (Math.abs(diffMs) >= weekMs) {
+            unit = 'week';
+            value = Math.round(diffMs / weekMs);
+        } else if (Math.abs(diffMs) >= dayMs) {
+            unit = 'day';
+            value = Math.round(diffMs / dayMs);
+        } else if (Math.abs(diffMs) >= hourMs) {
+            unit = 'hour';
+            value = Math.round(diffMs / hourMs);
+        }
+
+        return timelineRelativeFormatter.format(value, unit);
+    }
+
+    function formatTimelinePublishedAt(value) {
+        const parsed = parseDateValue(value);
+        if (!parsed) return value || 'Unknown date';
+        const absolute = timelineDateFormatter.format(parsed);
+        const relative = formatRelativeTime(parsed);
+        return relative ? `${absolute} (${relative})` : absolute;
+    }
+
     function safeInternalPath(pathValue) {
         const value = String(pathValue || '').trim();
         if (value.startsWith('/') && !value.startsWith('//')) return value;
@@ -365,7 +421,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const row = document.createElement('div');
             row.className = 'p-3 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700';
             const title = `${item.vendor ? String(item.vendor).toUpperCase() : 'Driver'} ${item.version || ''}`;
-            const meta = `${item.category || 'Update'} · ${item.type || 'changed'} · ${item.publishedAt || ''}`;
+            const publishedLabel = formatTimelinePublishedAt(item.publishedAt || item.releaseDate || '');
+            const meta = `${item.category || 'Update'} · ${item.type || 'changed'} · ${publishedLabel}`;
             row.innerHTML = `<div class="font-medium text-gray-900 dark:text-white">${escapeHtml(title)}</div><div class="text-xs text-gray-500 mt-1">${escapeHtml(meta)}</div>`;
             target.appendChild(row);
         });

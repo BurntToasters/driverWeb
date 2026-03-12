@@ -54,6 +54,21 @@ function parseDateValue(value) {
     return null;
 }
 
+const uiDateTimeFormatter = new Intl.DateTimeFormat(undefined, {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    timeZoneName: 'short'
+});
+
+function formatDateTimeValue(value, fallback) {
+    const parsed = parseDateValue(value);
+    if (!parsed) return fallback || 'Unknown';
+    return uiDateTimeFormatter.format(parsed);
+}
+
 function formatDaysAgo(dateValue) {
     const parsed = parseDateValue(dateValue);
     if (!parsed) return '';
@@ -311,7 +326,7 @@ function openDetailPanel(driver) {
     const safeRiskLevel = escapeHtml(driver.riskLevel || 'medium');
     const safeChannel = escapeHtml(channelLabel(driver.channel));
     const safeReleaseDate = escapeHtml(driver.releaseDate || 'Unknown');
-    const safePublishedAt = escapeHtml(driver.publishedAt || 'Unknown');
+    const safePublishedAt = escapeHtml(formatDateTimeValue(driver.publishedAt, driver.publishedAt || 'Unknown'));
     const safeOsSupport = escapeHtml((driver.osSupport || []).join(', ') || 'Unknown');
     const safeArchitectures = escapeHtml((driver.architectures || []).join(', ') || 'Unknown');
     const safeHighlights = escapeHtml((driver.highlights || []).join(' • ') || 'No highlights');

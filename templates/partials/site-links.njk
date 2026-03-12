@@ -1,0 +1,76 @@
+{% set linkHome = '/' %}
+{% set linkDisplay = '/display' %}
+{% set linkChipset = '/chipset' %}
+{% set linkNetwork = '/network' %}
+{% set linkAudio = '/audio' %}
+{% set linkContact = '/contact' %}
+{% set linkDocs = 'https://docs.rexxit.net/drivers-website/' %}
+{% set linkReleaseNotes = 'https://docs.rexxit.net/drivers-website/releasenotes' %}
+{% set linkStableDrivers = '/info/about-stabledrivers' %}
+{% set linkTrustCenter = '/info/trust-center' %}
+{% set linkCredits = '/info/credits' %}
+{% set linkFeedJson = '/feeds/drivers.json' %}
+{% set linkFeedRss = '/feeds/drivers.xml' %}
+{% set linkSitemap = '/sitemap.xml' %}
+{% set linkSupport = 'https://www.buymeacoffee.com/burnttoasters' %}
+
+{% macro mainHeaderNav(navActive = '', showComingSoon = true, showDocsLink = true) %}
+<a href="{{ linkHome }}" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 {% if navActive == 'home' %}border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400{% else %}border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white{% endif %} whitespace-nowrap transition-colors">
+    <span class="material-icons text-[18px]">home</span>Home
+</a>
+<a href="{{ linkDisplay }}" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 {% if navActive == 'graphics' %}border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400{% else %}border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white{% endif %} whitespace-nowrap transition-colors">
+    <span class="material-icons text-[18px]">videocam</span>Graphics
+</a>
+<a href="{{ linkChipset }}" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 {% if navActive == 'chipset' %}border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400{% else %}border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white{% endif %} whitespace-nowrap transition-colors">
+    <span class="material-icons text-[18px]">memory</span>Chipset
+</a>
+{% if showComingSoon %}
+<a href="{{ linkNetwork }}" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 {% if navActive == 'network' %}border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400{% else %}border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white{% endif %} whitespace-nowrap transition-colors">
+    <span class="material-icons text-[18px]">wifi</span>Network
+    <span class="px-1.5 py-0.5 text-[10px] font-semibold tracking-wide uppercase rounded bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-300">Preview</span>
+</a>
+<a href="{{ linkAudio }}" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 {% if navActive == 'audio' %}border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400{% else %}border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white{% endif %} whitespace-nowrap transition-colors">
+    <span class="material-icons text-[18px]">headphones</span>Audio
+    <span class="px-1.5 py-0.5 text-[10px] font-semibold tracking-wide uppercase rounded bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-300">Preview</span>
+</a>
+{% endif %}
+<div class="w-px h-5 bg-gray-200 dark:bg-gray-700 mx-1.5"></div>
+<a href="{{ linkContact }}" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 {% if navActive == 'contact' %}border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400{% else %}border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white{% endif %} whitespace-nowrap transition-colors">
+    <span class="material-icons text-[18px]">mail_outline</span>Contact
+</a>
+{% if showDocsLink %}
+<a href="{{ linkDocs }}" target="_blank" rel="noopener noreferrer" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+    <span class="material-icons text-[18px]">description</span>Docs
+    <svg class="w-3 h-3 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+</a>
+{% endif %}
+{% endmacro %}
+
+{% macro footerDriversLinks() %}
+<li><a href="{{ linkDisplay }}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Graphics</a></li>
+<li><a href="{{ linkChipset }}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Chipset</a></li>
+{% endmacro %}
+
+{% macro footerResourceLinks() %}
+<li><a href="{{ linkDocs }}" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Documentation</a></li>
+<li><a href="{{ linkReleaseNotes }}" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Release Notes</a></li>
+<li><a href="{{ linkStableDrivers }}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Stability Ratings</a></li>
+<li><a href="{{ linkTrustCenter }}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Trust Center</a></li>
+<li><a href="{{ linkCredits }}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Credits</a></li>
+<li><a href="{{ linkFeedJson }}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Driver Feed (JSON)</a></li>
+<li><a href="{{ linkFeedRss }}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Driver Feed (RSS)</a></li>
+{% endmacro %}
+
+{% macro footerAboutLinks() %}
+<li><a href="{{ linkContact }}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a></li>
+<li><a href="{{ linkSitemap }}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Sitemap</a></li>
+<li><a href="{{ linkSupport }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-2.5 py-1 rounded-md bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 hover:bg-primary-200 dark:hover:bg-primary-800/40 transition-colors">❤️ Support Us!</a></li>
+{% endmacro %}
+
+{% macro compactFooterQuickLinks() %}
+<a href="{{ linkReleaseNotes }}" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-white transition-colors">Release Notes</a>
+<a href="{{ linkCredits }}" class="hover:text-gray-900 dark:hover:text-white transition-colors">Credits</a>
+<a href="{{ linkFeedJson }}" class="hover:text-gray-900 dark:hover:text-white transition-colors">Driver Feed</a>
+<a href="{{ linkSitemap }}" class="hover:text-gray-900 dark:hover:text-white transition-colors">Sitemap</a>
+<a href="{{ linkSupport }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-2.5 py-1 rounded-md bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 hover:bg-primary-200 dark:hover:bg-primary-800/40 transition-colors">❤️ Support Us!</a>
+{% endmacro %}

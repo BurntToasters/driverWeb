@@ -1,0 +1,113 @@
+{% extends "layouts/base.njk" %}
+{% set assetPrefix = '../' %}
+{% set title = 'Credits | DriverHub' %}
+{% set metaDescription = 'Third-party software and open-source license credits used by DriverHub.' %}
+{% set metaRobots = 'index, follow' %}
+{% set canonical = 'https://driverhub.win/info/credits' %}
+{% set showSkipLink = true %}
+{% set headerVariant = 'main' %}
+{% set navActive = '' %}
+{% set showSearchButton = true %}
+{% set showFavoritesButton = false %}
+{% set showDarkModeButton = true %}
+{% set showSettings = true %}
+{% set footerVariant = 'full' %}
+{% set scripts = ['global/search.js', 'global/darkMode.js', 'global/regionSwitcher.js', 'global/modern.js', 'global/versionInfo.js', 'global/backToTop.js'] %}
+
+{% block content %}
+<main id="main-content" class="flex-1 max-w-6xl mx-auto px-4 md:px-6 py-10 w-full">
+    <div class="mb-8">
+        <h1 class="page-heading mb-2">Credits</h1>
+        <p class="page-subheading">Third-party packages and licenses generated from production dependencies.</p>
+    </div>
+
+    <section class="card p-5 mb-6" data-animate>
+        <div class="flex flex-wrap items-center justify-between gap-3">
+            <div class="text-sm text-gray-600 dark:text-gray-300">
+                <span id="license-count" class="font-semibold text-gray-900 dark:text-white">0</span> packages listed
+            </div>
+            <a href="/global/licenses.json" class="btn-secondary !px-3 !py-2 text-sm" target="_blank" rel="noopener noreferrer">
+                <span class="material-icons text-base">description</span>
+                View Raw JSON
+            </a>
+        </div>
+    </section>
+
+    <section class="card p-5" data-animate>
+        <div id="license-table-wrap" class="overflow-auto rounded-xl border border-gray-200 dark:border-gray-700">
+            <table class="w-full text-sm">
+                <thead class="bg-gray-50 dark:bg-gray-800/60">
+                    <tr>
+                        <th class="px-3 py-2 text-left text-xs uppercase tracking-wide text-gray-500">Package</th>
+                        <th class="px-3 py-2 text-left text-xs uppercase tracking-wide text-gray-500">License</th>
+                        <th class="px-3 py-2 text-left text-xs uppercase tracking-wide text-gray-500">Repository</th>
+                    </tr>
+                </thead>
+                <tbody id="license-table-body"></tbody>
+            </table>
+        </div>
+        <p id="license-empty" class="hidden text-sm text-gray-500 mt-4">No license entries found.</p>
+    </section>
+</main>
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const countNode = document.getElementById('license-count');
+    const bodyNode = document.getElementById('license-table-body');
+    const emptyNode = document.getElementById('license-empty');
+
+    function escapeHtml(value) {
+        return String(value == null ? '' : value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function normalizeRows(payload) {
+        const rows = Object.entries(payload || {}).map(function(entry) {
+            const name = entry[0];
+            const meta = entry[1] || {};
+            const license = meta.licenses || meta.license || 'Unknown';
+            const repository = meta.repository || '';
+            return { name, license, repository };
+        });
+        rows.sort(function(a, b) {
+            return a.name.localeCompare(b.name);
+        });
+        return rows;
+    }
+
+    function renderRows(rows) {
+        if (countNode) countNode.textContent = String(rows.length);
+        if (!bodyNode) return;
+        bodyNode.textContent = '';
+        if (!rows.length) {
+            if (emptyNode) emptyNode.classList.remove('hidden');
+            return;
+        }
+
+        rows.forEach(function(row) {
+            const tr = document.createElement('tr');
+            tr.className = 'border-t border-gray-200 dark:border-gray-700';
+            const safeName = escapeHtml(row.name);
+            const safeLicense = escapeHtml(row.license);
+            const safeRepo = escapeHtml(row.repository);
+            const repoCell = row.repository
+                ? `<a href="${safeRepo}" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">${safeRepo}</a>`
+                : '<span class="text-gray-500">N/A</span>';
+            tr.innerHTML = `<td class="px-3 py-2 font-medium text-gray-900 dark:text-white">${safeName}</td><td class="px-3 py-2 text-gray-700 dark:text-gray-300">${safeLicense}</td><td class="px-3 py-2 text-gray-700 dark:text-gray-300">${repoCell}</td>`;
+            bodyNode.appendChild(tr);
+        });
+    }
+
+    fetch('/global/licenses.json')
+        .then(function(response) { return response.ok ? response.json() : Promise.reject(); })
+        .then(function(data) { renderRows(normalizeRows(data)); })
+        .catch(function() { renderRows([]); });
+});
+</script>
+{% endblock %}
