@@ -4,468 +4,664 @@
     <title>DriverHub Driver Updates</title>
     <link>https://driverhub.win/feeds/drivers.xml</link>
     <description>Latest Windows driver updates indexed by DriverHub.</description>
-    <lastBuildDate>Wed, 11 Mar 2026 23:11:43 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 12 Mar 2026 00:19:59 GMT</lastBuildDate>
+  <item>
+    <title>NVIDIA Game Ready 595.79 - WHQL</title>
+    <link>https://driverhub.win/display?q=595.79&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics|game-ready|595-79|whql|20260310</guid>
+    <pubDate>Tue, 10 Mar 2026 07:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Game Ready | Release date: Mar 10, 2026 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/595.79/595.79-win11-win10-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Studio 595.79 - WHQL</title>
+    <link>https://driverhub.win/display?q=595.79&amp;brand=nvidia&amp;channel=studio</link>
+    <guid>nvidia|graphics|studio|595-79|whql|20260310</guid>
+    <pubDate>Tue, 10 Mar 2026 07:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Studio | Release date: Mar 10, 2026 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/595.79/595.79-win10-win11-nsd-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Laptop Game Ready 595.79 - WHQL</title>
+    <link>https://driverhub.win/display/laptop?q=595.79&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics-laptop|game-ready|595-79|whql|20260310</guid>
+    <pubDate>Tue, 10 Mar 2026 07:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Mar 10, 2026 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/595.79/595.79-win11-win10-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Laptop Studio 595.79 - WHQL</title>
+    <link>https://driverhub.win/display/laptop?q=595.79&amp;brand=nvidia&amp;channel=studio</link>
+    <guid>nvidia|graphics-laptop|studio|595-79|whql|20260310</guid>
+    <pubDate>Tue, 10 Mar 2026 07:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Laptop Studio | Release date: Mar 10, 2026 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/595.79/595.79-win10-win11-nsd-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Game Ready 595.71 - WHQL</title>
+    <link>https://driverhub.win/display?q=595.71&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics|game-ready|595-71|whql|20260302</guid>
+    <pubDate>Mon, 02 Mar 2026 08:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Game Ready | Release date: Mar 02, 2026 | Risk: high | Release notes: https://us.download.nvidia.com/Windows/595.71/595.71-win11-win10-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Laptop Game Ready 595.71 - WHQL</title>
+    <link>https://driverhub.win/display/laptop?q=595.71&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics-laptop|game-ready|595-71|whql|20260302</guid>
+    <pubDate>Mon, 02 Mar 2026 08:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Mar 02, 2026 | Risk: high | Release notes: https://us.download.nvidia.com/Windows/595.71/595.71-win11-win10-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>Intel Game On 32.0.101.8531</title>
+    <link>https://driverhub.win/display?q=32.0.101.8531&amp;brand=intel&amp;channel=game-on</link>
+    <guid>intel|graphics|game-on|32-0-101-8531|20260225</guid>
+    <pubDate>Wed, 25 Feb 2026 08:00:00 GMT</pubDate>
+    <description>Category: Intel Game On | Release date: Feb 25, 2026 | Risk: low | Release notes: https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html</description>
+  </item>
+  <item>
+    <title>Intel Game On 32.0.101.8509 - WHQL</title>
+    <link>https://driverhub.win/display?q=32.0.101.8509&amp;brand=intel&amp;channel=game-on</link>
+    <guid>intel|graphics|game-on|32-0-101-8509|whql|20260213</guid>
+    <pubDate>Fri, 13 Feb 2026 08:00:00 GMT</pubDate>
+    <description>Category: Intel Game On | Release date: Feb 13, 2026 | Risk: low | Release notes: https://www.intel.com/content/www/us/en/download/785597/874365/intel-arc-graphics-windows.html</description>
+  </item>
+  <item>
+    <title>Intel Pro 32.0.101.8314</title>
+    <link>https://driverhub.win/display?q=32.0.101.8314&amp;brand=intel&amp;channel=pro</link>
+    <guid>intel|graphics|pro|32-0-101-8314|20260211</guid>
+    <pubDate>Wed, 11 Feb 2026 08:00:00 GMT</pubDate>
+    <description>Category: Intel Pro | Release date: Feb 11, 2026 | Risk: low | Release notes: https://www.intel.com/content/www/us/en/download/741626/intel-arc-pro-graphics-windows.html</description>
+  </item>
+  <item>
+    <title>NVIDIA Game Ready 591.86 - WHQL</title>
+    <link>https://driverhub.win/display?q=591.86&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics|game-ready|591-86|whql|20260127</guid>
+    <pubDate>Tue, 27 Jan 2026 08:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Game Ready | Release date: Jan 27, 2026 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/591.86/591.86-win11-win10-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Laptop Game Ready 591.86 - WHQL</title>
+    <link>https://driverhub.win/display/laptop?q=591.86&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics-laptop|game-ready|591-86|whql|20260127</guid>
+    <pubDate>Tue, 27 Jan 2026 08:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Jan 27, 2026 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/591.86/591.86-win11-win10-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Game Ready 591.74 - WHQL</title>
+    <link>https://driverhub.win/display?q=591.74&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics|game-ready|591-74|whql|20260105</guid>
+    <pubDate>Mon, 05 Jan 2026 08:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Game Ready | Release date: Jan 05, 2026 | Stability: A | Risk: low | Release notes: https://us.download.nvidia.com/Windows/591.74/591.74-win11-win10-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Studio 591.74 - WHQL</title>
+    <link>https://driverhub.win/display?q=591.74&amp;brand=nvidia&amp;channel=studio</link>
+    <guid>nvidia|graphics|studio|591-74|whql|20260105</guid>
+    <pubDate>Mon, 05 Jan 2026 08:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Studio | Release date: Jan 05, 2026 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/591.74/591.74-win10-win11-nsd-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Laptop Game Ready 591.74 - WHQL</title>
+    <link>https://driverhub.win/display/laptop?q=591.74&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics-laptop|game-ready|591-74|whql|20260105</guid>
+    <pubDate>Mon, 05 Jan 2026 08:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Jan 05, 2026 | Stability: A | Risk: low | Release notes: https://us.download.nvidia.com/Windows/591.74/591.74-win11-win10-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Laptop Studio 591.74 - WHQL</title>
+    <link>https://driverhub.win/display/laptop?q=591.74&amp;brand=nvidia&amp;channel=studio</link>
+    <guid>nvidia|graphics-laptop|studio|591-74|whql|20260105</guid>
+    <pubDate>Mon, 05 Jan 2026 08:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Laptop Studio | Release date: Jan 05, 2026 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/591.74/591.74-win10-win11-nsd-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>Intel Game On 32.0.101.8425/32.0.101.8362 - WHQL</title>
+    <link>https://driverhub.win/display?q=32.0.101.8425%2F32.0.101.8362&amp;brand=intel&amp;channel=game-on</link>
+    <guid>intel|graphics|game-on|32-0-101-8425-32-0-101-8362|whql|20260101</guid>
+    <pubDate>Thu, 01 Jan 2026 08:00:00 GMT</pubDate>
+    <description>Category: Intel Game On | Release date: Jan 1, 2026 | Risk: low | Release notes: https://www.intel.com/content/www/us/en/download/785597/873358/intel-arc-graphics-windows.html</description>
+  </item>
+  <item>
+    <title>NVIDIA Game Ready 591.59 - WHQL</title>
+    <link>https://driverhub.win/display?q=591.59&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics|game-ready|591-59|whql|20251218</guid>
+    <pubDate>Thu, 18 Dec 2025 08:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Game Ready | Release date: Dec 18, 2025 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/591.59/591.59-win11-win10-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Laptop Game Ready 591.59 - WHQL</title>
+    <link>https://driverhub.win/display/laptop?q=591.59&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics-laptop|game-ready|591-59|whql|20251218</guid>
+    <pubDate>Thu, 18 Dec 2025 08:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Dec 18, 2025 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/591.59/591.59-win11-win10-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Game Ready 591.44 - WHQL</title>
+    <link>https://driverhub.win/display?q=591.44&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics|game-ready|591-44|whql|20251204</guid>
+    <pubDate>Thu, 04 Dec 2025 08:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Game Ready | Release date: Dec 04, 2025 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/591.44/591.44-win11-win10-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Studio 591.44 - WHQL</title>
+    <link>https://driverhub.win/display?q=591.44&amp;brand=nvidia&amp;channel=studio</link>
+    <guid>nvidia|graphics|studio|591-44|whql|20251204</guid>
+    <pubDate>Thu, 04 Dec 2025 08:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Studio | Release date: Dec 04, 2025 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/591.44/591.44-win10-win11-nsd-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Laptop Game Ready 591.44 - WHQL</title>
+    <link>https://driverhub.win/display/laptop?q=591.44&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics-laptop|game-ready|591-44|whql|20251204</guid>
+    <pubDate>Thu, 04 Dec 2025 08:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Dec 04, 2025 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/591.44/591.44-win11-win10-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Laptop Studio 591.44 - WHQL</title>
+    <link>https://driverhub.win/display/laptop?q=591.44&amp;brand=nvidia&amp;channel=studio</link>
+    <guid>nvidia|graphics-laptop|studio|591-44|whql|20251204</guid>
+    <pubDate>Thu, 04 Dec 2025 08:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Laptop Studio | Release date: Dec 04, 2025 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/591.44/591.44-win10-win11-nsd-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>Intel Game On 32.0.101.8331 - WHQL</title>
+    <link>https://driverhub.win/display?q=32.0.101.8331&amp;brand=intel&amp;channel=game-on</link>
+    <guid>intel|graphics|game-on|32-0-101-8331|whql|20251203</guid>
+    <pubDate>Wed, 03 Dec 2025 08:00:00 GMT</pubDate>
+    <description>Category: Intel Game On | Release date: Dec 3, 2025 | Risk: low | Release notes: https://www.intel.com/content/www/us/en/download/785597/870567/intel-arc-graphics-windows.html</description>
+  </item>
   <item>
     <title>NVIDIA Game Ready 581.94 - HOTFIX</title>
     <link>https://driverhub.win/display?q=581.94&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics|game-ready|581-94|hotfix|20251119</guid>
     <pubDate>Wed, 19 Nov 2025 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Nov 19, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Game Ready | Release date: Nov 19, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Game Ready 581.94 - HOTFIX</title>
     <link>https://driverhub.win/display/laptop?q=581.94&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics-laptop|game-ready|581-94|hotfix|20251119</guid>
     <pubDate>Wed, 19 Nov 2025 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Nov 19, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Nov 19, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.8250</title>
     <link>https://driverhub.win/display?q=32.0.101.8250&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-8250|20251111</guid>
     <pubDate>Tue, 11 Nov 2025 08:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: Nov 11, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: Nov 11, 2025 | Risk: low</description>
+  </item>
+  <item>
+    <title>Network Drivers 23.60.0 - Intel Wi-Fi Driver</title>
+    <link>https://driverhub.win/network?q=23.60.0&amp;brand=network&amp;channel=network</link>
+    <guid>network|intel|wifi-23.60.0</guid>
+    <pubDate>Wed, 05 Nov 2025 08:00:00 GMT</pubDate>
+    <description>Category: Network Drivers | Release date: 2025-11-05 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Game Ready 581.80 - WHQL</title>
     <link>https://driverhub.win/display?q=581.80&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics|game-ready|581-80|whql|20251104</guid>
     <pubDate>Tue, 04 Nov 2025 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Nov 04, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Game Ready | Release date: Nov 04, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Game Ready 581.80 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=581.80&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics-laptop|game-ready|581-80|whql|20251104</guid>
     <pubDate>Tue, 04 Nov 2025 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Nov 04, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Nov 04, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.8247 - WHQL Certified</title>
     <link>https://driverhub.win/display?q=32.0.101.8247&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-8247|whql-certified|20251029</guid>
     <pubDate>Wed, 29 Oct 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: Oct 29, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: Oct 29, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.8247</title>
     <link>https://driverhub.win/display?q=32.0.101.8247&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-8247|20251023</guid>
     <pubDate>Thu, 23 Oct 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: Oct 23, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: Oct 23, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Game Ready 581.57 - WHQL</title>
     <link>https://driverhub.win/display?q=581.57&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics|game-ready|581-57|whql|20251014</guid>
     <pubDate>Tue, 14 Oct 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Oct 14, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Game Ready | Release date: Oct 14, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Studio 581.57 - WHQL</title>
     <link>https://driverhub.win/display?q=581.57&amp;brand=nvidia&amp;channel=studio</link>
     <guid>nvidia|graphics|studio|581-57|whql|20251014</guid>
     <pubDate>Tue, 14 Oct 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Studio | Release date: Oct 14, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Studio | Release date: Oct 14, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Game Ready 581.57 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=581.57&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics-laptop|game-ready|581-57|whql|20251014</guid>
     <pubDate>Tue, 14 Oct 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Oct 14, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Oct 14, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Studio 581.57 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=581.57&amp;brand=nvidia&amp;channel=studio</link>
     <guid>nvidia|graphics-laptop|studio|581-57|whql|20251014</guid>
     <pubDate>Tue, 14 Oct 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Studio | Release date: Oct 14, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Studio | Release date: Oct 14, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.8136</title>
     <link>https://driverhub.win/display?q=32.0.101.8136&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-8136|20251007</guid>
     <pubDate>Tue, 07 Oct 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: Oct 7, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: Oct 7, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.8135</title>
     <link>https://driverhub.win/display?q=32.0.101.8135&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-8135|20251001</guid>
     <pubDate>Wed, 01 Oct 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: Oct 1, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: Oct 1, 2025 | Risk: low</description>
+  </item>
+  <item>
+    <title>Audio Drivers UAD 6.0.9800.1 - Realtek HD Audio</title>
+    <link>https://driverhub.win/audio?q=UAD+6.0.9800.1&amp;brand=audio&amp;channel=audio</link>
+    <guid>audio|realtek|uhd-6.0.9800.1</guid>
+    <pubDate>Wed, 01 Oct 2025 07:00:00 GMT</pubDate>
+    <description>Category: Audio Drivers | Release date: 2025-10-01 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Game Ready 581.42 - WHQL</title>
     <link>https://driverhub.win/display?q=581.42&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics|game-ready|581-42|whql|20250930</guid>
     <pubDate>Tue, 30 Sep 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Sep 30, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Game Ready | Release date: Sep 30, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Game Ready 581.42 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=581.42&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics-laptop|game-ready|581-42|whql|20250930</guid>
     <pubDate>Tue, 30 Sep 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Sep 30, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Sep 30, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.8132 - WHQL Certified</title>
     <link>https://driverhub.win/display?q=32.0.101.8132&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-8132|whql-certified|20250923</guid>
     <pubDate>Tue, 23 Sep 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: Sep 23, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: Sep 23, 2025 | Risk: low</description>
+  </item>
+  <item>
+    <title>Network Drivers 2.90.0.1 - Realtek PCIe GbE Family Controller</title>
+    <link>https://driverhub.win/network?q=2.90.0.1&amp;brand=network&amp;channel=network</link>
+    <guid>network|realtek|2.90.0.1</guid>
+    <pubDate>Wed, 17 Sep 2025 07:00:00 GMT</pubDate>
+    <description>Category: Network Drivers | Release date: 2025-09-17 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Game Ready 581.29 - WHQL</title>
     <link>https://driverhub.win/display?q=581.29&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics|game-ready|581-29|whql|20250910</guid>
     <pubDate>Wed, 10 Sep 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Sep 10, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Game Ready | Release date: Sep 10, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Studio 581.29 - WHQL</title>
     <link>https://driverhub.win/display?q=581.29&amp;brand=nvidia&amp;channel=studio</link>
     <guid>nvidia|graphics|studio|581-29|whql|20250910</guid>
     <pubDate>Wed, 10 Sep 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Studio | Release date: Sep 10, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Studio | Release date: Sep 10, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.7029</title>
     <link>https://driverhub.win/display?q=32.0.101.7029&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-7029|20250910</guid>
     <pubDate>Wed, 10 Sep 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: Sep 10, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: Sep 10, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Game Ready 581.29 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=581.29&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics-laptop|game-ready|581-29|whql|20250910</guid>
     <pubDate>Wed, 10 Sep 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Sep 10, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Sep 10, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Studio 581.29 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=581.29&amp;brand=nvidia&amp;channel=studio</link>
     <guid>nvidia|graphics-laptop|studio|581-29|whql|20250910</guid>
     <pubDate>Wed, 10 Sep 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Studio | Release date: Sep 10, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Studio | Release date: Sep 10, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Pro 32.0.101.6979</title>
     <link>https://driverhub.win/display?q=32.0.101.6979&amp;brand=intel&amp;channel=pro</link>
     <guid>intel|graphics|pro|32-0-101-6979|20250903</guid>
     <pubDate>Wed, 03 Sep 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Pro | Release date: Sep 03, 2025 | Risk: medium</description>
+    <description>Category: Intel Pro | Release date: Sep 03, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Game Ready 581.15 - WHQL</title>
     <link>https://driverhub.win/display?q=581.15&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics|game-ready|581-15|whql|20250828</guid>
     <pubDate>Thu, 28 Aug 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Aug 28, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Game Ready | Release date: Aug 28, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Game Ready 581.15 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=581.15&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics-laptop|game-ready|581-15|whql|20250828</guid>
     <pubDate>Thu, 28 Aug 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Aug 28, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Aug 28, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.7028</title>
     <link>https://driverhub.win/display?q=32.0.101.7028&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-7028|20250826</guid>
     <pubDate>Tue, 26 Aug 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: Aug 26, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: Aug 26, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.7026 - WHQL Certified</title>
     <link>https://driverhub.win/display?q=32.0.101.7026&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-7026|whql-certified|20250822</guid>
     <pubDate>Fri, 22 Aug 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: Aug 22, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: Aug 22, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Game Ready 581.08 - WHQL</title>
     <link>https://driverhub.win/display?q=581.08&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics|game-ready|581-08|whql|20250819</guid>
     <pubDate>Tue, 19 Aug 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Aug 19, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Game Ready | Release date: Aug 19, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Game Ready 581.08 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=581.08&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics-laptop|game-ready|581-08|whql|20250819</guid>
     <pubDate>Tue, 19 Aug 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Aug 19, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Aug 19, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Game Ready 580.97 - WHQL</title>
     <link>https://driverhub.win/display?q=580.97&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics|game-ready|580-97|whql|20250812</guid>
     <pubDate>Tue, 12 Aug 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Aug 12, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Game Ready | Release date: Aug 12, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Studio 580.97 - WHQL</title>
     <link>https://driverhub.win/display?q=580.97&amp;brand=nvidia&amp;channel=studio</link>
     <guid>nvidia|graphics|studio|580-97|whql|20250812</guid>
     <pubDate>Tue, 12 Aug 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Studio | Release date: Aug 12, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Studio | Release date: Aug 12, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Game Ready 580.97 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=580.97&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics-laptop|game-ready|580-97|whql|20250812</guid>
     <pubDate>Tue, 12 Aug 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Aug 12, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Aug 12, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Studio 580.97 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=580.97&amp;brand=nvidia&amp;channel=studio</link>
     <guid>nvidia|graphics-laptop|studio|580-97|whql|20250812</guid>
     <pubDate>Tue, 12 Aug 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Studio | Release date: Aug 12, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Studio | Release date: Aug 12, 2025 | Risk: low</description>
+  </item>
+  <item>
+    <title>Audio Drivers 10.29.0.1090 - Intel Smart Sound Technology</title>
+    <link>https://driverhub.win/audio?q=10.29.0.1090&amp;brand=audio&amp;channel=audio</link>
+    <guid>audio|intel|smart-sound-10.29.0.1090</guid>
+    <pubDate>Tue, 12 Aug 2025 07:00:00 GMT</pubDate>
+    <description>Category: Audio Drivers | Release date: 2025-08-12 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.6989</title>
     <link>https://driverhub.win/display?q=32.0.101.6989&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-6989|20250808</guid>
     <pubDate>Fri, 08 Aug 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: Aug 8, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: Aug 8, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.6987 - WHQL Certified</title>
     <link>https://driverhub.win/display?q=32.0.101.6987&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-6987|whql-certified|20250806</guid>
     <pubDate>Wed, 06 Aug 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: Aug 6, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: Aug 6, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Game Ready 580.88 - WHQL</title>
     <link>https://driverhub.win/display?q=580.88&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics|game-ready|580-88|whql|20250731</guid>
     <pubDate>Thu, 31 Jul 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Jul 31, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Game Ready | Release date: Jul 31, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Game Ready 580.88 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=580.88&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics-laptop|game-ready|580-88|whql|20250731</guid>
     <pubDate>Thu, 31 Jul 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Jul 31, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Jul 31, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Game Ready 577.00 - WHQL</title>
     <link>https://driverhub.win/display?q=577.00&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics|game-ready|577-00|whql|20250722</guid>
     <pubDate>Tue, 22 Jul 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Jul 22, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Game Ready | Release date: Jul 22, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Studio 577.00 - WHQL</title>
     <link>https://driverhub.win/display?q=577.00&amp;brand=nvidia&amp;channel=studio</link>
     <guid>nvidia|graphics|studio|577-00|whql|20250722</guid>
     <pubDate>Tue, 22 Jul 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Studio | Release date: Jul 22, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Studio | Release date: Jul 22, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.6972</title>
     <link>https://driverhub.win/display?q=32.0.101.6972&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-6972|20250722</guid>
     <pubDate>Tue, 22 Jul 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: Jul 22, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: Jul 22, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Game Ready 577.00 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=577.00&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics-laptop|game-ready|577-00|whql|20250722</guid>
     <pubDate>Tue, 22 Jul 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Jul 22, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Jul 22, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Studio 577.00 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=577.00&amp;brand=nvidia&amp;channel=studio</link>
     <guid>nvidia|graphics-laptop|studio|577-00|whql|20250722</guid>
     <pubDate>Tue, 22 Jul 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Studio | Release date: Jul 22, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Studio | Release date: Jul 22, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Pro 32.0.101.6862</title>
     <link>https://driverhub.win/display?q=32.0.101.6862&amp;brand=intel&amp;channel=pro</link>
     <guid>intel|graphics|pro|32-0-101-6862|20250708</guid>
     <pubDate>Tue, 08 Jul 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Pro | Release date: Jul 08, 2025 | Risk: medium</description>
+    <description>Category: Intel Pro | Release date: Jul 08, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Game Ready 576.88 - WHQL</title>
     <link>https://driverhub.win/display?q=576.88&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics|game-ready|576-88|whql|20250701</guid>
     <pubDate>Tue, 01 Jul 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Jul 01, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Game Ready | Release date: Jul 01, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Game Ready 576.88 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=576.88&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics-laptop|game-ready|576-88|whql|20250701</guid>
     <pubDate>Tue, 01 Jul 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Jul 01, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Jul 01, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.6913 - WHQL Certified</title>
     <link>https://driverhub.win/display?q=32.0.101.6913&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-6913|whql-certified|20250627</guid>
     <pubDate>Fri, 27 Jun 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: Jun 27, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: Jun 27, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Game Ready 576.80 - WHQL</title>
     <link>https://driverhub.win/display?q=576.80&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics|game-ready|576-80|whql|20250617</guid>
     <pubDate>Tue, 17 Jun 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Jun 17, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Game Ready | Release date: Jun 17, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Studio 576.80 - WHQL</title>
     <link>https://driverhub.win/display?q=576.80&amp;brand=nvidia&amp;channel=studio</link>
     <guid>nvidia|graphics|studio|576-80|whql|20250617</guid>
     <pubDate>Tue, 17 Jun 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Studio | Release date: Jun 17, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Studio | Release date: Jun 17, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Game Ready 576.80 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=576.80&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics-laptop|game-ready|576-80|whql|20250617</guid>
     <pubDate>Tue, 17 Jun 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Jun 17, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Jun 17, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Studio 576.80 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=576.80&amp;brand=nvidia&amp;channel=studio</link>
     <guid>nvidia|graphics-laptop|studio|576-80|whql|20250617</guid>
     <pubDate>Tue, 17 Jun 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Studio | Release date: Jun 17, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Studio | Release date: Jun 17, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.6881 - WHQL Certified</title>
     <link>https://driverhub.win/display?q=32.0.101.6881&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-6881|whql-certified|20250609</guid>
     <pubDate>Mon, 09 Jun 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: Jun 9, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: Jun 9, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.6877</title>
     <link>https://driverhub.win/display?q=32.0.101.6877&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-6877|20250605</guid>
     <pubDate>Thu, 05 Jun 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: Jun 5, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: Jun 5, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.6876</title>
     <link>https://driverhub.win/display?q=32.0.101.6876&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-6876|20250603</guid>
     <pubDate>Tue, 03 Jun 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: Jun 3, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: Jun 3, 2025 | Risk: low</description>
+  </item>
+  <item>
+    <title>Network Drivers 7.35.352.0 - Broadcom NetXtreme</title>
+    <link>https://driverhub.win/network?q=7.35.352.0&amp;brand=network&amp;channel=network</link>
+    <guid>network|broadcom|7.35.352.0</guid>
+    <pubDate>Mon, 02 Jun 2025 07:00:00 GMT</pubDate>
+    <description>Category: Network Drivers | Release date: 2025-06-02 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.6874 - WHQL Certified</title>
     <link>https://driverhub.win/display?q=32.0.101.6874&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-6874|whql-certified|20250530</guid>
     <pubDate>Fri, 30 May 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: May 30, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: May 30, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.6795</title>
     <link>https://driverhub.win/display?q=32.0.101.6795&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-6795|20250523</guid>
     <pubDate>Fri, 23 May 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: May 23, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: May 23, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Game Ready 576.52 - WHQL</title>
     <link>https://driverhub.win/display?q=576.52&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics|game-ready|576-52|whql|20250519</guid>
     <pubDate>Mon, 19 May 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: May 19, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Game Ready | Release date: May 19, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Studio 576.52 - WHQL</title>
     <link>https://driverhub.win/display?q=576.52&amp;brand=nvidia&amp;channel=studio</link>
     <guid>nvidia|graphics|studio|576-52|whql|20250519</guid>
     <pubDate>Mon, 19 May 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Studio | Release date: May 19, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Studio | Release date: May 19, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Game Ready 576.52 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=576.52&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics-laptop|game-ready|576-52|whql|20250519</guid>
     <pubDate>Mon, 19 May 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: May 19, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: May 19, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Studio 576.52 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=576.52&amp;brand=nvidia&amp;channel=studio</link>
     <guid>nvidia|graphics-laptop|studio|576-52|whql|20250519</guid>
     <pubDate>Mon, 19 May 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Studio | Release date: May 19, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Studio | Release date: May 19, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Game Ready 576.40 - WHQL</title>
     <link>https://driverhub.win/display?q=576.40&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics|game-ready|576-40|whql|20250512</guid>
     <pubDate>Mon, 12 May 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: May 12, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Game Ready | Release date: May 12, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Game Ready 576.40 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=576.40&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics-laptop|game-ready|576-40|whql|20250512</guid>
     <pubDate>Mon, 12 May 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: May 12, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: May 12, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.6793</title>
     <link>https://driverhub.win/display?q=32.0.101.6793&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-6793|20250509</guid>
     <pubDate>Fri, 09 May 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: May 9, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: May 9, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.6790 - WHQL Certified</title>
     <link>https://driverhub.win/display?q=32.0.101.6790&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-6790|whql-certified|20250502</guid>
     <pubDate>Fri, 02 May 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: May 2, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: May 2, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Game Ready 576.28 - WHQL</title>
     <link>https://driverhub.win/display?q=576.28&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics|game-ready|576-28|whql|20250430</guid>
     <pubDate>Wed, 30 Apr 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Apr 30, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Game Ready | Release date: Apr 30, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Game Ready 576.28 - WHQL</title>
     <link>https://driverhub.win/display/laptop?q=576.28&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics-laptop|game-ready|576-28|whql|20250430</guid>
     <pubDate>Wed, 30 Apr 2025 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Apr 30, 2025 | Risk: medium</description>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Apr 30, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.6739</title>
     <link>https://driverhub.win/display?q=32.0.101.6739&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-6739|20250425</guid>
     <pubDate>Fri, 25 Apr 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: Apr 25, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: Apr 25, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.6737 - WHQL Certified</title>
     <link>https://driverhub.win/display?q=32.0.101.6737&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-6737|whql-certified|20250423</guid>
     <pubDate>Wed, 23 Apr 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: Apr 23, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: Apr 23, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Game Ready 576.02 - WHQL</title>
@@ -500,14 +696,14 @@
     <link>https://driverhub.win/display?q=32.0.101.6734&amp;brand=intel&amp;channel=game-on</link>
     <guid>intel|graphics|game-on|32-0-101-6734|whql-certified|20250408</guid>
     <pubDate>Tue, 08 Apr 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Game On | Release date: Apr 8, 2025 | Risk: medium</description>
+    <description>Category: Intel Game On | Release date: Apr 8, 2025 | Risk: low</description>
   </item>
   <item>
     <title>Intel Pro 32.0.101.6306</title>
     <link>https://driverhub.win/display?q=32.0.101.6306&amp;brand=intel&amp;channel=pro</link>
     <guid>intel|graphics|pro|32-0-101-6306|20250327</guid>
     <pubDate>Thu, 27 Mar 2025 07:00:00 GMT</pubDate>
-    <description>Category: Intel Pro | Release date: Mar 27, 2025 | Risk: medium</description>
+    <description>Category: Intel Pro | Release date: Mar 27, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Game Ready 572.83 - WHQL</title>
@@ -626,7 +822,7 @@
     <link>https://driverhub.win/display?q=32.0.101.6306&amp;brand=intel&amp;channel=pro</link>
     <guid>intel|graphics|pro|32-0-101-6306|20250130</guid>
     <pubDate>Thu, 30 Jan 2025 08:00:00 GMT</pubDate>
-    <description>Category: Intel Pro | Release date: Jan 30, 2025 | Risk: medium</description>
+    <description>Category: Intel Pro | Release date: Jan 30, 2025 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Laptop Game Ready 572.16 - WHQL</title>
@@ -648,202 +844,6 @@
     <guid>chipset-intel-inf</guid>
     <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
     <description>Category: Intel Chipset | Release date: 2025-01-01 | Stability: A | Risk: low</description>
-  </item>
-  <item>
-    <title>Intel Pro 32.0.101.6303</title>
-    <link>https://driverhub.win/display?q=32.0.101.6303&amp;brand=intel&amp;channel=pro</link>
-    <guid>intel|graphics|pro|32-0-101-6303|20241220</guid>
-    <pubDate>Fri, 20 Dec 2024 08:00:00 GMT</pubDate>
-    <description>Category: Intel Pro | Release date: Dec 20, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Studio 566.36 - WHQL</title>
-    <link>https://driverhub.win/display?q=566.36&amp;brand=nvidia&amp;channel=studio</link>
-    <guid>nvidia|graphics|studio|566-36|whql|20241210</guid>
-    <pubDate>Tue, 10 Dec 2024 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Studio | Release date: Dec 10, 2024 | Risk: low</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Studio 566.36 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=566.36&amp;brand=nvidia&amp;channel=studio</link>
-    <guid>nvidia|graphics-laptop|studio|566-36|whql|20241210</guid>
-    <pubDate>Tue, 10 Dec 2024 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Studio | Release date: Dec 10, 2024 | Risk: low</description>
-  </item>
-  <item>
-    <title>NVIDIA Game Ready 566.36 - WHQL</title>
-    <link>https://driverhub.win/display?q=566.36&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics|game-ready|566-36|whql|20241205</guid>
-    <pubDate>Thu, 05 Dec 2024 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Dec 05, 2024 | Stability: A- | Risk: low</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Game Ready 566.36 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=566.36&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics-laptop|game-ready|566-36|whql|20241205</guid>
-    <pubDate>Thu, 05 Dec 2024 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Dec 05, 2024 | Stability: A- | Risk: low</description>
-  </item>
-  <item>
-    <title>AMD Chipset AM5 Chipset Utility - X870E, X870, X670E, X670, B650E, B650, A620</title>
-    <link>https://driverhub.win/chipset?q=AM5+Chipset+Utility&amp;brand=amd&amp;channel=chipset</link>
-    <guid>chipset-am5</guid>
-    <pubDate>Tue, 03 Dec 2024 00:00:00 GMT</pubDate>
-    <description>Category: AMD Chipset | Release date: 2024-12-03 | Stability: A | Risk: low</description>
-  </item>
-  <item>
-    <title>NVIDIA Game Ready 566.14 - WHQL</title>
-    <link>https://driverhub.win/display?q=566.14&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics|game-ready|566-14|whql|20241112</guid>
-    <pubDate>Tue, 12 Nov 2024 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Nov 12, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Studio 566.14 - WHQL</title>
-    <link>https://driverhub.win/display?q=566.14&amp;brand=nvidia&amp;channel=studio</link>
-    <guid>nvidia|graphics|studio|566-14|whql|20241112</guid>
-    <pubDate>Tue, 12 Nov 2024 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Studio | Release date: Nov 12, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Game Ready 566.14 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=566.14&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics-laptop|game-ready|566-14|whql|20241112</guid>
-    <pubDate>Tue, 12 Nov 2024 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Nov 12, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Studio 566.14 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=566.14&amp;brand=nvidia&amp;channel=studio</link>
-    <guid>nvidia|graphics-laptop|studio|566-14|whql|20241112</guid>
-    <pubDate>Tue, 12 Nov 2024 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Studio | Release date: Nov 12, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Game Ready 566.03 - WHQL</title>
-    <link>https://driverhub.win/display?q=566.03&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics|game-ready|566-03|whql|20241022</guid>
-    <pubDate>Tue, 22 Oct 2024 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Oct 22, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Game Ready 566.03 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=566.03&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics-laptop|game-ready|566-03|whql|20241022</guid>
-    <pubDate>Tue, 22 Oct 2024 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Oct 22, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Studio 565.90 - WHQL</title>
-    <link>https://driverhub.win/display?q=565.90&amp;brand=nvidia&amp;channel=studio</link>
-    <guid>nvidia|graphics|studio|565-90|whql|20241015</guid>
-    <pubDate>Tue, 15 Oct 2024 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Studio | Release date: Oct 15, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Studio 565.90 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=565.90&amp;brand=nvidia&amp;channel=studio</link>
-    <guid>nvidia|graphics-laptop|studio|565-90|whql|20241015</guid>
-    <pubDate>Tue, 15 Oct 2024 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Studio | Release date: Oct 15, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Game Ready 565.90 - WHQL</title>
-    <link>https://driverhub.win/display?q=565.90&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics|game-ready|565-90|whql|20241001</guid>
-    <pubDate>Tue, 01 Oct 2024 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Oct 01, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Game Ready 565.90 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=565.90&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics-laptop|game-ready|565-90|whql|20241001</guid>
-    <pubDate>Tue, 01 Oct 2024 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Oct 01, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>Intel Pro 32.0.101.5978</title>
-    <link>https://driverhub.win/display?q=32.0.101.5978&amp;brand=intel&amp;channel=pro</link>
-    <guid>intel|graphics|pro|32-0-101-5978|20240920</guid>
-    <pubDate>Fri, 20 Sep 2024 07:00:00 GMT</pubDate>
-    <description>Category: Intel Pro | Release date: Sep 20, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Studio 561.09 - WHQL</title>
-    <link>https://driverhub.win/display?q=561.09&amp;brand=nvidia&amp;channel=studio</link>
-    <guid>nvidia|graphics|studio|561-09|whql|20240917</guid>
-    <pubDate>Tue, 17 Sep 2024 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Studio | Release date: Sep 17, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Studio 561.09 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=561.09&amp;brand=nvidia&amp;channel=studio</link>
-    <guid>nvidia|graphics-laptop|studio|561-09|whql|20240917</guid>
-    <pubDate>Tue, 17 Sep 2024 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Studio | Release date: Sep 17, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Game Ready 561.09 - WHQL</title>
-    <link>https://driverhub.win/display?q=561.09&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics|game-ready|561-09|whql|20240911</guid>
-    <pubDate>Wed, 11 Sep 2024 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Sep 11, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Game Ready 561.09 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=561.09&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics-laptop|game-ready|561-09|whql|20240911</guid>
-    <pubDate>Wed, 11 Sep 2024 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Sep 11, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Game Ready 560.94 - WHQL</title>
-    <link>https://driverhub.win/display?q=560.94&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics|game-ready|560-94|whql|20240820</guid>
-    <pubDate>Tue, 20 Aug 2024 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Aug 20, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Game Ready 560.94 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=560.94&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics-laptop|game-ready|560-94|whql|20240820</guid>
-    <pubDate>Tue, 20 Aug 2024 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Aug 20, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Game Ready 560.81 - WHQL</title>
-    <link>https://driverhub.win/display?q=560.81&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics|game-ready|560-81|whql|20240806</guid>
-    <pubDate>Tue, 06 Aug 2024 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Aug 06, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Studio 560.81 - WHQL</title>
-    <link>https://driverhub.win/display?q=560.81&amp;brand=nvidia&amp;channel=studio</link>
-    <guid>nvidia|graphics|studio|560-81|whql|20240806</guid>
-    <pubDate>Tue, 06 Aug 2024 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Studio | Release date: Aug 06, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Game Ready 560.81 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=560.81&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics-laptop|game-ready|560-81|whql|20240806</guid>
-    <pubDate>Tue, 06 Aug 2024 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Aug 06, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Studio 560.81 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=560.81&amp;brand=nvidia&amp;channel=studio</link>
-    <guid>nvidia|graphics-laptop|studio|560-81|whql|20240806</guid>
-    <pubDate>Tue, 06 Aug 2024 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Studio | Release date: Aug 06, 2024 | Risk: medium</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Game Ready 560.70 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=560.70&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics-laptop|game-ready|560-70|whql|20240716</guid>
-    <pubDate>Tue, 16 Jul 2024 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Jul 16, 2024 | Risk: medium</description>
   </item>
   </channel>
 </rss>

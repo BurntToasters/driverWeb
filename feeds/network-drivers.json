@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-11T23:11:43.525Z",
+  "generatedAt": "2026-03-12T00:19:59.212Z",
   "family": "network",
   "count": 3,
   "drivers": [
@@ -8,24 +8,21 @@
       "vendor": "intel",
       "family": "network",
       "channel": "network",
-      "category": "Network Drivers",
-      "brand": "network",
       "version": "23.60.0",
       "type": "Intel Wi-Fi Driver",
       "releaseDate": "2025-11-05",
       "releaseDateIso": "2025-11-05",
-      "publishedAt": "2025-11-05T00:00:00.000Z",
-      "page": "/network",
+      "publishedAt": "2025-11-05T08:00:00.000Z",
       "downloadUrl": "https://www.intel.com/content/www/us/en/search.html?ws=text#q=Intel%20Wi-Fi%20drivers",
       "releaseNotesUrl": "",
       "knownIssuesUrl": "",
-      "previousVersion": "",
       "warningUrl": "",
       "redditUrl": "",
       "hasWarning": false,
       "isStable": true,
-      "stabilityGrade": "A",
+      "stabilityGrade": "",
       "riskLevel": "low",
+      "sha256sum": "",
       "checksum": null,
       "sources": [
         {
@@ -45,31 +42,36 @@
       ],
       "architectures": [
         "x64"
-      ]
+      ],
+      "previousVersion": "",
+      "category": "Network Drivers",
+      "brand": "network",
+      "page": "/network",
+      "legacy": {
+        "sha256sum": "",
+        "warningMessage": ""
+      }
     },
     {
       "id": "network|realtek|2.90.0.1",
       "vendor": "realtek",
       "family": "network",
       "channel": "network",
-      "category": "Network Drivers",
-      "brand": "network",
       "version": "2.90.0.1",
       "type": "Realtek PCIe GbE Family Controller",
       "releaseDate": "2025-09-17",
       "releaseDateIso": "2025-09-17",
-      "publishedAt": "2025-09-17T00:00:00.000Z",
-      "page": "/network",
+      "publishedAt": "2025-09-17T07:00:00.000Z",
       "downloadUrl": "https://www.catalog.update.microsoft.com/Search.aspx?q=Realtek%20PCIe%20GbE",
       "releaseNotesUrl": "",
       "knownIssuesUrl": "",
-      "previousVersion": "",
       "warningUrl": "",
       "redditUrl": "",
       "hasWarning": false,
       "isStable": true,
-      "stabilityGrade": "A-",
+      "stabilityGrade": "",
       "riskLevel": "low",
+      "sha256sum": "",
       "checksum": null,
       "sources": [
         {
@@ -89,31 +91,36 @@
       ],
       "architectures": [
         "x64"
-      ]
+      ],
+      "previousVersion": "",
+      "category": "Network Drivers",
+      "brand": "network",
+      "page": "/network",
+      "legacy": {
+        "sha256sum": "",
+        "warningMessage": ""
+      }
     },
     {
       "id": "network|broadcom|7.35.352.0",
       "vendor": "broadcom",
       "family": "network",
       "channel": "network",
-      "category": "Network Drivers",
-      "brand": "network",
       "version": "7.35.352.0",
       "type": "Broadcom NetXtreme",
       "releaseDate": "2025-06-02",
       "releaseDateIso": "2025-06-02",
-      "publishedAt": "2025-06-02T00:00:00.000Z",
-      "page": "/network",
+      "publishedAt": "2025-06-02T07:00:00.000Z",
       "downloadUrl": "https://www.catalog.update.microsoft.com/Search.aspx?q=Broadcom%20NetXtreme",
       "releaseNotesUrl": "",
       "knownIssuesUrl": "",
-      "previousVersion": "",
       "warningUrl": "",
       "redditUrl": "",
       "hasWarning": false,
       "isStable": true,
-      "stabilityGrade": "A-",
+      "stabilityGrade": "",
       "riskLevel": "low",
+      "sha256sum": "",
       "checksum": null,
       "sources": [
         {
@@ -133,7 +140,15 @@
       ],
       "architectures": [
         "x64"
-      ]
+      ],
+      "previousVersion": "",
+      "category": "Network Drivers",
+      "brand": "network",
+      "page": "/network",
+      "legacy": {
+        "sha256sum": "",
+        "warningMessage": ""
+      }
     }
   ]
 }

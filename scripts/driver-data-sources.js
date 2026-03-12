@@ -83,8 +83,7 @@ const sourceDefs = [
     channel: 'audio',
     brand: 'audio',
     category: 'Audio Drivers',
-    page: '/audio',
-    optional: true
+    page: '/audio'
   },
   {
     key: 'network',
@@ -96,8 +95,7 @@ const sourceDefs = [
     channel: 'network',
     brand: 'network',
     category: 'Network Drivers',
-    page: '/network',
-    optional: true
+    page: '/network'
   }
 ];
 

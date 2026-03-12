@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-11T23:11:43.525Z",
+  "generatedAt": "2026-03-12T00:19:59.212Z",
   "counts": {
     "added": 0,
     "changed": 0,
@@ -10,6 +10,236 @@
   "changed": [],
   "removed": [],
   "recent": [
+    {
+      "id": "nvidia|graphics|game-ready|595-79|whql|20260310",
+      "category": "NVIDIA Game Ready",
+      "vendor": "nvidia",
+      "channel": "game-ready",
+      "version": "595.79",
+      "publishedAt": "2026-03-10T07:00:00.000Z",
+      "page": "/display",
+      "type": "current"
+    },
+    {
+      "id": "nvidia|graphics|studio|595-79|whql|20260310",
+      "category": "NVIDIA Studio",
+      "vendor": "nvidia",
+      "channel": "studio",
+      "version": "595.79",
+      "publishedAt": "2026-03-10T07:00:00.000Z",
+      "page": "/display",
+      "type": "current"
+    },
+    {
+      "id": "nvidia|graphics-laptop|game-ready|595-79|whql|20260310",
+      "category": "NVIDIA Laptop Game Ready",
+      "vendor": "nvidia",
+      "channel": "game-ready",
+      "version": "595.79",
+      "publishedAt": "2026-03-10T07:00:00.000Z",
+      "page": "/display/laptop",
+      "type": "current"
+    },
+    {
+      "id": "nvidia|graphics-laptop|studio|595-79|whql|20260310",
+      "category": "NVIDIA Laptop Studio",
+      "vendor": "nvidia",
+      "channel": "studio",
+      "version": "595.79",
+      "publishedAt": "2026-03-10T07:00:00.000Z",
+      "page": "/display/laptop",
+      "type": "current"
+    },
+    {
+      "id": "nvidia|graphics|game-ready|595-71|whql|20260302",
+      "category": "NVIDIA Game Ready",
+      "vendor": "nvidia",
+      "channel": "game-ready",
+      "version": "595.71",
+      "publishedAt": "2026-03-02T08:00:00.000Z",
+      "page": "/display",
+      "type": "current"
+    },
+    {
+      "id": "nvidia|graphics-laptop|game-ready|595-71|whql|20260302",
+      "category": "NVIDIA Laptop Game Ready",
+      "vendor": "nvidia",
+      "channel": "game-ready",
+      "version": "595.71",
+      "publishedAt": "2026-03-02T08:00:00.000Z",
+      "page": "/display/laptop",
+      "type": "current"
+    },
+    {
+      "id": "intel|graphics|game-on|32-0-101-8531|20260225",
+      "category": "Intel Game On",
+      "vendor": "intel",
+      "channel": "game-on",
+      "version": "32.0.101.8531",
+      "publishedAt": "2026-02-25T08:00:00.000Z",
+      "page": "/display",
+      "type": "current"
+    },
+    {
+      "id": "intel|graphics|game-on|32-0-101-8509|whql|20260213",
+      "category": "Intel Game On",
+      "vendor": "intel",
+      "channel": "game-on",
+      "version": "32.0.101.8509",
+      "publishedAt": "2026-02-13T08:00:00.000Z",
+      "page": "/display",
+      "type": "current"
+    },
+    {
+      "id": "intel|graphics|pro|32-0-101-8314|20260211",
+      "category": "Intel Pro",
+      "vendor": "intel",
+      "channel": "pro",
+      "version": "32.0.101.8314",
+      "publishedAt": "2026-02-11T08:00:00.000Z",
+      "page": "/display",
+      "type": "current"
+    },
+    {
+      "id": "nvidia|graphics|game-ready|591-86|whql|20260127",
+      "category": "NVIDIA Game Ready",
+      "vendor": "nvidia",
+      "channel": "game-ready",
+      "version": "591.86",
+      "publishedAt": "2026-01-27T08:00:00.000Z",
+      "page": "/display",
+      "type": "current"
+    },
+    {
+      "id": "nvidia|graphics-laptop|game-ready|591-86|whql|20260127",
+      "category": "NVIDIA Laptop Game Ready",
+      "vendor": "nvidia",
+      "channel": "game-ready",
+      "version": "591.86",
+      "publishedAt": "2026-01-27T08:00:00.000Z",
+      "page": "/display/laptop",
+      "type": "current"
+    },
+    {
+      "id": "nvidia|graphics|game-ready|591-74|whql|20260105",
+      "category": "NVIDIA Game Ready",
+      "vendor": "nvidia",
+      "channel": "game-ready",
+      "version": "591.74",
+      "publishedAt": "2026-01-05T08:00:00.000Z",
+      "page": "/display",
+      "type": "current"
+    },
+    {
+      "id": "nvidia|graphics|studio|591-74|whql|20260105",
+      "category": "NVIDIA Studio",
+      "vendor": "nvidia",
+      "channel": "studio",
+      "version": "591.74",
+      "publishedAt": "2026-01-05T08:00:00.000Z",
+      "page": "/display",
+      "type": "current"
+    },
+    {
+      "id": "nvidia|graphics-laptop|game-ready|591-74|whql|20260105",
+      "category": "NVIDIA Laptop Game Ready",
+      "vendor": "nvidia",
+      "channel": "game-ready",
+      "version": "591.74",
+      "publishedAt": "2026-01-05T08:00:00.000Z",
+      "page": "/display/laptop",
+      "type": "current"
+    },
+    {
+      "id": "nvidia|graphics-laptop|studio|591-74|whql|20260105",
+      "category": "NVIDIA Laptop Studio",
+      "vendor": "nvidia",
+      "channel": "studio",
+      "version": "591.74",
+      "publishedAt": "2026-01-05T08:00:00.000Z",
+      "page": "/display/laptop",
+      "type": "current"
+    },
+    {
+      "id": "intel|graphics|game-on|32-0-101-8425-32-0-101-8362|whql|20260101",
+      "category": "Intel Game On",
+      "vendor": "intel",
+      "channel": "game-on",
+      "version": "32.0.101.8425/32.0.101.8362",
+      "publishedAt": "2026-01-01T08:00:00.000Z",
+      "page": "/display",
+      "type": "current"
+    },
+    {
+      "id": "nvidia|graphics|game-ready|591-59|whql|20251218",
+      "category": "NVIDIA Game Ready",
+      "vendor": "nvidia",
+      "channel": "game-ready",
+      "version": "591.59",
+      "publishedAt": "2025-12-18T08:00:00.000Z",
+      "page": "/display",
+      "type": "current"
+    },
+    {
+      "id": "nvidia|graphics-laptop|game-ready|591-59|whql|20251218",
+      "category": "NVIDIA Laptop Game Ready",
+      "vendor": "nvidia",
+      "channel": "game-ready",
+      "version": "591.59",
+      "publishedAt": "2025-12-18T08:00:00.000Z",
+      "page": "/display/laptop",
+      "type": "current"
+    },
+    {
+      "id": "nvidia|graphics|game-ready|591-44|whql|20251204",
+      "category": "NVIDIA Game Ready",
+      "vendor": "nvidia",
+      "channel": "game-ready",
+      "version": "591.44",
+      "publishedAt": "2025-12-04T08:00:00.000Z",
+      "page": "/display",
+      "type": "current"
+    },
+    {
+      "id": "nvidia|graphics|studio|591-44|whql|20251204",
+      "category": "NVIDIA Studio",
+      "vendor": "nvidia",
+      "channel": "studio",
+      "version": "591.44",
+      "publishedAt": "2025-12-04T08:00:00.000Z",
+      "page": "/display",
+      "type": "current"
+    },
+    {
+      "id": "nvidia|graphics-laptop|game-ready|591-44|whql|20251204",
+      "category": "NVIDIA Laptop Game Ready",
+      "vendor": "nvidia",
+      "channel": "game-ready",
+      "version": "591.44",
+      "publishedAt": "2025-12-04T08:00:00.000Z",
+      "page": "/display/laptop",
+      "type": "current"
+    },
+    {
+      "id": "nvidia|graphics-laptop|studio|591-44|whql|20251204",
+      "category": "NVIDIA Laptop Studio",
+      "vendor": "nvidia",
+      "channel": "studio",
+      "version": "591.44",
+      "publishedAt": "2025-12-04T08:00:00.000Z",
+      "page": "/display/laptop",
+      "type": "current"
+    },
+    {
+      "id": "intel|graphics|game-on|32-0-101-8331|whql|20251203",
+      "category": "Intel Game On",
+      "vendor": "intel",
+      "channel": "game-on",
+      "version": "32.0.101.8331",
+      "publishedAt": "2025-12-03T08:00:00.000Z",
+      "page": "/display",
+      "type": "current"
+    },
     {
       "id": "nvidia|graphics|game-ready|581-94|hotfix|20251119",
       "category": "NVIDIA Game Ready",
@@ -38,6 +268,16 @@
       "version": "32.0.101.8250",
       "publishedAt": "2025-11-11T08:00:00.000Z",
       "page": "/display",
+      "type": "current"
+    },
+    {
+      "id": "network|intel|wifi-23.60.0",
+      "category": "Network Drivers",
+      "vendor": "intel",
+      "channel": "network",
+      "version": "23.60.0",
+      "publishedAt": "2025-11-05T08:00:00.000Z",
+      "page": "/network",
       "type": "current"
     },
     {
@@ -141,6 +381,16 @@
       "type": "current"
     },
     {
+      "id": "audio|realtek|uhd-6.0.9800.1",
+      "category": "Audio Drivers",
+      "vendor": "realtek",
+      "channel": "audio",
+      "version": "UAD 6.0.9800.1",
+      "publishedAt": "2025-10-01T07:00:00.000Z",
+      "page": "/audio",
+      "type": "current"
+    },
+    {
       "id": "nvidia|graphics|game-ready|581-42|whql|20250930",
       "category": "NVIDIA Game Ready",
       "vendor": "nvidia",
@@ -168,6 +418,16 @@
       "version": "32.0.101.8132",
       "publishedAt": "2025-09-23T07:00:00.000Z",
       "page": "/display",
+      "type": "current"
+    },
+    {
+      "id": "network|realtek|2.90.0.1",
+      "category": "Network Drivers",
+      "vendor": "realtek",
+      "channel": "network",
+      "version": "2.90.0.1",
+      "publishedAt": "2025-09-17T07:00:00.000Z",
+      "page": "/network",
       "type": "current"
     },
     {
@@ -328,6 +588,16 @@
       "version": "580.97",
       "publishedAt": "2025-08-12T07:00:00.000Z",
       "page": "/display/laptop",
+      "type": "current"
+    },
+    {
+      "id": "audio|intel|smart-sound-10.29.0.1090",
+      "category": "Audio Drivers",
+      "vendor": "intel",
+      "channel": "audio",
+      "version": "10.29.0.1090",
+      "publishedAt": "2025-08-12T07:00:00.000Z",
+      "page": "/audio",
       "type": "current"
     },
     {
@@ -528,6 +798,16 @@
       "version": "32.0.101.6876",
       "publishedAt": "2025-06-03T07:00:00.000Z",
       "page": "/display",
+      "type": "current"
+    },
+    {
+      "id": "network|broadcom|7.35.352.0",
+      "category": "Network Drivers",
+      "vendor": "broadcom",
+      "channel": "network",
+      "version": "7.35.352.0",
+      "publishedAt": "2025-06-02T07:00:00.000Z",
+      "page": "/network",
       "type": "current"
     },
     {
@@ -1327,286 +1607,6 @@
       "channel": "game-ready",
       "version": "552.12",
       "publishedAt": "2024-04-04T07:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "intel|graphics|pro|31-0-101-5319-31-0-101-5321|20240328",
-      "category": "Intel Pro",
-      "vendor": "intel",
-      "channel": "pro",
-      "version": "31.0.101.5319/31.0.101.5321",
-      "publishedAt": "2024-03-28T07:00:00.000Z",
-      "page": "/display",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics|game-ready|551-86|whql|20240319",
-      "category": "NVIDIA Game Ready",
-      "vendor": "nvidia",
-      "channel": "game-ready",
-      "version": "551.86",
-      "publishedAt": "2024-03-19T07:00:00.000Z",
-      "page": "/display",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|game-ready|551-86|whql|20240319",
-      "category": "NVIDIA Laptop Game Ready",
-      "vendor": "nvidia",
-      "channel": "game-ready",
-      "version": "551.86",
-      "publishedAt": "2024-03-19T07:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|studio|551-86|whql|20240319",
-      "category": "NVIDIA Laptop Studio",
-      "vendor": "nvidia",
-      "channel": "studio",
-      "version": "551.86",
-      "publishedAt": "2024-03-19T07:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "intel|graphics|pro|31-0-101-5319|20240308",
-      "category": "Intel Pro",
-      "vendor": "intel",
-      "channel": "pro",
-      "version": "31.0.101.5319",
-      "publishedAt": "2024-03-08T08:00:00.000Z",
-      "page": "/display",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|game-ready|551-76|whql|20240305",
-      "category": "NVIDIA Laptop Game Ready",
-      "vendor": "nvidia",
-      "channel": "game-ready",
-      "version": "551.76",
-      "publishedAt": "2024-03-05T08:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|game-ready|551-61|whql|20240222",
-      "category": "NVIDIA Laptop Game Ready",
-      "vendor": "nvidia",
-      "channel": "game-ready",
-      "version": "551.61",
-      "publishedAt": "2024-02-22T08:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|studio|551-61|whql|20240222",
-      "category": "NVIDIA Laptop Studio",
-      "vendor": "nvidia",
-      "channel": "studio",
-      "version": "551.61",
-      "publishedAt": "2024-02-22T08:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|game-ready|551-52|whql|20240213",
-      "category": "NVIDIA Laptop Game Ready",
-      "vendor": "nvidia",
-      "channel": "game-ready",
-      "version": "551.52",
-      "publishedAt": "2024-02-13T08:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|game-ready|551-23|whql|20240124",
-      "category": "NVIDIA Laptop Game Ready",
-      "vendor": "nvidia",
-      "channel": "game-ready",
-      "version": "551.23",
-      "publishedAt": "2024-01-24T08:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|studio|551-23|whql|20240124",
-      "category": "NVIDIA Laptop Studio",
-      "vendor": "nvidia",
-      "channel": "studio",
-      "version": "551.23",
-      "publishedAt": "2024-01-24T08:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|game-ready|546-65|whql|20240117",
-      "category": "NVIDIA Laptop Game Ready",
-      "vendor": "nvidia",
-      "channel": "game-ready",
-      "version": "546.65",
-      "publishedAt": "2024-01-17T08:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "intel|graphics|pro|31-0-101-4955|20231221",
-      "category": "Intel Pro",
-      "vendor": "intel",
-      "channel": "pro",
-      "version": "31.0.101.4955",
-      "publishedAt": "2023-12-21T08:00:00.000Z",
-      "page": "/display",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|game-ready|546-33|whql|20231212",
-      "category": "NVIDIA Laptop Game Ready",
-      "vendor": "nvidia",
-      "channel": "game-ready",
-      "version": "546.33",
-      "publishedAt": "2023-12-12T08:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|studio|546-33|whql|20231212",
-      "category": "NVIDIA Laptop Studio",
-      "vendor": "nvidia",
-      "channel": "studio",
-      "version": "546.33",
-      "publishedAt": "2023-12-12T08:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|game-ready|546-29|whql|20231204",
-      "category": "NVIDIA Laptop Game Ready",
-      "vendor": "nvidia",
-      "channel": "game-ready",
-      "version": "546.29",
-      "publishedAt": "2023-12-04T08:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|game-ready|546-17|whql|20231114",
-      "category": "NVIDIA Laptop Game Ready",
-      "vendor": "nvidia",
-      "channel": "game-ready",
-      "version": "546.17",
-      "publishedAt": "2023-11-14T08:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|studio|546-01|whql|20231101",
-      "category": "NVIDIA Laptop Studio",
-      "vendor": "nvidia",
-      "channel": "studio",
-      "version": "546.01",
-      "publishedAt": "2023-11-01T07:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|game-ready|546-01|whql|20231031",
-      "category": "NVIDIA Laptop Game Ready",
-      "vendor": "nvidia",
-      "channel": "game-ready",
-      "version": "546.01",
-      "publishedAt": "2023-10-31T07:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|game-ready|545-92|whql|20231026",
-      "category": "NVIDIA Laptop Game Ready",
-      "vendor": "nvidia",
-      "channel": "game-ready",
-      "version": "545.92",
-      "publishedAt": "2023-10-26T07:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|game-ready|545-84|whql|20231017",
-      "category": "NVIDIA Laptop Game Ready",
-      "vendor": "nvidia",
-      "channel": "game-ready",
-      "version": "545.84",
-      "publishedAt": "2023-10-17T07:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics|game-ready|537-58|whql|20231010",
-      "category": "NVIDIA Game Ready",
-      "vendor": "nvidia",
-      "channel": "game-ready",
-      "version": "537.58",
-      "publishedAt": "2023-10-10T07:00:00.000Z",
-      "page": "/display",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|game-ready|537-58|whql|20231010",
-      "category": "NVIDIA Laptop Game Ready",
-      "vendor": "nvidia",
-      "channel": "game-ready",
-      "version": "537.58",
-      "publishedAt": "2023-10-10T07:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|studio|537-58|whql|20231010",
-      "category": "NVIDIA Laptop Studio",
-      "vendor": "nvidia",
-      "channel": "studio",
-      "version": "537.58",
-      "publishedAt": "2023-10-10T07:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|studio|537-42|whql|20230921",
-      "category": "NVIDIA Laptop Studio",
-      "vendor": "nvidia",
-      "channel": "studio",
-      "version": "537.42",
-      "publishedAt": "2023-09-21T07:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|game-ready|537-34|whql|20230912",
-      "category": "NVIDIA Laptop Game Ready",
-      "vendor": "nvidia",
-      "channel": "game-ready",
-      "version": "537.34",
-      "publishedAt": "2023-09-12T07:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|game-ready|537-13|whql|20230822",
-      "category": "NVIDIA Laptop Game Ready",
-      "vendor": "nvidia",
-      "channel": "game-ready",
-      "version": "537.13",
-      "publishedAt": "2023-08-22T07:00:00.000Z",
-      "page": "/display/laptop",
-      "type": "current"
-    },
-    {
-      "id": "nvidia|graphics-laptop|game-ready|536-99|whql|20230808",
-      "category": "NVIDIA Laptop Game Ready",
-      "vendor": "nvidia",
-      "channel": "game-ready",
-      "version": "536.99",
-      "publishedAt": "2023-08-08T07:00:00.000Z",
       "page": "/display/laptop",
       "type": "current"
     }
