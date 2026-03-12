@@ -65,7 +65,8 @@
 {% block pageScripts %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    loadDrivers('/feeds/network-drivers.json', 'network-main-drivers', { family: 'network', channel: 'network', brand: 'network', category: 'Network Drivers', page: '/network' });
+    const baseUrl = 'https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/';
+    loadDrivers(baseUrl + 'network-drivers.json', 'network-main-drivers', { family: 'network', channel: 'network', brand: 'network', category: 'Network Drivers', page: '/network' });
 });
 </script>
 {% endblock %}

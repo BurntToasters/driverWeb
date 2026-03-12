@@ -4,7 +4,7 @@
     <title>DriverHub Driver Updates</title>
     <link>https://driverhub.win/feeds/drivers.xml</link>
     <description>Latest Windows driver updates indexed by DriverHub.</description>
-    <lastBuildDate>Thu, 12 Mar 2026 00:08:57 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 12 Mar 2026 00:17:26 GMT</lastBuildDate>
   <item>
     <title>NVIDIA Game Ready 595.79 - WHQL</title>
     <link>https://driverhub.win/display?q=595.79&amp;brand=nvidia&amp;channel=game-ready</link>
@@ -188,6 +188,13 @@
     <description>Category: Intel Game On | Release date: Nov 11, 2025 | Risk: low</description>
   </item>
   <item>
+    <title>Network Drivers 23.60.0 - Intel Wi-Fi Driver</title>
+    <link>https://driverhub.win/network?q=23.60.0&amp;brand=network&amp;channel=network</link>
+    <guid>network|intel|wifi-23.60.0</guid>
+    <pubDate>Wed, 05 Nov 2025 08:00:00 GMT</pubDate>
+    <description>Category: Network Drivers | Release date: 2025-11-05 | Risk: low</description>
+  </item>
+  <item>
     <title>NVIDIA Game Ready 581.80 - WHQL</title>
     <link>https://driverhub.win/display?q=581.80&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics|game-ready|581-80|whql|20251104</guid>
@@ -258,6 +265,13 @@
     <description>Category: Intel Game On | Release date: Oct 1, 2025 | Risk: low</description>
   </item>
   <item>
+    <title>Audio Drivers UAD 6.0.9800.1 - Realtek HD Audio</title>
+    <link>https://driverhub.win/audio?q=UAD+6.0.9800.1&amp;brand=audio&amp;channel=audio</link>
+    <guid>audio|realtek|uhd-6.0.9800.1</guid>
+    <pubDate>Wed, 01 Oct 2025 07:00:00 GMT</pubDate>
+    <description>Category: Audio Drivers | Release date: 2025-10-01 | Risk: low</description>
+  </item>
+  <item>
     <title>NVIDIA Game Ready 581.42 - WHQL</title>
     <link>https://driverhub.win/display?q=581.42&amp;brand=nvidia&amp;channel=game-ready</link>
     <guid>nvidia|graphics|game-ready|581-42|whql|20250930</guid>
@@ -277,6 +291,13 @@
     <guid>intel|graphics|game-on|32-0-101-8132|whql-certified|20250923</guid>
     <pubDate>Tue, 23 Sep 2025 07:00:00 GMT</pubDate>
     <description>Category: Intel Game On | Release date: Sep 23, 2025 | Risk: low</description>
+  </item>
+  <item>
+    <title>Network Drivers 2.90.0.1 - Realtek PCIe GbE Family Controller</title>
+    <link>https://driverhub.win/network?q=2.90.0.1&amp;brand=network&amp;channel=network</link>
+    <guid>network|realtek|2.90.0.1</guid>
+    <pubDate>Wed, 17 Sep 2025 07:00:00 GMT</pubDate>
+    <description>Category: Network Drivers | Release date: 2025-09-17 | Risk: low</description>
   </item>
   <item>
     <title>NVIDIA Game Ready 581.29 - WHQL</title>
@@ -389,6 +410,13 @@
     <guid>nvidia|graphics-laptop|studio|580-97|whql|20250812</guid>
     <pubDate>Tue, 12 Aug 2025 07:00:00 GMT</pubDate>
     <description>Category: NVIDIA Laptop Studio | Release date: Aug 12, 2025 | Risk: low</description>
+  </item>
+  <item>
+    <title>Audio Drivers 10.29.0.1090 - Intel Smart Sound Technology</title>
+    <link>https://driverhub.win/audio?q=10.29.0.1090&amp;brand=audio&amp;channel=audio</link>
+    <guid>audio|intel|smart-sound-10.29.0.1090</guid>
+    <pubDate>Tue, 12 Aug 2025 07:00:00 GMT</pubDate>
+    <description>Category: Audio Drivers | Release date: 2025-08-12 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.6989</title>
@@ -529,6 +557,13 @@
     <guid>intel|graphics|game-on|32-0-101-6876|20250603</guid>
     <pubDate>Tue, 03 Jun 2025 07:00:00 GMT</pubDate>
     <description>Category: Intel Game On | Release date: Jun 3, 2025 | Risk: low</description>
+  </item>
+  <item>
+    <title>Network Drivers 7.35.352.0 - Broadcom NetXtreme</title>
+    <link>https://driverhub.win/network?q=7.35.352.0&amp;brand=network&amp;channel=network</link>
+    <guid>network|broadcom|7.35.352.0</guid>
+    <pubDate>Mon, 02 Jun 2025 07:00:00 GMT</pubDate>
+    <description>Category: Network Drivers | Release date: 2025-06-02 | Risk: low</description>
   </item>
   <item>
     <title>Intel Game On 32.0.101.6874 - WHQL Certified</title>
@@ -809,41 +844,6 @@
     <guid>chipset-intel-inf</guid>
     <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
     <description>Category: Intel Chipset | Release date: 2025-01-01 | Stability: A | Risk: low</description>
-  </item>
-  <item>
-    <title>Intel Pro 32.0.101.6303</title>
-    <link>https://driverhub.win/display?q=32.0.101.6303&amp;brand=intel&amp;channel=pro</link>
-    <guid>intel|graphics|pro|32-0-101-6303|20241220</guid>
-    <pubDate>Fri, 20 Dec 2024 08:00:00 GMT</pubDate>
-    <description>Category: Intel Pro | Release date: Dec 20, 2024 | Risk: low</description>
-  </item>
-  <item>
-    <title>NVIDIA Studio 566.36 - WHQL</title>
-    <link>https://driverhub.win/display?q=566.36&amp;brand=nvidia&amp;channel=studio</link>
-    <guid>nvidia|graphics|studio|566-36|whql|20241210</guid>
-    <pubDate>Tue, 10 Dec 2024 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Studio | Release date: Dec 10, 2024 | Risk: low</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Studio 566.36 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=566.36&amp;brand=nvidia&amp;channel=studio</link>
-    <guid>nvidia|graphics-laptop|studio|566-36|whql|20241210</guid>
-    <pubDate>Tue, 10 Dec 2024 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Studio | Release date: Dec 10, 2024 | Risk: low</description>
-  </item>
-  <item>
-    <title>NVIDIA Game Ready 566.36 - WHQL</title>
-    <link>https://driverhub.win/display?q=566.36&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics|game-ready|566-36|whql|20241205</guid>
-    <pubDate>Thu, 05 Dec 2024 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Dec 05, 2024 | Stability: A- | Risk: low</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Game Ready 566.36 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=566.36&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics-laptop|game-ready|566-36|whql|20241205</guid>
-    <pubDate>Thu, 05 Dec 2024 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Dec 05, 2024 | Stability: A- | Risk: low</description>
   </item>
   </channel>
 </rss>

@@ -262,7 +262,8 @@
     
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    loadDrivers('/feeds/audio-drivers.json', 'audio-main-drivers', { family: 'audio', channel: 'audio', brand: 'audio', category: 'Audio Drivers', page: '/audio' });
+    const baseUrl = 'https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/';
+    loadDrivers(baseUrl + 'audio-drivers.json', 'audio-main-drivers', { family: 'audio', channel: 'audio', brand: 'audio', category: 'Audio Drivers', page: '/audio' });
 });
 </script>
 
