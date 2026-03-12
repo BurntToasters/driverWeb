@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Browse Windows audio drivers with trust and compatibility filters.">
+    <meta name="description" content="Third-party software and open-source license credits used by DriverHub.">
     
     
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://raw.githubusercontent.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://prod.rexxit.net https://web-platforms.sfo2.cdn.digitaloceanspaces.com data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://raw.githubusercontent.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
-    <link rel="canonical" href="https://driverhub.win/audio">
+    <link rel="canonical" href="https://driverhub.win/info/credits">
     
-    <title>Audio Drivers | DriverHub</title>
+    <title>Credits | DriverHub</title>
 
     <script>
         (function() {
@@ -24,11 +24,11 @@
     </script>
 
     <meta name="theme-color" content="#0f172a">
-    <link rel="manifest" href="manifest.webmanifest">
-    <link rel="stylesheet" href="global/tailwind.css">
+    <link rel="manifest" href="../manifest.webmanifest">
+    <link rel="stylesheet" href="../global/tailwind.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="global/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../global/favicon.ico">
     
 </head>
 <body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
@@ -51,10 +51,6 @@
                     <span class="material-icons text-[20px]">search</span>
                 </button>
                 
-                
-                <button id="favorites-btn" type="button" aria-haspopup="dialog" aria-controls="favorites-panel" aria-expanded="false" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Watchlist">
-                    <span class="material-icons text-[20px]">star_outline</span>
-                </button>
                 
                 
                 <button id="darkModeToggle" type="button" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Toggle dark mode">
@@ -84,7 +80,7 @@
     <span class="material-icons text-[18px]">wifi</span>Network
     <span class="px-1.5 py-0.5 text-[10px] font-semibold tracking-wide uppercase rounded bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-300">Preview</span>
 </a>
-<a href="/audio" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400 whitespace-nowrap transition-colors">
+<a href="/audio" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
     <span class="material-icons text-[18px]">headphones</span>Audio
     <span class="px-1.5 py-0.5 text-[10px] font-semibold tracking-wide uppercase rounded bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-300">Preview</span>
 </a>
@@ -146,50 +142,39 @@
     
 
     
-<main id="main-content" class="flex-1 max-w-7xl mx-auto px-4 md:px-6 py-10 w-full">
+<main id="main-content" class="flex-1 max-w-6xl mx-auto px-4 md:px-6 py-10 w-full">
     <div class="mb-8">
-        <h1 class="page-heading mb-2">Audio Drivers</h1>
-        <p class="page-subheading">Full audio catalog with compatibility filters, compare mode, and trust metadata.</p>
+        <h1 class="page-heading mb-2">Credits</h1>
+        <p class="page-subheading">Third-party packages and licenses generated from production dependencies.</p>
     </div>
 
-    <div class="grid lg:grid-cols-[280px_1fr] gap-6 items-start">
-        <aside class="card p-4 sticky top-20 space-y-3" data-animate>
-            <h2 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wide">Filters</h2>
-            <input id="filter-query-input" type="text" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white" placeholder="Search audio drivers...">
-            <select id="filter-risk-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
-                <option value="">All risk levels</option>
-                <option value="low">Low risk</option>
-                <option value="medium">Medium risk</option>
-                <option value="high">High risk</option>
-            </select>
-            <select id="filter-os-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
-                <option value="">All OS targets</option>
-                <option value="windows-11">Windows 11</option>
-                <option value="windows-10">Windows 10</option>
-            </select>
-            <select id="filter-view-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
-                <option value="comfortable">Comfortable view</option>
-                <option value="dense">Dense view</option>
-            </select>
-            <button id="filter-clear-button" type="button" class="btn-secondary w-full justify-center !px-3 !py-2 text-sm">
-                <span class="material-icons text-base">refresh</span>
-                Reset Filters
-            </button>
-        </aside>
-
-        <div class="space-y-6">
-            <section class="card overflow-hidden" data-animate data-brand-section="audio">
-                <div class="p-5 border-l-4 border-primary-500">
-                    <div class="flex items-center gap-3 mb-1">
-                        <span class="material-icons text-primary-500 text-3xl">headphones</span>
-                        <h2 class="section-heading">Audio Driver Catalog</h2>
-                    </div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Official vendor links with normalized metadata and compare-ready entries.</p>
-                    <div id="audio-main-drivers"></div>
-                </div>
-            </section>
+    <section class="card p-5 mb-6" data-animate>
+        <div class="flex flex-wrap items-center justify-between gap-3">
+            <div class="text-sm text-gray-600 dark:text-gray-300">
+                <span id="license-count" class="font-semibold text-gray-900 dark:text-white">0</span> packages listed
+            </div>
+            <a href="/global/licenses.json" class="btn-secondary !px-3 !py-2 text-sm" target="_blank" rel="noopener noreferrer">
+                <span class="material-icons text-base">description</span>
+                View Raw JSON
+            </a>
         </div>
-    </div>
+    </section>
+
+    <section class="card p-5" data-animate>
+        <div id="license-table-wrap" class="overflow-auto rounded-xl border border-gray-200 dark:border-gray-700">
+            <table class="w-full text-sm">
+                <thead class="bg-gray-50 dark:bg-gray-800/60">
+                    <tr>
+                        <th class="px-3 py-2 text-left text-xs uppercase tracking-wide text-gray-500">Package</th>
+                        <th class="px-3 py-2 text-left text-xs uppercase tracking-wide text-gray-500">License</th>
+                        <th class="px-3 py-2 text-left text-xs uppercase tracking-wide text-gray-500">Repository</th>
+                    </tr>
+                </thead>
+                <tbody id="license-table-body"></tbody>
+            </table>
+        </div>
+        <p id="license-empty" class="hidden text-sm text-gray-500 mt-4">No license entries found.</p>
+    </section>
 </main>
 
 
@@ -260,30 +245,78 @@
     
 
     
-    <script src="global/favorites.js"></script>
+    <script src="../global/search.js"></script>
     
-    <script src="global/search.js"></script>
+    <script src="../global/darkMode.js"></script>
     
-    <script src="global/darkMode.js"></script>
+    <script src="../global/regionSwitcher.js"></script>
     
-    <script src="global/regionSwitcher.js"></script>
+    <script src="../global/modern.js"></script>
     
-    <script src="global/modern.js"></script>
+    <script src="../global/versionInfo.js"></script>
     
-    <script src="global/versionInfo.js"></script>
-    
-    <script src="global/driverLoader.js"></script>
-    
-    <script src="global/backToTop.js"></script>
+    <script src="../global/backToTop.js"></script>
     
     
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const baseUrl = 'https://raw.githubusercontent.com/BurntToasters/driverWeb-data/main/';
-    loadDrivers(baseUrl + 'audio-drivers.json', 'audio-main-drivers', { family: 'audio', channel: 'audio', brand: 'audio', category: 'Audio Drivers', page: '/audio' });
+    const countNode = document.getElementById('license-count');
+    const bodyNode = document.getElementById('license-table-body');
+    const emptyNode = document.getElementById('license-empty');
+
+    function escapeHtml(value) {
+        return String(value == null ? '' : value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function normalizeRows(payload) {
+        const rows = Object.entries(payload || {}).map(function(entry) {
+            const name = entry[0];
+            const meta = entry[1] || {};
+            const license = meta.licenses || meta.license || 'Unknown';
+            const repository = meta.repository || '';
+            return { name, license, repository };
+        });
+        rows.sort(function(a, b) {
+            return a.name.localeCompare(b.name);
+        });
+        return rows;
+    }
+
+    function renderRows(rows) {
+        if (countNode) countNode.textContent = String(rows.length);
+        if (!bodyNode) return;
+        bodyNode.textContent = '';
+        if (!rows.length) {
+            if (emptyNode) emptyNode.classList.remove('hidden');
+            return;
+        }
+
+        rows.forEach(function(row) {
+            const tr = document.createElement('tr');
+            tr.className = 'border-t border-gray-200 dark:border-gray-700';
+            const safeName = escapeHtml(row.name);
+            const safeLicense = escapeHtml(row.license);
+            const safeRepo = escapeHtml(row.repository);
+            const repoCell = row.repository
+                ? `<a href="${safeRepo}" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">${safeRepo}</a>`
+                : '<span class="text-gray-500">N/A</span>';
+            tr.innerHTML = `<td class="px-3 py-2 font-medium text-gray-900 dark:text-white">${safeName}</td><td class="px-3 py-2 text-gray-700 dark:text-gray-300">${safeLicense}</td><td class="px-3 py-2 text-gray-700 dark:text-gray-300">${repoCell}</td>`;
+            bodyNode.appendChild(tr);
+        });
+    }
+
+    fetch('/global/licenses.json')
+        .then(function(response) { return response.ok ? response.json() : Promise.reject(); })
+        .then(function(data) { renderRows(normalizeRows(data)); })
+        .catch(function() { renderRows([]); });
 });
 </script>
 
-    <script src="global/pwa.js"></script>
+    <script src="../global/pwa.js"></script>
 </body>
 </html>
