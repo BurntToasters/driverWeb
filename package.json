@@ -1,6 +1,6 @@
 {
   "name": "driverhub",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "DriverHub - GPU and Chipset driver downloads",
   "scripts": {
     "build": "npm run build:version && npm run build:licenses && npm run build:feeds && npm run build:html && npm run build:css",

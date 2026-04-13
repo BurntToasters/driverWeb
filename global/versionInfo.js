@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
    
-    fetch('https://raw.githubusercontent.com/BurntToasters/driverWeb/main/versionInfo-block.json')
+    fetch('https://raw.githubusercontent.com/BurntToasters/driverWeb/main/versionInfo.json')
         .then(response => response.ok ? response.json() : Promise.reject('Failed to load'))
         .then(data => updateVersionInfo(data.version, data.lastUpdated))
         .catch(error => {
