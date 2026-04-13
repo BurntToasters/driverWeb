@@ -1,5 +1,5 @@
 const SITE_INFO = {
-    version: "V 5.0.1",
+    version: "V 5.0.2",
     lastUpdated: "4/13/26"
 };
 
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const versionElement = document.getElementById('site-version');
     const dateElement = document.getElementById('update-date');
-    const fallbackVersion = "V 5.0.1";
+    const fallbackVersion = "V 5.0.2";
     const fallbackDate = "4/13/26";
     
     function updateVersionInfo(version, date) {
