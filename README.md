@@ -4,7 +4,7 @@
 A project that lists common drivers and their native download links all in one place!
 
 ## 🙌 Simplistic
-Intuative yet minimalistic UI allowing for easy viewing in both light or dark mode.
+Intuitive yet minimalistic UI allowing for easy viewing in both light or dark mode.
 
 ## ⭐ Features
 - Professional two-pane driver browsing UI with filter rail and deep-linkable URL state
