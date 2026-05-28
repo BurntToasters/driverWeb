@@ -4,7 +4,7 @@ const path = require('path');
 const rootDir = path.resolve(__dirname, '..');
 const packageJsonPath = path.join(rootDir, 'package.json');
 const versionInfoJsonPath = path.join(rootDir, 'versionInfo.json');
-const versionInfoJsPath = path.join(rootDir, 'global', 'versionInfo.js');
+const versionInfoJsPath = path.join(rootDir, 'astro', 'public', 'global', 'versionInfo.js');
 
 function formatLocalDate(now = new Date()) {
   const month = now.getMonth() + 1;

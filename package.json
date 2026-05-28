@@ -1,23 +1,25 @@
 {
   "name": "driverhub",
-  "version": "5.0.2",
+  "version": "6.0.0",
   "description": "DriverHub - GPU and Chipset driver downloads",
   "scripts": {
-    "build": "npm run build:version && npm run build:licenses && npm run build:feeds && npm run build:html && npm run build:css",
+    "build": "npm run build:version && npm run build:licenses && npm run build:feeds && npm run build:css && npm run build:astro",
     "build:version": "node ./scripts/update-version-info.js",
-    "build:licenses": "npm-license-crawler --production --json ./global/licenses.json",
+    "build:licenses": "npm-license-crawler --production --json ./astro/public/global/licenses.json",
     "build:feeds": "node ./scripts/build-feeds.js",
-    "build:html": "node ./scripts/build-html.js",
-    "build:css": "tailwindcss -i ./src/input.css -o ./global/tailwind.css --minify",
-    "watch": "tailwindcss -i ./src/input.css -o ./global/tailwind.css --watch",
+    "build:astro": "astro build --root ./astro",
+    "build:css": "tailwindcss -i ./src/input.css -o ./astro/public/global/tailwind.css --minify",
+    "watch": "tailwindcss -i ./src/input.css -o ./astro/public/global/tailwind.css --watch",
+    "dev": "astro dev --root ./astro",
+    "preview": "astro preview --root ./astro",
     "test:data": "node ./scripts/test-data-contract.js",
     "test:data:editor": "node ./scripts/test-data-editor.js",
     "data:edit": "node ./scripts/data-edit.js",
     "data:sync": "node ./scripts/data-sync.js"
   },
   "devDependencies": {
+    "astro": "^6.3.7",
     "npm-license-crawler": "^0.2.1",
-    "nunjucks": "^3.2.4",
     "tailwindcss": "^3.4.0"
   }
 }

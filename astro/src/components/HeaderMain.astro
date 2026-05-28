@@ -1,0 +1,87 @@
+---
+import {
+    linkHome, linkDisplay, linkChipset, linkNetwork, linkAudio,
+    linkContact, linkDocs
+} from '../lib/siteLinks.js';
+
+const {
+    navActive = '',
+    showSearchButton = true,
+    showFavoritesButton = false,
+    showDarkModeButton = true,
+    showSettings = false,
+    showComingSoon = true,
+    showDocsLink = true
+} = Astro.props;
+
+function navClass(key) {
+    return navActive === key
+        ? 'border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400'
+        : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white';
+}
+---
+<header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+        <div class="flex items-center justify-between h-14">
+            <a href="/" class="flex items-center gap-2.5">
+                <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-8 w-8">
+                <span class="text-lg font-bold text-gray-900 dark:text-white">DriverHub</span>
+            </a>
+            <div class="flex items-center gap-1.5">
+                {showSearchButton && (
+                    <button id="global-search-btn" type="button" aria-haspopup="dialog" aria-controls="search-overlay" aria-expanded="false" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Search (Ctrl+K)">
+                        <span class="material-icons text-[20px]">search</span>
+                    </button>
+                )}
+                {showFavoritesButton && (
+                    <button id="favorites-btn" type="button" aria-haspopup="dialog" aria-controls="favorites-panel" aria-expanded="false" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Watchlist">
+                        <span class="material-icons text-[20px]">star_outline</span>
+                    </button>
+                )}
+                {showDarkModeButton && (
+                    <button id="darkModeToggle" type="button" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" title="Toggle dark mode">
+                        <span class="material-icons text-[20px]">dark_mode</span>
+                    </button>
+                )}
+                {showSettings && (
+                    <button class="settings-button p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" type="button" aria-label="Settings" aria-haspopup="dialog" aria-controls="settings-overlay" aria-expanded="false" title="Settings">
+                        <span class="material-icons text-[20px]">tune</span>
+                    </button>
+                )}
+            </div>
+        </div>
+        <nav class="flex items-center gap-0.5 -mb-px overflow-x-auto scrollbar-hide" role="navigation" aria-label="Main navigation">
+            <a href={linkHome} class={`px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 ${navClass('home')} whitespace-nowrap transition-colors`}>
+                <span class="material-icons text-[18px]">home</span>Home
+            </a>
+            <a href={linkDisplay} class={`px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 ${navClass('graphics')} whitespace-nowrap transition-colors`}>
+                <span class="material-icons text-[18px]">videocam</span>Graphics
+            </a>
+            <a href={linkChipset} class={`px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 ${navClass('chipset')} whitespace-nowrap transition-colors`}>
+                <span class="material-icons text-[18px]">memory</span>Chipset
+            </a>
+            {showComingSoon && (
+                <>
+                    <a href={linkNetwork} class={`px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 ${navClass('network')} whitespace-nowrap transition-colors`}>
+                        <span class="material-icons text-[18px]">wifi</span>Network
+                        <span class="px-1.5 py-0.5 text-[10px] font-semibold tracking-wide uppercase rounded bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-300">Preview</span>
+                    </a>
+                    <a href={linkAudio} class={`px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 ${navClass('audio')} whitespace-nowrap transition-colors`}>
+                        <span class="material-icons text-[18px]">headphones</span>Audio
+                        <span class="px-1.5 py-0.5 text-[10px] font-semibold tracking-wide uppercase rounded bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-300">Preview</span>
+                    </a>
+                </>
+            )}
+            <div class="w-px h-5 bg-gray-200 dark:bg-gray-700 mx-1.5"></div>
+            <a href={linkContact} class={`px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 ${navClass('contact')} whitespace-nowrap transition-colors`}>
+                <span class="material-icons text-[18px]">mail_outline</span>Contact
+            </a>
+            {showDocsLink && (
+                <a href={linkDocs} target="_blank" rel="noopener noreferrer" class="px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white whitespace-nowrap transition-colors">
+                    <span class="material-icons text-[18px]">description</span>Docs
+                    <svg class="w-3 h-3 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+            )}
+        </nav>
+    </div>
+</header>

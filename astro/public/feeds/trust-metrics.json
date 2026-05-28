@@ -1,0 +1,51 @@
+{
+  "generatedAt": "2026-05-28T07:12:02.947Z",
+  "totals": {
+    "entries": 190,
+    "sources": 8,
+    "reachableSources": 8
+  },
+  "coverage": {
+    "checksumPct": 33.16,
+    "sourceLinksPct": 100,
+    "releaseNotesPct": 12.11,
+    "knownIssuesPct": 12.11,
+    "stablePct": 11.05
+  },
+  "freshness": {
+    "newestAgeDays": 79,
+    "averageAgeDays": 464.99
+  },
+  "validation": {
+    "isValid": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "errors": [],
+    "warnings": []
+  },
+  "distribution": {
+    "byVendor": {
+      "nvidia": 145,
+      "intel": 41,
+      "realtek": 2,
+      "broadcom": 1,
+      "amd": 1
+    },
+    "byFamily": {
+      "graphics": 94,
+      "graphics-laptop": 89,
+      "network": 3,
+      "audio": 2,
+      "chipset": 2
+    },
+    "byChannel": {
+      "game-ready": 96,
+      "studio": 49,
+      "game-on": 27,
+      "pro": 11,
+      "network": 3,
+      "audio": 2,
+      "chipset": 2
+    }
+  }
+}

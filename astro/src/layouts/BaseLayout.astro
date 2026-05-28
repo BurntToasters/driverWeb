@@ -1,0 +1,106 @@
+---
+import { defaultCsp } from '../lib/defaultCsp.js';
+import HeaderMain from '../components/HeaderMain.astro';
+import HeaderSimple from '../components/HeaderSimple.astro';
+import FooterFull from '../components/FooterFull.astro';
+import FooterCompact from '../components/FooterCompact.astro';
+import SettingsModal from '../components/SettingsModal.astro';
+
+const {
+  title,
+  metaDescription,
+  metaKeywords,
+  metaAuthor,
+  metaRobots,
+  canonical,
+  csp = defaultCsp,
+  includeCsp = true,
+  lang = 'en',
+  bodyClass = 'bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col',
+  showSkipLink = false,
+  headerVariant = null,
+  footerVariant = null,
+  navActive = '',
+  showSearchButton,
+  showFavoritesButton,
+  showDarkModeButton,
+  showSettings = false,
+  showComingSoon,
+  showDocsLink,
+  compactFooterMarginTop = false,
+  showUpdateDate = true,
+  scripts = []
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {metaDescription && <meta name="description" content={metaDescription} />}
+    {metaKeywords && <meta name="keywords" content={metaKeywords} />}
+    {metaAuthor && <meta name="author" content={metaAuthor} />}
+    {metaRobots && <meta name="robots" content={metaRobots} />}
+    {includeCsp && <meta http-equiv="Content-Security-Policy" content={csp} />}
+    {canonical && <link rel="canonical" href={canonical} />}
+    <slot name="metaExtra" />
+    <title>{title}</title>
+
+    <script is:inline>
+        (function() {
+            const userPreference = localStorage.getItem('darkMode');
+            const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            if (userPreference === 'dark' || (userPreference === null && prefersDarkScheme)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+
+    <meta name="theme-color" content="#0f172a">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="stylesheet" href="/global/tailwind.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="/global/favicon.ico">
+    <slot name="headExtra" />
+</head>
+<body class={bodyClass}>
+    {showSkipLink && <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-500 focus:text-white focus:rounded-lg">Skip to main content</a>}
+
+    {headerVariant === 'main' && (
+        <HeaderMain
+            navActive={navActive}
+            showSearchButton={showSearchButton}
+            showFavoritesButton={showFavoritesButton}
+            showDarkModeButton={showDarkModeButton}
+            showSettings={showSettings}
+            showComingSoon={showComingSoon}
+            showDocsLink={showDocsLink}
+        />
+    )}
+    {headerVariant === 'simple' && (
+        <HeaderSimple
+            showSearchButton={showSearchButton}
+            showFavoritesButton={showFavoritesButton}
+            showDarkModeButton={showDarkModeButton}
+            showSettings={showSettings}
+        />
+    )}
+
+    {showSettings && <SettingsModal />}
+
+    <slot />
+
+    {footerVariant === 'full' && <FooterFull />}
+    {footerVariant === 'compact' && (
+        <FooterCompact
+            compactFooterMarginTop={compactFooterMarginTop}
+            showUpdateDate={showUpdateDate}
+        />
+    )}
+
+    {scripts.map((src) => <script is:inline src={`/${src}`}></script>)}
+    <slot name="pageScripts" />
+    <script is:inline src="/global/pwa.js"></script>
+</body>
+</html>

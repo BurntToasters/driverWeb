@@ -1,10 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./*.html",
-    "./display/**/*.html",
-    "./info/**/*.html",
-    "./global/**/*.js"
+    "./astro/src/**/*.{astro,html,js,jsx,ts,tsx}",
+    "./astro/public/global/**/*.js"
   ],
   darkMode: 'class',
   theme: {
