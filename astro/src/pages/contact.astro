@@ -28,39 +28,39 @@ const contactCsp = "default-src 'self'; script-src 'self' 'unsafe-inline' https:
     <meta property="og:image" content="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp">
 </Fragment>
 
-<main id="main-content" class="flex-1 max-w-6xl mx-auto px-4 md:px-6 py-12 w-full">
+<main id="main-content" class="flex-1 max-w-6xl mx-auto px-4 md:px-6 py-12 w-full animate-fade-in">
     <div class="mb-8">
         <h1 class="page-heading mb-2">Contact</h1>
-        <p class="page-subheading">Have a question, found a bug, or want to suggest a feature? Reach out below.</p>
+        <p class="page-subheading font-bold">Have a question, found a bug, or want to suggest a feature? Reach out below.</p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-6">
+    <div class="grid md:grid-cols-3 gap-8">
         <div class="md:col-span-2">
-            <div class="card overflow-hidden">
-                <div class="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden">
+            <div class="card overflow-hidden shadow-neo-flat dark:shadow-neo-flat-dark">
+                <div class="bg-gray-50 dark:bg-gray-800 overflow-hidden">
                     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc4A8RLL0Ui9Qmx-7b3XaU6Bq7hT3r02lQ7giR5hHAUKODwNg/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" loading="lazy" class="w-full">Loading...</iframe>
                 </div>
             </div>
         </div>
 
-        <div class="space-y-4">
-            <div class="card p-5">
-                <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-3">Other ways to reach us</h3>
-                <a href="mailto:contact@driverhub.win" id="email-link" class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
-                    <span class="material-icons text-lg">email</span>
+        <div class="space-y-6">
+            <div class="card p-6 shadow-neo-flat dark:shadow-neo-flat-dark border-t-[8px] border-t-cyberyellow">
+                <h3 class="text-lg font-black uppercase text-gray-900 dark:text-white mb-4">Other ways to reach us</h3>
+                <a href="mailto:contact@driverhub.win" id="email-link" class="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-bold">
+                    <span class="material-icons text-xl">email</span>
                     <span id="email-link-text">contact@driverhub.win</span>
                 </a>
-                <p id="contact-prefill-hint" class="hidden mt-3 text-xs text-gray-500 dark:text-gray-400"></p>
+                <p id="contact-prefill-hint" class="hidden mt-3 text-xs font-mono text-gray-500 dark:text-gray-400"></p>
             </div>
-            <div class="card p-5">
-                <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-3">Helpful links</h3>
-                <div class="space-y-2.5">
-                    <a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
-                        <span class="material-icons text-lg">description</span>
+            <div class="card p-6 shadow-neo-flat dark:shadow-neo-flat-dark border-t-[8px] border-t-cyan-400">
+                <h3 class="text-lg font-black uppercase text-gray-900 dark:text-white mb-4">Helpful links</h3>
+                <div class="space-y-3">
+                    <a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm text-gray-755 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-bold">
+                        <span class="material-icons text-xl">description</span>
                         Documentation
                     </a>
-                    <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
-                        <span class="material-icons text-lg">history</span>
+                    <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm text-gray-755 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-bold">
+                        <span class="material-icons text-xl">history</span>
                         Release Notes
                     </a>
                 </div>

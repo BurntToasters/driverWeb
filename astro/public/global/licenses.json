@@ -11,13 +11,13 @@
         "licenseUrl": "https://github.com/withastro/compiler/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@astrojs/internal-helpers@0.9.1": {
+    "@astrojs/internal-helpers@0.10.0": {
         "licenses": "MIT",
         "repository": "https://github.com/withastro/astro",
         "licenseUrl": "https://github.com/withastro/astro/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@astrojs/markdown-remark@7.1.2": {
+    "@astrojs/markdown-remark@7.2.0": {
         "licenses": "MIT",
         "repository": "https://github.com/withastro/astro",
         "licenseUrl": "https://github.com/withastro/astro/raw/master/LICENSE",
@@ -35,43 +35,43 @@
         "licenseUrl": "https://github.com/withastro/astro/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@babel/helper-string-parser@7.27.1": {
+    "@babel/helper-string-parser@7.29.7": {
         "licenses": "MIT",
         "repository": "https://github.com/babel/babel",
         "licenseUrl": "https://github.com/babel/babel/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@babel/helper-validator-identifier@7.28.5": {
+    "@babel/helper-validator-identifier@7.29.7": {
         "licenses": "MIT",
         "repository": "https://github.com/babel/babel",
         "licenseUrl": "https://github.com/babel/babel/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@babel/parser@7.29.3": {
+    "@babel/parser@7.29.7": {
         "licenses": "MIT",
         "repository": "https://github.com/babel/babel",
         "licenseUrl": "https://github.com/babel/babel/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@babel/types@7.29.0": {
+    "@babel/types@7.29.7": {
         "licenses": "MIT",
         "repository": "https://github.com/babel/babel",
         "licenseUrl": "https://github.com/babel/babel/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@capsizecss/unpack@4.0.0": {
+    "@capsizecss/unpack@4.0.1": {
         "licenses": "MIT",
         "repository": "https://github.com/seek-oss/capsize",
         "licenseUrl": "https://github.com/seek-oss/capsize/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@clack/core@1.3.1": {
+    "@clack/core@1.4.2": {
         "licenses": "MIT",
         "repository": "https://github.com/bombshell-dev/clack",
         "licenseUrl": "https://github.com/bombshell-dev/clack/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@clack/prompts@1.4.0": {
+    "@clack/prompts@1.6.0": {
         "licenses": "MIT",
         "repository": "https://github.com/bombshell-dev/clack",
         "licenseUrl": "https://github.com/bombshell-dev/clack/raw/master/LICENSE",
@@ -149,55 +149,55 @@
         "licenseUrl": "https://github.com/oslo-project/encoding/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@rollup/pluginutils@5.3.0": {
+    "@rollup/pluginutils@5.4.0": {
         "licenses": "MIT",
         "repository": "https://github.com/rollup/plugins",
         "licenseUrl": "https://github.com/rollup/plugins/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@rollup/rollup-darwin-arm64@4.60.4": {
+    "@rollup/rollup-darwin-arm64@4.62.2": {
         "licenses": "MIT",
         "repository": "https://github.com/rollup/rollup",
         "licenseUrl": "https://github.com/rollup/rollup",
         "parents": "driverhub"
     },
-    "@shikijs/core@4.1.0": {
+    "@shikijs/core@4.3.0": {
         "licenses": "MIT",
         "repository": "https://github.com/shikijs/shiki",
         "licenseUrl": "https://github.com/shikijs/shiki/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@shikijs/engine-javascript@4.1.0": {
+    "@shikijs/engine-javascript@4.3.0": {
         "licenses": "MIT",
         "repository": "https://github.com/shikijs/shiki",
         "licenseUrl": "https://github.com/shikijs/shiki/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@shikijs/engine-oniguruma@4.1.0": {
+    "@shikijs/engine-oniguruma@4.3.0": {
         "licenses": "MIT",
         "repository": "https://github.com/shikijs/shiki",
         "licenseUrl": "https://github.com/shikijs/shiki/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@shikijs/langs@4.1.0": {
+    "@shikijs/langs@4.3.0": {
         "licenses": "MIT",
         "repository": "https://github.com/shikijs/shiki",
         "licenseUrl": "https://github.com/shikijs/shiki/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@shikijs/primitive@4.1.0": {
+    "@shikijs/primitive@4.3.0": {
         "licenses": "MIT",
         "repository": "https://github.com/shikijs/shiki",
         "licenseUrl": "https://github.com/shikijs/shiki/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@shikijs/themes@4.1.0": {
+    "@shikijs/themes@4.3.0": {
         "licenses": "MIT",
         "repository": "https://github.com/shikijs/shiki",
         "licenseUrl": "https://github.com/shikijs/shiki/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@shikijs/types@4.1.0": {
+    "@shikijs/types@4.3.0": {
         "licenses": "MIT",
         "repository": "https://github.com/shikijs/shiki",
         "licenseUrl": "https://github.com/shikijs/shiki/raw/master/LICENSE",
@@ -214,12 +214,6 @@
         "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
         "licenseUrl": "https://github.com/DefinitelyTyped/DefinitelyTyped/raw/master/LICENSE",
         "parents": "driverhub"
-    },
-    "@types/estree@1.0.8": {
-        "licenses": "MIT",
-        "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
-        "licenseUrl": "https://github.com/DefinitelyTyped/DefinitelyTyped/raw/master/LICENSE",
-        "parents": "rollup:driverhub"
     },
     "@types/estree@1.0.9": {
         "licenses": "MIT",
@@ -257,7 +251,7 @@
         "licenseUrl": "https://github.com/DefinitelyTyped/DefinitelyTyped/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@ungap/structured-clone@1.3.1": {
+    "@ungap/structured-clone@1.3.2": {
         "licenses": "ISC",
         "repository": "https://github.com/ungap/structured-clone",
         "licenseUrl": "https://github.com/ungap/structured-clone/raw/master/LICENSE",
@@ -329,7 +323,7 @@
         "licenseUrl": "https://github.com/kriskowal/asap/raw/master/LICENSE.md",
         "parents": "driverhub"
     },
-    "astro@6.3.7": {
+    "astro@6.4.8": {
         "licenses": "MIT",
         "repository": "https://github.com/withastro/astro",
         "licenseUrl": "https://github.com/withastro/astro/raw/master/LICENSE",
@@ -371,7 +365,7 @@
         "licenseUrl": "https://github.com/fb55/boolbase",
         "parents": "driverhub"
     },
-    "brace-expansion@1.1.14": {
+    "brace-expansion@1.1.15": {
         "licenses": "MIT",
         "repository": "https://github.com/juliangruber/brace-expansion",
         "licenseUrl": "https://github.com/juliangruber/brace-expansion/raw/master/LICENSE",
@@ -471,7 +465,7 @@
         "licenses": "MIT",
         "repository": "https://github.com/tj/commander.js",
         "licenseUrl": "https://github.com/tj/commander.js/raw/master/LICENSE",
-        "parents": "svgo:driverhub"
+        "parents": "driverhub"
     },
     "commander@4.1.1": {
         "licenses": "MIT",
@@ -751,7 +745,7 @@
         "licenses": "MIT",
         "repository": "https://github.com/thecodrr/fdir",
         "licenseUrl": "https://github.com/thecodrr/fdir/raw/master/LICENSE",
-        "parents": "tinyglobby:driverhub"
+        "parents": "driverhub"
     },
     "fill-range@7.1.1": {
         "licenses": "MIT",
@@ -861,7 +855,7 @@
         "licenseUrl": "https://github.com/sindresorhus/has-flag/raw/master/license",
         "parents": "driverhub"
     },
-    "hasown@2.0.3": {
+    "hasown@2.0.4": {
         "licenses": "MIT",
         "repository": "https://github.com/inspect-js/hasOwn",
         "licenseUrl": "https://github.com/inspect-js/hasOwn/raw/master/LICENSE",
@@ -1041,7 +1035,7 @@
         "licenseUrl": "https://github.com/dnukem/node-jquery-extend/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "js-yaml@4.1.1": {
+    "js-yaml@4.2.0": {
         "licenses": "MIT",
         "repository": "https://github.com/nodeca/js-yaml",
         "licenseUrl": "https://github.com/nodeca/js-yaml/raw/master/LICENSE",
@@ -1089,7 +1083,7 @@
         "licenseUrl": "https://github.com/wooorm/longest-streak/raw/master/license",
         "parents": "driverhub"
     },
-    "lru-cache@11.5.0": {
+    "lru-cache@11.5.1": {
         "licenses": "BlueOak-1.0.0",
         "repository": "https://github.com/isaacs/node-lru-cache",
         "licenseUrl": "https://github.com/isaacs/node-lru-cache/raw/master/LICENSE.md",
@@ -1425,7 +1419,7 @@
         "licenseUrl": "https://github.com/normalize/mz/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "nanoid@3.3.12": {
+    "nanoid@3.3.15": {
         "licenses": "MIT",
         "repository": "https://github.com/ai/nanoid",
         "licenseUrl": "https://github.com/ai/nanoid/raw/master/LICENSE",
@@ -1519,7 +1513,7 @@
         "licenseUrl": "https://github.com/puleos/object-hash/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "obug@2.1.1": {
+    "obug@2.1.3": {
         "licenses": "MIT",
         "repository": "https://github.com/sxzz/obug",
         "licenseUrl": "https://github.com/sxzz/obug/raw/master/LICENSE",
@@ -1619,13 +1613,13 @@
         "licenses": "MIT",
         "repository": "https://github.com/micromatch/picomatch",
         "licenseUrl": "https://github.com/micromatch/picomatch/raw/master/LICENSE",
-        "parents": "driverhub"
+        "parents": "anymatch:driverhub"
     },
     "picomatch@4.0.4": {
         "licenses": "MIT",
         "repository": "https://github.com/micromatch/picomatch",
         "licenseUrl": "https://github.com/micromatch/picomatch/raw/master/LICENSE",
-        "parents": "@astrojs/internal-helpers:driverhub"
+        "parents": "driverhub"
     },
     "pify@2.3.0": {
         "licenses": "MIT",
@@ -1663,7 +1657,7 @@
         "licenseUrl": "https://github.com/postcss/postcss-nested/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "postcss-selector-parser@6.1.2": {
+    "postcss-selector-parser@6.1.4": {
         "licenses": "MIT",
         "repository": "https://github.com/postcss/postcss-selector-parser",
         "licenseUrl": "https://github.com/postcss/postcss-selector-parser/raw/master/LICENSE-MIT",
@@ -1687,7 +1681,7 @@
         "licenseUrl": "https://github.com/PrismJS/prism/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "property-information@7.1.0": {
+    "property-information@7.2.0": {
         "licenses": "MIT",
         "repository": "https://github.com/wooorm/property-information",
         "licenseUrl": "https://github.com/wooorm/property-information/raw/master/license",
@@ -1855,7 +1849,7 @@
         "licenseUrl": "https://github.com/mcollina/reusify/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "rollup@4.60.4": {
+    "rollup@4.62.2": {
         "licenses": "MIT",
         "repository": "https://github.com/rollup/rollup",
         "licenseUrl": "https://github.com/rollup/rollup/raw/master/LICENSE.md",
@@ -1877,13 +1871,13 @@
         "licenses": "ISC",
         "repository": "https://github.com/npm/node-semver",
         "licenseUrl": "https://github.com/npm/node-semver/raw/master/LICENSE",
-        "parents": "driverhub"
+        "parents": "normalize-package-data:driverhub"
     },
-    "semver@7.8.1": {
+    "semver@7.8.5": {
         "licenses": "ISC",
         "repository": "https://github.com/npm/node-semver",
         "licenseUrl": "https://github.com/npm/node-semver/raw/master/LICENSE",
-        "parents": "sharp:driverhub"
+        "parents": "driverhub"
     },
     "sharp@0.34.5": {
         "licenses": "Apache-2.0",
@@ -1891,7 +1885,7 @@
         "licenseUrl": "https://github.com/lovell/sharp/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "shiki@4.1.0": {
+    "shiki@4.3.0": {
         "licenses": "MIT",
         "repository": "https://github.com/shikijs/shiki",
         "licenseUrl": "https://github.com/shikijs/shiki/raw/master/LICENSE",
@@ -1909,7 +1903,7 @@
         "licenseUrl": "https://github.com/isaacs/slide-flow-control/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "smol-toml@1.6.1": {
+    "smol-toml@1.7.0": {
         "licenses": "BSD-3-Clause",
         "repository": "github:squirrelchat/smol-toml",
         "licenseUrl": "github:squirrelchat/smol-toml",
@@ -1993,19 +1987,19 @@
         "licenseUrl": "https://github.com/devongovett/tiny-inflate/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "tinyclip@0.1.12": {
+    "tinyclip@0.1.15": {
         "licenses": "MIT",
         "repository": "https://github.com/tinylibs/tinyclip",
         "licenseUrl": "https://github.com/tinylibs/tinyclip/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "tinyexec@1.2.2": {
+    "tinyexec@1.2.4": {
         "licenses": "MIT",
         "repository": "https://github.com/tinylibs/tinyexec",
         "licenseUrl": "https://github.com/tinylibs/tinyexec/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "tinyglobby@0.2.16": {
+    "tinyglobby@0.2.17": {
         "licenses": "MIT",
         "repository": "https://github.com/SuperchupuDev/tinyglobby",
         "licenseUrl": "https://github.com/SuperchupuDev/tinyglobby/raw/master/LICENSE",
@@ -2161,7 +2155,7 @@
         "licenseUrl": "https://github.com/vfile/vfile/raw/master/license",
         "parents": "driverhub"
     },
-    "vite@7.3.3": {
+    "vite@7.3.6": {
         "licenses": "MIT",
         "repository": "https://github.com/vitejs/vite",
         "licenseUrl": "https://github.com/vitejs/vite/raw/master/LICENSE.md",

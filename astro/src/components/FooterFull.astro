@@ -5,56 +5,56 @@ import {
     linkContact, linkSitemap, linkSupport
 } from '../lib/siteLinks.js';
 ---
-<footer class="border-t border-gray-200 dark:border-gray-800 mt-auto">
+<footer class="border-t-[3px] border-black dark:border-white mt-auto bg-white dark:bg-gray-950">
     <div class="max-w-6xl mx-auto px-4 md:px-6 py-10">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             <div class="col-span-2 md:col-span-1">
                 <a href="/" class="flex items-center gap-2 mb-3">
-                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-7 w-7">
-                    <span class="font-semibold text-gray-900 dark:text-white">DriverHub</span>
+                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-7 w-7 border border-black dark:border-white">
+                    <span class="font-black uppercase tracking-wide text-gray-900 dark:text-white">DriverHub</span>
                 </a>
-                <p class="text-sm text-gray-500 dark:text-gray-400">Free Windows driver downloads from official sources.</p>
+                <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Free Windows driver downloads from official sources.</p>
             </div>
             <div>
-                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">Drivers</h4>
+                <h4 class="text-sm font-black uppercase text-gray-900 dark:text-white mb-3">Drivers</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href={linkDisplay} class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Graphics</a></li>
-                    <li><a href={linkChipset} class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Chipset</a></li>
+                    <li><a href={linkDisplay} class="text-gray-500 hover:text-black dark:hover:text-white transition-colors font-medium">Graphics</a></li>
+                    <li><a href={linkChipset} class="text-gray-500 hover:text-black dark:hover:text-white transition-colors font-medium">Chipset</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">Resources</h4>
+                <h4 class="text-sm font-black uppercase text-gray-900 dark:text-white mb-3">Resources</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href={linkDocs} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Documentation</a></li>
-                    <li><a href={linkReleaseNotes} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Release Notes</a></li>
-                    <li><a href={linkStableDrivers} class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Stability Ratings</a></li>
-                    <li><a href={linkTrustCenter} class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Trust Center</a></li>
-                    <li><a href={linkCredits} class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Credits</a></li>
-                    <li><a href={linkFeedJson} class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Driver Feed (JSON)</a></li>
-                    <li><a href={linkFeedRss} class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Driver Feed (RSS)</a></li>
+                    <li><a href={linkDocs} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-black dark:hover:text-white transition-colors font-medium">Documentation</a></li>
+                    <li><a href={linkReleaseNotes} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-black dark:hover:text-white transition-colors font-medium">Release Notes</a></li>
+                    <li><a href={linkStableDrivers} class="text-gray-500 hover:text-black dark:hover:text-white transition-colors font-medium">Stability Ratings</a></li>
+                    <li><a href={linkTrustCenter} class="text-gray-500 hover:text-black dark:hover:text-white transition-colors font-medium">Trust Center</a></li>
+                    <li><a href={linkCredits} class="text-gray-500 hover:text-black dark:hover:text-white transition-colors font-medium">Credits</a></li>
+                    <li><a href={linkFeedJson} class="text-gray-500 hover:text-black dark:hover:text-white transition-colors font-medium">Driver Feed (JSON)</a></li>
+                    <li><a href={linkFeedRss} class="text-gray-500 hover:text-black dark:hover:text-white transition-colors font-medium">Driver Feed (RSS)</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">About</h4>
+                <h4 class="text-sm font-black uppercase text-gray-900 dark:text-white mb-3">About</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href={linkContact} class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a></li>
-                    <li><a href={linkSitemap} class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Sitemap</a></li>
-                    <li><a href={linkSupport} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-2.5 py-1 rounded-md bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 hover:bg-primary-200 dark:hover:bg-primary-800/40 transition-colors">❤️ Support Us!</a></li>
+                    <li><a href={linkContact} class="text-gray-500 hover:text-black dark:hover:text-white transition-colors font-medium">Contact</a></li>
+                    <li><a href={linkSitemap} class="text-gray-500 hover:text-black dark:hover:text-white transition-colors font-medium">Sitemap</a></li>
+                    <li><a href={linkSupport} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-3 py-1 border-2 border-black dark:border-white bg-red-400 hover:bg-red-300 dark:bg-red-900/60 dark:hover:bg-red-800 text-black dark:text-white font-bold shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] transition-all">❤️ Support Us!</a></li>
                 </ul>
             </div>
         </div>
-        <div class="pt-6 border-t border-gray-200 dark:border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-400 dark:text-gray-500">
-            <div class="flex items-center gap-3">
+        <div class="pt-6 border-t-2 border-black dark:border-white flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-500 dark:text-gray-400">
+            <div class="flex items-center gap-3 font-mono text-xs">
                 <span id="site-version"></span>
                 <span id="update-date"></span>
             </div>
-            <div class="flex items-center gap-2 sm:gap-3">
-                <a href="https://github.com/BurntToasters/driverWeb" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors" aria-label="DriverWeb GitHub repository">
+            <div class="flex items-center gap-4 sm:gap-6">
+                <a href="https://github.com/BurntToasters/driverWeb" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 border-[3px] border-black dark:border-white bg-white dark:bg-gray-900 text-black dark:text-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all font-bold" aria-label="DriverWeb GitHub repository">
                     <span class="material-icons text-[16px]">code</span>
                     GitHub
                 </a>
-                <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" target="_blank" rel="noopener noreferrer" class="opacity-80 hover:opacity-100 transition-opacity">
-                    <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" class="h-8" alt="DigitalOcean" loading="lazy">
+                <a href="https://www.digitalocean.com/?refcode=7bd0fa8e307c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" target="_blank" rel="noopener noreferrer" class="border-2 border-black dark:border-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] transition-all">
+                    <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" class="h-8 block" alt="DigitalOcean" loading="lazy">
                 </a>
             </div>
         </div>

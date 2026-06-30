@@ -130,13 +130,13 @@ const SearchModule = (function() {
 
     function createFacetSelect(id, label, options) {
         const wrap = document.createElement('label');
-        wrap.className = 'flex items-center gap-2 text-xs text-gray-500 dark:text-gray-300';
+        wrap.className = 'flex items-center gap-2 text-xs font-black text-gray-655 dark:text-gray-400 uppercase tracking-wide';
         const title = document.createElement('span');
         title.textContent = label;
         wrap.appendChild(title);
         const select = document.createElement('select');
         select.id = id;
-        select.className = 'px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 border border-transparent focus:border-primary-500 outline-none text-xs text-gray-700 dark:text-gray-200';
+        select.className = 'px-2.5 py-1.5 bg-white dark:bg-gray-900 border-2 border-black dark:border-white font-bold outline-none shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] focus:-translate-x-[1px] focus:-translate-y-[1px] focus:shadow-[3px_3px_0px_0px_#000] dark:focus:shadow-[3px_3px_0px_0px_#fff] transition-all text-xs text-gray-900 dark:text-white';
         options.forEach(function(option) {
             const item = document.createElement('option');
             item.value = option.value;
@@ -157,27 +157,27 @@ const SearchModule = (function() {
         searchOverlay.setAttribute('aria-modal', 'true');
 
         searchContainer = document.createElement('div');
-        searchContainer.className = 'w-full max-w-4xl mx-4 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-800 transform scale-95 transition-transform duration-200';
+        searchContainer.className = 'w-full max-w-4xl mx-4 bg-white dark:bg-gray-900 rounded-none shadow-neo-flat dark:shadow-neo-flat-dark overflow-hidden border-[3px] border-black dark:border-white transform scale-95 transition-transform duration-200';
 
         const header = document.createElement('div');
-        header.className = 'px-5 py-4 border-b border-gray-200 dark:border-gray-800 space-y-3';
+        header.className = 'px-6 py-5 border-b-[3px] border-black dark:border-white space-y-4';
 
         const top = document.createElement('div');
-        top.className = 'flex items-center gap-3';
+        top.className = 'flex items-center gap-3.5';
 
         const icon = document.createElement('span');
-        icon.className = 'material-icons text-primary-500';
+        icon.className = 'material-icons text-cyberyellow text-2xl filter drop-shadow-[1px_1px_0px_#000]';
         icon.textContent = 'search';
         top.appendChild(icon);
 
         searchInput = document.createElement('input');
         searchInput.type = 'text';
-        searchInput.className = 'search-input flex-1 bg-transparent text-lg outline-none text-gray-900 dark:text-white placeholder-gray-400';
+        searchInput.className = 'search-input flex-1 bg-transparent text-lg font-black outline-none text-gray-900 dark:text-white placeholder-gray-500 uppercase tracking-wide';
         searchInput.placeholder = 'Search versions, channels, vendors, risk tags...';
         top.appendChild(searchInput);
 
         const esc = document.createElement('kbd');
-        esc.className = 'px-2 py-1 text-xs font-mono bg-gray-100 dark:bg-gray-800 rounded border border-gray-300 dark:border-gray-700 text-gray-500';
+        esc.className = 'px-2 py-0.5 text-xs font-mono bg-white dark:bg-gray-900 border-2 border-black dark:border-white text-black dark:text-white shadow-[1.5px_1.5px_0px_0px_#000] dark:shadow-[1.5px_1.5px_0px_0px_#fff]';
         esc.textContent = 'ESC';
         top.appendChild(esc);
 
@@ -247,12 +247,12 @@ const SearchModule = (function() {
         searchContainer.appendChild(header);
 
         searchResults = document.createElement('div');
-        searchResults.className = 'search-results max-h-[58vh] overflow-y-auto p-2';
+        searchResults.className = 'search-results max-h-[58vh] overflow-y-auto p-4 bg-gray-55/30 dark:bg-gray-950/20';
         searchContainer.appendChild(searchResults);
 
         const footer = document.createElement('div');
-        footer.className = 'flex items-center justify-center gap-6 px-4 py-3 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-800 text-xs text-gray-500';
-        footer.innerHTML = '<span><kbd class="px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded">↑</kbd> <kbd class="px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded">↓</kbd> navigate</span><span><kbd class="px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded">Enter</kbd> open</span>';
+        footer.className = 'flex items-center justify-center gap-6 px-4 py-3.5 bg-gray-50 dark:bg-gray-900 border-t-[3px] border-black dark:border-white text-xs font-black uppercase text-gray-600 dark:text-gray-400';
+        footer.innerHTML = '<span><kbd class="px-2 py-0.5 bg-white dark:bg-gray-950 border-2 border-black dark:border-white text-black dark:text-white font-mono shadow-[1.5px_1.5px_0px_0px_#000] dark:shadow-[1.5px_1.5px_0px_0px_#fff]">↑</kbd> <kbd class="px-2 py-0.5 bg-white dark:bg-gray-950 border-2 border-black dark:border-white text-black dark:text-white font-mono shadow-[1.5px_1.5px_0px_0px_#000] dark:shadow-[1.5px_1.5px_0px_0px_#fff]">↓</kbd> navigate</span><span><kbd class="px-2 py-0.5 bg-white dark:bg-gray-950 border-2 border-black dark:border-white text-black dark:text-white font-mono shadow-[1.5px_1.5px_0px_0px_#000] dark:shadow-[1.5px_1.5px_0px_0px_#fff]">Enter</kbd> open</span>';
         searchContainer.appendChild(footer);
 
         searchOverlay.appendChild(searchContainer);
@@ -277,7 +277,7 @@ const SearchModule = (function() {
     function createQuickButton(label, icon, onClick) {
         const button = document.createElement('button');
         button.type = 'button';
-        button.className = 'inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-primary-100 dark:hover:bg-primary-900/30';
+        button.className = 'inline-flex items-center gap-1 px-2.5 py-1 text-xs font-black uppercase border-2 border-black dark:border-white bg-white dark:bg-gray-900 text-black dark:text-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[1px] hover:-translate-y-[1px] hover:shadow-[3px_3px_0px_0px_#000] dark:hover:shadow-[3px_3px_0px_0px_#fff] transition-all cursor-pointer';
         button.innerHTML = `<span class="material-icons text-[13px]">${icon}</span>${label}`;
         button.addEventListener('click', function(event) {
             event.preventDefault();
@@ -322,7 +322,7 @@ const SearchModule = (function() {
             const driver = item.driver;
             const row = document.createElement('a');
             row.href = getResultHref(driver);
-            row.className = 'search-result-item block p-3 rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-colors';
+            row.className = 'search-result-item block p-4 border-2 border-black dark:border-white mb-3 bg-white dark:bg-gray-900 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] transition-all';
             row.setAttribute('data-result-index', String(index));
             row.setAttribute('tabindex', '-1');
             row.setAttribute('role', 'option');
@@ -332,7 +332,7 @@ const SearchModule = (function() {
             const safeChannel = escapeHtml(driver.channel || 'general');
             const safeRisk = escapeHtml(driver.riskLevel || 'medium');
             const safeReleaseDate = escapeHtml(driver.releaseDate || '');
-            row.innerHTML = `<div class="flex items-start justify-between gap-3"><div class="min-w-0"><div class="font-semibold text-gray-900 dark:text-white truncate">${safeVersion}${safeType ? ` - ${safeType}` : ''}</div><div class="text-xs text-gray-500 mt-0.5">${safeCategory} · ${safeChannel} · ${safeRisk} risk</div></div><div class="text-xs text-gray-400">${safeReleaseDate}</div></div>`;
+            row.innerHTML = `<div class="flex items-start justify-between gap-3"><div class="min-w-0"><div class="font-black text-gray-900 dark:text-white uppercase truncate tracking-wide">${safeVersion}${safeType ? ` - ${safeType}` : ''}</div><div class="text-xs font-semibold text-gray-500 mt-1">${safeCategory} · ${safeChannel} · ${safeRisk} risk</div></div><span class="text-xs font-bold text-gray-500 dark:text-gray-400 font-mono bg-gray-100 dark:bg-gray-800 border border-black dark:border-white px-2 py-0.5 shadow-[1px_1px_0px_0px_#000] dark:shadow-[1px_1px_0px_0px_#fff]">${safeReleaseDate}</span></div>`;
 
             const quick = document.createElement('div');
             quick.className = 'mt-2 flex flex-wrap items-center gap-2';

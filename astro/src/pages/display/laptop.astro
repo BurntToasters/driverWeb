@@ -29,106 +29,123 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <meta property="twitter:title" content="Laptop Graphics Drivers | DriverHub">
 </Fragment>
 
-<main id="main-content" class="flex-1 max-w-7xl mx-auto px-4 md:px-6 py-10 w-full">
+<main id="main-content" class="flex-1 max-w-7xl mx-auto px-4 md:px-6 py-10 w-full animate-fade-in">
     <div class="mb-8">
         <h1 class="page-heading mb-2">Laptop GPU Drivers</h1>
-        <p class="page-subheading">Mobile-focused NVIDIA and Intel releases with channel, risk, and compare controls</p>
+        <p class="page-subheading font-bold">Mobile-focused NVIDIA and Intel releases with channel, risk, and compare controls</p>
     </div>
 
     <div class="flex items-center justify-between flex-wrap gap-4 mb-8">
-        <div class="inline-flex rounded-lg bg-gray-100 dark:bg-gray-800 p-1">
-            <a href="/display/" class="px-4 py-2 text-sm font-medium rounded-md text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Desktop</a>
-            <a href="/display/laptop" class="px-4 py-2 text-sm font-medium rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm">Laptop</a>
+        <div class="inline-flex border-[3px] border-black dark:border-white bg-gray-100 dark:bg-gray-800 p-1 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff]">
+            <a href="/display/" class="px-4 py-2 text-sm font-bold uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Desktop</a>
+            <a href="/display/laptop" class="px-4 py-2 text-sm font-black uppercase bg-cyberyellow text-black border-2 border-black dark:border-white shadow-[2px_2px_0px_0px_#000]">Laptop</a>
         </div>
-        <div class="flex items-center gap-2">
-            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-medium bg-gray-900 dark:bg-white text-white dark:text-gray-900" data-filter="all" type="button">All</button>
-            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-medium text-gray-500 border border-gray-200 dark:border-gray-700" data-filter="stable" type="button">Stable</button>
-            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-bold text-gray-500 border border-gray-200 dark:border-gray-700" data-filter="grade-A+" type="button">A+</button>
-            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-bold text-gray-500 border border-gray-200 dark:border-gray-700" data-filter="grade-A" type="button">A</button>
-            <button class="filter-chip px-3 py-1.5 rounded-md text-sm font-bold text-gray-500 border border-gray-200 dark:border-gray-700" data-filter="grade-A-" type="button">A-</button>
+        <div class="flex items-center gap-3">
+            <button class="filter-chip px-3 py-1.5 border-[3px] border-black dark:border-white text-sm font-black uppercase bg-black dark:bg-white text-white dark:text-black shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all cursor-pointer" data-filter="all" type="button">All</button>
+            <button class="filter-chip px-3 py-1.5 border-[3px] border-black dark:border-white text-sm font-black uppercase text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-900 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all cursor-pointer" data-filter="stable" type="button">Stable</button>
+            <button class="filter-chip px-3 py-1.5 border-[3px] border-black dark:border-white text-sm font-black uppercase text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-900 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all cursor-pointer" data-filter="grade-A+" type="button">A+</button>
+            <button class="filter-chip px-3 py-1.5 border-[3px] border-black dark:border-white text-sm font-black uppercase text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-900 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all cursor-pointer" data-filter="grade-A" type="button">A</button>
+            <button class="filter-chip px-3 py-1.5 border-[3px] border-black dark:border-white text-sm font-black uppercase text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-900 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all cursor-pointer" data-filter="grade-A-" type="button">A-</button>
         </div>
     </div>
 
-    <div class="grid lg:grid-cols-[280px_1fr] gap-6 items-start">
-        <aside class="card p-4 sticky top-20 space-y-3" data-animate>
-            <h2 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wide">Compatibility Assistant</h2>
-            <input id="filter-query-input" type="text" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white" placeholder="Search version or notes...">
-            <select id="filter-brand-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
-                <option value="">All vendors</option>
-                <option value="nvidia">NVIDIA</option>
-                <option value="amd">AMD</option>
-            </select>
-            <select id="filter-channel-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
-                <option value="">All channels</option>
-                <option value="game-ready">Game Ready</option>
-                <option value="studio">Studio</option>
-                <option value="game-on">Game On</option>
-            </select>
-            <select id="filter-risk-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
-                <option value="">All risk levels</option>
-                <option value="low">Low risk</option>
-                <option value="medium">Medium risk</option>
-                <option value="high">High risk</option>
-            </select>
-            <select id="filter-os-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
-                <option value="">All OS targets</option>
-                <option value="windows-11">Windows 11</option>
-                <option value="windows-10">Windows 10</option>
-            </select>
-            <select id="filter-view-select" class="w-full px-3 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-sm text-gray-900 dark:text-white">
-                <option value="comfortable">Comfortable view</option>
-                <option value="dense">Dense view</option>
-            </select>
-            <button id="filter-clear-button" type="button" class="btn-secondary w-full justify-center !px-3 !py-2 text-sm">
+    <div class="grid lg:grid-cols-[300px_1fr] gap-8 items-start">
+        <aside class="card p-5 sticky top-24 space-y-4 shadow-neo-flat dark:shadow-neo-flat-dark" data-animate>
+            <h2 class="text-base font-black text-gray-900 dark:text-white uppercase tracking-wider">Assistant</h2>
+            <div class="space-y-1">
+                <label class="text-xs font-bold text-gray-500 uppercase">Search Notes</label>
+                <input id="filter-query-input" type="text" class="w-full px-3 py-2 bg-white dark:bg-gray-900 border-[3px] border-black dark:border-white font-bold outline-none shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] focus:-translate-x-[2px] focus:-translate-y-[2px] focus:shadow-[4px_4px_0px_0px_#000] dark:focus:shadow-[4px_4px_0px_0px_#fff] transition-all text-sm text-gray-900 dark:text-white" placeholder="Version, note details...">
+            </div>
+            <div class="space-y-1">
+                <label class="text-xs font-bold text-gray-500 uppercase">Vendor</label>
+                <select id="filter-brand-select" class="w-full px-3 py-2 bg-white dark:bg-gray-900 border-[3px] border-black dark:border-white font-bold outline-none shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] focus:-translate-x-[2px] focus:-translate-y-[2px] focus:shadow-[4px_4px_0px_0px_#000] dark:focus:shadow-[4px_4px_0px_0px_#fff] transition-all text-sm text-gray-900 dark:text-white">
+                    <option value="">All vendors</option>
+                    <option value="nvidia">NVIDIA</option>
+                    <option value="amd">AMD</option>
+                </select>
+            </div>
+            <div class="space-y-1">
+                <label class="text-xs font-bold text-gray-500 uppercase">Channel</label>
+                <select id="filter-channel-select" class="w-full px-3 py-2 bg-white dark:bg-gray-900 border-[3px] border-black dark:border-white font-bold outline-none shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] focus:-translate-x-[2px] focus:-translate-y-[2px] focus:shadow-[4px_4px_0px_0px_#000] dark:focus:shadow-[4px_4px_0px_0px_#fff] transition-all text-sm text-gray-900 dark:text-white">
+                    <option value="">All channels</option>
+                    <option value="game-ready">Game Ready</option>
+                    <option value="studio">Studio</option>
+                </select>
+            </div>
+            <div class="space-y-1">
+                <label class="text-xs font-bold text-gray-500 uppercase">Risk Level</label>
+                <select id="filter-risk-select" class="w-full px-3 py-2 bg-white dark:bg-gray-900 border-[3px] border-black dark:border-white font-bold outline-none shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] focus:-translate-x-[2px] focus:-translate-y-[2px] focus:shadow-[4px_4px_0px_0px_#000] dark:focus:shadow-[4px_4px_0px_0px_#fff] transition-all text-sm text-gray-900 dark:text-white">
+                    <option value="">All risk levels</option>
+                    <option value="low">Low risk</option>
+                    <option value="medium">Medium risk</option>
+                    <option value="high">High risk</option>
+                </select>
+            </div>
+            <div class="space-y-1">
+                <label class="text-xs font-bold text-gray-500 uppercase">Target OS</label>
+                <select id="filter-os-select" class="w-full px-3 py-2 bg-white dark:bg-gray-900 border-[3px] border-black dark:border-white font-bold outline-none shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] focus:-translate-x-[2px] focus:-translate-y-[2px] focus:shadow-[4px_4px_0px_0px_#000] dark:focus:shadow-[4px_4px_0px_0px_#fff] transition-all text-sm text-gray-900 dark:text-white">
+                    <option value="">All OS targets</option>
+                    <option value="windows-11">Windows 11</option>
+                    <option value="windows-10">Windows 10</option>
+                </select>
+            </div>
+            <div class="space-y-1">
+                <label class="text-xs font-bold text-gray-500 uppercase">Layout Density</label>
+                <select id="filter-view-select" class="w-full px-3 py-2 bg-white dark:bg-gray-900 border-[3px] border-black dark:border-white font-bold outline-none shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] focus:-translate-x-[2px] focus:-translate-y-[2px] focus:shadow-[4px_4px_0px_0px_#000] dark:focus:shadow-[4px_4px_0px_0px_#fff] transition-all text-sm text-gray-900 dark:text-white">
+                    <option value="comfortable">Comfortable view</option>
+                    <option value="dense">Dense view</option>
+                </select>
+            </div>
+            <button id="filter-clear-button" type="button" class="btn-secondary w-full justify-center !px-3 !py-2 text-sm mt-2">
                 <span class="material-icons text-base">refresh</span>
                 Reset Filters
             </button>
         </aside>
 
-        <div class="space-y-6">
-            <section class="card overflow-hidden" data-animate data-brand-section="nvidia">
-                <div class="p-5 border-l-4 border-nvidia">
-                    <div class="flex items-center gap-3 mb-1">
-                        <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt="NVIDIA" class="h-9 w-9 object-contain rounded" loading="lazy">
+        <div class="space-y-8">
+            <section class="card overflow-hidden !border-l-[12px] !border-l-nvidia" data-brand-section="nvidia">
+                <div class="p-6">
+                    <div class="flex items-center gap-3.5 mb-2">
+                        <img src="https://prod.rexxit.net/drweb/assets/nvidia.jpg" alt="NVIDIA" class="h-9 w-9 object-contain border border-black dark:border-white" loading="lazy">
                         <h2 class="section-heading">NVIDIA Laptop Drivers</h2>
                     </div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Game Ready and Studio channels for notebook GPUs.</p>
+                    <p class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-6">Game Ready and Studio channels for notebook GPUs.</p>
                     <div class="space-y-4">
-                        <button data-collapsible aria-expanded="false" class="w-full px-4 py-3 rounded-lg font-medium text-left bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-white flex items-center justify-between transition-colors mb-2" type="button">
+                        <button data-collapsible aria-expanded="false" class="w-full px-5 py-3.5 bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 border-[3px] border-black dark:border-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] flex items-center justify-between font-black uppercase transition-all hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] text-gray-900 dark:text-white cursor-pointer" type="button">
                             <span class="flex items-center gap-2">
-                                <span class="material-icons text-primary-500 text-lg">videocam</span>
+                                <span class="material-icons text-nvidia text-xl">videocam</span>
                                 Game Ready
                             </span>
-                            <span data-collapsible-icon class="material-icons text-gray-400 transition-transform duration-200 text-lg">expand_more</span>
+                            <span data-collapsible-icon class="material-icons text-gray-500 transition-transform duration-200 text-xl">expand_more</span>
                         </button>
-                        <div class="hidden overflow-hidden transition-all duration-300 mb-3" style="max-height: 0; opacity: 0;">
+                        <div class="hidden overflow-hidden transition-all duration-300 border-x-[3px] border-b-[3px] border-black dark:border-white bg-white dark:bg-gray-950 p-4" style="max-height: 0; opacity: 0;">
                             <div class="pt-2 pb-1">
-                                <div id="nvidia-game-ready-laptop-drivers"></div>
+                                <div id="nvidia-game-ready-laptop-drivers" class="grid sm:grid-cols-1 gap-4"></div>
                             </div>
                         </div>
-                        <button data-collapsible aria-expanded="false" class="w-full px-4 py-3 rounded-lg font-medium text-left bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-white flex items-center justify-between transition-colors mb-2" type="button">
+                        <button data-collapsible aria-expanded="false" class="w-full px-5 py-3.5 bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 border-[3px] border-black dark:border-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] flex items-center justify-between font-black uppercase transition-all hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] text-gray-900 dark:text-white cursor-pointer" type="button">
                             <span class="flex items-center gap-2">
-                                <span class="material-icons text-primary-500 text-lg">movie_filter</span>
+                                <span class="material-icons text-nvidia text-xl">movie_filter</span>
                                 Studio
                             </span>
-                            <span data-collapsible-icon class="material-icons text-gray-400 transition-transform duration-200 text-lg">expand_more</span>
+                            <span data-collapsible-icon class="material-icons text-gray-500 transition-transform duration-200 text-xl">expand_more</span>
                         </button>
-                        <div class="hidden overflow-hidden transition-all duration-300 mb-3" style="max-height: 0; opacity: 0;">
+                        <div class="hidden overflow-hidden transition-all duration-300 border-x-[3px] border-b-[3px] border-black dark:border-white bg-white dark:bg-gray-950 p-4" style="max-height: 0; opacity: 0;">
                             <div class="pt-2 pb-1">
-                                <div id="nvidia-studio-laptop-drivers"></div>
+                                <div id="nvidia-studio-laptop-drivers" class="grid sm:grid-cols-1 gap-4"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="card overflow-hidden" data-animate data-brand-section="amd">
-                <div class="p-5 border-l-4 border-amd">
-                    <div class="flex items-center gap-3 mb-1">
-                        <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt="AMD" class="h-9 w-9 object-contain" loading="lazy">
+            <section class="card overflow-hidden !border-l-[12px] !border-l-amd" data-brand-section="amd">
+                <div class="p-6">
+                    <div class="flex items-center gap-3.5 mb-2">
+                        <img src="https://prod.rexxit.net/drweb/assets/amd.png" alt="AMD" class="h-9 w-9 object-contain border border-black dark:border-white" loading="lazy">
                         <h2 class="section-heading">AMD Radeon Laptop Drivers</h2>
                     </div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-5">Use AMD's official auto-detect tool for mobile Radeon compatibility.</p>
+                    <p class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-6">Use AMD's official auto-detect tool for mobile Radeon compatibility.</p>
                     <a href="https://www.amd.com/en/support/download/drivers.html" target="_blank" rel="noopener noreferrer" class="btn-brand-amd">
                         <span class="material-icons text-lg">download</span>
                         AMD Auto-Detect Tool

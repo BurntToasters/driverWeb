@@ -26,20 +26,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <meta property="og:image" content="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp">
 </Fragment>
 
-<main id="main-content" class="flex-1 max-w-7xl mx-auto px-4 md:px-6 w-full">
-    <section class="pt-16 pb-12 text-center" data-animate>
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight mb-4">Professional Driver Catalog for Windows</h1>
-        <p class="page-subheading max-w-2xl mx-auto mb-8">Official vendor links, risk-aware labels, deep-linkable filters, and compare-ready metadata for faster driver decisions.</p>
+<main id="main-content" class="flex-1 max-w-7xl mx-auto px-4 md:px-6 w-full py-10">
+    <section class="pt-12 pb-12 text-center" data-animate>
+        <h1 class="page-heading mb-4 text-5xl md:text-6xl tracking-wider">Professional Windows Driver Hub</h1>
+        <p class="page-subheading max-w-2xl mx-auto mb-8 font-bold">Official vendor links, risk-aware labels, deep-linkable filters, and compare-ready metadata for faster driver decisions.</p>
         <form id="hero-command-form" class="hero-command" role="search" aria-label="Command search">
-            <span class="material-icons text-primary-500">terminal</span>
+            <span class="material-icons text-cyberyellow">terminal</span>
             <input id="hero-command-input" type="text" class="hero-command-input" placeholder="Search: 581.94, game-ready, low risk, Intel Pro..." autocomplete="off">
             <kbd class="hero-command-chip">Ctrl+K</kbd>
-            <button type="submit" class="btn-primary !px-4 !py-2">
+            <button type="submit" class="btn-primary !px-5 !py-2.5">
                 <span class="material-icons text-lg">search</span>
                 Search
             </button>
         </form>
-        <div class="mobile-hero-actions">
+        <div class="mobile-hero-actions mt-6">
             <a href="/display" class="btn-primary">
                 <span class="material-icons text-lg">download</span>
                 Browse Graphics
@@ -51,97 +51,106 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
     </section>
 
-    <section class="card p-6 mb-8" data-animate>
-        <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
-            <div>
-                <h2 class="section-heading">Recommendation Wizard</h2>
-                <p class="text-sm text-gray-500 dark:text-gray-400">Generate a deep link with vendor, channel, risk, and OS filters.</p>
+    <details class="card mb-10 group" data-animate>
+        <summary class="p-5 font-black uppercase text-base flex items-center justify-between cursor-pointer select-none bg-gray-50 dark:bg-gray-800/40 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors list-none">
+            <span class="flex items-center gap-2.5">
+                <span class="material-icons text-cyberyellow dark:text-cyberyellow">explore</span>
+                <span class="text-lg font-black tracking-wide">Recommendation Wizard</span>
+            </span>
+            <div class="flex items-center gap-3">
+                <span class="text-xs font-bold text-gray-500 hidden sm:inline">Configure Target Setup</span>
+                <span class="material-icons transition-transform duration-200 group-open:rotate-180">expand_more</span>
             </div>
-            <a id="wizard-link-preview" href="/display" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">Preview link</a>
+        </summary>
+        <div class="p-6 border-t-[3px] border-black dark:border-white">
+            <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Generate a deep link with vendor, channel, risk, and OS filters.</p>
+                <a id="wizard-link-preview" href="/display" class="text-sm font-bold text-primary-600 dark:text-primary-400 hover:underline">Preview link</a>
+            </div>
+            <div class="grid md:grid-cols-5 gap-4">
+                <select id="rec-brand" class="px-4 py-3 bg-white dark:bg-gray-900 rounded-none border-[3px] border-black dark:border-white font-bold outline-none shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] focus:-translate-x-[2px] focus:-translate-y-[2px] focus:shadow-[4px_4px_0px_0px_#000] dark:focus:shadow-[4px_4px_0px_0px_#fff] transition-all text-gray-900 dark:text-white">
+                    <option value="nvidia">NVIDIA</option>
+                    <option value="intel">Intel</option>
+                    <option value="amd">AMD</option>
+                </select>
+                <select id="rec-channel" class="px-4 py-3 bg-white dark:bg-gray-900 rounded-none border-[3px] border-black dark:border-white font-bold outline-none shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] focus:-translate-x-[2px] focus:-translate-y-[2px] focus:shadow-[4px_4px_0px_0px_#000] dark:focus:shadow-[4px_4px_0px_0px_#fff] transition-all text-gray-900 dark:text-white">
+                    <option value="">Any channel</option>
+                    <option value="game-ready">Game Ready</option>
+                    <option value="studio">Studio</option>
+                </select>
+                <select id="rec-risk" class="px-4 py-3 bg-white dark:bg-gray-900 rounded-none border-[3px] border-black dark:border-white font-bold outline-none shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] focus:-translate-x-[2px] focus:-translate-y-[2px] focus:shadow-[4px_4px_0px_0px_#000] dark:focus:shadow-[4px_4px_0px_0px_#fff] transition-all text-gray-900 dark:text-white">
+                    <option value="">Any risk</option>
+                    <option value="low">Low risk</option>
+                    <option value="medium">Medium risk</option>
+                    <option value="high">High risk</option>
+                </select>
+                <select id="rec-os" class="px-4 py-3 bg-white dark:bg-gray-900 rounded-none border-[3px] border-black dark:border-white font-bold outline-none shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] focus:-translate-x-[2px] focus:-translate-y-[2px] focus:shadow-[4px_4px_0px_0px_#000] dark:focus:shadow-[4px_4px_0px_0px_#fff] transition-all text-gray-900 dark:text-white">
+                    <option value="">Any OS</option>
+                    <option value="windows-11">Windows 11</option>
+                    <option value="windows-10">Windows 10</option>
+                </select>
+                <button id="rec-go" type="button" class="btn-primary justify-center">
+                    <span class="material-icons text-lg">arrow_forward</span>
+                    Open
+                </button>
+            </div>
         </div>
-        <div class="grid md:grid-cols-5 gap-3">
-            <select id="rec-brand" class="px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-gray-900 dark:text-white">
-                <option value="nvidia">NVIDIA</option>
-                <option value="intel">Intel</option>
-                <option value="amd">AMD</option>
-            </select>
-            <select id="rec-channel" class="px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-gray-900 dark:text-white">
-                <option value="">Any channel</option>
-                <option value="game-ready">Game Ready</option>
-                <option value="studio">Studio</option>
-            </select>
-            <select id="rec-risk" class="px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-gray-900 dark:text-white">
-                <option value="">Any risk</option>
-                <option value="low">Low risk</option>
-                <option value="medium">Medium risk</option>
-                <option value="high">High risk</option>
-            </select>
-            <select id="rec-os" class="px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-transparent focus:border-primary-500 outline-none text-gray-900 dark:text-white">
-                <option value="">Any OS</option>
-                <option value="windows-11">Windows 11</option>
-                <option value="windows-10">Windows 10</option>
-            </select>
-            <button id="rec-go" type="button" class="btn-primary justify-center">
-                <span class="material-icons text-lg">arrow_forward</span>
-                Open
-            </button>
-        </div>
+    </details>
+
+    <section class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10" data-animate>
+        <a href="/display" class="card-hover p-5 border-t-[8px] border-t-nvidia hover:shadow-neo-flat-hover-nvidia">
+            <div class="flex items-center gap-2.5 mb-1.5">
+                <span class="material-icons text-nvidia text-[24px]" aria-hidden="true">videocam</span>
+                <h3 class="font-black text-gray-900 dark:text-white uppercase tracking-wide text-lg">Graphics</h3>
+            </div>
+            <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Desktop and laptop GPU channels.</p>
+        </a>
+        <a href="/chipset" class="card-hover p-5 border-t-[8px] border-t-intel hover:shadow-neo-flat-hover-intel">
+            <div class="flex items-center gap-2.5 mb-1.5">
+                <span class="material-icons text-intel text-[24px]" aria-hidden="true">memory</span>
+                <h3 class="font-black text-gray-900 dark:text-white uppercase tracking-wide text-lg">Chipset</h3>
+            </div>
+            <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">AMD and Intel chipset utilities.</p>
+        </a>
+        <a href="/audio" class="card-hover p-5 border-t-[8px] border-t-amber-400 hover:shadow-[7px_7px_0px_0px_#fbbf24]">
+            <div class="flex items-center gap-2.5 mb-1.5">
+                <span class="material-icons text-amber-500 text-[24px]" aria-hidden="true">headphones</span>
+                <h3 class="font-black text-gray-900 dark:text-white uppercase tracking-wide text-lg">Audio</h3>
+            </div>
+            <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Production audio listings.</p>
+        </a>
+        <a href="/network" class="card-hover p-5 border-t-[8px] border-t-purple-500 hover:shadow-[7px_7px_0px_0px_#a855f7]">
+            <div class="flex items-center gap-2.5 mb-1.5">
+                <span class="material-icons text-purple-500 text-[24px]" aria-hidden="true">wifi</span>
+                <h3 class="font-black text-gray-900 dark:text-white uppercase tracking-wide text-lg">Network</h3>
+            </div>
+            <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Wi-Fi and ethernet listings.</p>
+        </a>
     </section>
 
-    <section class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8" data-animate>
-        <a href="/display" class="card-hover p-5">
-            <div class="flex items-center gap-2 mb-1">
-                <span class="material-icons text-primary-500 text-[20px]" aria-hidden="true">videocam</span>
-                <h3 class="font-semibold text-gray-900 dark:text-white">Graphics</h3>
-            </div>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Desktop and laptop GPU channels.</p>
-        </a>
-        <a href="/chipset" class="card-hover p-5">
-            <div class="flex items-center gap-2 mb-1">
-                <span class="material-icons text-primary-500 text-[20px]" aria-hidden="true">memory</span>
-                <h3 class="font-semibold text-gray-900 dark:text-white">Chipset</h3>
-            </div>
-            <p class="text-sm text-gray-500 dark:text-gray-400">AMD and Intel chipset utilities.</p>
-        </a>
-        <a href="/audio" class="card-hover p-5">
-            <div class="flex items-center gap-2 mb-1">
-                <span class="material-icons text-primary-500 text-[20px]" aria-hidden="true">headphones</span>
-                <h3 class="font-semibold text-gray-900 dark:text-white">Audio</h3>
-            </div>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Production audio listings.</p>
-        </a>
-        <a href="/network" class="card-hover p-5">
-            <div class="flex items-center gap-2 mb-1">
-                <span class="material-icons text-primary-500 text-[20px]" aria-hidden="true">wifi</span>
-                <h3 class="font-semibold text-gray-900 dark:text-white">Network</h3>
-            </div>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Wi-Fi and ethernet listings.</p>
-        </a>
-    </section>
-
-    <section class="grid lg:grid-cols-2 items-start gap-6 mb-16" data-animate>
+    <section class="grid lg:grid-cols-2 items-start gap-8 mb-16" data-animate>
         <div class="card p-6">
             <button type="button" class="w-full flex items-center justify-between gap-3 text-left" data-home-panel-toggle="best-picks-panel" aria-expanded="true" aria-controls="best-picks-panel">
-                <span class="flex items-center gap-2">
-                    <span class="material-icons text-primary-500">verified</span>
+                <span class="flex items-center gap-2.5">
+                    <span class="material-icons text-cyan-500">verified</span>
                     <h2 class="section-heading">Current Best Picks</h2>
                 </span>
-                <span class="material-icons text-gray-500 dark:text-gray-400" data-home-panel-icon>expand_less</span>
+                <span class="material-icons text-gray-700 dark:text-gray-300" data-home-panel-icon>expand_less</span>
             </button>
-            <div id="best-picks-panel" class="mt-3">
-                <div id="best-picks" class="space-y-3 text-sm text-gray-600 dark:text-gray-300"></div>
+            <div id="best-picks-panel" class="mt-4">
+                <div id="best-picks" class="space-y-4 text-sm text-gray-650 dark:text-gray-300"></div>
             </div>
         </div>
         <div class="card p-6">
             <button type="button" class="w-full flex items-center justify-between gap-3 text-left" data-home-panel-toggle="recent-timeline-panel" aria-expanded="true" aria-controls="recent-timeline-panel">
-                <span class="flex items-center gap-2">
-                    <span class="material-icons text-primary-500">timeline</span>
+                <span class="flex items-center gap-2.5">
+                    <span class="material-icons text-fuchsia-500">timeline</span>
                     <h2 class="section-heading">Recent Update Timeline</h2>
                 </span>
-                <span class="material-icons text-gray-500 dark:text-gray-400" data-home-panel-icon>expand_less</span>
+                <span class="material-icons text-gray-700 dark:text-gray-300" data-home-panel-icon>expand_less</span>
             </button>
-            <div id="recent-timeline-panel" class="mt-3">
-                <div id="recent-timeline" class="space-y-3 text-sm text-gray-600 dark:text-gray-300"></div>
+            <div id="recent-timeline-panel" class="mt-4">
+                <div id="recent-timeline" class="space-y-4 text-sm text-gray-650 dark:text-gray-300"></div>
             </div>
         </div>
     </section>
@@ -393,15 +402,17 @@ document.addEventListener('DOMContentLoaded', function() {
         Object.keys(groups).forEach(function(brand) {
             const item = groups[brand];
             const row = document.createElement('div');
-            row.className = 'p-3 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700';
+            const brandAccent = brand === 'nvidia' ? 'border-l-nvidia' : brand === 'amd' ? 'border-l-amd' : brand === 'intel' ? 'border-l-intel' : 'border-l-cyan-500';
+            row.className = `p-4 border-2 border-black dark:border-white ${brandAccent} border-l-[8px] bg-white dark:bg-gray-900 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] transition-all duration-100 flex flex-col gap-0.5`;
             if (!item) {
                 row.textContent = `${brand.toUpperCase()}: No low-risk pick found`;
+                row.className = `p-4 border-2 border-black dark:border-white ${brandAccent} border-l-[8px] bg-gray-50 dark:bg-gray-900/60 font-semibold text-gray-500`;
             } else {
                 const pagePath = safeInternalPath(item.page || '/display');
                 const href = `${pagePath}?q=${encodeURIComponent(item.version || '')}&brand=${encodeURIComponent(item.brand || '')}`;
                 const label = `${brand.toUpperCase()} ${item.version || ''}`;
                 const meta = `${item.type || item.channel || 'General'} · ${item.releaseDate || 'Unknown date'} · ${item.riskLevel || 'medium'} risk`;
-                row.innerHTML = `<a href="${escapeHtml(href)}" class="font-medium text-primary-600 dark:text-primary-400 hover:underline">${escapeHtml(label)}</a><div class="text-xs text-gray-500 mt-1">${escapeHtml(meta)}</div>`;
+                row.innerHTML = `<a href="${escapeHtml(href)}" class="font-black text-primary-600 dark:text-primary-400 hover:underline uppercase tracking-wide">${escapeHtml(label)}</a><div class="text-xs font-semibold text-gray-500 dark:text-gray-400 mt-1">${escapeHtml(meta)}</div>`;
             }
             target.appendChild(row);
         });
@@ -418,11 +429,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         rows.forEach(function(item) {
             const row = document.createElement('div');
-            row.className = 'p-3 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700';
+            const brandAccent = item.vendor === 'nvidia' ? 'border-l-nvidia' : item.vendor === 'amd' ? 'border-l-amd' : item.vendor === 'intel' ? 'border-l-intel' : 'border-l-fuchsia-500';
+            row.className = `p-4 border-2 border-black dark:border-white ${brandAccent} border-l-[8px] bg-white dark:bg-gray-900 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] transition-all duration-100 flex flex-col gap-0.5`;
             const title = `${item.vendor ? String(item.vendor).toUpperCase() : 'Driver'} ${item.version || ''}`;
             const publishedLabel = formatTimelinePublishedAt(item.publishedAt || item.releaseDate || '');
             const meta = `${item.category || 'Update'} · ${item.type || 'changed'} · ${publishedLabel}`;
-            row.innerHTML = `<div class="font-medium text-gray-900 dark:text-white">${escapeHtml(title)}</div><div class="text-xs text-gray-500 mt-1">${escapeHtml(meta)}</div>`;
+            row.innerHTML = `<div class="font-black text-gray-900 dark:text-white uppercase tracking-wide">${escapeHtml(title)}</div><div class="text-xs font-semibold text-gray-500 dark:text-gray-400 mt-1">${escapeHtml(meta)}</div>`;
             target.appendChild(row);
         });
     }

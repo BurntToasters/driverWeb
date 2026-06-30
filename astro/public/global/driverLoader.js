@@ -175,9 +175,9 @@ function writeStateToUrl() {
 }
 
 function riskClass(level) {
-    if (level === 'low') return 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300';
-    if (level === 'high') return 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300';
-    return 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300';
+    if (level === 'low') return 'bg-emerald-300 text-black dark:bg-emerald-600 dark:text-white';
+    if (level === 'high') return 'bg-red-400 text-black dark:bg-red-650 dark:text-white';
+    return 'bg-amber-300 text-black dark:bg-amber-600 dark:text-white';
 }
 
 function channelLabel(channel) {
@@ -251,12 +251,12 @@ function ensureCompareUi() {
     if (compareUi) return compareUi;
     const bar = document.createElement('div');
     bar.id = 'driver-compare-bar';
-    bar.className = 'fixed bottom-4 left-1/2 -translate-x-1/2 z-[260] w-[min(920px,calc(100%-1.5rem))] hidden';
-    bar.innerHTML = '<div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white/95 dark:bg-gray-900/95 backdrop-blur px-4 py-3 shadow-2xl"><div class="flex flex-wrap items-center gap-2 justify-between"><div id="driver-compare-items" class="flex flex-wrap items-center gap-1"></div><div class="flex items-center gap-2"><button id="driver-compare-clear" type="button" class="btn-secondary !px-3 !py-1.5 text-sm">Clear</button><button id="driver-compare-open" type="button" class="btn-primary !px-3 !py-1.5 text-sm">Open Compare</button></div></div></div>';
+    bar.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 z-[260] w-[min(920px,calc(100%-1.5rem))] hidden';
+    bar.innerHTML = '<div class="rounded-none border-[3px] border-black dark:border-white bg-white dark:bg-gray-900 px-5 py-4 shadow-neo-flat dark:shadow-neo-flat-dark"><div class="flex flex-wrap items-center gap-4 justify-between"><div id="driver-compare-items" class="flex flex-wrap items-center gap-2"></div><div class="flex items-center gap-3"><button id="driver-compare-clear" type="button" class="btn-secondary !px-4 !py-2 text-xs">Clear</button><button id="driver-compare-open" type="button" class="btn-primary !px-4 !py-2 text-xs">Open Compare</button></div></div></div>';
     const overlay = document.createElement('div');
     overlay.id = 'driver-compare-overlay';
     overlay.className = 'hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[270] p-4';
-    overlay.innerHTML = '<div class="max-w-5xl mx-auto bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-2xl h-full max-h-[90vh] overflow-hidden flex flex-col"><div class="px-5 py-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between"><h2 class="section-heading">Driver Compare</h2><button id="driver-compare-close" type="button" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"><span class="material-icons">close</span></button></div><div id="driver-compare-content" class="p-5 overflow-auto"></div></div>';
+    overlay.innerHTML = '<div class="max-w-5xl mx-auto bg-white dark:bg-gray-900 rounded-none border-[3px] border-black dark:border-white shadow-neo-flat dark:shadow-neo-flat-dark h-full max-h-[90vh] overflow-hidden flex flex-col animate-slide-up"><div class="px-6 py-4 border-b-[3px] border-black dark:border-white flex items-center justify-between"><h2 class="section-heading">Driver Compare</h2><button id="driver-compare-close" type="button" class="p-2 border-[3px] border-black dark:border-white bg-white dark:bg-gray-900 text-black dark:text-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[3px_3px_0px_0px_#000] dark:hover:shadow-[3px_3px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all cursor-pointer"><span class="material-icons block">close</span></button></div><div id="driver-compare-content" class="p-6 overflow-auto bg-gray-50 dark:bg-gray-950"></div></div>';
     document.body.appendChild(bar);
     document.body.appendChild(overlay);
     bar.querySelector('#driver-compare-clear').addEventListener('click', function() {
@@ -286,8 +286,8 @@ function ensureDetailUi() {
     const overlay = document.createElement('div');
     overlay.className = 'hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-[255]';
     const panel = document.createElement('div');
-    panel.className = 'fixed top-0 right-0 h-full w-full max-w-lg bg-white dark:bg-gray-900 border-l border-gray-200 dark:border-gray-700 shadow-2xl z-[256] transform translate-x-full transition-transform duration-200 flex flex-col';
-    panel.innerHTML = '<div class="px-5 py-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between"><h2 class="section-heading">Driver Details</h2><button id="driver-detail-close" type="button" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"><span class="material-icons">close</span></button></div><div id="driver-detail-content" class="p-5 overflow-auto space-y-4"></div>';
+    panel.className = 'fixed top-0 right-0 h-full w-full max-w-lg bg-white dark:bg-gray-900 border-l-[3px] border-l-black dark:border-l-white shadow-neo-flat dark:shadow-neo-flat-dark z-[256] transform translate-x-full transition-transform duration-200 flex flex-col';
+    panel.innerHTML = '<div class="px-5 py-4 border-b-[3px] border-black dark:border-white flex items-center justify-between"><h2 class="section-heading">Driver Details</h2><button id="driver-detail-close" type="button" class="p-2 border-[3px] border-black dark:border-white bg-white dark:bg-gray-900 text-black dark:text-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[3px_3px_0px_0px_#000] dark:hover:shadow-[3px_3px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all cursor-pointer"><span class="material-icons block">close</span></button></div><div id="driver-detail-content" class="p-5 overflow-auto space-y-4"></div>';
     document.body.appendChild(overlay);
     document.body.appendChild(panel);
     function close() {
@@ -307,17 +307,17 @@ function openDetailPanel(driver) {
     const safeActionHref = escapeHtml(action.href || '#');
     const actionAttrs = action.disabled ? '' : action.external ? 'target="_blank" rel="noopener noreferrer"' : '';
     const actionClass = action.disabled
-        ? 'btn-secondary !px-3 !py-2 text-sm pointer-events-none opacity-70'
+        ? 'btn-secondary !px-3 !py-2 text-sm pointer-events-none opacity-70 border-2 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff]'
         : action.warning
-            ? 'btn-secondary !px-3 !py-2 text-sm'
-            : 'btn-primary !px-3 !py-2 text-sm';
+            ? 'btn-secondary !px-3 !py-2 text-sm border-2 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff]'
+            : 'btn-primary !px-3 !py-2 text-sm border-2 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff]';
     const sources = (driver.sources || []).map(function(source) {
         const href = safeHref(source.url, { allowRelative: true });
         const type = escapeHtml(source.type || 'Source');
         if (!href) return '';
         const hrefAttr = escapeHtml(href);
         const attrs = href.startsWith('/') ? '' : ' target="_blank" rel="noopener noreferrer"';
-        return `<a href="${hrefAttr}"${attrs} class="text-primary-600 dark:text-primary-400 hover:underline">${type}</a>`;
+        return `<a href="${hrefAttr}"${attrs} class="text-primary-655 dark:text-primary-400 hover:underline font-bold">${type}</a>`;
     }).filter(Boolean).join(' · ');
     const safeReleaseNotesUrl = driver.releaseNotesUrl ? escapeHtml(driver.releaseNotesUrl) : '';
     const safeKnownIssuesUrl = driver.knownIssuesUrl ? escapeHtml(driver.knownIssuesUrl) : '';
@@ -333,25 +333,25 @@ function openDetailPanel(driver) {
     const safeActionIcon = escapeHtml(action.icon);
     const safeActionLabel = escapeHtml(action.label);
     ui.content.innerHTML = `
-        <div class="space-y-2">
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white">${safeVersion}${safeType ? ` - ${safeType}` : ''}</h3>
+        <div class="space-y-3">
+            <h3 class="text-xl font-black text-gray-900 dark:text-white uppercase tracking-wide">${safeVersion}${safeType ? ` - ${safeType}` : ''}</h3>
             <div class="flex flex-wrap gap-2">
-                <span class="px-2 py-1 rounded text-xs font-semibold ${riskClass(driver.riskLevel)}">${safeRiskLevel} risk</span>
-                <span class="px-2 py-1 rounded text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">${safeChannel}</span>
+                <span class="px-2.5 py-1 border-2 border-black dark:border-white text-xs font-black uppercase shadow-[1px_1px_0px_0px_#000] dark:shadow-[1px_1px_0px_0px_#fff] ${riskClass(driver.riskLevel)}">${safeRiskLevel} risk</span>
+                <span class="px-2.5 py-1 border-2 border-black dark:border-white text-xs font-black uppercase bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 shadow-[1px_1px_0px_0px_#000] dark:shadow-[1px_1px_0px_0px_#fff]">${safeChannel}</span>
             </div>
         </div>
-        <div class="grid sm:grid-cols-2 gap-3 text-sm">
-            <div class="p-3 rounded-lg bg-gray-100 dark:bg-gray-800"><div class="text-xs text-gray-500 mb-1">Release Date</div><div class="font-medium text-gray-900 dark:text-white">${safeReleaseDate}</div></div>
-            <div class="p-3 rounded-lg bg-gray-100 dark:bg-gray-800"><div class="text-xs text-gray-500 mb-1">Published</div><div class="font-medium text-gray-900 dark:text-white">${safePublishedAt}</div></div>
-            <div class="p-3 rounded-lg bg-gray-100 dark:bg-gray-800"><div class="text-xs text-gray-500 mb-1">OS Support</div><div class="font-medium text-gray-900 dark:text-white">${safeOsSupport}</div></div>
-            <div class="p-3 rounded-lg bg-gray-100 dark:bg-gray-800"><div class="text-xs text-gray-500 mb-1">Architecture</div><div class="font-medium text-gray-900 dark:text-white">${safeArchitectures}</div></div>
+        <div class="grid sm:grid-cols-2 gap-4 text-sm">
+            <div class="p-3 bg-white dark:bg-gray-900 border-[3px] border-black dark:border-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff]"><div class="text-xs font-bold text-gray-500 uppercase mb-1">Release Date</div><div class="font-bold text-gray-900 dark:text-white">${safeReleaseDate}</div></div>
+            <div class="p-3 bg-white dark:bg-gray-900 border-[3px] border-black dark:border-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff]"><div class="text-xs font-bold text-gray-500 uppercase mb-1">Published</div><div class="font-bold text-gray-900 dark:text-white">${safePublishedAt}</div></div>
+            <div class="p-3 bg-white dark:bg-gray-900 border-[3px] border-black dark:border-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff]"><div class="text-xs font-bold text-gray-500 uppercase mb-1">OS Support</div><div class="font-bold text-gray-900 dark:text-white">${safeOsSupport}</div></div>
+            <div class="p-3 bg-white dark:bg-gray-900 border-[3px] border-black dark:border-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff]"><div class="text-xs font-bold text-gray-500 uppercase mb-1">Architecture</div><div class="font-bold text-gray-900 dark:text-white">${safeArchitectures}</div></div>
         </div>
-        <div class="text-sm text-gray-600 dark:text-gray-300">${safeHighlights}</div>
-        <div class="text-sm text-gray-600 dark:text-gray-300">${sources || 'No sources listed.'}</div>
-        <div class="flex flex-wrap gap-2">
+        <div class="text-sm font-semibold text-gray-655 dark:text-gray-400 bg-gray-50 dark:bg-gray-950 p-4 border-[3px] border-black dark:border-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff]">${safeHighlights}</div>
+        <div class="text-sm font-semibold text-gray-600 dark:text-gray-400">${sources || 'No sources listed.'}</div>
+        <div class="flex flex-wrap gap-2 pt-2">
             <a href="${safeActionHref}" ${actionAttrs} class="${actionClass}"><span class="material-icons text-base">${safeActionIcon}</span>${safeActionLabel}</a>
-            ${safeReleaseNotesUrl ? `<a href="${safeReleaseNotesUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm"><span class="material-icons text-base">notes</span>Release Notes</a>` : ''}
-            ${safeKnownIssuesUrl ? `<a href="${safeKnownIssuesUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm"><span class="material-icons text-base">warning</span>Known Issues</a>` : ''}
+            ${safeReleaseNotesUrl ? `<a href="${safeReleaseNotesUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm border-2 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff]"><span class="material-icons text-base">notes</span>Release Notes</a>` : ''}
+            ${safeKnownIssuesUrl ? `<a href="${safeKnownIssuesUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm border-2 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff]"><span class="material-icons text-base">warning</span>Known Issues</a>` : ''}
         </div>
     `;
     ui.overlay.classList.remove('hidden');
@@ -392,7 +392,7 @@ function updateCompareUi() {
     selected.forEach(function(driver) {
         const chip = document.createElement('button');
         chip.type = 'button';
-        chip.className = 'inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300';
+        chip.className = 'inline-flex items-center gap-1 px-2.5 py-1 text-xs font-black uppercase border-2 border-black dark:border-white bg-cyberyellow text-black shadow-[2px_2px_0px_0px_#000] hover:-translate-x-[1px] hover:-translate-y-[1px] hover:shadow-[3px_3px_0px_0px_#000] transition-all cursor-pointer';
         chip.textContent = driver.version;
         chip.addEventListener('click', function() { activeCompare = activeCompare.filter((id) => id !== driver.id); writeStateToUrl(); updateCompareUi(); updateCompareButtons(); });
         ui.items.appendChild(chip);
@@ -404,7 +404,10 @@ function updateCompareButtons() {
     document.querySelectorAll('[data-driver-compare-id]').forEach(function(button) {
         const id = button.getAttribute('data-driver-compare-id');
         const selected = activeCompare.includes(id);
-        button.className = selected ? 'inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-200' : 'inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300';
+        const baseClass = 'inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black uppercase border-2 border-black dark:border-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[3px_3px_0px_0px_#000] dark:hover:shadow-[3px_3px_0px_0px_#fff] transition-all cursor-pointer';
+        button.className = selected 
+            ? `${baseClass} bg-cyan-300 text-black` 
+            : `${baseClass} bg-white dark:bg-gray-900 text-black dark:text-white`;
         const label = button.querySelector('[data-compare-label]');
         if (label) label.textContent = selected ? 'Selected' : 'Compare';
     });
@@ -576,7 +579,14 @@ function normalizeDriverEntry(driver, category, brand, containerId, userRegion, 
 
 function createDriverRow(driver) {
     const card = document.createElement('article');
-    card.className = 'driver-card card p-4 flex flex-col gap-3 transition-all duration-200 hover:shadow-md';
+    const brand = driver.brand || '';
+    const brandBorder = brand === 'nvidia' ? '!border-l-[8px] !border-l-nvidia hover:shadow-neo-flat-hover-nvidia'
+                      : brand === 'amd' ? '!border-l-[8px] !border-l-amd hover:shadow-neo-flat-hover-amd'
+                      : brand === 'intel' ? '!border-l-[8px] !border-l-intel hover:shadow-neo-flat-hover-intel'
+                      : brand === 'audio' ? '!border-l-[8px] !border-l-amber-400 hover:shadow-[7px_7px_0px_0px_#fbbf24]'
+                      : brand === 'network' ? '!border-l-[8px] !border-l-purple-500 hover:shadow-[7px_7px_0px_0px_#a855f7]'
+                      : '';
+    card.className = `driver-card card p-5 flex flex-col gap-3 transition-all duration-150 hover:-translate-x-[3px] hover:-translate-y-[3px] shadow-neo-flat dark:shadow-neo-flat-dark ${brandBorder}`;
     card.tabIndex = 0;
     card.dataset.driverId = driver.id;
     card.dataset.brand = driver.brand;
@@ -590,10 +600,10 @@ function createDriverRow(driver) {
     const action = getPrimaryAction(driver);
     const actionAttrs = action.disabled ? '' : action.external ? 'target="_blank" rel="noopener noreferrer"' : '';
     const actionClass = action.disabled
-        ? 'btn-secondary !px-3 !py-2 text-sm pointer-events-none opacity-70'
+        ? 'btn-secondary !px-3 !py-2 text-sm pointer-events-none opacity-70 border-2 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff]'
         : action.warning
-            ? 'btn-secondary !px-3 !py-2 text-sm'
-            : 'btn-primary !px-3 !py-2 text-sm';
+            ? 'btn-secondary !px-3 !py-2 text-sm border-2 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff]'
+            : 'btn-primary !px-3 !py-2 text-sm border-2 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff]';
     const safeId = escapeHtml(driver.id);
     const safeVersion = escapeHtml(driver.version);
     const safeTypeLabel = escapeHtml(typeLabel);
@@ -611,10 +621,13 @@ function createDriverRow(driver) {
     const safeCategory = escapeHtml(driver.category || '');
     const checksumValue = driver.checksum && driver.checksum.value ? String(driver.checksum.value).toUpperCase() : '';
     const safeChecksumValue = escapeHtml(checksumValue);
+    
+    const baseBtnClass = 'inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black uppercase border-2 border-black dark:border-white bg-white dark:bg-gray-900 text-black dark:text-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[3px_3px_0px_0px_#000] dark:hover:shadow-[3px_3px_0px_0px_#fff] transition-all cursor-pointer';
+    
     const checksumButtonHtml = checksumValue
-        ? `<button type="button" data-driver-copy-hash="${safeId}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors duration-200"><span class="material-icons text-[14px]">content_copy</span><span data-copy-label>SHA256</span><span data-copy-hash-value class="font-mono text-[10px] tracking-wide overflow-hidden whitespace-nowrap opacity-0 transition-all duration-200" style="max-width: 0;" title="${safeChecksumValue}">${safeChecksumValue}</span></button>`
+        ? `<button type="button" data-driver-copy-hash="${safeId}" class="${baseBtnClass}"><span class="material-icons text-[14px]">content_copy</span><span data-copy-label>SHA256</span><span data-copy-hash-value class="font-mono text-[10px] tracking-wide overflow-hidden whitespace-nowrap opacity-0 transition-all duration-200" style="max-width: 0;" title="${safeChecksumValue}">${safeChecksumValue}</span></button>`
         : '';
-    card.innerHTML = `<div class="flex flex-wrap items-start justify-between gap-3"><div class="min-w-0 flex-1"><h3 class="text-base font-semibold text-gray-900 dark:text-white">${safeVersion}</h3><p class="text-sm text-gray-500 dark:text-gray-400">${safeTypeLabel}</p></div><span class="text-xs font-medium text-gray-500 dark:text-gray-400">${safeReleaseLabel}</span></div><div class="flex flex-wrap gap-2"><span class="px-2 py-1 rounded-md text-xs font-semibold ${riskClass(driver.riskLevel)}">${safeRiskLevel} risk</span><span class="px-2 py-1 rounded-md text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">${safeChannelLabel}</span>${driver.isStable && driver.stabilityGrade ? `<span class="px-2 py-1 rounded-md text-xs font-semibold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">Stable ${safeStableGrade}</span>` : ''}</div><div class="text-sm text-gray-600 dark:text-gray-300">${safeHighlights}</div><div class="flex flex-wrap items-center gap-2"><a href="${safeActionHref}" ${actionAttrs} class="${actionClass}"><span class="material-icons text-base">${safeActionIcon}</span>${safeActionLabel}</a>${safeReleaseNotesHref ? `<a href="${safeReleaseNotesHref}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm"><span class="material-icons text-base">notes</span>Notes</a>` : ''}${safeKnownIssuesHref ? `<a href="${safeKnownIssuesHref}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm"><span class="material-icons text-base">warning</span>Issues</a>` : ''}${safeRedditHref ? `<a href="${safeRedditHref}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm"><span class="material-icons text-base">forum</span>Community</a>` : ''}<button type="button" data-driver-compare-id="${safeId}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300"><span class="material-icons text-[14px]">compare_arrows</span><span data-compare-label>Compare</span></button><button type="button" data-driver-favorite-id="${safeId}" data-version="${safeVersion}" data-category="${safeCategory}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300"><span class="material-icons text-[14px]">star_border</span>Watch</button><button type="button" data-driver-detail-id="${safeId}" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300"><span class="material-icons text-[14px]">info</span>Details</button>${checksumButtonHtml}</div>`;
+    card.innerHTML = `<div class="flex flex-wrap items-start justify-between gap-3"><div class="min-w-0 flex-1"><h3 class="text-lg font-black text-gray-900 dark:text-white uppercase tracking-wide">${safeVersion}</h3><p class="text-sm font-semibold text-gray-500 dark:text-gray-400 mt-0.5">${safeTypeLabel}</p></div><span class="text-xs font-bold text-gray-500 dark:text-gray-400 font-mono bg-gray-150 dark:bg-gray-800 border border-black dark:border-white px-2 py-0.5 shadow-[1px_1px_0px_0px_#000] dark:shadow-[1px_1px_0px_0px_#fff]">${safeReleaseLabel}</span></div><div class="flex flex-wrap gap-2"><span class="px-2.5 py-1 border-2 border-black dark:border-white text-xs font-black uppercase shadow-[1px_1px_0px_0px_#000] dark:shadow-[1px_1px_0px_0px_#fff] ${riskClass(driver.riskLevel)}">${safeRiskLevel} risk</span><span class="px-2.5 py-1 border-2 border-black dark:border-white text-xs font-black uppercase bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 shadow-[1px_1px_0px_0px_#000] dark:shadow-[1px_1px_0px_0px_#fff]">${safeChannelLabel}</span>${driver.isStable && driver.stabilityGrade ? `<span class="px-2.5 py-1 border-2 border-black dark:border-white text-xs font-black uppercase bg-emerald-300 text-black dark:bg-emerald-600 dark:text-white shadow-[1px_1px_0px_0px_#000] dark:shadow-[1px_1px_0px_0px_#fff]">Stable ${safeStableGrade}</span>` : ''}</div><div class="text-sm font-semibold text-gray-600 dark:text-gray-400 my-1">${safeHighlights}</div><div class="flex flex-wrap items-center gap-2"><a href="${safeActionHref}" ${actionAttrs} class="${actionClass}"><span class="material-icons text-base">${safeActionIcon}</span>${safeActionLabel}</a>${safeReleaseNotesHref ? `<a href="${safeReleaseNotesHref}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm border-2 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff]"><span class="material-icons text-base">notes</span>Notes</a>` : ''}${safeKnownIssuesHref ? `<a href="${safeKnownIssuesHref}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm border-2 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff]"><span class="material-icons text-base">warning</span>Issues</a>` : ''}${safeRedditHref ? `<a href="${safeRedditHref}" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-3 !py-2 text-sm border-2 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff]"><span class="material-icons text-base">forum</span>Community</a>` : ''}<button type="button" data-driver-compare-id="${safeId}" class="${baseBtnClass}"><span class="material-icons text-[14px]">compare_arrows</span><span data-compare-label>Compare</span></button><button type="button" data-driver-favorite-id="${safeId}" data-version="${safeVersion}" data-category="${safeCategory}" class="${baseBtnClass}"><span class="material-icons text-[14px]">star_border</span>Watch</button><button type="button" data-driver-detail-id="${safeId}" class="${baseBtnClass}"><span class="material-icons text-[14px]">info</span>Details</button>${checksumButtonHtml}</div>`;
     const detailBtn = card.querySelector('[data-driver-detail-id]');
     if (detailBtn) {
         detailBtn.addEventListener('click', function(event) {
@@ -635,9 +648,10 @@ function createDriverRow(driver) {
     if (favoriteBtn && typeof FavoritesModule !== 'undefined' && typeof FavoritesModule.toggle === 'function') {
         function refreshFavoriteState() {
             const isFav = FavoritesModule.isFavorite(driver.version, driver.category);
+            const baseClass = 'inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black uppercase border-2 border-black dark:border-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[3px_3px_0px_0px_#000] dark:hover:shadow-[3px_3px_0px_0px_#fff] transition-all cursor-pointer';
             favoriteBtn.className = isFav
-                ? 'inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300'
-                : 'inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300';
+                ? `${baseClass} bg-cyberyellow text-black`
+                : `${baseClass} bg-white dark:bg-gray-900 text-black dark:text-white`;
             const icon = favoriteBtn.querySelector('.material-icons');
             if (icon) icon.textContent = isFav ? 'star' : 'star_border';
         }
