@@ -128,7 +128,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </a>
     </section>
 
-    <section class="grid lg:grid-cols-2 items-start gap-8 mb-16" data-animate>
+    <section class="grid lg:grid-cols-2 items-stretch gap-8 mb-16" data-animate>
         <div class="card p-6">
             <button type="button" class="w-full flex items-center justify-between gap-3 text-left" data-home-panel-toggle="best-picks-panel" aria-expanded="true" aria-controls="best-picks-panel">
                 <span class="flex items-center gap-2.5">
@@ -422,7 +422,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const target = document.getElementById('recent-timeline');
         if (!target) return;
         target.textContent = '';
-        const rows = (delta.recent || []).slice(0, 8);
+        const rows = (delta.recent || []).slice(0, 5);
         if (!rows.length) {
             target.textContent = 'No recent timeline entries.';
             return;
