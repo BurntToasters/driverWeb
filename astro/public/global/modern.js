@@ -7,68 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let settingsOpen = false;
   let settingsTrigger = null;
 
-  function getOverlayState() {
-    if (!window.__driverhubOverlayState) {
-      window.__driverhubOverlayState = { locks: new Set(), previousOverflow: '' };
-    }
-    return window.__driverhubOverlayState;
-  }
-
-  function lockBodyScroll(lockId) {
-    const state = getOverlayState();
-    if (!state.locks.size) {
-      state.previousOverflow = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-    }
-    state.locks.add(lockId);
-  }
-
-  function unlockBodyScroll(lockId) {
-    const state = getOverlayState();
-    state.locks.delete(lockId);
-    if (!state.locks.size) {
-      document.body.style.overflow = state.previousOverflow || '';
-      state.previousOverflow = '';
-    }
-  }
-
-  function getFocusable(container) {
-    if (!container) return [];
-    const selector = [
-      'a[href]',
-      'button:not([disabled])',
-      'input:not([disabled])',
-      'select:not([disabled])',
-      'textarea:not([disabled])',
-      '[tabindex]:not([tabindex="-1"])'
-    ].join(',');
-
-    return Array.from(container.querySelectorAll(selector)).filter(function(el) {
-      return !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden');
-    });
-  }
-
-  function trapFocus(event, container) {
-    if (event.key !== 'Tab') return;
-
-    const focusable = getFocusable(container);
-    if (!focusable.length) {
-      event.preventDefault();
-      return;
-    }
-
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    const active = document.activeElement;
-
-    if (event.shiftKey && active === first) {
-      event.preventDefault();
-      last.focus();
-    } else if (!event.shiftKey && active === last) {
-      event.preventDefault();
-      first.focus();
-    }
-  }
+  const { getOverlayState, lockBodyScroll, unlockBodyScroll, getFocusable, trapFocus } = window.DriverHubShared;
 
   function setSettingsControlState(expanded) {
     if (!settingsButton) return;
@@ -249,6 +188,8 @@ document.addEventListener('DOMContentLoaded', function() {
     updateOpenCollapsibleHeights();
   });
 
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   const observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
@@ -260,8 +201,12 @@ document.addEventListener('DOMContentLoaded', function() {
   }, { threshold: 0.1 });
 
   document.querySelectorAll('[data-animate]').forEach(function(section) {
-    section.classList.add('opacity-0', 'translate-y-4', 'transition-all', 'duration-500');
-    observer.observe(section);
+    if (prefersReducedMotion) {
+      section.classList.add('opacity-100');
+    } else {
+      section.classList.add('opacity-0', 'translate-y-4', 'transition-all', 'duration-500');
+      observer.observe(section);
+    }
   });
 
   window.DriverHubUI = {

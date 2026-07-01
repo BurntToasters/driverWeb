@@ -10,5 +10,5 @@ export default defineConfig({
     format: 'file',
     assets: '_astro'
   },
-  compressHTML: false
+  compressHTML: true
 });

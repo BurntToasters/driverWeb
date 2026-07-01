@@ -31,21 +31,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <h1 class="page-heading mb-4 text-5xl md:text-6xl tracking-wider">Professional Windows Driver Hub</h1>
         <p class="page-subheading max-w-2xl mx-auto mb-8 font-bold">Official vendor links, risk-aware labels, deep-linkable filters, and compare-ready metadata for faster driver decisions.</p>
         <form id="hero-command-form" class="hero-command" role="search" aria-label="Command search">
-            <span class="material-icons text-cyberyellow">terminal</span>
+            <span aria-hidden="true" class="material-icons text-cyberyellow">terminal</span>
             <input id="hero-command-input" type="text" class="hero-command-input" placeholder="Search: 581.94, game-ready, low risk, Intel Pro..." autocomplete="off">
             <kbd class="hero-command-chip">Ctrl+K</kbd>
             <button type="submit" class="btn-primary !px-5 !py-2.5">
-                <span class="material-icons text-lg">search</span>
+                <span aria-hidden="true" class="material-icons text-lg">search</span>
                 Search
             </button>
         </form>
         <div class="mobile-hero-actions mt-6">
             <a href="/display" class="btn-primary">
-                <span class="material-icons text-lg">download</span>
+                <span aria-hidden="true" class="material-icons text-lg">download</span>
                 Browse Graphics
             </a>
             <button id="hero-search-btn" class="btn-secondary" type="button">
-                <span class="material-icons text-lg">search</span>
+                <span aria-hidden="true" class="material-icons text-lg">search</span>
                 Search Catalog
             </button>
         </div>
@@ -54,12 +54,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <details class="card mb-10 group" data-animate>
         <summary class="p-5 font-black uppercase text-base flex items-center justify-between cursor-pointer select-none bg-gray-50 dark:bg-gray-800/40 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors list-none">
             <span class="flex items-center gap-2.5">
-                <span class="material-icons text-cyberyellow dark:text-cyberyellow">explore</span>
+                <span aria-hidden="true" class="material-icons text-cyberyellow dark:text-cyberyellow">explore</span>
                 <span class="text-lg font-black tracking-wide">Recommendation Wizard</span>
             </span>
             <div class="flex items-center gap-3">
                 <span class="text-xs font-bold text-gray-500 hidden sm:inline">Configure Target Setup</span>
-                <span class="material-icons transition-transform duration-200 group-open:rotate-180">expand_more</span>
+                <span aria-hidden="true" class="material-icons transition-transform duration-200 group-open:rotate-180">expand_more</span>
             </div>
         </summary>
         <div class="p-6 border-t-[3px] border-black dark:border-white">
@@ -90,7 +90,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     <option value="windows-10">Windows 10</option>
                 </select>
                 <button id="rec-go" type="button" class="btn-primary justify-center">
-                    <span class="material-icons text-lg">arrow_forward</span>
+                    <span aria-hidden="true" class="material-icons text-lg">arrow_forward</span>
                     Open
                 </button>
             </div>
@@ -100,28 +100,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <section class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10" data-animate>
         <a href="/display" class="card-hover p-5 border-t-[8px] border-t-nvidia hover:shadow-neo-flat-hover-nvidia">
             <div class="flex items-center gap-2.5 mb-1.5">
-                <span class="material-icons text-nvidia text-[24px]" aria-hidden="true">videocam</span>
+                <span aria-hidden="true" class="material-icons text-nvidia text-[24px]">videocam</span>
                 <h3 class="font-black text-gray-900 dark:text-white uppercase tracking-wide text-lg">Graphics</h3>
             </div>
             <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Desktop and laptop GPU channels.</p>
         </a>
         <a href="/chipset" class="card-hover p-5 border-t-[8px] border-t-intel hover:shadow-neo-flat-hover-intel">
             <div class="flex items-center gap-2.5 mb-1.5">
-                <span class="material-icons text-intel text-[24px]" aria-hidden="true">memory</span>
+                <span aria-hidden="true" class="material-icons text-intel text-[24px]">memory</span>
                 <h3 class="font-black text-gray-900 dark:text-white uppercase tracking-wide text-lg">Chipset</h3>
             </div>
             <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">AMD and Intel chipset utilities.</p>
         </a>
         <a href="/audio" class="card-hover p-5 border-t-[8px] border-t-amber-400 hover:shadow-[7px_7px_0px_0px_#fbbf24]">
             <div class="flex items-center gap-2.5 mb-1.5">
-                <span class="material-icons text-amber-500 text-[24px]" aria-hidden="true">headphones</span>
+                <span aria-hidden="true" class="material-icons text-amber-500 text-[24px]">headphones</span>
                 <h3 class="font-black text-gray-900 dark:text-white uppercase tracking-wide text-lg">Audio</h3>
             </div>
             <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Production audio listings.</p>
         </a>
         <a href="/network" class="card-hover p-5 border-t-[8px] border-t-purple-500 hover:shadow-[7px_7px_0px_0px_#a855f7]">
             <div class="flex items-center gap-2.5 mb-1.5">
-                <span class="material-icons text-purple-500 text-[24px]" aria-hidden="true">wifi</span>
+                <span aria-hidden="true" class="material-icons text-purple-500 text-[24px]">wifi</span>
                 <h3 class="font-black text-gray-900 dark:text-white uppercase tracking-wide text-lg">Network</h3>
             </div>
             <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Wi-Fi and ethernet listings.</p>
@@ -132,25 +132,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="card p-6">
             <button type="button" class="w-full flex items-center justify-between gap-3 text-left" data-home-panel-toggle="best-picks-panel" aria-expanded="true" aria-controls="best-picks-panel">
                 <span class="flex items-center gap-2.5">
-                    <span class="material-icons text-cyan-500">verified</span>
+                    <span aria-hidden="true" class="material-icons text-cyan-500">verified</span>
                     <h2 class="section-heading">Current Best Picks</h2>
                 </span>
-                <span class="material-icons text-gray-700 dark:text-gray-300" data-home-panel-icon>expand_less</span>
+                <span aria-hidden="true" class="material-icons text-gray-700 dark:text-gray-300" data-home-panel-icon>expand_less</span>
             </button>
             <div id="best-picks-panel" class="mt-4">
-                <div id="best-picks" class="space-y-4 text-sm text-gray-650 dark:text-gray-300"></div>
+                <div id="best-picks" class="space-y-4 text-sm text-gray-600 dark:text-gray-300"></div>
             </div>
         </div>
         <div class="card p-6">
             <button type="button" class="w-full flex items-center justify-between gap-3 text-left" data-home-panel-toggle="recent-timeline-panel" aria-expanded="true" aria-controls="recent-timeline-panel">
                 <span class="flex items-center gap-2.5">
-                    <span class="material-icons text-fuchsia-500">timeline</span>
+                    <span aria-hidden="true" class="material-icons text-fuchsia-500">timeline</span>
                     <h2 class="section-heading">Recent Update Timeline</h2>
                 </span>
-                <span class="material-icons text-gray-700 dark:text-gray-300" data-home-panel-icon>expand_less</span>
+                <span aria-hidden="true" class="material-icons text-gray-700 dark:text-gray-300" data-home-panel-icon>expand_less</span>
             </button>
             <div id="recent-timeline-panel" class="mt-4">
-                <div id="recent-timeline" class="space-y-4 text-sm text-gray-650 dark:text-gray-300"></div>
+                <div id="recent-timeline" class="space-y-4 text-sm text-gray-600 dark:text-gray-300"></div>
             </div>
         </div>
     </section>

@@ -56,8 +56,11 @@ const {
         })();
     </script>
 
-    <meta name="theme-color" content="#0f172a">
-    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="/global/tailwind.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -99,6 +102,7 @@ const {
         />
     )}
 
+    <script is:inline src="/global/shared.js"></script>
     {scripts.map((src) => <script is:inline src={`/${src}`}></script>)}
     <slot name="pageScripts" />
     <script is:inline src="/global/pwa.js"></script>

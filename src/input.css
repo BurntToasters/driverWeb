@@ -60,7 +60,7 @@
   }
 
   .btn-brand-nvidia {
-    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-nvidia hover:bg-nvidia-light text-white font-black rounded-none border-[3px] border-black dark:border-white shadow-neo-flat hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-neo-flat-hover-nvidia active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-100 cursor-pointer;
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-nvidia hover:bg-nvidia-light text-black font-black rounded-none border-[3px] border-black dark:border-white shadow-neo-flat hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-neo-flat-hover-nvidia active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-100 cursor-pointer;
   }
 
   .btn-brand-intel {
@@ -127,3 +127,19 @@
 .dark .hover\:shadow-\[4px_4px_0px_0px_\#fff\]:hover,
 .dark .focus\:shadow-\[4px_4px_0px_0px_\#fff\]:focus { box-shadow: 4px 4px 0 0 #cbd5e1; }
 .dark .shadow-\[4px_4px_0px_0px_\#fff\] { box-shadow: 4px 4px 0 0 #cbd5e1; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

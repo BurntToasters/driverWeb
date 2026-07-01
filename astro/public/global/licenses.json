@@ -5,7 +5,7 @@
         "licenseUrl": "https://github.com/sindresorhus/quick-lru/raw/master/license",
         "parents": "driverhub"
     },
-    "@astrojs/compiler-binding-win32-x64-msvc@0.2.3": {
+    "@astrojs/compiler-binding-darwin-arm64@0.2.3": {
         "licenses": "MIT",
         "repository": "https://github.com/withastro/compiler-rs",
         "licenseUrl": "https://github.com/withastro/compiler-rs",
@@ -71,7 +71,7 @@
         "licenseUrl": "https://github.com/babel/babel/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@bruits/satteri-win32-x64-msvc@0.9.3": {
+    "@bruits/satteri-darwin-arm64@0.9.3": {
         "licenses": "UNKNOWN",
         "repository": "https://github.com/bruits/satteri",
         "licenseUrl": "https://github.com/bruits/satteri",
@@ -95,7 +95,7 @@
         "licenseUrl": "https://github.com/bombshell-dev/clack/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@esbuild/win32-x64@0.28.1": {
+    "@esbuild/darwin-arm64@0.28.1": {
         "licenses": "MIT",
         "repository": "https://github.com/evanw/esbuild",
         "licenseUrl": "https://github.com/evanw/esbuild",
@@ -107,10 +107,16 @@
         "licenseUrl": "https://github.com/lovell/colour/raw/master/LICENSE.md",
         "parents": "driverhub"
     },
-    "@img/sharp-win32-x64@0.34.5": {
-        "licenses": "Apache-2.0 AND LGPL-3.0-or-later",
+    "@img/sharp-darwin-arm64@0.34.5": {
+        "licenses": "Apache-2.0",
         "repository": "https://github.com/lovell/sharp",
         "licenseUrl": "https://github.com/lovell/sharp/raw/master/LICENSE",
+        "parents": "driverhub"
+    },
+    "@img/sharp-libvips-darwin-arm64@1.2.4": {
+        "licenses": "LGPL-3.0-or-later",
+        "repository": "https://github.com/lovell/sharp-libvips",
+        "licenseUrl": "https://github.com/lovell/sharp-libvips",
         "parents": "driverhub"
     },
     "@jridgewell/gen-mapping@0.3.13": {
@@ -167,7 +173,7 @@
         "licenseUrl": "https://github.com/oxc-project/oxc/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@rolldown/binding-win32-x64-msvc@1.1.3": {
+    "@rolldown/binding-darwin-arm64@1.1.3": {
         "licenses": "MIT",
         "repository": "https://github.com/rolldown/rolldown",
         "licenseUrl": "https://github.com/rolldown/rolldown",
@@ -765,6 +771,12 @@
         "licenseUrl": "https://github.com/delucis/fontkitten/raw/master/LICENSE",
         "parents": "driverhub"
     },
+    "fsevents@2.3.3": {
+        "licenses": "MIT",
+        "repository": "https://github.com/fsevents/fsevents",
+        "licenseUrl": "https://github.com/fsevents/fsevents/raw/master/LICENSE",
+        "parents": "driverhub"
+    },
     "function-bind@1.1.2": {
         "licenses": "MIT",
         "repository": "https://github.com/Raynos/function-bind",
@@ -1023,7 +1035,7 @@
         "licenseUrl": "http://github.com/davglass/license-checker/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "lightningcss-win32-x64-msvc@1.32.0": {
+    "lightningcss-darwin-arm64@1.32.0": {
         "licenses": "MPL-2.0",
         "repository": "https://github.com/parcel-bundler/lightningcss",
         "licenseUrl": "https://github.com/parcel-bundler/lightningcss/raw/master/LICENSE",

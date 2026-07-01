@@ -15,23 +15,23 @@ const {
             </a>
             <div class="flex items-center gap-2">
                 {showSearchButton && (
-                    <button id="global-search-btn" type="button" aria-haspopup="dialog" aria-controls="search-overlay" aria-expanded="false" class="p-2 border-[3px] border-black dark:border-white bg-white dark:bg-gray-900 text-black dark:text-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all cursor-pointer" title="Search (Ctrl+K)">
-                        <span class="material-icons text-[20px] block">search</span>
+                    <button id="global-search-btn" type="button" aria-label="Search (Ctrl+K)" aria-haspopup="dialog" aria-controls="search-overlay" aria-expanded="false" class="p-2 border-[3px] border-black dark:border-white bg-white dark:bg-gray-900 text-black dark:text-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all cursor-pointer" title="Search (Ctrl+K)">
+                        <span aria-hidden="true" class="material-icons text-[20px] block">search</span>
                     </button>
                 )}
                 {showFavoritesButton && (
-                    <button id="favorites-btn" type="button" aria-haspopup="dialog" aria-controls="favorites-panel" aria-expanded="false" class="p-2 border-[3px] border-black dark:border-white bg-white dark:bg-gray-900 text-black dark:text-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all cursor-pointer" title="Watchlist">
-                        <span class="material-icons text-[20px] block">star_outline</span>
+                    <button id="favorites-btn" type="button" aria-label="Watchlist" aria-haspopup="dialog" aria-controls="favorites-panel" aria-expanded="false" class="p-2 border-[3px] border-black dark:border-white bg-white dark:bg-gray-900 text-black dark:text-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all cursor-pointer" title="Watchlist">
+                        <span aria-hidden="true" class="material-icons text-[20px] block">star_outline</span>
                     </button>
                 )}
                 {showDarkModeButton && (
-                    <button id="darkModeToggle" type="button" class="p-2 border-[3px] border-black dark:border-white bg-white dark:bg-gray-900 text-black dark:text-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all cursor-pointer" title="Toggle dark mode">
-                        <span class="material-icons text-[20px] block">dark_mode</span>
+                    <button id="darkModeToggle" type="button" aria-label="Toggle dark mode" class="p-2 border-[3px] border-black dark:border-white bg-white dark:bg-gray-900 text-black dark:text-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all cursor-pointer" title="Toggle dark mode">
+                        <span aria-hidden="true" class="material-icons text-[20px] block">dark_mode</span>
                     </button>
                 )}
                 {showSettings && (
                     <button class="settings-button p-2 border-[3px] border-black dark:border-white bg-white dark:bg-gray-900 text-black dark:text-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all cursor-pointer" type="button" aria-label="Settings" aria-haspopup="dialog" aria-controls="settings-overlay" aria-expanded="false" title="Settings">
-                        <span class="material-icons text-[20px] block">tune</span>
+                        <span aria-hidden="true" class="material-icons text-[20px] block">tune</span>
                     </button>
                 )}
             </div>

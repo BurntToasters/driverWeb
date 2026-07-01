@@ -13,7 +13,7 @@ Intuitive yet minimalistic UI allowing for easy viewing in both light or dark mo
 - Search 2.0 overlay with weighted ranking, facets, and quick actions
 - Watchlist with delta-feed update indicators
 - Dedicated Trust Center page backed by generated trust metrics
-- Static PWA shell with offline cache for core pages and feeds
+- Static site with service worker cleanup for previous PWA installs
 - Region selection between EU and US based NVIDIA download endpoints ([see more](https://docs.rexxit.net/drivers-website/articles/region-selection))
 
 ## 🌐 Resources

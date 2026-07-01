@@ -1,12 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const warnCsp = "default-src 'self'; script-src 'self' 'unsafe-inline' https://raw.githubusercontent.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://prod.rexxit.net https://web-platforms.sfo2.cdn.digitaloceanspaces.com data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://raw.githubusercontent.com; frame-src https://www.youtube-nocookie.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';";
 ---
 <BaseLayout
     title="Driver Warning | DriverHub"
     metaDescription="Driver warning information - known stability issues."
     metaRobots="noindex, follow"
     canonical="https://driverhub.win/display/warn"
-    includeCsp={false}
+    csp={warnCsp}
     headerVariant="simple"
     showSearchButton={false}
     showFavoritesButton={false}
@@ -20,7 +22,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <main class="flex-1 max-w-4xl mx-auto px-4 md:px-6 py-12 w-full">
     <div class="text-center mb-8">
         <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-amber-100 dark:bg-amber-900/30 mb-4">
-            <span class="material-icons text-5xl text-amber-500">warning</span>
+            <span aria-hidden="true" class="material-icons text-5xl text-amber-500">warning</span>
         </div>
         <h1 class="page-heading mb-2">Driver Warning</h1>
         <p class="page-subheading">This driver version has known stability issues</p>
@@ -30,7 +32,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <div class="p-6 md:p-8 border-l-4 border-amber-500">
             <div class="flex items-start gap-4 mb-6">
                 <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
-                    <span class="material-icons text-2xl text-red-500">error</span>
+                    <span aria-hidden="true" class="material-icons text-2xl text-red-500">error</span>
                 </div>
                 <div>
                     <h2 class="section-heading mb-2">Stability Warning</h2>
@@ -47,15 +49,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
             <div class="flex flex-wrap items-center gap-3 pt-6 border-t border-gray-200 dark:border-gray-700">
                 <a href="/display" id="back-button" class="btn-secondary">
-                    <span class="material-icons text-lg">arrow_back</span>
+                    <span aria-hidden="true" class="material-icons text-lg">arrow_back</span>
                     Go Back
                 </a>
-                <a href="#" id="continue-download" class="inline-flex items-center gap-2 px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-lg shadow-sm hover:shadow-md transition-all duration-200">
-                    <span class="material-icons text-lg">download</span>
+                <a href="#" id="continue-download" class="inline-flex items-center gap-2 px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-black font-medium rounded-lg shadow-sm hover:shadow-md transition-all duration-200">
+                    <span aria-hidden="true" class="material-icons text-lg">download</span>
                     Download Anyway
                 </a>
                 <a href="#" id="hotfix-download" class="hidden btn-brand-nvidia">
-                    <span class="material-icons text-lg">security</span>
+                    <span aria-hidden="true" class="material-icons text-lg">security</span>
                     Download Hotfix
                 </a>
             </div>

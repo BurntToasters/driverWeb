@@ -11,68 +11,7 @@ const FavoritesModule = (function() {
     const deltaLatestByCategory = {};
     const deltaRecentByCategory = {};
 
-    function getOverlayState() {
-        if (!window.__driverhubOverlayState) {
-            window.__driverhubOverlayState = { locks: new Set(), previousOverflow: '' };
-        }
-        return window.__driverhubOverlayState;
-    }
-
-    function lockBodyScroll(lockId) {
-        const state = getOverlayState();
-        if (!state.locks.size) {
-            state.previousOverflow = document.body.style.overflow;
-            document.body.style.overflow = 'hidden';
-        }
-        state.locks.add(lockId);
-    }
-
-    function unlockBodyScroll(lockId) {
-        const state = getOverlayState();
-        state.locks.delete(lockId);
-        if (!state.locks.size) {
-            document.body.style.overflow = state.previousOverflow || '';
-            state.previousOverflow = '';
-        }
-    }
-
-    function getFocusable(container) {
-        if (!container) return [];
-        const selector = [
-            'a[href]',
-            'button:not([disabled])',
-            'input:not([disabled])',
-            'select:not([disabled])',
-            'textarea:not([disabled])',
-            '[tabindex]:not([tabindex="-1"])'
-        ].join(',');
-
-        return Array.from(container.querySelectorAll(selector)).filter(function(el) {
-            return !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden');
-        });
-    }
-
-    function trapFocus(event, container) {
-        if (event.key !== 'Tab') return;
-
-        const focusable = getFocusable(container);
-        if (!focusable.length) {
-            event.preventDefault();
-            return;
-        }
-
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-        const active = document.activeElement;
-
-        if (event.shiftKey && active === first) {
-            event.preventDefault();
-            last.focus();
-        } else if (!event.shiftKey && active === last) {
-            event.preventDefault();
-            first.focus();
-        }
-    }
+    const { getOverlayState, lockBodyScroll, unlockBodyScroll, getFocusable, trapFocus } = window.DriverHubShared;
 
     function setFavoritesControlState(expanded) {
         const button = document.getElementById('favorites-btn');
@@ -340,20 +279,20 @@ const FavoritesModule = (function() {
         leftHeader.className = 'flex items-center gap-3';
 
         const starIcon = document.createElement('span');
-        starIcon.className = 'material-icons text-white text-2xl';
+        starIcon.className = 'material-icons text-black text-2xl';
         starIcon.textContent = 'star';
         leftHeader.appendChild(starIcon);
 
         const title = document.createElement('span');
         title.id = 'favorites-title';
-        title.className = 'text-xl font-bold text-white';
+        title.className = 'text-xl font-bold text-black';
         title.textContent = 'Watchlist';
         leftHeader.appendChild(title);
 
         headerFlex.appendChild(leftHeader);
 
         const closeBtn = document.createElement('button');
-        closeBtn.className = 'favorites-close p-2 rounded-xl bg-white/20 hover:bg-white/30 text-white transition-colors';
+        closeBtn.className = 'favorites-close p-2 rounded-xl bg-black/10 hover:bg-black/20 text-black transition-colors';
         closeBtn.type = 'button';
         closeBtn.setAttribute('aria-label', 'Close watchlist');
         const closeIcon = document.createElement('span');

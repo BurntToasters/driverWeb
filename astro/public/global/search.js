@@ -15,29 +15,7 @@ const SearchModule = (function() {
         risk: ''
     };
 
-    function normalizeBrand(brand) {
-        const normalized = (brand || '').toLowerCase();
-        return ['nvidia', 'intel', 'amd', 'audio', 'network'].includes(normalized) ? normalized : '';
-    }
-
-    function normalizeChannel(channel) {
-        const normalized = (channel || '').toLowerCase();
-        return ['game-ready', 'studio', 'game-on', 'pro', 'chipset', 'audio', 'network'].includes(normalized) ? normalized : '';
-    }
-
-    function normalizeRisk(risk) {
-        const normalized = (risk || '').toLowerCase();
-        return ['low', 'medium', 'high'].includes(normalized) ? normalized : '';
-    }
-
-    function escapeHtml(value) {
-        return String(value == null ? '' : value)
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#39;');
-    }
+    const { escapeHtml, normalizeBrand, normalizeChannel, normalizeRisk, lockBodyScroll, unlockBodyScroll } = window.DriverHubShared;
 
     function safeInternalPath(pathValue) {
         const value = String(pathValue || '').trim();
@@ -50,31 +28,6 @@ const SearchModule = (function() {
         const d = new Date(value);
         if (!Number.isNaN(d.getTime())) return d.getTime();
         return 0;
-    }
-
-    function getOverlayState() {
-        if (!window.__driverhubOverlayState) {
-            window.__driverhubOverlayState = { locks: new Set(), previousOverflow: '' };
-        }
-        return window.__driverhubOverlayState;
-    }
-
-    function lockBodyScroll(lockId) {
-        const state = getOverlayState();
-        if (!state.locks.size) {
-            state.previousOverflow = document.body.style.overflow;
-            document.body.style.overflow = 'hidden';
-        }
-        state.locks.add(lockId);
-    }
-
-    function unlockBodyScroll(lockId) {
-        const state = getOverlayState();
-        state.locks.delete(lockId);
-        if (!state.locks.size) {
-            document.body.style.overflow = state.previousOverflow || '';
-            state.previousOverflow = '';
-        }
     }
 
     function buildSearchBlob(driver) {
@@ -130,7 +83,7 @@ const SearchModule = (function() {
 
     function createFacetSelect(id, label, options) {
         const wrap = document.createElement('label');
-        wrap.className = 'flex items-center gap-2 text-xs font-black text-gray-655 dark:text-gray-400 uppercase tracking-wide';
+        wrap.className = 'flex items-center gap-2 text-xs font-black text-gray-600 dark:text-gray-400 uppercase tracking-wide';
         const title = document.createElement('span');
         title.textContent = label;
         wrap.appendChild(title);
@@ -172,8 +125,14 @@ const SearchModule = (function() {
 
         searchInput = document.createElement('input');
         searchInput.type = 'text';
+        searchInput.id = 'search-input';
         searchInput.className = 'search-input flex-1 bg-transparent text-lg font-black outline-none text-gray-900 dark:text-white placeholder-gray-500 uppercase tracking-wide';
         searchInput.placeholder = 'Search versions, channels, vendors, risk tags...';
+        searchInput.setAttribute('aria-label', 'Search drivers');
+        searchInput.setAttribute('role', 'combobox');
+        searchInput.setAttribute('aria-expanded', 'false');
+        searchInput.setAttribute('aria-controls', 'search-results-list');
+        searchInput.setAttribute('aria-autocomplete', 'list');
         top.appendChild(searchInput);
 
         const esc = document.createElement('kbd');
@@ -247,7 +206,10 @@ const SearchModule = (function() {
         searchContainer.appendChild(header);
 
         searchResults = document.createElement('div');
-        searchResults.className = 'search-results max-h-[58vh] overflow-y-auto p-4 bg-gray-55/30 dark:bg-gray-950/20';
+        searchResults.id = 'search-results-list';
+        searchResults.setAttribute('role', 'listbox');
+        searchResults.setAttribute('aria-label', 'Search results');
+        searchResults.className = 'search-results max-h-[58vh] overflow-y-auto p-4 bg-gray-50/30 dark:bg-gray-950/20';
         searchContainer.appendChild(searchResults);
 
         const footer = document.createElement('div');
@@ -260,6 +222,28 @@ const SearchModule = (function() {
 
         searchOverlay.addEventListener('click', function(event) {
             if (event.target === searchOverlay) closeSearch({ restoreFocus: true });
+        });
+
+        searchOverlay.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                event.preventDefault();
+                closeSearch({ restoreFocus: true });
+                return;
+            }
+            if (event.key === 'Tab') {
+                var focusable = Array.from(searchContainer.querySelectorAll('input, select, button, a[href], [tabindex]:not([tabindex="-1"])'))
+                    .filter(function(el) { return !el.disabled && el.offsetParent !== null; });
+                if (!focusable.length) { event.preventDefault(); return; }
+                var first = focusable[0];
+                var last = focusable[focusable.length - 1];
+                if (event.shiftKey && document.activeElement === first) {
+                    event.preventDefault();
+                    last.focus();
+                } else if (!event.shiftKey && document.activeElement === last) {
+                    event.preventDefault();
+                    first.focus();
+                }
+            }
         });
 
         searchInput.addEventListener('input', function() { handleSearch(); });
@@ -294,6 +278,7 @@ const SearchModule = (function() {
         selectedIndex = -1;
 
         if (!allDrivers.length) {
+            searchInput.setAttribute('aria-expanded', 'true');
             renderNoResults('Loading driver data...');
             return;
         }
@@ -313,10 +298,12 @@ const SearchModule = (function() {
         }).slice(0, 40);
 
         if (!filtered.length) {
+            searchInput.setAttribute('aria-expanded', 'true');
             renderNoResults('No drivers found matching your query/facets.');
             return;
         }
 
+        searchInput.setAttribute('aria-expanded', 'true');
         searchResults.textContent = '';
         filtered.forEach(function(item, index) {
             const driver = item.driver;
