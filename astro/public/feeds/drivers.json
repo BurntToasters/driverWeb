@@ -1,14 +1,148 @@
 {
-  "generatedAt": "2026-07-01T01:13:42.697Z",
+  "generatedAt": "2026-07-01T01:18:40.424Z",
   "site": "https://driverhub.win",
   "sourceCount": 8,
-  "entryCount": 190,
+  "entryCount": 192,
   "validation": {
     "isValid": true,
     "errors": [],
     "warnings": []
   },
   "entries": [
+    {
+      "id": "nvidia|graphics|game-ready|596-21|whql|20260416",
+      "vendor": "nvidia",
+      "family": "graphics",
+      "channel": "game-ready",
+      "version": "596.21",
+      "type": "WHQL",
+      "releaseDate": "Apr 16, 2026",
+      "releaseDateIso": "2026-04-16",
+      "publishedAt": "2026-04-16T07:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/596.21/596.21-desktop-win10-win11-64bit-international-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/596.21/596.21-win11-win10-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/596.21/596.21-win11-win10-release-notes.pdf",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1sn4s1a",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "A07DE3F525B50F3A4D731860CA8D61BE3A091A71ABD32FF565BD069613D041D7",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "A07DE3F525B50F3A4D731860CA8D61BE3A091A71ABD32FF565BD069613D041D7"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/596.21/596.21-desktop-win10-win11-64bit-international-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/596.21/596.21-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/596.21/596.21-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1sn4s1a"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Optimized for latest game releases"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Game Ready",
+      "brand": "nvidia",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "A07DE3F525B50F3A4D731860CA8D61BE3A091A71ABD32FF565BD069613D041D7",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "nvidia|graphics-laptop|game-ready|596-21|whql|20260416",
+      "vendor": "nvidia",
+      "family": "graphics-laptop",
+      "channel": "game-ready",
+      "version": "596.21",
+      "type": "WHQL",
+      "releaseDate": "Apr 16, 2026",
+      "releaseDateIso": "2026-04-16",
+      "publishedAt": "2026-04-16T07:00:00.000Z",
+      "downloadUrl": "https://us.download.nvidia.com/Windows/596.21/596.21-notebook-win10-win11-64bit-international-dch-whql.exe",
+      "releaseNotesUrl": "https://us.download.nvidia.com/Windows/596.21/596.21-win11-win10-release-notes.pdf",
+      "knownIssuesUrl": "https://us.download.nvidia.com/Windows/596.21/596.21-win11-win10-release-notes.pdf",
+      "warningUrl": "",
+      "redditUrl": "https://redd.it/1sn4s1a",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "A07DE3F525B50F3A4D731860CA8D61BE3A091A71ABD32FF565BD069613D041D7",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "A07DE3F525B50F3A4D731860CA8D61BE3A091A71ABD32FF565BD069613D041D7"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://us.download.nvidia.com/Windows/596.21/596.21-notebook-win10-win11-64bit-international-dch-whql.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://us.download.nvidia.com/Windows/596.21/596.21-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://us.download.nvidia.com/Windows/596.21/596.21-win11-win10-release-notes.pdf"
+        },
+        {
+          "type": "community",
+          "url": "https://redd.it/1sn4s1a"
+        }
+      ],
+      "highlights": [
+        "WHQL",
+        "Optimized for latest game releases"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "NVIDIA Laptop Game Ready",
+      "brand": "nvidia",
+      "page": "/display/laptop",
+      "legacy": {
+        "sha256sum": "A07DE3F525B50F3A4D731860CA8D61BE3A091A71ABD32FF565BD069613D041D7",
+        "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
     {
       "id": "nvidia|graphics|game-ready|595-79|whql|20260310",
       "vendor": "nvidia",

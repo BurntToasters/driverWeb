@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-07-01T01:13:42.697Z",
+  "generatedAt": "2026-07-01T01:18:40.424Z",
   "totals": {
-    "entries": 190,
+    "entries": 192,
     "sources": 8,
     "reachableSources": 8
   },
   "coverage": {
-    "checksumPct": 33.16,
+    "checksumPct": 33.85,
     "sourceLinksPct": 100,
-    "releaseNotesPct": 12.11,
-    "knownIssuesPct": 12.11,
-    "stablePct": 11.05
+    "releaseNotesPct": 13.02,
+    "knownIssuesPct": 13.02,
+    "stablePct": 10.94
   },
   "freshness": {
-    "newestAgeDays": 112,
-    "averageAgeDays": 498.33
+    "newestAgeDays": 75,
+    "averageAgeDays": 493.92
   },
   "validation": {
     "isValid": true,
@@ -25,21 +25,21 @@
   },
   "distribution": {
     "byVendor": {
-      "nvidia": 145,
+      "nvidia": 147,
       "intel": 41,
       "realtek": 2,
       "broadcom": 1,
       "amd": 1
     },
     "byFamily": {
-      "graphics": 94,
-      "graphics-laptop": 89,
+      "graphics": 95,
+      "graphics-laptop": 90,
       "network": 3,
       "audio": 2,
       "chipset": 2
     },
     "byChannel": {
-      "game-ready": 96,
+      "game-ready": 98,
       "studio": 49,
       "game-on": 27,
       "pro": 11,

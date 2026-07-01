@@ -6,14 +6,15 @@ const { spawnSync } = require('child_process');
 const rootDir = path.resolve(__dirname, '..');
 const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
 const npmExecPath = process.env.npm_execpath;
+const feedsDir = path.join(rootDir, 'astro', 'public', 'feeds');
 
 const defaultPaths = [
-  'feeds/drivers.json',
-  'feeds/drivers.xml',
-  'feeds/drivers-delta.json',
-  'feeds/trust-metrics.json',
-  'feeds/audio-drivers.json',
-  'feeds/network-drivers.json'
+  path.join(feedsDir, 'drivers.json'),
+  path.join(feedsDir, 'drivers.xml'),
+  path.join(feedsDir, 'drivers-delta.json'),
+  path.join(feedsDir, 'trust-metrics.json'),
+  path.join(feedsDir, 'audio-drivers.json'),
+  path.join(feedsDir, 'network-drivers.json')
 ];
 
 const extraPaths = String(process.env.DATA_SYNC_EXTRA || '')
