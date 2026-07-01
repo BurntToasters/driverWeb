@@ -4,21 +4,7 @@
     <title>DriverHub Driver Updates</title>
     <link>https://driverhub.win/feeds/drivers.xml</link>
     <description>Latest Windows driver updates indexed by DriverHub.</description>
-    <lastBuildDate>Wed, 01 Jul 2026 01:18:40 GMT</lastBuildDate>
-  <item>
-    <title>NVIDIA Game Ready 596.21 - WHQL</title>
-    <link>https://driverhub.win/display?q=596.21&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics|game-ready|596-21|whql|20260416</guid>
-    <pubDate>Thu, 16 Apr 2026 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Apr 16, 2026 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/596.21/596.21-win11-win10-release-notes.pdf</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Game Ready 596.21 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=596.21&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics-laptop|game-ready|596-21|whql|20260416</guid>
-    <pubDate>Thu, 16 Apr 2026 07:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Apr 16, 2026 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/596.21/596.21-win11-win10-release-notes.pdf</description>
-  </item>
+    <lastBuildDate>Wed, 01 Jul 2026 01:19:34 GMT</lastBuildDate>
   <item>
     <title>NVIDIA Game Ready 595.79 - WHQL</title>
     <link>https://driverhub.win/display?q=595.79&amp;brand=nvidia&amp;channel=game-ready</link>
@@ -844,6 +830,20 @@
     <guid>nvidia|graphics-laptop|game-ready|572-16|whql|20250130</guid>
     <pubDate>Thu, 30 Jan 2025 08:00:00 GMT</pubDate>
     <description>Category: NVIDIA Laptop Game Ready | Release date: Jan 30, 2025 | Risk: high</description>
+  </item>
+  <item>
+    <title>NVIDIA Laptop Studio 572.16 - WHQL</title>
+    <link>https://driverhub.win/display/laptop?q=572.16&amp;brand=nvidia&amp;channel=studio</link>
+    <guid>nvidia|graphics-laptop|studio|572-16|whql|20250130</guid>
+    <pubDate>Thu, 30 Jan 2025 08:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Laptop Studio | Release date: Jan 30, 2025 | Risk: high</description>
+  </item>
+  <item>
+    <title>Intel Chipset Chipset INF Utility - Unified chipset utility</title>
+    <link>https://driverhub.win/chipset?q=Chipset+INF+Utility&amp;brand=intel&amp;channel=chipset</link>
+    <guid>chipset-intel-inf</guid>
+    <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
+    <description>Category: Intel Chipset | Release date: 2025-01-01 | Stability: A | Risk: low</description>
   </item>
   </channel>
 </rss>
