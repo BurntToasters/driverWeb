@@ -77,7 +77,7 @@
         "licenseUrl": "https://github.com/bombshell-dev/clack/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@esbuild/darwin-arm64@0.27.7": {
+    "@esbuild/win32-x64@0.27.7": {
         "licenses": "MIT",
         "repository": "https://github.com/evanw/esbuild",
         "licenseUrl": "https://github.com/evanw/esbuild",
@@ -89,16 +89,10 @@
         "licenseUrl": "https://github.com/lovell/colour/raw/master/LICENSE.md",
         "parents": "driverhub"
     },
-    "@img/sharp-darwin-arm64@0.34.5": {
-        "licenses": "Apache-2.0",
+    "@img/sharp-win32-x64@0.34.5": {
+        "licenses": "Apache-2.0 AND LGPL-3.0-or-later",
         "repository": "https://github.com/lovell/sharp",
         "licenseUrl": "https://github.com/lovell/sharp/raw/master/LICENSE",
-        "parents": "driverhub"
-    },
-    "@img/sharp-libvips-darwin-arm64@1.2.4": {
-        "licenses": "LGPL-3.0-or-later",
-        "repository": "https://github.com/lovell/sharp-libvips",
-        "licenseUrl": "https://github.com/lovell/sharp-libvips",
         "parents": "driverhub"
     },
     "@jridgewell/gen-mapping@0.3.13": {
@@ -155,7 +149,13 @@
         "licenseUrl": "https://github.com/rollup/plugins/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@rollup/rollup-darwin-arm64@4.62.2": {
+    "@rollup/rollup-win32-x64-gnu@4.62.2": {
+        "licenses": "MIT",
+        "repository": "https://github.com/rollup/rollup",
+        "licenseUrl": "https://github.com/rollup/rollup",
+        "parents": "driverhub"
+    },
+    "@rollup/rollup-win32-x64-msvc@4.62.2": {
         "licenses": "MIT",
         "repository": "https://github.com/rollup/rollup",
         "licenseUrl": "https://github.com/rollup/rollup",
@@ -769,12 +769,6 @@
         "licenses": "MIT",
         "repository": "https://github.com/delucis/fontkitten",
         "licenseUrl": "https://github.com/delucis/fontkitten/raw/master/LICENSE",
-        "parents": "driverhub"
-    },
-    "fsevents@2.3.3": {
-        "licenses": "MIT",
-        "repository": "https://github.com/fsevents/fsevents",
-        "licenseUrl": "https://github.com/fsevents/fsevents/raw/master/LICENSE",
         "parents": "driverhub"
     },
     "function-bind@1.1.2": {
