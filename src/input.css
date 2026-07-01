@@ -118,3 +118,12 @@
     @apply px-2.5 py-1.5 text-xs border-2 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff];
   }
 }
+
+.dark .bg-gray-950 { background-color: #0b0f17; }
+.dark .bg-gray-900 { background-color: #171d29; }
+.dark .border-white { border-color: #cbd5e1; }
+
+.dark .shadow-\[2px_2px_0px_0px_\#fff\] { box-shadow: 2px 2px 0 0 #cbd5e1; }
+.dark .hover\:shadow-\[4px_4px_0px_0px_\#fff\]:hover,
+.dark .focus\:shadow-\[4px_4px_0px_0px_\#fff\]:focus { box-shadow: 4px 4px 0 0 #cbd5e1; }
+.dark .shadow-\[4px_4px_0px_0px_\#fff\] { box-shadow: 4px 4px 0 0 #cbd5e1; }

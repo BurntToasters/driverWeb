@@ -1,14 +1,138 @@
 {
-  "generatedAt": "2026-07-01T01:39:51.559Z",
+  "generatedAt": "2026-07-01T02:05:27.632Z",
   "site": "https://driverhub.win",
   "sourceCount": 8,
-  "entryCount": 204,
+  "entryCount": 211,
   "validation": {
     "isValid": true,
     "errors": [],
     "warnings": []
   },
   "entries": [
+    {
+      "id": "intel|graphics|game-on|32-0-101-8860|whql|20260630",
+      "vendor": "intel",
+      "family": "graphics",
+      "channel": "game-on",
+      "version": "32.0.101.8860",
+      "type": "whql",
+      "releaseDate": "Jun 30, 2026",
+      "releaseDateIso": "2026-06-30",
+      "publishedAt": "2026-06-30T07:00:00.000Z",
+      "downloadUrl": "https://downloadmirror.intel.com/922583/gfx_win_101.8860.exe",
+      "releaseNotesUrl": "https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html",
+      "knownIssuesUrl": "https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html",
+      "warningUrl": "",
+      "redditUrl": "",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "83A761DC7B28527189EEEE37CE0A0FC6CAE9838B0F877EE7080CC4DCC79BB4C1",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "83A761DC7B28527189EEEE37CE0A0FC6CAE9838B0F877EE7080CC4DCC79BB4C1"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://downloadmirror.intel.com/922583/gfx_win_101.8860.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html"
+        }
+      ],
+      "highlights": [
+        "whql"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "Intel Game On",
+      "brand": "intel",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "83A761DC7B28527189EEEE37CE0A0FC6CAE9838B0F877EE7080CC4DCC79BB4C1",
+        "warningMessage": ""
+      }
+    },
+    {
+      "id": "intel|graphics|pro|32-0-101-8804|20260630",
+      "vendor": "intel",
+      "family": "graphics",
+      "channel": "pro",
+      "version": "32.0.101.8804",
+      "type": "",
+      "releaseDate": "Jun 30, 2026",
+      "releaseDateIso": "2026-06-30",
+      "publishedAt": "2026-06-30T07:00:00.000Z",
+      "downloadUrl": "https://downloadmirror.intel.com/922892/gfx_win_101.8804.exe",
+      "releaseNotesUrl": "https://www.intel.com/content/www/us/en/download/741626/intel-arc-pro-graphics-windows.html",
+      "knownIssuesUrl": "https://www.intel.com/content/www/us/en/download/741626/intel-arc-pro-graphics-windows.html",
+      "warningUrl": "",
+      "redditUrl": "",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "6797E88AC8AA6B66FC87078FCD695C03E9FA127E38D4666439AE6082B56042FC",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "6797E88AC8AA6B66FC87078FCD695C03E9FA127E38D4666439AE6082B56042FC"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://downloadmirror.intel.com/922892/gfx_win_101.8804.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://www.intel.com/content/www/us/en/download/741626/intel-arc-pro-graphics-windows.html"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://www.intel.com/content/www/us/en/download/741626/intel-arc-pro-graphics-windows.html"
+        }
+      ],
+      "highlights": [
+        "Professional certified branch"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "Intel Pro",
+      "brand": "intel",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "6797E88AC8AA6B66FC87078FCD695C03E9FA127E38D4666439AE6082B56042FC",
+        "warningMessage": "Note: Currently with the Arc Pro drivers, I am unable to find community threads on these versions, hence why there is no reddit/external community link on these."
+      }
+    },
     {
       "id": "nvidia|graphics|game-ready|610-62|whql|20260616",
       "vendor": "nvidia",
@@ -415,6 +539,66 @@
       }
     },
     {
+      "id": "intel|graphics|game-on|32-0-101-8824|20260526",
+      "vendor": "intel",
+      "family": "graphics",
+      "channel": "game-on",
+      "version": "32.0.101.8824",
+      "type": "",
+      "releaseDate": "May 26, 2026",
+      "releaseDateIso": "2026-05-26",
+      "publishedAt": "2026-05-26T07:00:00.000Z",
+      "downloadUrl": "https://downloadmirror.intel.com/920655/gfx_win_101.8824.exe",
+      "releaseNotesUrl": "https://www.intel.com/content/www/us/en/download/785597/920655/intel-arc-graphics-windows.html",
+      "knownIssuesUrl": "https://www.intel.com/content/www/us/en/download/785597/920655/intel-arc-graphics-windows.html",
+      "warningUrl": "",
+      "redditUrl": "",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "B614132699AEF97BA08E341833F925EF532B402853964746735B84F8D81489D9",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "B614132699AEF97BA08E341833F925EF532B402853964746735B84F8D81489D9"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://downloadmirror.intel.com/920655/gfx_win_101.8824.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://www.intel.com/content/www/us/en/download/785597/920655/intel-arc-graphics-windows.html"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://www.intel.com/content/www/us/en/download/785597/920655/intel-arc-graphics-windows.html"
+        }
+      ],
+      "highlights": [],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "Intel Game On",
+      "brand": "intel",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "B614132699AEF97BA08E341833F925EF532B402853964746735B84F8D81489D9",
+        "warningMessage": ""
+      }
+    },
+    {
       "id": "nvidia|graphics-laptop|game-ready|610-47|whql|20260526",
       "vendor": "nvidia",
       "family": "graphics-laptop",
@@ -547,6 +731,68 @@
       "legacy": {
         "sha256sum": "59AC4A1659664AAD0A6FC525E5DF99B3FA76887BDE663F9E36E0E7EBB5DBA937",
         "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "intel|graphics|game-on|32-0-101-8801|whql|20260515",
+      "vendor": "intel",
+      "family": "graphics",
+      "channel": "game-on",
+      "version": "32.0.101.8801",
+      "type": "whql",
+      "releaseDate": "May 15, 2026",
+      "releaseDateIso": "2026-05-15",
+      "publishedAt": "2026-05-15T07:00:00.000Z",
+      "downloadUrl": "https://downloadmirror.intel.com/919751/gfx_win_101.8801.exe",
+      "releaseNotesUrl": "https://www.intel.com/content/www/us/en/download/785597/919751/intel-arc-graphics-windows.html",
+      "knownIssuesUrl": "https://www.intel.com/content/www/us/en/download/785597/919751/intel-arc-graphics-windows.html",
+      "warningUrl": "",
+      "redditUrl": "",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "118F1C82871210A52FA2C2488A29E67423A1ED4E263DFCF94C3F64D05B3E0926",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "118F1C82871210A52FA2C2488A29E67423A1ED4E263DFCF94C3F64D05B3E0926"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://downloadmirror.intel.com/919751/gfx_win_101.8801.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://www.intel.com/content/www/us/en/download/785597/919751/intel-arc-graphics-windows.html"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://www.intel.com/content/www/us/en/download/785597/919751/intel-arc-graphics-windows.html"
+        }
+      ],
+      "highlights": [
+        "whql"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "Intel Game On",
+      "brand": "intel",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "118F1C82871210A52FA2C2488A29E67423A1ED4E263DFCF94C3F64D05B3E0926",
+        "warningMessage": ""
       }
     },
     {
@@ -683,6 +929,66 @@
       "legacy": {
         "sha256sum": "45E71D78D82DC1C1F0CCB299D684510D8E77A507FD6963745083407495C038B2",
         "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "intel|graphics|game-on|32-0-101-8737|20260501",
+      "vendor": "intel",
+      "family": "graphics",
+      "channel": "game-on",
+      "version": "32.0.101.8737",
+      "type": "",
+      "releaseDate": "May 1, 2026",
+      "releaseDateIso": "2026-05-01",
+      "publishedAt": "2026-05-01T07:00:00.000Z",
+      "downloadUrl": "https://downloadmirror.intel.com/918589/gfx_win_101.8737.exe",
+      "releaseNotesUrl": "https://www.intel.com/content/www/us/en/download/785597/918589/intel-arc-graphics-windows.html",
+      "knownIssuesUrl": "https://www.intel.com/content/www/us/en/download/785597/918589/intel-arc-graphics-windows.html",
+      "warningUrl": "",
+      "redditUrl": "",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "6E9FF1B5B138223B22029C721EA8E1AA9662003AB12967B6CB5E25CD5E2F9AC3",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "6E9FF1B5B138223B22029C721EA8E1AA9662003AB12967B6CB5E25CD5E2F9AC3"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://downloadmirror.intel.com/918589/gfx_win_101.8737.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://www.intel.com/content/www/us/en/download/785597/918589/intel-arc-graphics-windows.html"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://www.intel.com/content/www/us/en/download/785597/918589/intel-arc-graphics-windows.html"
+        }
+      ],
+      "highlights": [],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "Intel Game On",
+      "brand": "intel",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "6E9FF1B5B138223B22029C721EA8E1AA9662003AB12967B6CB5E25CD5E2F9AC3",
+        "warningMessage": ""
       }
     },
     {
@@ -887,6 +1193,68 @@
       }
     },
     {
+      "id": "intel|graphics|game-on|32-0-101-8724|whql|20260416",
+      "vendor": "intel",
+      "family": "graphics",
+      "channel": "game-on",
+      "version": "32.0.101.8724",
+      "type": "whql",
+      "releaseDate": "Apr 16, 2026",
+      "releaseDateIso": "2026-04-16",
+      "publishedAt": "2026-04-16T07:00:00.000Z",
+      "downloadUrl": "https://downloadmirror.intel.com/917636/gfx_win_101.8724.exe",
+      "releaseNotesUrl": "https://www.intel.com/content/www/us/en/download/785597/917636/intel-arc-graphics-windows.html",
+      "knownIssuesUrl": "https://www.intel.com/content/www/us/en/download/785597/917636/intel-arc-graphics-windows.html",
+      "warningUrl": "",
+      "redditUrl": "",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "DA39A815609B77DBD39063272EEC73AEA8B5324D3B3D67D2F6933684D44C8123",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "DA39A815609B77DBD39063272EEC73AEA8B5324D3B3D67D2F6933684D44C8123"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://downloadmirror.intel.com/917636/gfx_win_101.8724.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://www.intel.com/content/www/us/en/download/785597/917636/intel-arc-graphics-windows.html"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://www.intel.com/content/www/us/en/download/785597/917636/intel-arc-graphics-windows.html"
+        }
+      ],
+      "highlights": [
+        "whql"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "Intel Game On",
+      "brand": "intel",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "DA39A815609B77DBD39063272EEC73AEA8B5324D3B3D67D2F6933684D44C8123",
+        "warningMessage": ""
+      }
+    },
+    {
       "id": "nvidia|graphics-laptop|game-ready|596-21|whql|20260416",
       "vendor": "nvidia",
       "family": "graphics-laptop",
@@ -951,6 +1319,68 @@
       "legacy": {
         "sha256sum": "A07DE3F525B50F3A4D731860CA8D61BE3A091A71ABD32FF565BD069613D041D7",
         "warningMessage": "Nvidia drivers <a href=\"https://youtu.be/KrCEPX47vtw\" target=\"_blank\">576.02</a> and ones based on the 572.xx versions have known <a href=\"https://youtu.be/NTXoUsdSAnA\" target=\"_blank\"><u>instability issues</u></a>. It is recommended to install 566.36 or lower for stability."
+      }
+    },
+    {
+      "id": "intel|graphics|pro|32-0-101-8515|20260325",
+      "vendor": "intel",
+      "family": "graphics",
+      "channel": "pro",
+      "version": "32.0.101.8515",
+      "type": "",
+      "releaseDate": "Mar 25, 2026",
+      "releaseDateIso": "2026-03-25",
+      "publishedAt": "2026-03-25T07:00:00.000Z",
+      "downloadUrl": "https://downloadmirror.intel.com/916141/gfx_win_101.8515.exe",
+      "releaseNotesUrl": "https://www.intel.com/content/www/us/en/download/741626/916141/intel-arc-pro-graphics-windows.html",
+      "knownIssuesUrl": "https://www.intel.com/content/www/us/en/download/741626/916141/intel-arc-pro-graphics-windows.html",
+      "warningUrl": "",
+      "redditUrl": "",
+      "hasWarning": false,
+      "isStable": false,
+      "stabilityGrade": "",
+      "riskLevel": "low",
+      "sha256sum": "77D7BC12381F1700CFF317EE002FABC6A09D0CE3A8E25895ED6FCBD98CF854A4",
+      "checksum": {
+        "algorithm": "sha256",
+        "value": "77D7BC12381F1700CFF317EE002FABC6A09D0CE3A8E25895ED6FCBD98CF854A4"
+      },
+      "sources": [
+        {
+          "type": "download",
+          "url": "https://downloadmirror.intel.com/916141/gfx_win_101.8515.exe"
+        },
+        {
+          "type": "release-notes",
+          "url": "https://www.intel.com/content/www/us/en/download/741626/916141/intel-arc-pro-graphics-windows.html"
+        },
+        {
+          "type": "known-issues",
+          "url": "https://www.intel.com/content/www/us/en/download/741626/916141/intel-arc-pro-graphics-windows.html"
+        }
+      ],
+      "highlights": [
+        "Professional certified branch"
+      ],
+      "issueTags": [
+        "known-issues"
+      ],
+      "supersedes": "",
+      "supersededBy": "",
+      "osSupport": [
+        "windows-10",
+        "windows-11"
+      ],
+      "architectures": [
+        "x64"
+      ],
+      "previousVersion": "",
+      "category": "Intel Pro",
+      "brand": "intel",
+      "page": "/display",
+      "legacy": {
+        "sha256sum": "77D7BC12381F1700CFF317EE002FABC6A09D0CE3A8E25895ED6FCBD98CF854A4",
+        "warningMessage": "Note: Currently with the Arc Pro drivers, I am unable to find community threads on these versions, hence why there is no reddit/external community link on these."
       }
     },
     {
