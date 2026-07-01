@@ -721,7 +721,22 @@ function createDriverRow(driver) {
 function fetchJsonWithTimeout(url, timeoutMs) {
     const controller = new AbortController();
     const timeout = setTimeout(function() { controller.abort(); }, timeoutMs);
-    return fetch(url, { signal: controller.signal }).then(function(response) {
+    let requestUrl = url;
+    try {
+        const parsed = new URL(url, window.location.origin);
+        if (parsed.hostname === 'raw.githubusercontent.com') {
+            parsed.searchParams.set('_ts', String(Date.now()));
+            requestUrl = parsed.toString();
+        }
+    } catch (e) {
+    }
+    return fetch(requestUrl, {
+        signal: controller.signal,
+        cache: 'no-store',
+        headers: {
+            'cache-control': 'no-cache'
+        }
+    }).then(function(response) {
         if (!response.ok) throw new Error(`Failed to load ${url}: ${response.status}`);
         return response.json();
     }).finally(function() {
