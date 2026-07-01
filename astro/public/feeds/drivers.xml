@@ -4,7 +4,105 @@
     <title>DriverHub Driver Updates</title>
     <link>https://driverhub.win/feeds/drivers.xml</link>
     <description>Latest Windows driver updates indexed by DriverHub.</description>
-    <lastBuildDate>Wed, 01 Jul 2026 01:19:34 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 01:37:33 GMT</lastBuildDate>
+  <item>
+    <title>NVIDIA Game Ready 610.62 - WHQL</title>
+    <link>https://driverhub.win/display?q=610.62&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics|game-ready|610-62|whql|20260616</guid>
+    <pubDate>Tue, 16 Jun 2026 07:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Game Ready | Release date: Jun 16, 2026 | Stability: A | Risk: low | Release notes: https://us.download.nvidia.com/Windows/610.62/610.62-win11-win10-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Studio 610.62 - WHQL</title>
+    <link>https://driverhub.win/display?q=610.62&amp;brand=nvidia&amp;channel=studio</link>
+    <guid>nvidia|graphics|studio|610-62|whql|20260616</guid>
+    <pubDate>Tue, 16 Jun 2026 07:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Studio | Release date: Jun 16, 2026 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/610.62/610.62-win10-win11-nsd-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Laptop Game Ready 610.62 - WHQL</title>
+    <link>https://driverhub.win/display/laptop?q=610.62&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics-laptop|game-ready|610-62|whql|20260616</guid>
+    <pubDate>Tue, 16 Jun 2026 07:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Jun 16, 2026 | Stability: A | Risk: low | Release notes: https://us.download.nvidia.com/Windows/610.62/610.62-win11-win10-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Laptop Studio 610.62 - WHQL</title>
+    <link>https://driverhub.win/display/laptop?q=610.62&amp;brand=nvidia&amp;channel=studio</link>
+    <guid>nvidia|graphics-laptop|studio|610-62|whql|20260616</guid>
+    <pubDate>Tue, 16 Jun 2026 07:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Laptop Studio | Release date: Jun 16, 2026 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/610.62/610.62-win10-win11-nsd-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Game Ready 610.47 - WHQL</title>
+    <link>https://driverhub.win/display?q=610.47&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics|game-ready|610-47|whql|20260526</guid>
+    <pubDate>Tue, 26 May 2026 07:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Game Ready | Release date: May 26, 2026 | Stability: D | Risk: medium | Release notes: https://us.download.nvidia.com/Windows/610.47/610.47-win11-win10-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Studio 610.47 - WHQL</title>
+    <link>https://driverhub.win/display?q=610.47&amp;brand=nvidia&amp;channel=studio</link>
+    <guid>nvidia|graphics|studio|610-47|whql|20260526</guid>
+    <pubDate>Tue, 26 May 2026 07:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Studio | Release date: May 26, 2026 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/610.47/610.47-win10-win11-nsd-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Laptop Game Ready 610.47 - WHQL</title>
+    <link>https://driverhub.win/display/laptop?q=610.47&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics-laptop|game-ready|610-47|whql|20260526</guid>
+    <pubDate>Tue, 26 May 2026 07:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: May 26, 2026 | Stability: D | Risk: medium | Release notes: https://us.download.nvidia.com/Windows/610.47/610.47-win11-win10-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Laptop Studio 610.47 - WHQL</title>
+    <link>https://driverhub.win/display/laptop?q=610.47&amp;brand=nvidia&amp;channel=studio</link>
+    <guid>nvidia|graphics-laptop|studio|610-47|whql|20260526</guid>
+    <pubDate>Tue, 26 May 2026 07:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Laptop Studio | Release date: May 26, 2026 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/610.47/610.47-win10-win11-nsd-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Game Ready 596.49 - WHQL</title>
+    <link>https://driverhub.win/display?q=596.49&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics|game-ready|596-49|whql|20260512</guid>
+    <pubDate>Tue, 12 May 2026 07:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Game Ready | Release date: May 12, 2026 | Stability: D | Risk: high | Release notes: https://us.download.nvidia.com/Windows/596.49/596.49-win11-win10-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Laptop Game Ready 596.49 - WHQL</title>
+    <link>https://driverhub.win/display/laptop?q=596.49&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics-laptop|game-ready|596-49|whql|20260512</guid>
+    <pubDate>Tue, 12 May 2026 07:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: May 12, 2026 | Stability: D | Risk: high | Release notes: https://us.download.nvidia.com/Windows/596.49/596.49-win11-win10-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Studio 596.36 - WHQL</title>
+    <link>https://driverhub.win/display?q=596.36&amp;brand=nvidia&amp;channel=studio</link>
+    <guid>nvidia|graphics|studio|596-36|whql|20260428</guid>
+    <pubDate>Tue, 28 Apr 2026 07:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Studio | Release date: Apr 28, 2026 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/596.36/596.36-win10-win11-nsd-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Laptop Studio 596.36 - WHQL</title>
+    <link>https://driverhub.win/display/laptop?q=596.36&amp;brand=nvidia&amp;channel=studio</link>
+    <guid>nvidia|graphics-laptop|studio|596-36|whql|20260428</guid>
+    <pubDate>Tue, 28 Apr 2026 07:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Laptop Studio | Release date: Apr 28, 2026 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/596.36/596.36-win10-win11-nsd-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Game Ready 596.21 - WHQL</title>
+    <link>https://driverhub.win/display?q=596.21&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics|game-ready|596-21|whql|20260416</guid>
+    <pubDate>Thu, 16 Apr 2026 07:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Game Ready | Release date: Apr 16, 2026 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/596.21/596.21-win11-win10-release-notes.pdf</description>
+  </item>
+  <item>
+    <title>NVIDIA Laptop Game Ready 596.21 - WHQL</title>
+    <link>https://driverhub.win/display/laptop?q=596.21&amp;brand=nvidia&amp;channel=game-ready</link>
+    <guid>nvidia|graphics-laptop|game-ready|596-21|whql|20260416</guid>
+    <pubDate>Thu, 16 Apr 2026 07:00:00 GMT</pubDate>
+    <description>Category: NVIDIA Laptop Game Ready | Release date: Apr 16, 2026 | Risk: low | Release notes: https://us.download.nvidia.com/Windows/596.21/596.21-win11-win10-release-notes.pdf</description>
+  </item>
   <item>
     <title>NVIDIA Game Ready 595.79 - WHQL</title>
     <link>https://driverhub.win/display?q=595.79&amp;brand=nvidia&amp;channel=game-ready</link>
@@ -746,104 +844,6 @@
     <guid>nvidia|graphics-laptop|game-ready|572-70|whql|20250305</guid>
     <pubDate>Wed, 05 Mar 2025 08:00:00 GMT</pubDate>
     <description>Category: NVIDIA Laptop Game Ready | Release date: Mar 05, 2025 | Risk: high</description>
-  </item>
-  <item>
-    <title>NVIDIA Game Ready 572.60 - WHQL</title>
-    <link>https://driverhub.win/display?q=572.60&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics|game-ready|572-60|whql|20250227</guid>
-    <pubDate>Thu, 27 Feb 2025 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Feb 27, 2025 | Risk: high</description>
-  </item>
-  <item>
-    <title>NVIDIA Studio 572.60 - WHQL</title>
-    <link>https://driverhub.win/display?q=572.60&amp;brand=nvidia&amp;channel=studio</link>
-    <guid>nvidia|graphics|studio|572-60|whql|20250227</guid>
-    <pubDate>Thu, 27 Feb 2025 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Studio | Release date: Feb 27, 2025 | Risk: high</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Game Ready 572.60 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=572.60&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics-laptop|game-ready|572-60|whql|20250227</guid>
-    <pubDate>Thu, 27 Feb 2025 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Feb 27, 2025 | Risk: high</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Studio 572.60 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=572.60&amp;brand=nvidia&amp;channel=studio</link>
-    <guid>nvidia|graphics-laptop|studio|572-60|whql|20250227</guid>
-    <pubDate>Thu, 27 Feb 2025 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Studio | Release date: Feb 27, 2025 | Risk: high</description>
-  </item>
-  <item>
-    <title>NVIDIA Game Ready 572.47 - WHQL</title>
-    <link>https://driverhub.win/display?q=572.47&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics|game-ready|572-47|whql|20250220</guid>
-    <pubDate>Thu, 20 Feb 2025 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Feb 20, 2025 | Risk: high</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Game Ready 572.47 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=572.47&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics-laptop|game-ready|572-47|whql|20250220</guid>
-    <pubDate>Thu, 20 Feb 2025 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Feb 20, 2025 | Risk: high</description>
-  </item>
-  <item>
-    <title>NVIDIA Game Ready 572.42 - WHQL</title>
-    <link>https://driverhub.win/display?q=572.42&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics|game-ready|572-42|whql|20250213</guid>
-    <pubDate>Thu, 13 Feb 2025 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Feb 13, 2025 | Risk: high</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Game Ready 572.42 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=572.42&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics-laptop|game-ready|572-42|whql|20250213</guid>
-    <pubDate>Thu, 13 Feb 2025 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Feb 13, 2025 | Risk: high</description>
-  </item>
-  <item>
-    <title>NVIDIA Game Ready 572.16 - WHQL</title>
-    <link>https://driverhub.win/display?q=572.16&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics|game-ready|572-16|whql|20250130</guid>
-    <pubDate>Thu, 30 Jan 2025 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Game Ready | Release date: Jan 30, 2025 | Risk: high</description>
-  </item>
-  <item>
-    <title>NVIDIA Studio 572.16 - WHQL</title>
-    <link>https://driverhub.win/display?q=572.16&amp;brand=nvidia&amp;channel=studio</link>
-    <guid>nvidia|graphics|studio|572-16|whql|20250130</guid>
-    <pubDate>Thu, 30 Jan 2025 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Studio | Release date: Jan 30, 2025 | Risk: high</description>
-  </item>
-  <item>
-    <title>Intel Pro 32.0.101.6306</title>
-    <link>https://driverhub.win/display?q=32.0.101.6306&amp;brand=intel&amp;channel=pro</link>
-    <guid>intel|graphics|pro|32-0-101-6306|20250130</guid>
-    <pubDate>Thu, 30 Jan 2025 08:00:00 GMT</pubDate>
-    <description>Category: Intel Pro | Release date: Jan 30, 2025 | Risk: low</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Game Ready 572.16 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=572.16&amp;brand=nvidia&amp;channel=game-ready</link>
-    <guid>nvidia|graphics-laptop|game-ready|572-16|whql|20250130</guid>
-    <pubDate>Thu, 30 Jan 2025 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Game Ready | Release date: Jan 30, 2025 | Risk: high</description>
-  </item>
-  <item>
-    <title>NVIDIA Laptop Studio 572.16 - WHQL</title>
-    <link>https://driverhub.win/display/laptop?q=572.16&amp;brand=nvidia&amp;channel=studio</link>
-    <guid>nvidia|graphics-laptop|studio|572-16|whql|20250130</guid>
-    <pubDate>Thu, 30 Jan 2025 08:00:00 GMT</pubDate>
-    <description>Category: NVIDIA Laptop Studio | Release date: Jan 30, 2025 | Risk: high</description>
-  </item>
-  <item>
-    <title>Intel Chipset Chipset INF Utility - Unified chipset utility</title>
-    <link>https://driverhub.win/chipset?q=Chipset+INF+Utility&amp;brand=intel&amp;channel=chipset</link>
-    <guid>chipset-intel-inf</guid>
-    <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
-    <description>Category: Intel Chipset | Release date: 2025-01-01 | Stability: A | Risk: low</description>
   </item>
   </channel>
 </rss>
