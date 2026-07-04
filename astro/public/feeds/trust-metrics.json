@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-01T05:11:23.657Z",
+  "generatedAt": "2026-07-04T04:37:47.860Z",
   "totals": {
     "entries": 211,
     "sources": 8,
@@ -13,8 +13,8 @@
     "stablePct": 10.9
   },
   "freshness": {
-    "newestAgeDays": 0,
-    "averageAgeDays": 452.91
+    "newestAgeDays": 3,
+    "averageAgeDays": 455.91
   },
   "validation": {
     "isValid": true,

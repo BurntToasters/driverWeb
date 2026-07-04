@@ -71,7 +71,7 @@
         "licenseUrl": "https://github.com/babel/babel/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "@bruits/satteri-darwin-arm64@0.9.3": {
+    "@bruits/satteri-darwin-arm64@0.9.4": {
         "licenses": "UNKNOWN",
         "repository": "https://github.com/bruits/satteri",
         "licenseUrl": "https://github.com/bruits/satteri",
@@ -675,7 +675,7 @@
         "licenseUrl": "https://github.com/ljharb/es-errors/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "es-module-lexer@2.1.0": {
+    "es-module-lexer@2.2.0": {
         "licenses": "MIT",
         "repository": "https://github.com/guybedford/es-module-lexer",
         "licenseUrl": "https://github.com/guybedford/es-module-lexer/raw/master/LICENSE",
@@ -1423,7 +1423,7 @@
         "licenseUrl": "https://github.com/TrySound/postcss-value-parser/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "postcss@8.5.15": {
+    "postcss@8.5.16": {
         "licenses": "MIT",
         "repository": "https://github.com/postcss/postcss",
         "licenseUrl": "https://github.com/postcss/postcss/raw/master/LICENSE",
@@ -1567,8 +1567,8 @@
         "licenseUrl": "https://github.com/feross/run-parallel/raw/master/LICENSE",
         "parents": "driverhub"
     },
-    "satteri@0.9.3": {
-        "licenses": "MIT*",
+    "satteri@0.9.4": {
+        "licenses": "UNKNOWN",
         "repository": "https://github.com/bruits/satteri",
         "licenseUrl": "https://github.com/bruits/satteri/raw/master/LICENSE",
         "parents": "driverhub"
