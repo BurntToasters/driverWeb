@@ -1,0 +1,94 @@
+---
+import {
+    linkHome, linkDisplay, linkChipset, linkNetwork, linkAudio,
+    linkContact, linkDocs
+} from '../lib/siteLinks.js';
+
+const {
+    navActive = '',
+    showSearchButton = true,
+    showFavoritesButton = false,
+    showDarkModeButton = true,
+    showSettings = false,
+    showComingSoon = true,
+    showDocsLink = true
+} = Astro.props;
+
+function navClass(key) {
+    return navActive === key
+        ? 'bg-cyberyellow text-black border-black dark:border-white font-black'
+        : 'bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 border-black dark:border-white hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white';
+}
+
+function navAria(key) {
+    return navActive === key ? 'page' : undefined;
+}
+---
+<header class="sticky top-0 z-40 bg-white dark:bg-gray-950 border-b-[3px] border-black dark:border-white">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 py-2">
+        <div class="flex items-center justify-between h-14 mb-2">
+            <a href="/" class="flex items-center gap-2.5">
+                <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-8 w-8 border border-black dark:border-white">
+                <span class="text-xl font-black text-gray-900 dark:text-white tracking-wider uppercase">DriverHub</span>
+            </a>
+            <div class="flex items-center gap-2">
+                {showSearchButton && (
+                    <button id="global-search-btn" type="button" aria-label="Search (Ctrl+K)" aria-haspopup="dialog" aria-controls="search-overlay" aria-expanded="false" class="p-2 border-[3px] border-black dark:border-white bg-white dark:bg-gray-900 text-black dark:text-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all cursor-pointer" title="Search (Ctrl+K)">
+                        <span aria-hidden="true" class="material-icons text-[20px] block">search</span>
+                    </button>
+                )}
+                {showFavoritesButton && (
+                    <button id="favorites-btn" type="button" aria-label="Watchlist" aria-haspopup="dialog" aria-controls="favorites-panel" aria-expanded="false" class="p-2 border-[3px] border-black dark:border-white bg-white dark:bg-gray-900 text-black dark:text-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all cursor-pointer" title="Watchlist">
+                        <span aria-hidden="true" class="material-icons text-[20px] block">star_outline</span>
+                    </button>
+                )}
+                {showDarkModeButton && (
+                    <button id="darkModeToggle" type="button" aria-label="Toggle dark mode" class="p-2 border-[3px] border-black dark:border-white bg-white dark:bg-gray-900 text-black dark:text-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all cursor-pointer" title="Toggle dark mode">
+                        <span aria-hidden="true" class="material-icons text-[20px] block">dark_mode</span>
+                    </button>
+                )}
+                {showSettings && (
+                    <button class="settings-button p-2 border-[3px] border-black dark:border-white bg-white dark:bg-gray-900 text-black dark:text-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all cursor-pointer" type="button" aria-label="Settings" aria-haspopup="dialog" aria-controls="settings-overlay" aria-expanded="false" title="Settings">
+                        <span aria-hidden="true" class="material-icons text-[20px] block">tune</span>
+                    </button>
+                )}
+            </div>
+        </div>
+        <div class="relative">
+            <nav class="flex items-center gap-2 pb-2 overflow-x-auto scrollbar-hide" role="navigation" aria-label="Main navigation">
+                <a href={linkHome} aria-current={navAria('home')} class={`px-3 py-1.5 text-sm font-bold flex items-center gap-1.5 border-[3px] shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all duration-75 whitespace-nowrap ${navClass('home')}`}>
+                    <span aria-hidden="true" class="material-icons text-[18px]">home</span>Home
+                </a>
+                <a href={linkDisplay} aria-current={navAria('graphics')} class={`px-3 py-1.5 text-sm font-bold flex items-center gap-1.5 border-[3px] shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all duration-75 whitespace-nowrap ${navClass('graphics')}`}>
+                    <span aria-hidden="true" class="material-icons text-[18px]">videocam</span>Graphics
+                </a>
+                <a href={linkChipset} aria-current={navAria('chipset')} class={`px-3 py-1.5 text-sm font-bold flex items-center gap-1.5 border-[3px] shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all duration-75 whitespace-nowrap ${navClass('chipset')}`}>
+                    <span aria-hidden="true" class="material-icons text-[18px]">memory</span>Chipset
+                </a>
+                {showComingSoon && (
+                    <>
+                        <a href={linkNetwork} aria-current={navAria('network')} class={`px-3 py-1.5 text-sm font-bold flex items-center gap-1.5 border-[3px] shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all duration-75 whitespace-nowrap ${navClass('network')}`}>
+                            <span aria-hidden="true" class="material-icons text-[18px]">wifi</span>Network
+                            <span class="px-1.5 py-0.5 text-[9px] font-black tracking-wide uppercase border border-black dark:border-white bg-cyan-300 dark:bg-cyan-800 text-black dark:text-white">Preview</span>
+                        </a>
+                        <a href={linkAudio} aria-current={navAria('audio')} class={`px-3 py-1.5 text-sm font-bold flex items-center gap-1.5 border-[3px] shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all duration-75 whitespace-nowrap ${navClass('audio')}`}>
+                            <span aria-hidden="true" class="material-icons text-[18px]">headphones</span>Audio
+                            <span class="px-1.5 py-0.5 text-[9px] font-black tracking-wide uppercase border border-black dark:border-white bg-cyan-300 dark:bg-cyan-800 text-black dark:text-white">Preview</span>
+                        </a>
+                    </>
+                )}
+                <div class="w-[3px] h-6 bg-black dark:bg-white mx-1.5 self-center"></div>
+                <a href={linkContact} aria-current={navAria('contact')} class={`px-3 py-1.5 text-sm font-bold flex items-center gap-1.5 border-[3px] shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all duration-75 whitespace-nowrap ${navClass('contact')}`}>
+                    <span aria-hidden="true" class="material-icons text-[18px]">mail_outline</span>Contact
+                </a>
+                {showDocsLink && (
+                    <a href={linkDocs} target="_blank" rel="noopener noreferrer" class={`px-3 py-1.5 text-sm font-bold flex items-center gap-1.5 border-[3px] shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all duration-75 whitespace-nowrap ${navClass('docs')}`}>
+                        <span aria-hidden="true" class="material-icons text-[18px]">description</span>Docs
+                        <svg class="w-3 h-3 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </a>
+                )}
+            </nav>
+            <div class="absolute right-0 top-0 bottom-2 w-12 bg-gradient-to-r from-transparent to-white dark:to-gray-950 pointer-events-none md:hidden"></div>
+        </div>
+    </div>
+</header>

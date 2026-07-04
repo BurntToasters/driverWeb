@@ -4,7 +4,7 @@
 A project that lists common drivers and their native download links all in one place!
 
 ## 🙌 Simplistic
-Intuative yet minimalistic UI allowing for easy viewing in both light or dark mode.
+Intuitive yet minimalistic UI allowing for easy viewing in both light or dark mode.
 
 ## ⭐ Features
 - Professional two-pane driver browsing UI with filter rail and deep-linkable URL state
@@ -13,7 +13,7 @@ Intuative yet minimalistic UI allowing for easy viewing in both light or dark mo
 - Search 2.0 overlay with weighted ranking, facets, and quick actions
 - Watchlist with delta-feed update indicators
 - Dedicated Trust Center page backed by generated trust metrics
-- Static PWA shell with offline cache for core pages and feeds
+- Static site with service worker cleanup for previous PWA installs
 - Region selection between EU and US based NVIDIA download endpoints ([see more](https://docs.rexxit.net/drivers-website/articles/region-selection))
 
 ## 🌐 Resources

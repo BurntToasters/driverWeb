@@ -1,10 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./*.html",
-    "./display/**/*.html",
-    "./info/**/*.html",
-    "./global/**/*.js"
+    "./astro/src/**/*.{astro,html,js,jsx,ts,tsx}",
+    "./astro/public/global/**/*.js"
   ],
   darkMode: 'class',
   theme: {
@@ -36,12 +34,26 @@ module.exports = {
           DEFAULT: '#0071c5',
           light: '#0ea5e9',
           dark: '#0369a1'
+        },
+        cyberyellow: {
+          DEFAULT: '#FFE600',
+          dark: '#D9C200'
         }
       },
       boxShadow: {
         'glow-nvidia': '0 0 25px rgba(118, 185, 0, 0.4)',
         'glow-amd': '0 0 25px rgba(237, 28, 36, 0.4)',
-        'glow-intel': '0 0 25px rgba(0, 113, 197, 0.4)'
+        'glow-intel': '0 0 25px rgba(0, 113, 197, 0.4)',
+        'neo-flat': '4px 4px 0px 0px rgba(0, 0, 0, 1)',
+        'neo-flat-dark': '4px 4px 0px 0px #cbd5e1',
+        'neo-flat-nvidia': '4px 4px 0px 0px #76b900',
+        'neo-flat-amd': '4px 4px 0px 0px #ed1c24',
+        'neo-flat-intel': '4px 4px 0px 0px #0071c5',
+        'neo-flat-hover': '7px 7px 0px 0px rgba(0, 0, 0, 1)',
+        'neo-flat-hover-dark': '7px 7px 0px 0px #cbd5e1',
+        'neo-flat-hover-nvidia': '7px 7px 0px 0px #76b900',
+        'neo-flat-hover-amd': '7px 7px 0px 0px #ed1c24',
+        'neo-flat-hover-intel': '7px 7px 0px 0px #0071c5'
       },
       fontFamily: {
         sans: ['IBM Plex Sans', 'system-ui', '-apple-system', 'sans-serif'],

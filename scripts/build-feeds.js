@@ -11,7 +11,7 @@ const {
 
 const SITE_URL = 'https://driverhub.win';
 const rootDir = path.resolve(__dirname, '..');
-const feedsDir = path.join(rootDir, 'feeds');
+const feedsDir = path.join(rootDir, 'astro', 'public', 'feeds');
 const jsonPath = path.join(feedsDir, 'drivers.json');
 const rssPath = path.join(feedsDir, 'drivers.xml');
 const deltaPath = path.join(feedsDir, 'drivers-delta.json');

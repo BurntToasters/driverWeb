@@ -1,0 +1,15 @@
+export const linkHome = '/';
+export const linkDisplay = '/display';
+export const linkChipset = '/chipset';
+export const linkNetwork = '/network';
+export const linkAudio = '/audio';
+export const linkContact = '/contact';
+export const linkDocs = 'https://docs.rexxit.net/drivers-website/';
+export const linkReleaseNotes = 'https://docs.rexxit.net/drivers-website/releasenotes';
+export const linkStableDrivers = '/info/about-stabledrivers';
+export const linkTrustCenter = '/info/trust-center';
+export const linkCredits = '/info/credits';
+export const linkFeedJson = '/feeds/drivers.json';
+export const linkFeedRss = '/feeds/drivers.xml';
+export const linkSitemap = '/sitemap.xml';
+export const linkSupport = 'https://www.buymeacoffee.com/burnttoasters';

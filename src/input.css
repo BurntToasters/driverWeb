@@ -22,67 +22,87 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  body {
+    @apply transition-colors duration-200;
+  }
 }
 
 @layer components {
+  /* Neobrutalist input box */
   .hero-command {
-    @apply hidden md:flex items-center gap-2 w-full max-w-3xl mx-auto rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur px-3 py-2 shadow-lg;
+    @apply hidden md:flex items-center gap-3 w-full max-w-3xl mx-auto rounded-none border-[3px] border-black dark:border-white bg-white dark:bg-gray-900 px-4 py-2.5 shadow-neo-flat dark:shadow-neo-flat-dark focus-within:-translate-x-[3px] focus-within:-translate-y-[3px] focus-within:shadow-neo-flat-hover dark:focus-within:shadow-neo-flat-hover-dark transition-all duration-150;
   }
 
   .hero-command-input {
-    @apply flex-1 bg-transparent text-base text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 outline-none;
+    @apply flex-1 bg-transparent text-base font-medium text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 outline-none;
   }
 
   .hero-command-chip {
-    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300;
+    @apply inline-flex items-center gap-1 px-2 py-1 rounded-none border-2 border-black dark:border-white text-xs font-bold bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-mono shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff];
   }
 
   .trust-chip {
-    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300;
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-none border-2 border-black dark:border-white text-xs font-bold bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff];
   }
 
   .mobile-hero-actions {
-    @apply md:hidden flex items-center justify-center gap-3 flex-wrap;
+    @apply md:hidden flex items-center justify-center gap-4 flex-wrap;
   }
 
+  /* Neobrutalist buttons */
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-primary-700 hover:bg-primary-800 text-white font-medium rounded-lg shadow-sm hover:shadow-md transition-all duration-200;
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-cyberyellow hover:bg-cyberyellow-dark text-black font-black rounded-none border-[3px] border-black dark:border-white shadow-neo-flat dark:shadow-neo-flat-dark hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-neo-flat-hover dark:hover:shadow-neo-flat-hover-dark active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-100 cursor-pointer;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors;
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 text-black dark:text-white font-bold rounded-none border-[3px] border-black dark:border-white shadow-neo-flat dark:shadow-neo-flat-dark hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-neo-flat-hover dark:hover:shadow-neo-flat-hover-dark active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-100 cursor-pointer;
   }
 
   .btn-brand-nvidia {
-    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-nvidia hover:bg-nvidia-dark text-white font-medium rounded-lg shadow-sm hover:shadow-md transition-all duration-200;
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-nvidia hover:bg-nvidia-light text-black font-black rounded-none border-[3px] border-black dark:border-white shadow-neo-flat hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-neo-flat-hover-nvidia active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-100 cursor-pointer;
   }
 
   .btn-brand-intel {
-    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-intel hover:bg-intel-dark text-white font-medium rounded-lg shadow-sm hover:shadow-md transition-all duration-200;
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-intel hover:bg-intel-light text-white font-black rounded-none border-[3px] border-black dark:border-white shadow-neo-flat hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-neo-flat-hover-intel active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-100 cursor-pointer;
   }
 
   .btn-brand-amd {
-    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-amd hover:bg-amd-dark text-white font-medium rounded-lg shadow-sm hover:shadow-md transition-all duration-200;
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-amd hover:bg-amd-light text-white font-black rounded-none border-[3px] border-black dark:border-white shadow-neo-flat hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-neo-flat-hover-amd active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-100 cursor-pointer;
   }
 
+  /* Neobrutalist cards */
   .card {
-    @apply bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm;
+    @apply bg-white dark:bg-gray-900 rounded-none border-[3px] border-black dark:border-white shadow-neo-flat dark:shadow-neo-flat-dark transition-all duration-150 overflow-hidden;
   }
 
   .card-hover {
-    @apply bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-200;
+    @apply bg-white dark:bg-gray-900 rounded-none border-[3px] border-black dark:border-white shadow-neo-flat dark:shadow-neo-flat-dark hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-neo-flat-hover dark:hover:shadow-neo-flat-hover-dark transition-all duration-150 overflow-hidden cursor-pointer;
   }
 
+  .card-brand-nvidia {
+    @apply hover:shadow-neo-flat-hover-nvidia dark:hover:shadow-neo-flat-hover-nvidia;
+  }
+
+  .card-brand-amd {
+    @apply hover:shadow-neo-flat-hover-amd dark:hover:shadow-neo-flat-hover-amd;
+  }
+
+  .card-brand-intel {
+    @apply hover:shadow-neo-flat-hover-intel dark:hover:shadow-neo-flat-hover-intel;
+  }
+
+  /* Typography */
   .page-heading {
-    @apply text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight;
+    @apply text-4xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tight uppercase;
   }
 
   .page-subheading {
-    @apply text-base md:text-lg text-gray-500 dark:text-gray-400;
+    @apply text-base md:text-lg font-medium text-gray-600 dark:text-gray-400;
   }
 
   .section-heading {
-    @apply text-xl font-semibold text-gray-900 dark:text-white;
+    @apply text-2xl font-black text-gray-900 dark:text-white tracking-tight uppercase;
   }
 
   body.driver-list-dense .driver-card {
@@ -90,11 +110,36 @@
   }
 
   body.driver-list-dense .driver-card h3 {
-    @apply text-sm;
+    @apply text-sm font-bold;
   }
 
   body.driver-list-dense .driver-card .btn-primary,
   body.driver-list-dense .driver-card .btn-secondary {
-    @apply px-2.5 py-1.5 text-xs;
+    @apply px-2.5 py-1.5 text-xs border-2 shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff];
+  }
+}
+
+.dark .bg-gray-950 { background-color: #0b0f17; }
+.dark .bg-gray-900 { background-color: #171d29; }
+.dark .border-white { border-color: #cbd5e1; }
+
+.dark .shadow-\[2px_2px_0px_0px_\#fff\] { box-shadow: 2px 2px 0 0 #cbd5e1; }
+.dark .hover\:shadow-\[4px_4px_0px_0px_\#fff\]:hover,
+.dark .focus\:shadow-\[4px_4px_0px_0px_\#fff\]:focus { box-shadow: 4px 4px 0 0 #cbd5e1; }
+.dark .shadow-\[4px_4px_0px_0px_\#fff\] { box-shadow: 4px 4px 0 0 #cbd5e1; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

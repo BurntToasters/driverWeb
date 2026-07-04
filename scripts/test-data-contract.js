@@ -3,7 +3,8 @@ const path = require('path');
 const { validateEntries } = require('./driver-data-schema');
 
 const rootDir = path.resolve(__dirname, '..');
-const feedPath = path.join(rootDir, 'feeds', 'drivers.json');
+const feedPath = path.join(rootDir, 'astro', 'public', 'feeds', 'drivers.json');
+const feedLabel = path.relative(rootDir, feedPath).replace(/\\/g, '/');
 
 function fail(message) {
   process.stderr.write(`${message}\n`);
@@ -11,12 +12,12 @@ function fail(message) {
 }
 
 if (!fs.existsSync(feedPath)) {
-  fail('feeds/drivers.json does not exist. Run npm run build:feeds first.');
+  fail(`${feedLabel} does not exist. Run npm run build:feeds first.`);
 }
 
 const feed = JSON.parse(fs.readFileSync(feedPath, 'utf8'));
 if (!feed || !Array.isArray(feed.entries)) {
-  fail('feeds/drivers.json has no entries array.');
+  fail(`${feedLabel} has no entries array.`);
 }
 
 const validation = validateEntries(feed.entries, [], { globalOrderLabel: 'entries' });

@@ -347,9 +347,10 @@ function createBackup(filePath) {
 }
 
 function printDeltaPreview(changedIds) {
-  const deltaPath = path.join(rootDir, 'feeds', 'drivers-delta.json');
+  const deltaPath = path.join(rootDir, 'astro', 'public', 'feeds', 'drivers-delta.json');
+  const deltaLabel = path.relative(rootDir, deltaPath).replace(/\\/g, '/');
   if (!fs.existsSync(deltaPath)) {
-    process.stdout.write('Delta preview unavailable: feeds/drivers-delta.json missing.\n');
+    process.stdout.write(`Delta preview unavailable: ${deltaLabel} missing.\n`);
     return;
   }
 
@@ -357,7 +358,7 @@ function printDeltaPreview(changedIds) {
   try {
     delta = JSON.parse(fs.readFileSync(deltaPath, 'utf8'));
   } catch {
-    process.stdout.write('Delta preview unavailable: could not parse feeds/drivers-delta.json.\n');
+    process.stdout.write(`Delta preview unavailable: could not parse ${deltaLabel}.\n`);
     return;
   }
 

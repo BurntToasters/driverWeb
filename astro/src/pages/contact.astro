@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const contactCsp = "default-src 'self'; script-src 'self' 'unsafe-inline' https://raw.githubusercontent.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://prod.rexxit.net https://web-platforms.sfo2.cdn.digitaloceanspaces.com data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://raw.githubusercontent.com; frame-src https://docs.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';";
+---
+<BaseLayout
+    title="Contact | DriverHub"
+    metaDescription="Contact DriverHub for questions, feedback, or driver download assistance."
+    metaKeywords="contact DriverHub, driver support, driver help"
+    metaRobots="index, follow"
+    canonical="https://driverhub.win/contact"
+    csp={contactCsp}
+    showSkipLink={true}
+    headerVariant="main"
+    navActive="contact"
+    showSearchButton={true}
+    showFavoritesButton={false}
+    showDarkModeButton={true}
+    showSettings={true}
+    footerVariant="full"
+    scripts={['global/darkMode.js', 'global/search.js', 'global/regionSwitcher.js', 'global/modern.js', 'global/versionInfo.js', 'global/backToTop.js']}
+>
+<Fragment slot="metaExtra">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://driverhub.win/contact">
+    <meta property="og:title" content="Contact | DriverHub">
+    <meta property="og:description" content="Get in touch with DriverHub for questions or feedback.">
+    <meta property="og:image" content="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp">
+</Fragment>
+
+<main id="main-content" class="flex-1 max-w-6xl mx-auto px-4 md:px-6 py-12 w-full animate-fade-in">
+    <div class="mb-8">
+        <h1 class="page-heading mb-2">Contact</h1>
+        <p class="page-subheading font-bold">Have a question, found a bug, or want to suggest a feature? Reach out below.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+        <div class="md:col-span-2">
+            <div class="card overflow-hidden shadow-neo-flat dark:shadow-neo-flat-dark">
+                <div class="bg-gray-50 dark:bg-gray-800 overflow-hidden">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc4A8RLL0Ui9Qmx-7b3XaU6Bq7hT3r02lQ7giR5hHAUKODwNg/viewform?embedded=true" title="Contact form" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" loading="lazy" class="w-full dark:invert dark:hue-rotate-180 dark:contrast-[0.85] dark:brightness-[0.85]">Loading...</iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-6">
+            <div class="card p-6 shadow-neo-flat dark:shadow-neo-flat-dark border-t-[8px] border-t-cyberyellow">
+                <h3 class="text-lg font-black uppercase text-gray-900 dark:text-white mb-4">Other ways to reach us</h3>
+                <a href="mailto:contact@driverhub.win" id="email-link" class="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-bold">
+                    <span aria-hidden="true" class="material-icons text-xl">email</span>
+                    <span id="email-link-text">contact@driverhub.win</span>
+                </a>
+                <p id="contact-prefill-hint" class="hidden mt-3 text-xs font-mono text-gray-500 dark:text-gray-400"></p>
+            </div>
+            <div class="card p-6 shadow-neo-flat dark:shadow-neo-flat-dark border-t-[8px] border-t-cyan-400">
+                <h3 class="text-lg font-black uppercase text-gray-900 dark:text-white mb-4">Helpful links</h3>
+                <div class="space-y-3">
+                    <a href="https://docs.rexxit.net/drivers-website/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-bold">
+                        <span aria-hidden="true" class="material-icons text-xl">description</span>
+                        Documentation
+                    </a>
+                    <a href="https://docs.rexxit.net/drivers-website/releasenotes" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-bold">
+                        <span aria-hidden="true" class="material-icons text-xl">history</span>
+                        Release Notes
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script is:inline slot="pageScripts">
+document.addEventListener('DOMContentLoaded', function() {
+    const emailLink = document.getElementById('email-link');
+    const emailText = document.getElementById('email-link-text');
+    const prefillHint = document.getElementById('contact-prefill-hint');
+    const email = 'contact' + '@' + 'driverhub' + '.' + 'win';
+    const params = new URLSearchParams(window.location.search);
+    const topic = params.get('topic') || '';
+    const senderEmail = params.get('email') || '';
+    const topicLabel = topic ? topic.replace(/-/g, ' ') : '';
+
+    if (emailLink) {
+        const mailtoParams = new URLSearchParams();
+        if (topicLabel) {
+            mailtoParams.set('subject', `DriverHub ${topicLabel} request`);
+        }
+        if (senderEmail) {
+            mailtoParams.set('body', `Hi DriverHub,\n\nPlease notify me about ${topicLabel || 'upcoming updates'}.\n\nMy email: ${senderEmail}`);
+        }
+        emailLink.href = 'mailto:' + email + (mailtoParams.toString() ? '?' + mailtoParams.toString() : '');
+    }
+
+    if (emailText) {
+        emailText.textContent = email;
+    }
+
+    if (prefillHint && (topicLabel || senderEmail)) {
+        prefillHint.classList.remove('hidden');
+        prefillHint.textContent = `Prepared contact context: ${topicLabel || 'general update'}${senderEmail ? ` (${senderEmail})` : ''}`;
+    }
+});
+</script>
+</BaseLayout>
