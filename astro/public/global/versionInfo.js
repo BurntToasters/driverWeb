@@ -1,6 +1,6 @@
 const SITE_INFO = {
     version: "V 6.0.0",
-    lastUpdated: "7/3/26"
+    lastUpdated: "7/21/26"
 };
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const versionElement = document.getElementById('site-version');
     const dateElement = document.getElementById('update-date');
     const fallbackVersion = "V 6.0.0";
-    const fallbackDate = "7/3/26";
+    const fallbackDate = "7/21/26";
     
     function updateVersionInfo(version, date) {
         if (versionElement) versionElement.textContent = version + ' ';
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
    
-    fetch('https://raw.githubusercontent.com/BurntToasters/driverWeb/main/versionInfo-block.json')
+    fetch('https://raw.githubusercontent.com/BurntToasters/driverWeb/main/versionInfo.json')
         .then(response => response.ok ? response.json() : Promise.reject('Failed to load'))
         .then(data => updateVersionInfo(data.version, data.lastUpdated))
         .catch(error => {
