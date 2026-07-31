@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig, siteUrl, pageTitle } from '../../lib/siteConfig.js';
 ---
 <BaseLayout
-    title="Credits | DriverHub"
-    metaDescription="Third-party software and open-source license credits used by DriverHub."
+    title={pageTitle('Credits')}
+    metaDescription={`Third-party software and open-source license credits used by ${siteConfig.NAME}.`}
     metaRobots="index, follow"
-    canonical="https://driverhub.win/info/credits"
+    canonical={siteUrl('/info/credits')}
     showSkipLink={true}
     headerVariant="main"
     navActive=""

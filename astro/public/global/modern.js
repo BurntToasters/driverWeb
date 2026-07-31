@@ -211,6 +211,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   window.DriverHubUI = {
     refreshCollapsibles,
-    updateOpenCollapsibleHeights
+    updateOpenCollapsibleHeights,
+    openCollapsible,
+    closeCollapsible
   };
 });

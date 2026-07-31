@@ -1,11 +1,21 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteUrl, pageTitle, escapeJsonForScript } from '../../lib/siteConfig.js';
+
+const pageUrl = siteUrl('/info/about-stabledrivers');
+const schemaJson = escapeJsonForScript({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'About Stable Drivers',
+  description: 'Understanding driver stability ratings and choosing the right driver.',
+  url: pageUrl
+});
 ---
 <BaseLayout
-    title="About Stable Drivers | DriverHub"
+    title={pageTitle('About Stable Drivers')}
     metaDescription="Learn about driver stability ratings and how to choose the best driver for your system."
     metaRobots="index, follow"
-    canonical="https://driverhub.win/info/about-stabledrivers"
+    canonical={pageUrl}
     headerVariant="simple"
     showDarkModeButton={true}
     showSettings={false}
@@ -14,16 +24,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     showUpdateDate={true}
     scripts={['global/darkMode.js', 'global/versionInfo.js']}
 >
-<Fragment slot="headExtra">
-    <script type="application/ld+json" is:inline>
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "About Stable Drivers",
-      "description": "Understanding driver stability ratings and choosing the right driver.",
-      "url": "https://driverhub.win/info/about-stabledrivers"
-    }
-    </script>
+<Fragment slot="metaExtra">
+    <script type="application/ld+json" set:html={schemaJson} />
 </Fragment>
 
 <main class="flex-1 max-w-4xl mx-auto px-4 md:px-6 py-12 w-full">

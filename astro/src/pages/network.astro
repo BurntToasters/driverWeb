@@ -1,11 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig, siteUrl, pageTitle } from '../lib/siteConfig.js';
+
+const title = pageTitle('Network Drivers');
+const pageUrl = siteUrl('/network');
 ---
 <BaseLayout
-    title="Network Drivers | DriverHub"
+    title={title}
     metaDescription="Browse Windows network drivers with trust and compatibility filters."
     metaRobots="index, follow"
-    canonical="https://driverhub.win/network"
+    canonical={pageUrl}
     showSkipLink={true}
     headerVariant="main"
     navActive="network"
@@ -18,12 +22,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
 <Fragment slot="metaExtra">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://driverhub.win/network">
-    <meta property="og:title" content="Network Drivers | DriverHub">
+    <meta property="og:url" content={pageUrl}>
+    <meta property="og:title" content={title}>
     <meta property="og:description" content="Browse Windows network drivers with trust and compatibility filters.">
-    <meta property="og:image" content="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp">
+    <meta property="og:image" content={siteConfig.LOGO_URL}>
     <meta property="twitter:card" content="summary">
-    <meta property="twitter:title" content="Network Drivers | DriverHub">
+    <meta property="twitter:title" content={title}>
     <meta property="twitter:description" content="Browse Windows network drivers with trust and compatibility filters.">
 </Fragment>
 <main id="main-content" class="flex-1 max-w-7xl mx-auto px-4 md:px-6 py-10 w-full animate-fade-in">

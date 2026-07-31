@@ -1,7 +1,4 @@
 {
-  "name": "DriverHub",
-  "short_name": "DriverHub",
-  "description": "Professional Windows driver catalog",
   "start_url": "/",
   "scope": "/",
   "display": "browser",
@@ -13,5 +10,8 @@
       "sizes": "64x64",
       "type": "image/x-icon"
     }
-  ]
+  ],
+  "name": "DriverHub",
+  "short_name": "DriverHub",
+  "description": "Professional Windows driver catalog"
 }

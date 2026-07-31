@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { pageTitle } from '../lib/siteConfig.js';
 ---
 <BaseLayout
-    title="404 - Page Not Found | DriverHub"
+    title={pageTitle('404 - Page Not Found')}
     headerVariant="main"
     navActive=""
     showSearchButton={false}
