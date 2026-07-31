@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig, siteUrl, pageTitle } from '../../lib/siteConfig.js';
 ---
 <BaseLayout
-    title="Trust Center | DriverHub"
-    metaDescription="Data freshness, coverage, and validation health for DriverHub feeds."
+    title={pageTitle('Trust Center')}
+    metaDescription={`Data freshness, coverage, and validation health for ${siteConfig.NAME} feeds.`}
     metaRobots="index, follow"
-    canonical="https://driverhub.win/info/trust-center"
+    canonical={siteUrl('/info/trust-center')}
     showSkipLink={true}
     headerVariant="main"
     navActive=""

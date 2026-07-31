@@ -1,10 +1,11 @@
 {
   "name": "driverhub",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "description": "DriverHub - GPU and Chipset driver downloads",
   "scripts": {
-    "build": "npm run build:version && npm run build:licenses && npm run build:feeds && npm run build:css && npm run build:astro",
+    "build": "npm run build:version && npm run build:site-meta && npm run build:licenses && npm run build:feeds && npm run build:css && npm run build:astro",
     "build:version": "node ./scripts/update-version-info.js",
+    "build:site-meta": "node ./scripts/build-site-meta.js",
     "build:licenses": "license-checker --json --out ./astro/public/global/licenses.json",
     "build:feeds": "node ./scripts/build-feeds.js",
     "build:astro": "astro build --root ./astro",

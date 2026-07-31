@@ -2,18 +2,19 @@
 import {
     linkDisplay, linkChipset, linkDocs, linkReleaseNotes, linkStableDrivers,
     linkTrustCenter, linkCredits, linkFeedJson, linkFeedRss,
-    linkContact, linkSitemap, linkSupport
+    linkContact, linkSitemap, linkSupport, linkGitHub
 } from '../lib/siteLinks.js';
+import { siteConfig } from '../lib/siteConfig.js';
 ---
 <footer class="border-t-[3px] border-black dark:border-white mt-auto bg-white dark:bg-gray-950">
     <div class="max-w-6xl mx-auto px-4 md:px-6 py-10">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             <div class="col-span-2 md:col-span-1">
                 <a href="/" class="flex items-center gap-2 mb-3">
-                    <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-7 w-7 border border-black dark:border-white">
-                    <span class="font-black uppercase tracking-wide text-gray-900 dark:text-white">DriverHub</span>
+                    <img src={siteConfig.LOGO_URL} alt={siteConfig.NAME} class="h-7 w-7 border border-black dark:border-white">
+                    <span class="font-black uppercase tracking-wide text-gray-900 dark:text-white">{siteConfig.NAME}</span>
                 </a>
-                <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Free Windows driver downloads from official sources.</p>
+                <p class="text-sm font-medium text-gray-500 dark:text-gray-400">{siteConfig.TAGLINE}</p>
             </div>
             <div>
                 <h4 class="text-sm font-black uppercase text-gray-900 dark:text-white mb-3">Drivers</h4>
@@ -49,7 +50,7 @@ import {
                 <span id="update-date"></span>
             </div>
             <div class="flex items-center gap-4 sm:gap-6">
-                <a href="https://github.com/BurntToasters/driverWeb" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 border-[3px] border-black dark:border-white bg-white dark:bg-gray-900 text-black dark:text-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all font-bold" aria-label="DriverWeb GitHub repository">
+                <a href={linkGitHub} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 border-[3px] border-black dark:border-white bg-white dark:bg-gray-900 text-black dark:text-white shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[4px_4px_0px_0px_#000] dark:hover:shadow-[4px_4px_0px_0px_#fff] active:translate-x-0 active:translate-y-0 transition-all font-bold" aria-label={`${siteConfig.NAME} GitHub repository`}>
                     <span aria-hidden="true" class="material-icons text-[16px]">code</span>
                     GitHub
                 </a>

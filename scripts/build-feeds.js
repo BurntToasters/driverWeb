@@ -8,9 +8,11 @@ const {
   validateEntries,
   sortByPublishedAtDesc
 } = require('./driver-data-schema');
+const { loadDriverWebConf } = require('./load-driverweb-conf');
 
-const SITE_URL = 'https://driverhub.win';
 const rootDir = path.resolve(__dirname, '..');
+const siteConfig = loadDriverWebConf(rootDir);
+const SITE_URL = siteConfig.SITE_URL;
 const feedsDir = path.join(rootDir, 'astro', 'public', 'feeds');
 const jsonPath = path.join(feedsDir, 'drivers.json');
 const rssPath = path.join(feedsDir, 'drivers.xml');
@@ -207,9 +209,9 @@ function buildRss(entries, generatedAtIso) {
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<rss version="2.0">',
     '  <channel>',
-    '    <title>DriverHub Driver Updates</title>',
-    `    <link>${SITE_URL}/feeds/drivers.xml</link>`,
-    '    <description>Latest Windows driver updates indexed by DriverHub.</description>',
+    `    <title>${sanitizeXml(siteConfig.FEED_TITLE)}</title>`,
+    `    <link>${sanitizeXml(`${SITE_URL}/feeds/drivers.xml`)}</link>`,
+    `    <description>${sanitizeXml(siteConfig.FEED_DESCRIPTION)}</description>`,
     `    <lastBuildDate>${new Date(generatedAtIso).toUTCString()}</lastBuildDate>`,
     ...items,
     '  </channel>',
@@ -482,6 +484,8 @@ async function main() {
   const jsonFeed = {
     generatedAt,
     site: SITE_URL,
+    title: siteConfig.FEED_TITLE,
+    description: siteConfig.FEED_DESCRIPTION,
     sourceCount: sources.length,
     entryCount: entries.length,
     validation,

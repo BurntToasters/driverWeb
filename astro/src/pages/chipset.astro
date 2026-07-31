@@ -1,12 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig, siteUrl, pageTitle } from '../lib/siteConfig.js';
+
+const title = pageTitle('Chipset Drivers - Intel & AMD');
+const pageUrl = siteUrl('/chipset');
 ---
 <BaseLayout
-    title="Chipset Drivers - Intel & AMD | DriverHub"
+    title={title}
     metaDescription="Download the latest Intel and AMD chipset drivers for Windows. Support for Intel 500, 600, 700 series and AMD AM4, AM5 chipsets."
     metaKeywords="chipset drivers, Intel chipset, AMD chipset, motherboard drivers, AM4 drivers, AM5 drivers"
     metaRobots="index, follow"
-    canonical="https://driverhub.win/chipset"
+    canonical={pageUrl}
     showSkipLink={true}
     headerVariant="main"
     navActive="chipset"
@@ -19,10 +23,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
 <Fragment slot="metaExtra">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://driverhub.win/chipset">
-    <meta property="og:title" content="Chipset Drivers - Intel & AMD | DriverHub">
+    <meta property="og:url" content={pageUrl}>
+    <meta property="og:title" content={title}>
     <meta property="og:description" content="Download the latest Intel and AMD chipset drivers for Windows.">
-    <meta property="og:image" content="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp">
+    <meta property="og:image" content={siteConfig.LOGO_URL}>
 </Fragment>
 
 <main id="main-content" class="flex-1 max-w-6xl mx-auto px-4 md:px-6 py-12 w-full animate-fade-in">

@@ -15,6 +15,7 @@ let activeOs = '';
 let activeView = 'comfortable';
 let activeCompare = [];
 let pendingDetailId = '';
+let pendingDeepLinkFocus = false;
 
 let compareUi = null;
 let detailUi = null;
@@ -157,6 +158,7 @@ function readStateFromUrl() {
     activeView = params.get('view') === 'dense' ? 'dense' : 'comfortable';
     activeCompare = (params.get('compare') || '').split(',').map((v) => v.trim()).filter(Boolean).slice(0, COMPARE_MAX);
     pendingDetailId = (params.get('detail') || '').trim();
+    pendingDeepLinkFocus = Boolean(activeQuery || pendingDetailId);
 }
 
 function writeStateToUrl() {
@@ -465,6 +467,76 @@ function matchesCard(card) {
     return queryMatch && filterMatch && brandMatch && channelMatch && riskMatch && osMatch;
 }
 
+function getVisibleMatchingCards() {
+    return Array.prototype.slice.call(document.querySelectorAll('.driver-card')).filter(function(card) {
+        return !card.classList.contains('hidden') && matchesCard(card);
+    });
+}
+
+function expandCollapsiblesForElement(element) {
+    let node = element ? element.parentElement : null;
+    while (node && node !== document.body) {
+        const toggle = node.previousElementSibling;
+        if (toggle && toggle.hasAttribute('data-collapsible')) {
+            if (window.DriverHubUI && typeof window.DriverHubUI.openCollapsible === 'function') {
+                window.DriverHubUI.openCollapsible(toggle);
+            } else if (toggle.getAttribute('aria-expanded') !== 'true') {
+                toggle.click();
+            }
+        }
+        node = node.parentElement;
+    }
+}
+
+function expandSectionsForVisibleMatches() {
+    const visibleCards = getVisibleMatchingCards();
+    if (!visibleCards.length) return visibleCards;
+
+    visibleCards.forEach(expandCollapsiblesForElement);
+    if (window.DriverHubUI && typeof window.DriverHubUI.updateOpenCollapsibleHeights === 'function') {
+        window.DriverHubUI.updateOpenCollapsibleHeights();
+    }
+    return visibleCards;
+}
+
+function focusDeepLinkMatch() {
+    if (!pendingDeepLinkFocus) return;
+
+    const visibleCards = expandSectionsForVisibleMatches();
+    if (!visibleCards.length) return;
+
+    const exactMatch = activeQuery
+        ? visibleCards.find(function(card) {
+            const driver = driverStore.get(card.dataset.driverId || '');
+            return driver && String(driver.version || '').toLowerCase() === activeQuery;
+        })
+        : null;
+    const targetCard = exactMatch || (
+        pendingDetailId
+            ? visibleCards.find(function(card) { return card.dataset.driverId === pendingDetailId; })
+            : null
+    ) || visibleCards[0];
+
+    if (!targetCard) return;
+
+    pendingDeepLinkFocus = false;
+    requestAnimationFrame(function() {
+        expandCollapsiblesForElement(targetCard);
+        if (window.DriverHubUI && typeof window.DriverHubUI.updateOpenCollapsibleHeights === 'function') {
+            window.DriverHubUI.updateOpenCollapsibleHeights();
+        }
+        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        const driver = driverStore.get(targetCard.dataset.driverId || '');
+        if (!driver) return;
+
+        // Open the entry for exact version deep links (homepage best-picks / watchlist).
+        if (activeQuery && String(driver.version || '').toLowerCase() === activeQuery) {
+            openDetailPanel(driver);
+        }
+    });
+}
+
 function applyRowVisibility() {
     document.querySelectorAll('.driver-card').forEach(function(card) {
         const visible = matchesCard(card);
@@ -477,6 +549,11 @@ function applyRowVisibility() {
         else section.classList.toggle('hidden', section.dataset.brandSection !== activeBrand);
     });
     document.body.classList.toggle('driver-list-dense', activeView === 'dense');
+
+    if (activeQuery || pendingDeepLinkFocus) {
+        expandSectionsForVisibleMatches();
+    }
+    focusDeepLinkMatch();
 }
 
 function updateFilterControls() {
@@ -902,7 +979,8 @@ window.DriverHubDrivers = {
     removeFromCompare: function(id) { activeCompare = activeCompare.filter((item) => item !== id); writeStateToUrl(); updateCompareUi(); updateCompareButtons(); },
     openDetails: function(id) { const driver = driverStore.get(id); if (driver) openDetailPanel(driver); },
     getState: function() { return { filter: activeFilter, q: activeQuery, brand: activeBrand, channel: activeChannel, risk: activeRisk, os: activeOs, view: activeView, compare: activeCompare.slice() }; },
-    syncFromUrl: function() { readStateFromUrl(); syncState({ skipUrlUpdate: true }); updateCompareUi(); updateCompareButtons(); }
+    syncFromUrl: function() { readStateFromUrl(); syncState({ skipUrlUpdate: true }); updateCompareUi(); updateCompareButtons(); },
+    revealDeepLink: function() { pendingDeepLinkFocus = Boolean(activeQuery || pendingDetailId); applyRowVisibility(); }
 };
 
 function applyFilters(filterType) {

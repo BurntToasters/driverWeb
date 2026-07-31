@@ -1,12 +1,17 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig, siteUrl, pageTitle } from '../../lib/siteConfig.js';
+
+const title = pageTitle('Laptop Graphics Drivers - NVIDIA & Intel');
+const twitterTitle = pageTitle('Laptop Graphics Drivers');
+const pageUrl = siteUrl('/display/laptop');
 ---
 <BaseLayout
-    title="Laptop Graphics Drivers - NVIDIA & Intel | DriverHub"
+    title={title}
     metaDescription="Download the latest NVIDIA GeForce and Intel laptop graphics drivers. Optimized mobile GPU drivers for Windows 10 and 11."
     metaKeywords="laptop drivers, NVIDIA laptop drivers, Intel laptop graphics, mobile GPU drivers, notebook drivers"
     metaRobots="index, follow"
-    canonical="https://driverhub.win/display/laptop"
+    canonical={pageUrl}
     showSkipLink={true}
     headerVariant="main"
     navActive="graphics"
@@ -19,14 +24,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 >
 <Fragment slot="metaExtra">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://driverhub.win/display/laptop">
-    <meta property="og:title" content="Laptop Graphics Drivers - NVIDIA & Intel | DriverHub">
+    <meta property="og:url" content={pageUrl}>
+    <meta property="og:title" content={title}>
     <meta property="og:description" content="Download the latest NVIDIA GeForce and Intel laptop graphics drivers.">
-    <meta property="og:image" content="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp">
+    <meta property="og:image" content={siteConfig.LOGO_URL}>
 
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://driverhub.win/display/laptop">
-    <meta property="twitter:title" content="Laptop Graphics Drivers | DriverHub">
+    <meta property="twitter:url" content={pageUrl}>
+    <meta property="twitter:title" content={twitterTitle}>
 </Fragment>
 
 <main id="main-content" class="flex-1 max-w-7xl mx-auto px-4 md:px-6 py-10 w-full animate-fade-in">

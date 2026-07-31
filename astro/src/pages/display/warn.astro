@@ -1,13 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig, siteUrl, pageTitle } from '../../lib/siteConfig.js';
 
 const warnCsp = "default-src 'self'; script-src 'self' 'unsafe-inline' https://raw.githubusercontent.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://prod.rexxit.net https://web-platforms.sfo2.cdn.digitaloceanspaces.com data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://raw.githubusercontent.com; frame-src https://www.youtube-nocookie.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';";
 ---
 <BaseLayout
-    title="Driver Warning | DriverHub"
+    title={pageTitle('Driver Warning')}
     metaDescription="Driver warning information - known stability issues."
     metaRobots="noindex, follow"
-    canonical="https://driverhub.win/display/warn"
+    canonical={siteUrl('/display/warn')}
     csp={warnCsp}
     headerVariant="simple"
     showSearchButton={false}
@@ -19,7 +20,7 @@ const warnCsp = "default-src 'self'; script-src 'self' 'unsafe-inline' https://r
     showUpdateDate={true}
     scripts={['global/darkMode.js', 'global/regionSwitcher.js', 'global/modern.js', 'global/versionInfo.js']}
 >
-<main class="flex-1 max-w-4xl mx-auto px-4 md:px-6 py-12 w-full">
+<main class="flex-1 max-w-4xl mx-auto px-4 md:px-6 py-12 w-full" data-site-name={siteConfig.NAME}>
     <div class="text-center mb-8">
         <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-amber-100 dark:bg-amber-900/30 mb-4">
             <span aria-hidden="true" class="material-icons text-5xl text-amber-500">warning</span>
@@ -68,6 +69,7 @@ const warnCsp = "default-src 'self'; script-src 'self' 'unsafe-inline' https://r
 <script is:inline slot="pageScripts">
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
+    const siteName = document.querySelector('main[data-site-name]')?.dataset.siteName || '';
     let driverType = "";
     let driverVersion = "";
     let backUrl = "/display";
@@ -75,20 +77,20 @@ document.addEventListener('DOMContentLoaded', function() {
     if (urlParams.has('nvgrd')) {
         driverType = "nvgrd";
         driverVersion = urlParams.get('nvgrd');
-        document.title = `NVIDIA Game Ready ${driverVersion} Warning - DriverHub`;
+        document.title = `NVIDIA Game Ready ${driverVersion} Warning - ${siteName}`;
     } else if (urlParams.has('nvgrl')) {
         driverType = "nvgrl";
         driverVersion = urlParams.get('nvgrl');
-        document.title = `NVIDIA Game Ready Laptop ${driverVersion} Warning - DriverHub`;
+        document.title = `NVIDIA Game Ready Laptop ${driverVersion} Warning - ${siteName}`;
         backUrl = "/display/laptop";
     } else if (urlParams.has('nvsd')) {
         driverType = "nvsd";
         driverVersion = urlParams.get('nvsd');
-        document.title = `NVIDIA Studio ${driverVersion} Warning - DriverHub`;
+        document.title = `NVIDIA Studio ${driverVersion} Warning - ${siteName}`;
     } else if (urlParams.has('nvsl')) {
         driverType = "nvsl";
         driverVersion = urlParams.get('nvsl');
-        document.title = `NVIDIA Studio Laptop ${driverVersion} Warning - DriverHub`;
+        document.title = `NVIDIA Studio Laptop ${driverVersion} Warning - ${siteName}`;
         backUrl = "/display/laptop";
     } else {
         window.location.href = "/display";

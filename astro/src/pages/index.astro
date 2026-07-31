@@ -1,13 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig, siteUrl } from '../lib/siteConfig.js';
+
+const homeTitle = `${siteConfig.NAME} - ${siteConfig.META_DESCRIPTION}`;
+const homeUrl = siteUrl('/');
 ---
 <BaseLayout
-    title="DriverHub - Professional Windows Driver Catalog"
-    metaDescription="Professional Windows driver catalog for NVIDIA, AMD, Intel, chipset, audio, and network drivers."
+    title={homeTitle}
+    metaDescription={siteConfig.META_DESCRIPTION}
     metaKeywords="driver downloads, NVIDIA drivers, AMD drivers, Intel drivers, chipset drivers, Windows drivers"
-    metaAuthor="DriverHub"
+    metaAuthor={siteConfig.NAME}
     metaRobots="index, follow"
-    canonical="https://driverhub.win/"
+    canonical={homeUrl}
     showSkipLink={true}
     headerVariant="main"
     navActive="home"
@@ -20,16 +24,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
 <Fragment slot="metaExtra">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://driverhub.win/">
-    <meta property="og:title" content="DriverHub - Professional Windows Driver Catalog">
-    <meta property="og:description" content="Trust-first driver catalog with compare mode, risk labels, and compatibility filters.">
-    <meta property="og:image" content="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp">
+    <meta property="og:url" content={homeUrl}>
+    <meta property="og:title" content={homeTitle}>
+    <meta property="og:description" content={siteConfig.META_DESCRIPTION}>
+    <meta property="og:image" content={siteConfig.LOGO_URL}>
 </Fragment>
 
 <main id="main-content" class="flex-1 max-w-7xl mx-auto px-4 md:px-6 w-full py-10">
     <section class="pt-12 pb-12 text-center" data-animate>
-        <h1 class="page-heading mb-4 text-5xl md:text-6xl tracking-wider">Professional Windows Driver Hub</h1>
-        <p class="page-subheading max-w-2xl mx-auto mb-8 font-bold">Official vendor links, risk-aware labels, deep-linkable filters, and compare-ready metadata for faster driver decisions.</p>
+        <h1 class="page-heading mb-4 text-5xl md:text-6xl tracking-wider">{siteConfig.NAME}</h1>
+        <p class="page-subheading max-w-2xl mx-auto mb-8 font-bold">{siteConfig.TAGLINE}</p>
         <form id="hero-command-form" class="hero-command" role="search" aria-label="Command search">
             <span aria-hidden="true" class="material-icons text-cyberyellow">terminal</span>
             <input id="hero-command-input" type="text" class="hero-command-input" placeholder="Search: 581.94, game-ready, low risk, Intel Pro..." autocomplete="off">

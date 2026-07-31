@@ -1,4 +1,6 @@
 ---
+import { siteConfig } from '../lib/siteConfig.js';
+
 const {
     showSearchButton = false,
     showFavoritesButton = false,
@@ -10,8 +12,8 @@ const {
     <div class="max-w-6xl mx-auto px-4 md:px-6 py-2">
         <div class="flex items-center justify-between h-14">
             <a href="/" class="flex items-center gap-2.5">
-                <img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" alt="DriverHub" class="h-8 w-8 border border-black dark:border-white">
-                <span class="text-xl font-black text-gray-900 dark:text-white tracking-wider uppercase">DriverHub</span>
+                <img src={siteConfig.LOGO_URL} alt={siteConfig.NAME} class="h-8 w-8 border border-black dark:border-white">
+                <span class="text-xl font-black text-gray-900 dark:text-white tracking-wider uppercase">{siteConfig.NAME}</span>
             </a>
             <div class="flex items-center gap-2">
                 {showSearchButton && (
