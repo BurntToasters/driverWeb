@@ -16,24 +16,6 @@ DriverHub - a trust-first Windows driver catalog with official vendor links, ris
   - Matching channel sections now expand, the best match scrolls into view, and an exact version match opens the driver details panel.
 - **PKG:** Updated packages.
 
-## Changes in `v6.0.0:`
-
-### Welcome to DriverHub v6!
-
-This release is a full foundation and design rewrite.
-
-- **NEW - Neobrutalist Theme:** Redesigned the entire UI with thick outlines, sharp box shadows, and Cyberyellow accents.
-- **NEW - Recommendation Wizard:** Added a home page wizard that builds deep-linkable filter URLs for your setup.
-- **Codebase:** Migrated templating from Nunjucks to Astro 7 for component rendering and build performance.
-- **Updater:** Retired the PWA offline cache and added automatic service worker cleanup so browsers always load fresh assets.
-- **Codebase:** Replaced deprecated `npm-license-crawler` with `license-checker` for build-time license metadata.
-- **UI:** Refactored search overlay and compare panel, and added `Ctrl+K` to open search.
-- **PKG:** Updated packages.
-
-### Breaking Changes
-
-To prevent layout breaks with the new design, the previous PWA offline caching system was retired. Old service workers and browser caches are unregistered and cleared on your next visit.
-
 ## ℹ️ Release Info
 
 - **Hosting & Deployment:** Automatically built and deployed on Cloudflare Pages on commit.
