@@ -1,4 +1,4 @@
-<p align="center"><img src="https://driverhub.win/global/DH-logo-optim.webp" width="10%"></p>
+<p align="center"><img src="https://github.com/BurntToasters/driverWeb/blob/main/astro/public/global/DH-logo-optim.webp" width="10%"></p>
 
 # DriverWeb (Website: [driverhub.win](https://driverhub.win))
 A project that lists common drivers and their native download links all in one place!
