@@ -1,4 +1,4 @@
-<p align="center"><img src="https://prod.rexxit.net/global/_icons/DH-logo-optim.webp" width="10%"></p>
+<p align="center"><img src="https://driverhub.win/global/DH-logo-optim.webp" width="10%"></p>
 
 # DriverWeb (Website: [driverhub.win](https://driverhub.win))
 A project that lists common drivers and their native download links all in one place!
@@ -14,10 +14,10 @@ Intuitive yet minimalistic UI allowing for easy viewing in both light or dark mo
 - Watchlist with delta-feed update indicators
 - Dedicated Trust Center page backed by generated trust metrics
 - Static site with service worker cleanup for previous PWA installs
-- Region selection between EU and US based NVIDIA download endpoints ([see more](https://docs.rexxit.net/drivers-website/articles/region-selection))
+- Region selection between EU and US based NVIDIA download endpoints ([see more](https://help.rosie.run/driverhub/en-us/region-selection))
 
 ## 🌐 Resources
-- [📝 DriverHub.win Docs](https://docs.rexxit.net/drivers-website/)
+- [📝 DriverHub.win Docs](https://help.rosie.run/driverhub/en-us/getting-started)
 - [📜 Driver List Data](https://github.com/BurntToasters/driverWeb-data)
 
 ## 🛠️ Build + Data Contract

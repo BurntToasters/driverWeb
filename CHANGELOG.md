@@ -3,18 +3,15 @@
 
 DriverHub - a trust-first Windows driver catalog with official vendor links, risk labels, and deep-linkable filters.
 
-## Changes in `v6.1.0:`
+## Changes in `v6.2.0:`
 
-### Branding is now config-driven :)
+### Rosie.run branding and help migration
 
-- **NEW - `driverweb.conf` branding:** Site identity (name, URL, logo, tagline, contact, support/docs/GitHub links, feed titles) now lives in a public root `driverweb.conf` file instead of being hard-coded across pages and scripts.
-  - Build and Astro both load it through `scripts/load-driverweb-conf.js`, with required-key checks and `http(s)` URL validation.
-  - Headers, footers, contact, settings, titles, canonicals, and OG images read from conf via `siteConfig` / `siteLinks`.
-- **NEW - Build-time site meta:** `npm run build:site-meta` regenerates `sitemap.xml` and `robots.txt` from `SITE_URL` on every build.
-- **Codebase:** Feeds, PWA manifest name/description, and the version-info GitHub fetch URL are generated from conf during `build:version` / `build:feeds`.
-- **Fix:** Fixed an issue where homepage / watchlist deep links like `/display?q=610.62&brand=nvidia` applied filters but left matching driver sections collapsed, so the entry never appeared.
-  - Matching channel sections now expand, the best match scrolls into view, and an exact version match opens the driver details panel.
-- **PKG:** Updated packages.
+- **Docs URLs:** `DOCS_URL`, `RELEASE_NOTES_URL`, and `REGION_DOCS_URL` in `driverweb.conf` now point at `help.rosie.run/driverhub/en-us/...` instead of Rexxit docs.
+- **Support URL:** Footer and settings support links now use `https://rosie.run/support`.
+- **Self-hosted assets:** The DriverHub logo and vendor badge images (NVIDIA, AMD, Intel) are served from `driverhub.win/global/` instead of the Rexxit CDN.
+- **CSP:** Content security policy no longer allowlists `prod.rexxit.net`; local and vendor images load under the updated rules.
+- **Credits:** Root `package.json` declares `MPL-2.0` so the generated licenses page matches the repo LICENSE.
 
 ## ℹ️ Release Info
 
