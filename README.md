@@ -47,4 +47,4 @@ Canonical source files stay in `../driverWeb-data` with the existing dataset fil
 Downloads of any/all drivers on this website go the official companies download URL's and are **NOT** redistributed by me. This site is simply a "hub" for common drivers (such as video drivers).
 
 ## Get in touch
-Contact me regarding this project [here](https://driverhub.win/contact).
+Contact me regarding this project [here](https://help.rosie.run/contact/).

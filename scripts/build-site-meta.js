@@ -16,8 +16,7 @@ const SITEMAP_ENTRIES = [
   { path: '/network', changefreq: 'weekly', priority: '0.7' },
   { path: '/info/about-stabledrivers', changefreq: 'monthly', priority: '0.5' },
   { path: '/info/trust-center', changefreq: 'monthly', priority: '0.6' },
-  { path: '/info/credits', changefreq: 'monthly', priority: '0.4' },
-  { path: '/contact', changefreq: 'monthly', priority: '0.5' }
+  { path: '/info/credits', changefreq: 'monthly', priority: '0.4' }
 ];
 
 function siteLoc(siteUrl, pathname) {
