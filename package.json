@@ -1,7 +1,8 @@
 {
   "name": "driverhub",
-  "version": "6.1.0",
+  "version": "6.2.0",
   "description": "DriverHub - GPU and Chipset driver downloads",
+  "license": "MPL-2.0",
   "scripts": {
     "build": "npm run build:version && npm run build:site-meta && npm run build:licenses && npm run build:feeds && npm run build:css && npm run build:astro",
     "build:version": "node ./scripts/update-version-info.js",
