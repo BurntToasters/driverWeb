@@ -3,10 +3,10 @@
 # DriverWeb (Website: [driverhub.win](https://driverhub.win))
 A project that lists common drivers and their native download links all in one place!
 
-## 🙌 Simplistic
+## Simplistic
 Intuitive yet minimalistic UI allowing for easy viewing in both light or dark mode.
 
-## ⭐ Features
+## Features
 - Professional two-pane driver browsing UI with filter rail and deep-linkable URL state
 - Compare mode for selected drivers (`compare` URL param)
 - Risk-level and compatibility filtering (`channel`, `risk`, `os`, `view` URL params)
@@ -16,7 +16,7 @@ Intuitive yet minimalistic UI allowing for easy viewing in both light or dark mo
 - Static site with service worker cleanup for previous PWA installs
 - Region selection between EU and US based NVIDIA download endpoints ([see more](https://help.rosie.run/driverhub/en-us/region-selection))
 
-## 🌐 Resources
+## Resources
 - [📝 DriverHub.win Docs](https://help.rosie.run/driverhub/en-us/getting-started)
 - [📜 Driver List Data](https://github.com/BurntToasters/driverWeb-data)
 
@@ -24,7 +24,7 @@ Intuitive yet minimalistic UI allowing for easy viewing in both light or dark mo
 - `npm run build` generates feeds, HTML, and CSS
 - `npm run test:data` validates feed contract requirements (required fields, enums, sort order, checksum format)
 
-## 🧰 Data Update Workflows
+## Data Update Workflows
 Canonical source files stay in `../driverWeb-data` with the existing dataset file names.
 
 ### Recommended: Interactive CLI
@@ -38,7 +38,7 @@ Canonical source files stay in `../driverWeb-data` with the existing dataset fil
 2. Keep entries sorted newest-first by `publishedAt`
 3. Run `npm run data:sync` to regenerate feeds and validate
 
-## 🔁 Data Commands
+## Data Commands
 - `npm run data:edit` opens the guided JSON editor for external canonical data
 - `npm run data:sync` runs `build:feeds` and `test:data`, then prints changed file paths
 - `npm run test:data:editor` runs editor normalization checks (ID/date/enum/checksum and add/edit/remove scenarios)
@@ -46,5 +46,5 @@ Canonical source files stay in `../driverWeb-data` with the existing dataset fil
 ## ⬇️ Direct downloads
 Downloads of any/all drivers on this website go the official companies download URL's and are **NOT** redistributed by me. This site is simply a "hub" for common drivers (such as video drivers).
 
-## 📨 Get in touch
+## Get in touch
 Contact me regarding this project [here](https://driverhub.win/contact).
