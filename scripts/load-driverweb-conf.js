@@ -7,7 +7,7 @@ const REQUIRED_KEYS = [
   'TAGLINE',
   'META_DESCRIPTION',
   'LOGO_URL',
-  'CONTACT_EMAIL',
+  'CONTACT_URL',
   'SUPPORT_URL',
   'GITHUB_URL',
   'DOCS_URL',
@@ -20,6 +20,7 @@ const REQUIRED_KEYS = [
 const URL_KEYS = [
   'SITE_URL',
   'LOGO_URL',
+  'CONTACT_URL',
   'SUPPORT_URL',
   'GITHUB_URL',
   'DOCS_URL',
@@ -94,14 +95,6 @@ function normalizeHttpUrl(raw, key) {
   return parsed.toString();
 }
 
-function validateContactEmail(email) {
-  const value = String(email || '').trim();
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-    throw new Error(`driverweb.conf CONTACT_EMAIL is not a valid email: ${email}`);
-  }
-  return value;
-}
-
 function validateConfig(config) {
   const missing = REQUIRED_KEYS.filter((key) => !String(config[key] || '').trim());
   if (missing.length) {
@@ -121,7 +114,6 @@ function loadDriverWebConf(rootDir = path.resolve(__dirname, '..')) {
   for (const key of URL_KEYS) {
     config[key] = normalizeHttpUrl(config[key], key);
   }
-  config.CONTACT_EMAIL = validateContactEmail(config.CONTACT_EMAIL);
 
   return config;
 }
