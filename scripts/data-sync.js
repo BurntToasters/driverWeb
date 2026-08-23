@@ -7,6 +7,7 @@ const rootDir = path.resolve(__dirname, '..');
 const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
 const npmExecPath = process.env.npm_execpath;
 const feedsDir = path.join(rootDir, 'astro', 'public', 'feeds');
+const SCRIPT_TIMEOUT_MS = 5 * 60 * 1000;
 
 const defaultPaths = [
   path.join(feedsDir, 'drivers.json'),
@@ -41,7 +42,11 @@ function takeSnapshot(paths) {
 function runScript(scriptName) {
   const command = npmExecPath ? process.execPath : npmCmd;
   const args = npmExecPath ? [npmExecPath, 'run', scriptName] : ['run', scriptName];
-  const result = spawnSync(command, args, { cwd: rootDir, stdio: 'inherit' });
+  const result = spawnSync(command, args, {
+    cwd: rootDir,
+    stdio: 'inherit',
+    timeout: SCRIPT_TIMEOUT_MS
+  });
 
   if (result.error) {
     return {
